@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
+import JSPlayground from "./cmps/JSPlayground";
 
 interface Assignment {
   number: number;
@@ -22,9 +23,6 @@ const App: React.FC = () => {
   const [currentAssignmentIndex, setCurrentAssignmentIndex] =
     useState<number>(0);
 
-  useEffect(() => {
-    console.log("studentData", studentData);
-  }, [studentData]);
   // This handler is called when the user selects a folder.
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -162,7 +160,7 @@ const App: React.FC = () => {
       >
         <h1>JS Assignment Reviewer</h1>
         <label htmlFor="folderUpload" style={{ marginTop: "7px" }}>
-          Select Root Folder (choose a folder with the browser):
+          Select Root Folder:
         </label>
         <input
           type="file"
@@ -172,26 +170,10 @@ const App: React.FC = () => {
           onChange={handleFileChange}
           style={{ marginTop: "7px" }}
         />
-      </div>
-
-      {/* If we have loaded any student data, show the dropdown */}
-      {Object.keys(studentData).length > 0 && (
-        <div style={{ marginTop: "20px" }}>
-          <h2>Students</h2>
-          <select value={selectedStudent} onChange={handleStudentChange}>
-            <option value="">Select a student</option>
-            {Object.keys(studentData).map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      {selectedStudent && (
-        <div style={{ marginTop: "20px" }}>
-          <div>
+        {Object.keys(studentData).length > 0 && (
+          <div
+            style={{ display: "flex", flexDirection: "row", marginTop: "7px" }}
+          >
             <label>
               From assignment (file number):
               <input
@@ -217,6 +199,28 @@ const App: React.FC = () => {
             <button onClick={handleRangeChange} style={{ marginLeft: "20px" }}>
               Load Range
             </button>
+          </div>
+        )}
+      </div>
+
+      {/* If we have loaded any student data, show the dropdown */}
+      {Object.keys(studentData).length > 0 && (
+        <div style={{ marginTop: "20px" }}>
+          <h2>Students</h2>
+          <select value={selectedStudent} onChange={handleStudentChange}>
+            <option value="">Select a student</option>
+            {Object.keys(studentData).map((name) => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {selectedStudent && (
+        <div style={{ marginTop: "20px" }}>
+          <div>
             <div style={{ marginTop: "10px" }}>
               <button
                 onClick={() =>
@@ -243,7 +247,7 @@ const App: React.FC = () => {
           </div>
 
           {filteredAssignments.length > 0 ? (
-            <div style={{ marginTop: "20px", maxWidth: codeBoxWidth }}>
+            <div style={{ marginTop: "20px" }}>
               <div
                 style={{ display: "flex", flexDirection: "row", gap: "10px" }}
               >
@@ -255,18 +259,13 @@ const App: React.FC = () => {
                   {filteredAssignments.length}
                 </p>
               </div>
-              <pre
-                style={{
-                  backgroundColor: "#f4f4f4",
-                  padding: "10px",
-                  border: "1px solid #ccc",
-                  whiteSpace: "pre",
-                  overflowX: "auto",
-                  maxWidth: "100%",
-                }}
-              >
-                {filteredAssignments[currentAssignmentIndex].content}
-              </pre>
+
+              <JSPlayground
+                initialCode={
+                  filteredAssignments[currentAssignmentIndex].content
+                }
+                filename={filteredAssignments[currentAssignmentIndex].filename}
+              />
             </div>
           ) : (
             <p style={{ marginTop: "20px" }}>
