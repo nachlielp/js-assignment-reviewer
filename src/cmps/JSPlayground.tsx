@@ -27,7 +27,7 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const textarea = e.currentTarget;
-    const { selectionStart, selectionEnd } = textarea;
+    const { selectionStart } = textarea;
     const currentCode = textarea.value;
 
     // Command/Ctrl + / to comment/uncomment
