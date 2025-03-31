@@ -1,0 +1,74 @@
+.js-playground-header {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.js-playground-controls {
+  display: flex;
+  gap: 8px;
+}
+.js-playground-copy-btn {
+  padding: 4px 8px;
+  background-color: transparent;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.js-playground-run-btn {
+  padding: 4px 8px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.js-playground-run-btn:disabled {
+  background-color: #4caf50;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.js-playground-expand-btn {
+  padding: 4px 8px;
+  background-color: transparent;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.js-playground-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: start;
+  width: 1000px;
+}
+.js-playground-editor {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  padding: 10px;
+  border: 1px solid #444;
+  width: 100%;
+  min-height: 300px;
+  height: auto;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow-y: auto;
+  resize: vertical;
+  border-radius: 4px;
+}
+.js-playground-console {
+  background-color: #222;
+  color: #f8f8f8;
+  padding: 10px;
+  border: 1px solid #444;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  width: 300px;
+  min-height: 100px;
+  overflow-y: auto;
+  margin-top: 0px;
+  border-radius: 4px;
+}

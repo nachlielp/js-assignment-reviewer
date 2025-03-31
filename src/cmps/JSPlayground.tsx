@@ -1,17 +1,21 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
-
+import "../styles/js-playground.css";
+import { tasks } from "../tasks";
 interface JSPlaygroundProps {
   initialCode: string;
   filename: string;
+  assignmentNumber: number;
 }
 
 const JSPlayground: React.FC<JSPlaygroundProps> = ({
   initialCode,
   filename,
+  assignmentNumber,
 }) => {
   const [code, setCode] = useState<string>(initialCode);
   const [consoleOutput, setConsoleOutput] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [isCopying, setIsCopying] = useState<boolean>(false);
 
   useEffect(() => {
     setCode(initialCode);
@@ -196,82 +200,54 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
     }
   };
 
+  const handleCopy = () => {
+    setIsCopying(true);
+    navigator.clipboard.writeText(code).then(() => {
+      setTimeout(() => {
+        setIsCopying(false);
+      }, 1000);
+    });
+  };
+
   return (
-    <div className="js-playground">
-      <div
-        className="js-playground-header"
-        style={{
-          marginBottom: "10px",
-        }}
-      >
-        <div className="js-playground-controls" style={{ marginTop: "10px" }}>
+    <div className="section">
+      <div className="js-playground-header">
+        <div className="filename">
+          Assignment {assignmentNumber}: {tasks[assignmentNumber].title}
+        </div>
+        <div className="js-playground-controls">
+          <button onClick={handleCopy} className="js-playground-copy-btn">
+            {isCopying ? "Copied!" : "Copy"}
+          </button>
           <button
             onClick={runCode}
             disabled={isRunning}
-            style={{
-              padding: "8px 16px",
-              backgroundColor: "#4CAF50",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: isRunning ? "not-allowed" : "pointer",
-              opacity: isRunning ? 0.7 : 1,
-            }}
+            className="js-playground-run-btn"
           >
-            {isRunning ? "Running..." : "Run Code"}
+            {isRunning ? "Running..." : "Run"}
+          </button>
+          <button
+            onClick={() => {
+              /* Add expand functionality */
+            }}
+            className="js-playground-expand-btn"
+          >
+            ⤢
           </button>
         </div>
       </div>
 
-      <div
-        className="js-playground-header"
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: "10px",
-          alignItems: "start",
-          width: "100%",
-        }}
-      >
+      <div className="js-playground-content">
         <textarea
           className="js-playground-editor"
           value={code}
           onChange={handleCodeChange}
           onKeyDown={handleKeyDown}
-          style={{
-            backgroundColor: "#2d2d2d",
-            color: "#e0e0e0",
-            padding: "10px",
-            border: "1px solid #444",
-            width: "100%",
-            minHeight: "300px",
-            height: "auto",
-            fontFamily: "monospace",
-            fontSize: "14px",
-            lineHeight: "1.5",
-            whiteSpace: "nowrap",
-            overflowY: "auto",
-            resize: "vertical",
-          }}
         />
 
         <div className="js-playground-console">
-          {/* <h3>Console Output:</h3> */}
-          <pre
-            style={{
-              backgroundColor: "#222",
-              color: "#f8f8f8",
-              padding: "10px",
-              border: "1px solid #444",
-              whiteSpace: "pre-wrap",
-              overflowX: "auto",
-              width: "100%",
-              minHeight: "100px",
-              maxHeight: "300px",
-              overflowY: "auto",
-              marginTop: "0px",
-            }}
-          >
+          <label>Console Output:</label>
+          <pre>
             {consoleOutput.length === 0 ? (
               <div style={{ color: "#888", fontStyle: "italic" }}>
                 No output yet. Run the code to see results.

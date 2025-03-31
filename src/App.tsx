@@ -8,7 +8,7 @@ import { Assignment } from "./interface";
 import { StudentAssignments } from "./interface";
 import { STUDENT_DATA_KEY, utilService } from "./services/utils";
 import { Controller } from "./cmps/Controller";
-
+import TaskContent from "./cmps/TaskContent";
 const App: React.FC = () => {
   const [studentData, setStudentData] = useState<StudentAssignments>({});
   const [selectedStudent, setSelectedStudent] = useState<string>("");
@@ -95,21 +95,21 @@ const App: React.FC = () => {
         )}
 
         {selectedStudent && (
-          <div style={{ marginTop: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
             {filteredAssignments.length > 0 ? (
-              <div style={{ marginTop: "20px" }}>
-                <div
-                  style={{ display: "flex", flexDirection: "row", gap: "10px" }}
-                >
-                  <h3>
-                    Showing{" "}
-                    {filteredAssignments[currentAssignmentIndex].filename}
-                  </h3>
-                  <p style={{ marginTop: "21px" }}>
-                    Assignment {currentAssignmentIndex + 1} of{" "}
-                    {filteredAssignments.length}
-                  </p>
-                </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <TaskContent
+                  taskId={filteredAssignments[currentAssignmentIndex].number}
+                />
 
                 <JSPlayground
                   initialCode={
@@ -118,6 +118,7 @@ const App: React.FC = () => {
                   filename={
                     filteredAssignments[currentAssignmentIndex].filename
                   }
+                  assignmentNumber={currentAssignmentIndex + 1}
                 />
               </div>
             ) : (
