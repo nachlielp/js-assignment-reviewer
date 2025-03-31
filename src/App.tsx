@@ -126,6 +126,7 @@ const App: React.FC = () => {
                 No assignments found in the specified range.
               </p>
             )}
+            <Comments />
           </div>
         )}
       </div>

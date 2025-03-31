@@ -43,7 +43,7 @@ export function Header({ isFilesUploaded }: { isFilesUploaded: boolean }) {
             fontWeight: "500",
           }}
         >
-          Clear Local Storage
+          Clear Assignments
         </button>
       )}
     </section>

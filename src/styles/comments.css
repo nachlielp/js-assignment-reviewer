@@ -1,0 +1,60 @@
+.comments-container {
+  padding: 20px;
+  min-width: 400px;
+  max-width: 600px;
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  justify-content: start !important;
+}
+.comments-label {
+  margin-bottom: 10px;
+}
+
+.comments-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.copy-button {
+  background-color: #00a67e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.copy-button:hover {
+  background-color: #008f6c;
+}
+
+.clear-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-button:hover {
+  background-color: #e4e4e4;
+}
+
+.comments-controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

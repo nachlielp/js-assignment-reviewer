@@ -1,32 +1,47 @@
 import React from "react";
+import "../styles/comments.css";
 
 export function Comments() {
   // Initialize state with the default value
   const [notes, setNotes] = React.useState("נחליאל - ");
-
+  const [isCopying, setIsCopying] = React.useState(false);
   const handleCopy = () => {
+    setIsCopying(true);
     navigator.clipboard
       .writeText(notes)
       .then(() => {
-        alert("Note copied!");
+        setTimeout(() => {
+          setIsCopying(false);
+        }, 1000);
       })
       .catch((err) => {
         console.error("Failed to copy text: ", err);
+        setIsCopying(false);
       });
   };
 
+  const handleClear = () => {
+    setNotes("נחליאל - ");
+  };
+
   return (
-    <div className="notes-container">
+    <div className="section comments-container" style={{ marginLeft: "0px" }}>
+      <label className="comments-label">Feedback</label>
       <textarea
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
-        className="notes-textarea"
+        className="comments-textarea"
         rows={10}
         dir="rtl"
       />
-      <button onClick={handleCopy} className="copy-button">
-        Copy Text
-      </button>
+      <div className="comments-controls">
+        <button onClick={handleCopy} className="copy-button">
+          {isCopying ? "Copied!" : "Copy Feedback"}
+        </button>
+        <button onClick={handleClear} className="clear-button">
+          Clear
+        </button>
+      </div>
     </div>
   );
 }
