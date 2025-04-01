@@ -125,24 +125,26 @@ const App: React.FC = () => {
                   }
                   assignmentNumber={currentAssignmentIndex + startAssignment}
                 />
-                <AIFeedback
-                  code={filteredAssignments[currentAssignmentIndex].content}
-                  taskContent={
-                    tasks[filteredAssignments[currentAssignmentIndex].number]
-                      .content
-                  }
-                  taskSolution={
-                    tasks[filteredAssignments[currentAssignmentIndex].number]
-                      .solution
-                  }
-                />
               </div>
             ) : (
               <p style={{ marginTop: "20px" }}>
                 No assignments found in the specified range.
               </p>
             )}
-            <Comments />
+            <div className="ai-feedback-section">
+              <AIFeedback
+                code={filteredAssignments[currentAssignmentIndex].content}
+                taskContent={
+                  tasks[filteredAssignments[currentAssignmentIndex].number]
+                    .content
+                }
+                taskSolution={
+                  tasks[filteredAssignments[currentAssignmentIndex].number]
+                    .solution
+                }
+              />
+              <Comments />
+            </div>
           </div>
         )}
       </div>

@@ -1,7 +1,6 @@
 .comments-container {
   padding: 20px;
-  min-width: 400px;
-  max-width: 600px;
+  width: 400px;
   margin-left: 0 !important;
   display: flex;
   flex-direction: column;

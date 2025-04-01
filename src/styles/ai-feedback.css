@@ -1,3 +1,14 @@
+.ai-feedback-section {
+  width: 400px;
+
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  justify-content: start !important;
+}
+
 .js-playground-feedback-btn {
   background-color: #4caf50;
   color: white;
