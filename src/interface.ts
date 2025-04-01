@@ -11,4 +11,12 @@ export interface StudentAssignments {
 export interface AIResponse {
   works: boolean;
   explanation: string;
+  error: string;
+}
+
+export interface AlertProps {
+  message: string;
+  type: "success" | "error" | "warning" | "info";
+  isOpen: boolean;
+  onClose: () => void;
 }

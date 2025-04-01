@@ -3,6 +3,7 @@ import { aiService } from "../services/aiService";
 import "../styles/ai-feedback.css";
 import { FEEDBACK_STORAGE_KEY } from "../services/utils";
 import { Spin } from "antd";
+import { AlertProps } from "../interface";
 
 interface AIFeedbackProps {
   code: string;
@@ -11,6 +12,7 @@ interface AIFeedbackProps {
   guidelines?: string;
   studentName: string;
   taskName: string;
+  handleAlert: (alert: Omit<AlertProps, "onClose">) => void;
 }
 
 const AIFeedback: React.FC<AIFeedbackProps> = ({
@@ -20,10 +22,12 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
   guidelines,
   studentName,
   taskName,
+  handleAlert,
 }) => {
   const [feedback, setFeedback] = useState<{
     works: boolean;
     explanation: string;
+    error: string;
   } | null>(null);
   const [isLoadingFeedback, setIsLoadingFeedback] = useState<boolean>(false);
   const autoGenEnabled = localStorage.getItem("autoGenEnabled") === "true";
@@ -32,23 +36,20 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
     setFeedback(null);
 
     // Check for existing feedback
-    const storedFeedback = localStorage.getItem(FEEDBACK_STORAGE_KEY);
-    if (storedFeedback) {
-      const feedbackMap = JSON.parse(storedFeedback);
-      // Create a unique key for this assignment
-      const feedbackKey = `${taskName}_${studentName}`;
-      if (feedbackMap[feedbackKey]) {
-        setFeedback(feedbackMap[feedbackKey]);
-      } else if (autoGenEnabled) {
-        console.log("autoGenEnabled");
-        setIsLoadingFeedback(true);
-        getFeedback();
-      }
+    const storedFeedback = localStorage.getItem(FEEDBACK_STORAGE_KEY) || "{}";
+    const feedbackMap = JSON.parse(storedFeedback);
+    // Create a unique key for this assignment
+    const feedbackKey = `${taskName}_${studentName}`;
+    if (feedbackMap[feedbackKey]) {
+      setFeedback(feedbackMap[feedbackKey]);
+    } else if (autoGenEnabled) {
+      console.log("autoGenEnabled");
+      setIsLoadingFeedback(true);
+      getFeedback();
     }
   }, [taskName]);
 
   const getFeedback = async () => {
-    console.log("getFeedback");
     setIsLoadingFeedback(true);
 
     const storedFeedback = localStorage.getItem(FEEDBACK_STORAGE_KEY);
@@ -68,6 +69,13 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
         taskSolution,
         guidelines || ""
       );
+      if (feedback.error) {
+        handleAlert({
+          message: feedback.error,
+          type: "error",
+          isOpen: true,
+        });
+      }
       setFeedback(feedback);
       feedbackMap[feedbackKey] = feedback;
       localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbackMap));

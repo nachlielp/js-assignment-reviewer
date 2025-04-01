@@ -7,10 +7,9 @@ export function Settings() {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    // Load initial values from localStorage
     const geminiKey = localStorage.getItem("geminiApiKey") || "";
     const hebrewName = localStorage.getItem("hebrewUserName") || "";
-    const autoGen = localStorage.getItem("autoGenEnabled") === "true";
+    const autoGen = localStorage.getItem("autoGenEnabled") !== "false";
     form.setFieldsValue({
       geminiApiKey: geminiKey,
       hebrewUserName: hebrewName,
@@ -23,13 +22,21 @@ export function Settings() {
   };
 
   const handleOk = () => {
-    form.validateFields().then((values) => {
-      // Save to localStorage
-      localStorage.setItem("geminiApiKey", values.geminiApiKey);
-      localStorage.setItem("hebrewUserName", values.hebrewUserName);
-      localStorage.setItem("autoGenEnabled", values.autoGenEnabled.toString());
-      setIsModalOpen(false);
-    });
+    form
+      .validateFields()
+      .then((values) => {
+        // Save to localStorage
+        localStorage.setItem("geminiApiKey", values.geminiApiKey);
+        localStorage.setItem("hebrewUserName", values.hebrewUserName);
+        localStorage.setItem(
+          "autoGenEnabled",
+          values.autoGenEnabled.toString()
+        );
+        setIsModalOpen(false);
+      })
+      .catch((error) => {
+        console.error("Form validation failed:", error);
+      });
   };
 
   const handleCancel = () => {
@@ -46,6 +53,11 @@ export function Settings() {
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={[
+          <Button key="submit" type="primary" onClick={handleOk}>
+            Save
+          </Button>,
+        ]}
       >
         <Form form={form} layout="vertical" dir="rtl">
           <Form.Item
@@ -64,9 +76,6 @@ export function Settings() {
                 </a>
               </span>
             }
-            rules={[
-              { required: true, message: "Please input your Gemini API key!" },
-            ]}
           >
             <Input.Password />
           </Form.Item>
@@ -81,6 +90,7 @@ export function Settings() {
             label="Auto Generate Feedback"
             name="autoGenEnabled"
             valuePropName="checked"
+            initialValue={true}
           >
             <Switch />
           </Form.Item>

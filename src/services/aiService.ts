@@ -53,7 +53,14 @@ export const aiService = {
       );
 
       const data = await response.json();
-
+      console.log("data", data);
+      if (data.error) {
+        return {
+          works: false,
+          explanation: "Error getting feedback. Please try again.",
+          error: data.error.status,
+        };
+      }
       if (!data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
         throw new Error("Invalid response format from API");
       }
