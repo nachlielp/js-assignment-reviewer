@@ -404,33 +404,91 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     name: "14.js",
     title: "Greet Function",
     content: `<p>Write a function which receives a user name as a parameter and greets the user.</p>`,
-    solution: `function greetUser(userName) {
-  alert('Hello ' + userName + '!');
+    solution: `console.log('INPUT: Puki Ben David');
+console.log('EXPECTED: Hello and welcome Puki Ben David');
+console.log('ACTUAL: ');
+greetUser('Puki Ben David');
+
+function greetUser(username) {
+  console.log('Hello and welcome', username);
 }`,
   },
   15: {
     name: "15.js",
     title: "Sum of two Numbers",
     content: `<p>Write a function which receives two numbers and returns their sum</p>`,
-    solution: `function sum(a, b) {
-  return a + b;
-}`,
+    solution: `
+console.log('INPUT: num1: 1, num2: 2');
+console.log('EXPECTED: 3');
+console.log('ACTUAL: ');
+var sum = sumTheNums(1, 2);
+console.log('sum :>> ', sum);
+
+console.log('INPUT: num1: 0, num2: 0');
+console.log('EXPECTED: 0');
+console.log('ACTUAL: ');
+sum = sumTheNums(0, 0);
+console.log('sum :>> ', sum);
+
+console.log('INPUT: num1: -5, num2: 80');
+console.log('EXPECTED: 75');
+console.log('ACTUAL: ');
+sum = sumTheNums(-5, 80);
+console.log('sum :>> ', sum);
+
+function sumTheNums(num1, num2) {
+  return num1 + num2;
+}
+`,
   },
   16: {
     name: "16.js",
     title: "Even and Odd",
     content: `<p>Write a function named <span class="code">isEven(num)</span> which receives a number, and returns <span class="code">true</span>if the number is even, and <span class="code">false</span>if it is odd.</p>`,
-    solution: `function isEven(num) {
+    solution: `
+console.log('INPUT: 2');
+console.log('EXPECTED: true');
+console.log('ACTUAL: ', isEven(2));
+
+console.log('INPUT: 3');
+console.log('EXPECTED: false');
+console.log('ACTUAL: ', isEven(3));
+
+console.log('INPUT: -2');
+console.log('EXPECTED: true');
+console.log('ACTUAL: ', isEven(-2));
+
+function isEven(num) {
   return num % 2 === 0;
-}`,
+}
+`,
   },
   17: {
     name: "17.js",
     title: "Get the Bigger Num",
     content: `<p>Write a function named <span class="code">getBigger</span>  which receives two numbers and returns the bigger one.</p>`,
-    solution: `function getBigger(a, b) {
-  return Math.max(a, b);
-}`,
+    solution: `console.log('INPUT: num1: 3, num2: 1');
+console.log('EXPECTED: 3');
+console.log('ACTUAL: ', getBigger(3, 1));
+
+console.log('INPUT: num1: -5, num2: 7');
+console.log('EXPECTED: 7');
+console.log('ACTUAL: ', getBigger(-5, 7));
+
+// For very smart people
+// console.log('ACTUAL: ', getBiggerHack(3, 1));
+
+function getBigger(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+}
+
+function getBiggerHack(num1, num2) {
+  return Math.max(num1, num2);
+}
+`,
   },
   18: {
     name: "18.js",
@@ -443,12 +501,28 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     <li>Use the user's name within the alerts.</li>
     <li>The function should also return a boolean value - print it to the console. </li>
 </ul>`,
-    solution: `function isAbove18(name, age) {
-  const isAdult = age >= 18;
-  alert(isAdult ? name + ' is over 18!' : name + ' is too young.');
-  console.log(isAdult);
-  return isAdult;
-}`,
+    solution: `
+console.log('INPUT: username: puki, age: 12');
+console.log('EXPECTED: false');
+console.log('ACTUAL: ', isAbove18('Puki Ben David', 12));
+
+console.log('INPUT: username: puki, age: 18');
+console.log('EXPECTED: true');
+console.log('ACTUAL: ', isAbove18('Puki Ben David', 18));
+
+console.log('INPUT: username: puki, age: 54');
+console.log('EXPECTED: true');
+console.log('ACTUAL: ', isAbove18('Puki Ben David', 54));
+
+function isAbove18(username, age) {
+  if (age < 18) {
+    alert('Sorry ' + username + ' You are a minor...');
+    return false;
+  }
+  alert(username + " You're allowed to buy a beer");
+  return true;
+}
+`,
   },
   19: {
     name: "19.js",
@@ -459,12 +533,28 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     <li class="console">21 is Odd</li>
     <li class="console">48 is Even</li>
 </ul>`,
-    solution: `function checkNumbers() {
-  for (let i = 0; i < 10; i++) {
-    const num = Number(prompt('Enter a number:'));
-    console.log(num + ' is ' + (num % 2 === 0 ? 'Even' : 'Odd'));
+    solution: `
+var count = 0;
+
+while (count < 10) {
+  var num = +prompt('Enter a number');
+  if (num % 2 === 0) {
+    console.log('The number ' + num + ' is Even');
+  } else {
+    console.log('The number ' + num + ' is Odd');
   }
-}`,
+  count++;
+}
+
+// for (var i = 0; i < 10; i++) {
+//   num = +prompt('Enter a number');
+//   if (num % 2 === 0) {
+//     console.log('The number ' + num + ' is Even');
+//   } else {
+//     console.log('The number ' + num + ' is Odd');
+//   }
+// }
+`,
   },
   20: {
     name: "20.js",
@@ -475,20 +565,30 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     <li>The minimum number.</li>
     <li>The average.</li>
 </ul>`,
-    solution: `function analyzeNumbers() {
-  let numbers = [];
-  let sum = 0;
-  
-  for (let i = 0; i < 10; i++) {
-    const num = Number(prompt('Enter a number:'));
-    numbers.push(num);
-    sum += num;
+    solution: `
+var maxNum = -Infinity
+var minNum = Infinity
+
+var sum = 0
+var count = 0
+while (count < 10) {
+  var num = +prompt('Enter a number')
+  if (num > maxNum) {
+    maxNum = num
   }
-  
-  console.log('Max:', Math.max(...numbers));
-  console.log('Min:', Math.min(...numbers));
-  console.log('Average:', sum / 10);
-}`,
+
+  if (num < minNum) {
+    minNum = num
+  }
+
+  sum += num
+  count++
+}
+
+console.log('maxNum: ', maxNum)
+console.log('minNum: ', minNum)
+console.log('avg: ', sum / count)
+`,
   },
   21: {
     name: "21.js",
@@ -498,19 +598,24 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     <li>Print if it is divisible by 3.</li>
     <li>If it is bigger by more than 10 from the previous number, print a suitable message.</li>
 </ul>`,
-    solution: `function checkDivisibleBy3() {
-  let prevNum = 0;
-  let num;
-  
-  while (num !== 999) {
-    num = Number(prompt('Enter a number (999 to exit):'));
-    if (num === 999) break;
-    
-    console.log(num + ' is ' + (num % 3 === 0 ? 'divisible by 3' : 'not divisible by 3'));
-    if (num > prevNum + 10) console.log('This number is more than 10 bigger than the previous one!');
-    prevNum = num;
+    solution: `
+var currNum = +prompt('Please enter a number (enter 999 to exit)')
+var prevNum = currNum
+
+while (currNum !== 999) {
+  if (currNum % 3 === 0) {
+    console.log(currNum, 'is divided by 3')
+  } else {
+    console.log(currNum, 'is not divided by 3')
   }
-}`,
+
+  if (currNum > prevNum + 10) {
+    console.log(currNum, 'is much bigger than', prevNum)
+  }
+  prevNum = currNum
+  currNum = +prompt('Please enter a number (enter 999 to exit)')
+}
+`,
   },
   22: {
     name: "22.js",
@@ -520,29 +625,113 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
 <p><span class="console">INPUT: 2, 3</span></p>
 <p><span class="console">EXPECTED: 8</span></p>
 <p><span class="console">ACTUAL: 8</span></p>`,
-    solution: `function myPow(n, exp) {
-  let result = 1;
-  for (let i = 0; i < exp; i++) {
-    result *= n;
-  }
-  return result;
-}`,
+    solution: `
+console.log('INPUT:', 2, 3)
+console.log('EXPECTED:', 8)
+console.log('ACTUAL: ', myPow(2, 3))
+
+console.log('INPUT: 3,2')
+console.log('EXPECTED: 9')
+console.log('ACTUAL: ', myPow(3, 2))
+
+console.log('INPUT: 10,3')
+console.log('EXPECTED: 1000')
+console.log('ACTUAL: ', myPow(10, 3))
+
+function myPow(base, exponent) {
+    var power = 1
+    while (exponent > 0) {
+        power *= base
+        exponent--
+    }
+    return power
+}
+
+// function myPow(base, exponent) {
+//     var number = base;
+//     for (var i = 1; i < exponent; i++) {
+//         number *= base;
+//     }
+
+//     return (number);
+// }
+
+
+// supports negative exponent
+
+// function myPow(base, exponent) {
+//    if (exponent === 0) return 1;
+//     var counter = 1;
+//     var pow = base;
+
+//     while (counter < Math.abs(exponent)) {
+//         pow *= base;
+//         counter++;
+//     }
+//     if (exponent < 0) return (1 / pow);
+//     return pow;
+// }`,
   },
   23: {
     name: "23.js",
     title: "Factorial!",
     content: `<p>Write the function <span class="code">getFactorial</span> which receives a number and returns <span class="math">n!</span> (Google 'factorial' if you are not sure what the mathematical definition of it is).</p>`,
-    solution: `function getFactorial(n) {
-  if (n === 0 || n === 1) return 1;
-  return n * getFactorial(n - 1);
-}`,
+    solution: `
+console.log('INPUT: 3')
+console.log('EXPECTED: 6')
+console.log('ACTUAL: ', getFactorial(3))
+
+console.log('INPUT: 4')
+console.log('EXPECTED: 24')
+console.log('ACTUAL: ', getFactorial(4))
+
+console.log('INPUT: 4')
+console.log('EXPECTED: 24')
+console.log('ACTUAL: ', getFactorialFor(4))
+
+function getFactorial(num) {
+  var factorial = 1
+  while (num > 1) {
+    factorial *= num
+    num--
+  }
+  return factorial
+}
+
+// function getFactorialFor(num) {
+//   var factorial = 1
+//   for (var i = num; i > 1; i--) {
+//     factorial *= i
+//   }
+//   return factorial
+// }
+`,
   },
   24: {
     name: "24.js",
     title: "myAbs()",
     content: `<p>Try playing around with the function <span class="code">Math.abs()</span> and read its documentation on <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs">MDN</a>. Implement a function called <span class="code">myAbs()</span>, which mimics the behavior of <span class="code">Math.abs()</span>.</p>`,
-    solution: `function myAbs(num) {
-  return num < 0 ? -num : num;
+    solution: `
+console.log('INPUT: 4')
+console.log('EXPECTED: 4')
+console.log('ACTUAL: ', myAbs(4))
+
+console.log('INPUT: -2')
+console.log('EXPECTED: 2')
+console.log('ACTUAL: ', myAbs(2))
+
+console.log('INPUT: 0')
+console.log('EXPECTED: 0')
+console.log('ACTUAL: ', myAbs(0))
+
+
+
+function myAbs(num) {
+    if (num >= 0) return num
+    return -num
+    // return num * -1
+
+    // return (num < 0) ? -num : num
 }`,
   },
   25: {
@@ -550,9 +739,14 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     title: "getRandomInt()",
     content: `<p>Write A function named <span class="code">getRandomInt(min, max)</span>. The function should generate a random integer between <span class="code">min</span> and up to, but not including, <span class="code">max</span>.</p>
 <p>Tip: use <span class="code">Math.Random()</span> and <span class="code">Math.Floor()</span>.</p>`,
-    solution: `function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}`,
+    solution: `console.log('INPUT: 5, 7')
+console.log('EXPECTED: random int btween 5 - 7')
+console.log('ACTUAL: ', getRandomInteger(5, 7))
+
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) + min) // 0 - 0.9999999
+}
+`,
   },
   26: {
     name: "26.js",
@@ -560,19 +754,24 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     content: `<p>Write a program which generates 10 ascending random numbers (each number is greater than the previously generated number).</p>
 <p class="tight-paragraph">The first number n , should be in the range      <span class="math">0 &ndash; 1000</span>,</p>
 <p class="tight-paragraph">and each subsequent number, should be  in the range      <span class="math">(n+1) &ndash; (n+1000)</span></p>`,
-    solution: `function generateAscendingRandom() {
-  let numbers = [];
-  let lastNum = 0;
-  
-  for (let i = 0; i < 10; i++) {
-    const min = i === 0 ? 0 : lastNum + 1;
-    const max = i === 0 ? 1000 : lastNum + 1000;
-    lastNum = getRandomInt(min, max);
-    numbers.push(lastNum);
+    solution: ` (count < 10) {
+    var randomInt = getRandomInteger(min, min + 1000)
+    console.log(randomInt)
+    min = randomInt + 1
+    count++
   }
-  
-  return numbers;
-}`,
+
+  // for (var i = 0; i < 10; i++) {
+  //     var randomInt = getRandomInteger(minVal, minVal + 1000)
+  //     console.log(randomInt);
+  //     minVal = randomInt + 1
+  // }
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) + min)
+}
+`,
   },
   27: {
     name: "27.js",
@@ -584,61 +783,192 @@ if (wantedFloor >= -2 && wantedFloor <= 4) {
     <li>Implement the function <span class="code">getBlock(rows, cols)</span>  which returns a block of asterisks.</li>
     <li>Implement  <span class="code">getBlockOutline(rows, cols)</span>,  which only returns the block outline.</li>
 </ol>`,
-    solution: `function getAsterisks(length) {
-  return '*'.repeat(length);
+    solution: `var res = getCharacter(4, '%')
+console.log(res)
+
+function getCharacter(length, char) {
+  //שאלה מספר 6
+  var characters = ''
+  var count = 0
+
+  while (count < length) {
+    characters += char
+    count++
+  }
+  console.log('this:', characters)
+  return characters
+}
+// reviewed ✔️
+
+// a. Write the function getAsterisks(length) that returns a string containing asterisks according to the number supplied. For example: when the requested length is 4, it returns '****'
+// b. Write a function named: getTriangle(height) that returns a triangle:
+// c. Write a function named: getMusicEqualizer(rowsCount) that generates random numbers between 1 and 10 and return columns in random lengths:
+// d. Write a function that returns a block of asterisks (*) by the following parameters: rowsCount and colsCount. I.e: for 4, 5
+// e. Surprise, there is a new requirement to support any character (not necessarily asterisk), how easy would it be to refactor your code? The character should be decided by the user
+
+// Printing patterns of Asterisks.
+// const CHAR = prompt('What char you want?')
+const CHAR = '*'
+/*
+ *****
+ *   *
+ *   *
+ *   *
+ *****
+ */
+// a.
+console.log('print string that contains the given char:')
+console.log(getSymbol(4, CHAR))
+console.log('====================')
+
+// b.
+console.log('print triangle:')
+console.log(getTriangle(5, CHAR))
+console.log('====================')
+
+// c.
+console.log('print equalizer:')
+console.log(getMusicEqualizer(4, CHAR))
+console.log('====================')
+
+// d.
+console.log('print block:')
+console.log(patternBlock(4, 5, CHAR))
+console.log('====================')
+
+// e.
+console.log('print block outlined:')
+console.log(getPatternOutline(5, 4, CHAR))
+
+function getSymbol(length, char) {
+  var count = 0
+  var str = ''
+  while (count < length) {
+    str += char // '*'
+    count++
+  }
+  return str
+
+  // Another option:
+  // return char.repeat(length)
 }
 
-function getTriangle(height) {
-  let result = '';
-  for (let i = 1; i <= height; i++) {
-    result += getAsterisks(i) + '\\n';
+function getTriangle(height, char) {
+  if (height === 1) return char
+  var count = 1
+  var triangle = ''
+  while (count < height) {
+    triangle += getSymbol(count, char) + '\n'
+    count++
   }
-  for (let i = height - 1; i > 0; i--) {
-    result += getAsterisks(i) + '\\n';
+  while (count > 0) {
+    triangle += getSymbol(count, char) + '\n'
+    count--
   }
-  return result;
+  return triangle
 }
 
-function getMusicEqualizer(rowCount) {
-  let result = '';
-  for (let i = 0; i < rowCount; i++) {
-    result += getAsterisks(getRandomInt(1, 11)) + '\\n';
+/*
+ ***
+ *
+ *****
+ *
+ */
+function getMusicEqualizer(rowsCount, char) {
+  var count = 0
+  var equalizer = ''
+  while (count < rowsCount) {
+    var randomNum = getRandomInteger(1, 10)
+    equalizer += getSymbol(randomNum, char) + '\n'
+    count++
   }
-  return result;
+  return equalizer
 }
 
-function getBlock(rows, cols) {
-  let result = '';
-  for (let i = 0; i < rows; i++) {
-    result += getAsterisks(cols) + '\\n';
+function patternBlock(rows, cols, char) {
+  var count = 0
+  var str = ''
+  while (count < rows) {
+    str += getSymbol(cols, char) + '\n'
+    count++
   }
-  return result;
+  return str
 }
 
-function getBlockOutline(rows, cols) {
-  let result = '';
-  for (let i = 0; i < rows; i++) {
-    if (i === 0 || i === rows - 1) {
-      result += getAsterisks(cols) + '\\n';
+function getPatternOutline(rows, cols, char) {
+  var count = 0
+  var str = ''
+  while (count < rows) {
+    if (count === 0 || count === rows - 1) {
+      str += getSymbol(cols, char) + '\r'
     } else {
-      result += '*' + ' '.repeat(cols - 2) + '*\\n';
+      str += _getEmptyLine(cols, char) + '\r'
     }
+    count++
   }
-  return result;
-}`,
+  return str
+}
+
+function _getEmptyLine(length, char) {
+  var str = char
+  var count = length - 2
+  while (count > 0) {
+    str += ' '
+    count--
+  }
+  str += char
+  return str
+}
+
+function getRandomInteger(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
+}
+`,
   },
   28: {
     name: "28.js",
     title: "Greatest Common Devisor",
     content: `<p class="mb-m">Write a program which calculates the greatest common divisor (GCD) of two positive integers.</p>
 <p class="mb-l">For example: if the input are  6 and 15,  the calculation's result should be 3.</p>`,
-    solution: `function gcd(a, b) {
-  let smaller = Math.min(a, b);
-  for (let i = smaller; i > 0; i--) {
-    if (a % i === 0 && b % i === 0) return i;
+    solution: `
+console.log('INPUT: num1: 6, num2: 24')
+console.log('EXPECTED: 6')
+console.log('ACTUAL: ', findGCD(6, 8))
+
+console.log('\n')
+
+console.log('INPUT: num1: 9, num2: 36')
+console.log('EXPECTED: 9')
+console.log('ACTUAL: ', findGCD(9, 36))
+
+console.log('\n')
+
+console.log('INPUT: num1: 60, num2: 72')
+console.log('EXPECTED: 12')
+console.log('ACTUAL: ', findGCD(60, 72))
+
+function findGCD(num1, num2) {
+  var divider
+  if (num1 < num2) {
+    divider = num1
+  } else {
+    divider = num2
   }
-  return 1;
-}`,
+
+  // short-if
+  var divider = num1 < num2 ? num1 : num2
+
+  while (divider) {
+    if (num1 % divider === 0 && num2 % divider === 0) return divider
+    divider--
+  }
+}
+
+// var dividerSqrt = Math.sqrt(startingDivider)
+// var startingDivider = divider
+`,
   },
   29: {
     name: "29.js",
@@ -653,42 +983,212 @@ function getBlockOutline(rows, cols) {
     <li>Check whether it is symmetric.</li>
     <li>Print the number reversed.</li>
 </ol>`,
-    solution: `function digitManipulation(numStr) {
-  // Print each digit
-  for (let digit of numStr) console.log(digit);
-  
-  // Sum of digits
-  const sum = numStr.split('').reduce((acc, digit) => acc + Number(digit), 0);
-  console.log('Sum:', sum);
-  
-  // Multiplication of digits
-  const product = numStr.split('').reduce((acc, digit) => acc * Number(digit), 1);
-  console.log('Product:', product);
-  
-  // Sum first and last
-  console.log('First + Last:', Number(numStr[0]) + Number(numStr[numStr.length - 1]));
-  
-  // Swap first and last
-  const swapped = numStr[numStr.length - 1] + numStr.slice(1, -1) + numStr[0];
-  console.log('Swapped:', swapped);
-  
-  // Check symmetric
-  const isSymmetric = numStr === numStr.split('').reverse().join('');
-  console.log('Is symmetric:', isSymmetric);
-  
-  // Reverse
-  console.log('Reversed:', numStr.split('').reverse().join(''));
-}`,
+    solution: `
+// 29.Read a number from the user (keep it as string such as “24367”) and then:
+// var number = prompt('Enter a number')
+var numberStr = '1234'
+
+// a. Basic operations:
+// i. Print each of its digits in a separate line.
+printDigits()
+
+function printDigits() {
+  var idx = 0
+  while (idx < numberStr.length) {
+    console.log(numberStr.charAt(idx))
+    idx++
+  }
+}
+
+// ii. Calculate the sum of its digits.
+console.log('INPUT:', numberStr)
+console.log('EXPECTED: 10')
+console.log('ACTUAL: ', getDigitsSum(numberStr))
+console.log('~~~~~~~~~~~~~')
+
+function getDigitsSum(numberStr) {
+  var idx = 0
+  var sum = 0
+  while (idx < numberStr.length) {
+    sum += be + numrStr.charAt(idx)
+    idx++
+  }
+  return sum
+}
+
+// iii. Calculate the multiplication (מכפלה (of its digits
+console.log('INPUT:', numberStr)
+console.log('EXPECTED: 24')
+console.log('ACTUAL: ', getDigitsMult(numberStr))
+console.log('~~~~~~~~~~~~~')
+
+function getDigitsMult(numberStr) {
+  var idx = 0
+  var mult = 1
+  while (idx < numberStr.length) {
+    mult *= +numberStr.charAt(idx)
+    idx++
+  }
+  return mult
+}
+
+// iv. Sum it’s first and last digits.
+console.log('INPUT:', numberStr)
+console.log('EXPECTED: 5')
+console.log('ACTUAL: ', getFirstLastSum(numberStr))
+console.log('~~~~~~~~~~~~~')
+
+function getFirstLastSum(numberStr) {
+  var lastDigit = +numberStr.charAt(numberStr.length - 1)
+  var firstDigit = +numberStr.charAt(0)
+  return lastDigit + firstDigit
+}
+
+// v. Print it with it’s first and last digits swapped (2731=>1732)
+console.log('INPUT:', numberStr)
+console.log('EXPECTED: 4231')
+console.log('ACTUAL: ')
+getFirstLastSwap(numberStr)
+console.log('~~~~~~~~~~~~~')
+
+function getFirstLastSwap(numberStr) {
+  var str = numberStr.charAt(numberStr.length - 1) + numberStr.substring(1, numberStr.length - 1) + numberStr.charAt(0)
+  console.log('Swapped str is', str)
+}
+
+// vi. Check whether it’s symmetric (like this number: 95459)
+var symmetricNum = '95459'
+var unSymmetricNum = '1234'
+
+console.log('INPUT: ', symmetricNum)
+console.log('EXPECTED: true')
+console.log('ACTUAL: ', isSymmetric(symmetricNum))
+console.log('INPUT: ', unSymmetricNum)
+console.log('EXPECTED: false')
+console.log('ACTUAL: ', isSymmetric(unSymmetricNum))
+console.log('~~~~~~~~~~~~~')
+
+function isSymmetric(num) {
+  var idx = 0
+  while (idx < Math.floor(num.length / 2)) {
+    if (num.charAt(idx) !== num.charAt(num.length - idx - 1)) return false
+    idx++
+  }
+  return true
+}
+
+// vii. Print the number reversed (BONUS: as a number and not as string).
+console.log('INPUT:', numberStr)
+console.log('EXPECTED: 4321')
+console.log('ACTUAL: ')
+printReversedStr(numberStr)
+console.log('~~~~~~~~~~~~~')
+
+function printReversedStr(numStr) {
+  var idx = numStr.length - 1
+  var reveresedStr = ''
+  while (idx >= 0) {
+    reveresedStr += numStr.charAt(idx--)
+  }
+  console.log('Reveresed string', reveresedStr)
+}
+
+// BONUS:
+console.log('INPUT:', numberStr)
+console.log('EXPECTED:', 8764321)
+console.log('ACTUAL: ')
+printReversedNum(numberStr)
+console.log('~~~~~~~~~~~~~')
+
+function printReversedNum() {
+  var num = 1234678
+  var reversedNum = 0
+  while (num) {
+    reversedNum *= 10
+    reversedNum += num % 10
+    num = Math.floor(num / 10)
+  }
+  console.log('Reveresed number', reversedNum)
+}
+
+// b. BONUS: Special Numbers
+// i. Check if the number is an Armstrong number. I.e 371 is an Armstrong number: 3**3+7**3+1**3 =371. If the number passed the test, print it to the
+// console.
+
+console.log('INPUT: ', 153)
+console.log('EXPECTED: 153 is an Armstrong number')
+console.log('ACTUAL: ')
+printArmstrong(153)
+console.log('INPUT: ', 154)
+console.log('EXPECTED: 154 is NOT an Armstrong number')
+console.log('ACTUAL: ')
+printArmstrong(154)
+console.log('~~~~~~~~~~~~~')
+
+function printArmstrong(num) {
+  var numCopy = num
+  var sum = 0
+  var length = ('' + num).length
+
+  while (numCopy > 0) {
+    var digit = numCopy % 10
+    sum += digit ** length
+    numCopy = parseInt(numCopy / 10)
+  }
+
+  if (sum === num) console.log(num + ' is an Armstrong number')
+  else console.log(num + ' is NOT an Armstrong number')
+}
+
+// ii. Check if the number is a Perfect number. Perfect number is a number that the sum of all its dividers is the number itself. I.e 6 is a perfect number (1+2+3).
+
+console.log('INPUT: ', 6)
+console.log('EXPECTED: true')
+console.log('ACTUAL: ', isPerfect(6))
+console.log('INPUT: ', 7)
+console.log('EXPECTED: false')
+console.log('ACTUAL: ', isPerfect(7))
+console.log('~~~~~~~~~~~~~')
+
+function isPerfect(num) {
+  var divider = 1
+  var dividersSum = 0
+
+  while (divider <= Math.ceil(num / 2)) {
+    if (num % divider === 0) dividersSum += divider
+    divider++
+  }
+
+  return dividersSum === num
+}
+// iii. Read a number from the user. Store it in a variable called max. The function should print all the perfect numbers and all the Armstrong numbers that are smaller than max.
+
+// printSpecialNumbers()
+
+function printSpecialNumbers() {
+  var max = +prompt('Enter a number')
+  for (var i = 0; i < max; i++) {
+    if (isArmstrong(i)) console.log('the number ' + i + ' is an Armstrong number')
+    if (isPerfect(i)) console.log('the number ' + i + ' is an Perfect number')
+  }
+}
+`,
   },
   30: {
     name: "30.js",
     title: "Print the Longer String",
     content: `<p>Read two names from the user and print the longer one.</p>`,
-    solution: `function printLongerName() {
-  const name1 = prompt('Enter first name:');
-  const name2 = prompt('Enter second name:');
-  console.log(name1.length >= name2.length ? name1 : name2);
-}`,
+    solution: `printLongestName()
+function printLongestName() {
+    var name1 = prompt('Enter first name')
+    var name2 = prompt('Enter second name')
+    var longestName = name1
+    if (name2.length > name1.length) {
+        longestName = name2
+    }
+    console.log('The longest name is:', longestName);
+}
+`,
   },
   31: {
     name: "31.js",
@@ -699,25 +1199,25 @@ function getBlockOutline(rows, cols) {
     <li>Its first and last characters.</li>
     <li>The string in all uppercase and then, in all lowercase letters.</li>
 </ol>`,
-    solution: `function stringManipulation(str) {
-  console.log('Length:', str.length);
-  console.log('First char:', str[0]);
-  console.log('Last char:', str[str.length - 1]);
-  console.log('Uppercase:', str.toUpperCase());
-  console.log('Lowercase:', str.toLowerCase());
-}`,
+    solution: `var str = prompt('Enter a string')
+console.log('Length:', str.length);
+console.log('First Character:', str.charAt(0) + 'Last Character:', str.charAt(str.length - 1));
+console.log('UpperCase:', str.toUpperCase());
+console.log('LowerCase:', str.toLowerCase());`,
   },
   32: {
     name: "32.js",
     title: "Reverse a String",
     content: `<p>Read a string from the user and print it backwards using a loop.</p>`,
-    solution: `function reverseString(str) {
-  let reversed = '';
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed += str[i];
-  }
-  console.log(reversed);
-}`,
+    solution: `
+var str = prompt('Enter a string')
+var reversedStr = ''
+
+for (var i = str.length - 1; i >= 0; i--) {
+    reversedStr += str.charAt(i)
+}
+console.log('The backward str is:', reversedStr);
+`,
   },
   33: {
     name: "33.js",
@@ -728,49 +1228,117 @@ function getBlockOutline(rows, cols) {
     <li><span class="code">flipCase</span>- which gets a string and changes the vowels to lowercase letters, and the rest to uppercase letters.</li>
     <li><span class="code">doubleVowels</span>- which gets a string and doubles all the vowels in it.</li>
 </ol>`,
-    solution: `function printVowelsCount(str) {
-  const vowels = 'aeiouAEIOU';
-  const count = {};
-  for (let char of str) {
-    if (vowels.includes(char)) {
-      count[char] = (count[char] || 0) + 1;
+    solution: `
+const VOWELS = 'aeiouAEIOU';
+
+console.log('INPUT: TelAvivBeach');
+console.log(
+  'EXPECTED:\n Char a appears 1 times\n Char e appears 2 times\n Char i appears 1 times\n Char o appears 0 times\n Char u appears 0 times\n Char A appears 1 times\n Char E appears 0 times\n Char I appears 0 times\n Char O appears 0 times\n Char U appears 0 times'
+);
+console.log('ACTUAL:');
+printVowelsCount('TelAvivBeach');
+
+function printVowelsCount(str) {
+  for (var i = 0; i < VOWELS.length; i++) {
+    var currVowel = VOWELS.charAt(i);
+    var vowelCount = 0;
+    for (var j = 0; j < str.length; j++) {
+      var char = str.charAt(j);
+      if (currVowel === char) {
+        vowelCount++;
+      }
     }
+    console.log('Char', currVowel, 'appears', vowelCount, 'times');
   }
-  console.log(count);
 }
+
+console.log('\n====================\n');
+
+// b. Write a function that gets a string and changes the vowels to lowercase letters,
+// and the rest to uppercase letters (GiZiM GiDoo).
+
+// console.log('INPUT: gizim gidoo');
+// console.log('EXPECTED: GiZiM GiDoo');
+console.log('ACTUAL:', flipCase('gizim gidoo'));
 
 function flipCase(str) {
-  const vowels = 'aeiouAEIOU';
-  return str.split('').map(char => 
-    vowels.includes(char) ? char.toLowerCase() : char.toUpperCase()
-  ).join('');
+  var res = '';
+  for (var i = 0; i < str.length; i++) {
+    var char = str.charAt(i);
+    char = (VOWELS.includes(char)) ? char.toLowerCase() : char.toUpperCase();
+    res += char;
+  }
+  return 'The selective case string is: ' + res;
 }
 
-function doubleVowels(str) {
-  const vowels = 'aeiouAEIOU';
-  return str.split('').map(char => 
-    vowels.includes(char) ? char + char : char
-  ).join('');
-}`,
+console.log('\n====================\n');
+
+// c. Write a function that gets a string and doubles all the vowels in it.
+// Test the functions using the inputs: “aeiouAEIOU” “TelAvivBeach"
+
+console.log('INPUT - aeiouAEIOU');
+console.log('EXPECTED - aaeeiioouuAAEEIIOOUU');
+console.log('ACTUAL - ', changeToDoubleVowels('aeiouAEIOU'));
+
+console.log('INPUT - TelAvivBeach');
+console.log('EXPECTED - TeelAAviivBeeaach');
+console.log('ACTUAL - ', changeToDoubleVowels('TelAvivBeach'));
+
+function changeToDoubleVowels(str) {
+  var doubleVowelStr = '';
+  var char = '';
+  for (var i = 0; i < str.length; i++) {
+    char = str.charAt(i);
+    if (VOWELS.includes(char)) {
+      doubleVowelStr += char;
+    }
+    doubleVowelStr += char;
+  }
+  return 'The double vowels string is: ' + doubleVowelStr;
+}
+`,
   },
   34: {
     name: "34.js",
     title: "myIndexOf()",
     content: `<p>Implement a function named <span class="code">myIndexOf(str, searchStr)</span> which receives two strings.</p>
 <p>The function returns the index of the second string within the first, or -1  if it wasn't found (do not use the built-in <span class="code">indexOf()</span>function… ). </p>`,
-    solution: `function myIndexOf(str, searchStr) {
-  for (let i = 0; i <= str.length - searchStr.length; i++) {
-    let found = true;
-    for (let j = 0; j < searchStr.length; j++) {
-      if (str[i + j] !== searchStr[j]) {
-        found = false;
-        break;
-      }
+    solution: `
+console.log('INPUT: abbcd,bc')
+console.log('EXPECTED: 2')
+console.log('ACTUAL: ', myIndexOf1('abbcd', 'bc'))
+
+console.log('INPUT: hello index, idx')
+console.log('EXPECTED: -1')
+console.log('ACTUAL: ', myIndexOf('hello index', 'idx'))
+
+function myIndexOf(str, searchStr) {
+  for (var i = 0; i <= str.length - searchStr.length; i++) {
+    if (str.substring(i, i + searchStr.length) === searchStr) {
+      return i
     }
-    if (found) return i;
   }
-  return -1;
-}`,
+  return -1
+}
+
+
+
+// without substring:
+function myIndexOf1(str, searchStr) {
+  var currLength = 0
+  var index = 0
+  for (var i = 0; i < str.length; i++) {
+    while (str.charAt(i + index) === searchStr.charAt(index)) {
+      currLength++
+      if (currLength === searchStr.length) return i
+      index++
+    }
+    currLength = 0
+    index = 0
+  }
+  return -1
+}
+`,
   },
   35: {
     name: "35.js",
@@ -780,55 +1348,132 @@ function doubleVowels(str) {
     <li>Implement the function by replacing each character <span class="code">code</span> with <span class="code">code + 5</span>.</li>
     <li>Write the function <span class="code">decrypt</span> which decrypts a message.</li>
 </ol>`,
-    solution: `function encrypt(str) {
-  return str.split('').map(char => 
-    String.fromCharCode(char.charCodeAt(0) + 5)
-  ).join('');
+    solution: `
+console.log('INPUT - rrr')
+console.log('EXPECTED - www',)
+console.log('ACTUAL - ', encrypt('Zrr'))
+
+console.log('INPUT - www')
+console.log('EXPECTED - rrr',)
+console.log('ACTUAL - ', decrypt('Zww'))
+
+
+function encrypt(str) {
+    var encryptedStr = ''
+    for (var i = 0; i < str.length; i++) {
+        var currCharCode = str.charCodeAt(i)
+        var encryptedChar = String.fromCharCode(currCharCode + 5)
+        encryptedStr += encryptedChar
+    }
+    return encryptedStr
 }
 
 function decrypt(str) {
-  return str.split('').map(char => 
-    String.fromCharCode(char.charCodeAt(0) - 5)
-  ).join('');
+    var encryptedStr = ''
+    for (var i = 0; i < str.length; i++) {
+        var currCharCode = str.charCodeAt(i)
+        var encryptedChar = String.fromCharCode(currCharCode - 5)
+        encryptedStr += encryptedChar
+    }
+    return encryptedStr
+}
+
+// BONUS:
+console.log('INPUT - abc,true',)
+console.log('EXPECTED - fgh ',)
+console.log('ACTUAL - ', encode('abc', true))
+
+console.log('INPUT - fgh,false',)
+console.log('EXPECTED - abc ',)
+console.log('ACTUAL - ', encode('fgh', false))
+
+function encode(str, isEncrypt) {
+    var encryptedStr = ''
+    var diff = isEncrypt ? 5 : -5
+    for (var i = 0; i < str.length; i++) {
+        var currCharCode = str.charCodeAt(i)
+        var encryptedChar = String.fromCharCode(currCharCode + diff)
+        encryptedStr += encryptedChar
+    }
+    return encryptedStr
 }`,
   },
   36: {
     name: "36.js",
     title: "Longest and Shortest Names",
     content: `<p>Implement a function which receives a string of comma separated names, for example: <span class="console">'Igal,Moshe,Haim'</span>, and prints the longest and shortest names.</p>`,
-    solution: `function analyzeNames(namesStr) {
-  const names = namesStr.split(',');
-  let shortest = names[0];
-  let longest = names[0];
-  
-  for (let name of names) {
-    if (name.length < shortest.length) shortest = name;
-    if (name.length > longest.length) longest = name;
+    solution: `
+console.log('INPUT - d,igaladbdmgmne,haim')
+console.log('EXPECTED - The longest name is: igaladbdmgmne and the shortest name is: da')
+console.log('ACTUAL - ', printNames('igaladbdmgmne,haim,da'))
+
+function printNames(namesStr) {
+  var longestName = ''
+  var shortestName = namesStr
+  var commaIdx = 0
+  namesStr += ','
+
+  for (var i = 0; i < namesStr.length; i = commaIdx + 1) { // Omri - corrected to 'commaIdx+1'
+    commaIdx = namesStr.indexOf(',', i)
+    var name = namesStr.substring(i, commaIdx) // Omri - corrected to 'substring(i, commaIdx)'
+
+    if (name.length > longestName.length) longestName = name
+    if (name.length < shortestName.length) shortestName = name
   }
-  
-  console.log('Shortest:', shortest);
-  console.log('Longest:', longest);
-}`,
+  return 'The longest name is: ' + longestName + ' and the shortest name is: ' + shortestName
+}
+`,
   },
   37: {
     name: "37.js",
     title: "Generate Password",
     content: `<p>Implement a function named <span class="code">generatePass(passLength)</span> which generates a password of the specified length. The password is made out of random digits and letters.</p>`,
-    solution: `function generatePass(passLength) {
-  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let password = '';
-  for (let i = 0; i < passLength; i++) {
-    password += chars[Math.floor(Math.random() * chars.length)];
+    solution: `
+console.log(generatePass(5))
+
+function generatePass(passLength) {
+  var charStr = 'absdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  var password = ''
+  for (var i = 0; i < passLength; i++) {
+    var randomIdx = getRandomInteger(0, charStr.length)
+    password += charStr.charAt(randomIdx)
   }
-  return password;
+  return password
+}
+
+// Another option:
+// var str = '';
+// for (var i = 0; i < passLength; i++) {
+//     str += String.fromCharCode(97 + Math.floor(Math.random() * 26)); //just lowercase
+// }
+// return str
+
+
+function getRandomInteger(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
 }`,
   },
   38: {
     name: "38.js",
     title: "Bigger than 100",
     content: `<p>Implement a function named <span class="code">biggerThan100</span>. It receives an array of numbers and returns a new array containing only the numbers which are greater than 100.</p>`,
-    solution: `function biggerThan100(arr) {
-  return arr.filter(num => num > 100);
+    solution: `
+console.log('INPUT: [1, 3, 400, 60, 300, 500]')
+console.log('EXPECTED: [400, 300, 500]')
+console.log('ACTUAL:', biggerThan100([1, 3, 400, 60, 300, 500]))
+/**
+ * 
+ * @param {*} nums 
+ * @returns 
+ */
+function biggerThan100(nums) {
+    var biggerNums = []
+    for (var i = 0; i < nums.length; i++) {
+        if (nums[i] > 100) biggerNums.push(nums[i])
+    }
+    return biggerNums
 }`,
   },
   39: {
@@ -836,8 +1481,18 @@ function decrypt(str) {
     title: "Count Votes",
     content: `<p>Implement a function named <span class="code">countVotes(votes, candidateName)</span> which counts how many votes a candidate received.</p>
 <p>For example: if the votes array looks like this: <span class="console">['Nuli', 'Pingi', 'Uza', 'Shabi', 'Uza']</span>, and the candidate name is <span class="console">'Uza'</span>, the function returns <span class="console">2</span>.</p>`,
-    solution: `function countVotes(votes, candidateName) {
-  return votes.filter(vote => vote === candidateName).length;
+    solution: `var votes = ['Nuli', 'Pingi', 'Uza', 'Shabi', 'Uza']
+var candidateName = 'Uza'
+console.log('INPUT: ', votes, candidateName)
+console.log('EXPECTED: ', 2)
+console.log('ACTUAL:', countVotes(votes, candidateName))
+
+function countVotes(votes, candidateName) {
+    var count = 0
+    for (var i = 0; i < votes.length; i++) {
+        if (votes[i] === candidateName) count++
+    }
+    return count
 }`,
   },
   40: {
@@ -850,25 +1505,45 @@ function decrypt(str) {
     <li class="mb-m">Write a function named <span class="code">getWord()</span> which returns a single word made of 3 - 5 random letters. The length of the word will be generated randomly. </li>
     <li class="mb-m">Call this function in a loop to create a sentence.</li>
 </ol>`,
-    solution: `function getLoremIpsum(wordsCount) {
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  
-  function getWord() {
-    const length = Math.floor(Math.random() * 3) + 3; // 3-5 letters
-    let word = '';
-    for (let i = 0; i < length; i++) {
-      word += alphabet[Math.floor(Math.random() * alphabet.length)];
+    solution: `
+var res = getLoremIpsum(4)
+console.log('res:', res)
+
+
+function getLoremIpsum(wordsCount) {
+    var sentence = ''
+
+    for (var i = 0; i < wordsCount; i++) {
+        sentence += getWord()
+
+        // if (i === wordsCount - 1) sentence += '.'
+        // else sentence += ' '
+        sentence += (i === wordsCount - 1) ? '.' : ' '
     }
-    return word;
-  }
-  
-  const words = [];
-  for (let i = 0; i < wordsCount; i++) {
-    words.push(getWord());
-  }
-  
-  return words.join(' ');
-}`,
+    return sentence
+}
+
+function getWord() {
+    const letters = 'abcdefghiklmnopqrstvxwyz'
+    var randomLength = getRandomInteger(3, 5)
+    var word = ''
+    for (var i = 0; i < randomLength; i++) {
+        var randIdx = getRandomInteger(0, letters.length - 1);
+        word += letters.charAt(randIdx)
+    }
+    return word
+}
+
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+
+// function getRandomInt(min, max){
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }`,
   },
   41: {
     name: "41.js",
@@ -877,20 +1552,110 @@ function decrypt(str) {
 <p>For example: </p>
 <p><span class="console">123 => One Two Three.</span></p>
 <p><span class="console">7294 => Seven Two Nine Four.</span></p>`,
-    solution: `function sayNum(num) {
-  const digitNames = ['Zero', 'One', 'Two', 'Three', 'Four', 
-                     'Five', 'Six', 'Seven', 'Eight', 'Nine'];
-  const digits = num.toString().split('');
-  return digits.map(digit => digitNames[digit]).join(' ');
-}`,
+    solution: `
+const digitNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+
+console.log('INPUT:', 325)
+console.log('EXPECTED:', 'three two five')
+console.log('ACTUAL:', sayNum(325))
+
+console.log('INPUT:', 0)
+console.log('EXPECTED:', 'zero')
+console.log('ACTUAL:', sayNum(0))
+
+function sayNum(num) {
+    var numsStr = '' + num //'325'
+    var digitStr = ''
+    for (var i = 0; i < numsStr.length; i++) {
+        var currNum = +numsStr.charAt(i) // 3
+        digitStr += digitNames[currNum] + ' '
+    }
+    return digitStr.trim()
+}
+
+// WITH SWITCH
+function sayNum2(num) {
+    var str = '';
+    num += '';
+    for (var i = 0; i < num.length; i++) {
+        var currNum = num[i];
+        switch (currNum) {
+            case '1':
+                str += 'One ';
+                break;
+            case '2':
+                str += 'Two ';
+                break;
+            case '3':
+                str += 'Three ';
+                break;
+            case '4':
+                str += 'Four ';
+                break;
+            case '5':
+                str += 'Five ';
+                break;
+            case '6':
+                str += 'Six ';
+                break;
+            case '7':
+                str += 'Seven ';
+                break;
+            case '8':
+                str += 'Eight ';
+                break;
+            case '9':
+                str += 'Nine ';
+                break;
+            case '0':
+                str += 'Zero ';
+                break;
+        }
+    }
+    return str.trim();
+}
+`,
   },
   42: {
     name: "42.js",
     title: "Starts with...",
     content: `<p>Write a function named startsWithS, which receives an array of names and returns a new array, containing only those names which begin with S.</p>
 <p>Now, refactor your function to work on any letter by adding a letter parameter. Rename the function to reflect its new functionality.</p>`,
-    solution: `function startsWithLetter(names, letter) {
-  return names.filter(name => name[0].toUpperCase() === letter.toUpperCase());
+    solution: `
+var names = ['Matan', 'David', 'Susu', 'Sasa', 'Sansa']
+
+console.log('INPUT: [Matan, David, Susu, Sasa, Sansa]')
+console.log('EXPECTED:', '[Susu, Sasa, Sansa]')
+console.log('ACTUAL:', startsWithS(names))
+
+function startsWithS(names) {
+    var namesWithS = []
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i]
+        var firstChar = name.charAt(0)
+        if (firstChar.toLowerCase() === 's') {
+            namesWithS.push(names[i]);
+        }
+    }
+    return namesWithS
+}
+
+//Step 2
+names = ['Matan', 'David', 'Dusu', 'Dasa', 'Dansa']
+
+console.log('INPUT: [Matan, David, Dusu, Dasa, Dansa]')
+console.log('EXPECTED:', '[ David, Dusu, Dasa, Dansa]')
+console.log('ACTUAL:', startsWithLetter(names, 'D'))
+
+// Any letter
+function startsWithLetter(names, letter) {
+    var namesWithLetter = []
+    for (var i = 0; i < names.length; i++) {
+        if (names[i].charAt(0).toLowerCase() === letter.toLowerCase()) {
+            namesWithLetter.push(names[i])
+        }
+    }
+    return namesWithLetter
 }`,
   },
   43: {
@@ -905,26 +1670,43 @@ function decrypt(str) {
         <p>Now, read these arrays from the user (until the number 999 is entered)</p>
     </li>
 </ol>`,
-    solution: `function sumArrays(arr1, arr2) {
-  const maxLength = Math.max(arr1.length, arr2.length);
-  const result = [];
-  
-  for (let i = 0; i < maxLength; i++) {
-    result.push((arr1[i] || 0) + (arr2[i] || 0));
+    solution: `
+// var nums1 = getArrayFromUser()
+// var nums2 = getArrayFromUser()
+var nums1 = [1, 4, 3]
+var nums2 = [2, 5, 1, 9]
+
+console.log('INPUT: ', nums1, nums2)
+console.log('ACTUAL: ', sumArrays(nums1, nums2))
+
+function sumArrays(nums1, nums2) {
+  var shorterNums = nums1.length > nums2.length ? nums2.slice() : nums1.slice()
+  var longerNums = nums1.length > nums2.length ? nums1.slice() : nums2.slice()
+
+  for (var i = 0; i < shorterNums.length; i++) {
+    if (isNaN(longerNums[i]) || isNaN(shorterNums[i]))
+      return console.error('One of the inputs in the array is not a number')
+    longerNums[i] += shorterNums[i]
   }
-  
-  return result;
+  return longerNums
 }
 
 function getArrayFromUser() {
-  const arr = [];
-  let num;
+  const MSG = 'Please enter a number, (enter 999 to QUIT)'
+  var num = +prompt(MSG)
+  var nums = []
   while (num !== 999) {
-    num = Number(prompt('Enter a number (999 to finish):'));
-    if (num !== 999) arr.push(num);
+    nums.push(num)
+    num = +prompt(MSG)
   }
-  return arr;
-}`,
+  return nums
+}
+
+//Todo expected result
+// function getArrayFromUser(){
+//     return [2, 5, 1, 9]
+// }
+`,
   },
   44: {
     name: "44.js",
@@ -942,13 +1724,38 @@ function getArrayFromUser() {
     </tr>
 </table>
 <p>The function prints how many times each of these numbers appears in the array.</p>`,
-    solution: `function printNumsCount(nums) {
-  const counts = [0, 0, 0, 0];
-  for (let num of nums) {
+    solution: `
+var nums = [3, 2, 0, 2, 3];
+
+console.log("INPUT: ", nums);
+console.log("EXPECTED: [1, 0, 2, 2]");
+console.log("ACTUAL:", printNumsCount(nums));
+
+nums = [3, 2, 0, 2, 8];
+console.log("INPUT: ", nums);
+console.log("EXPECTED: Not valid number");
+console.log("ACTUAL:", printNumsCount(nums));
+
+nums = [3, 2, 0, 2, -3];
+console.log("INPUT: ", nums);
+console.log("EXPECTED: Not valid number");
+console.log("ACTUAL:", printNumsCount(nums));
+
+function printNumsCount(nums) {
+  var counts = [0, 0, 0, 0];
+  for (var i = 0; i < nums.length; i++) {
+    var num = nums[i];
+    if (isNaN(num) || num < 0 || num > 3) return "Not valid number";
     counts[num]++;
   }
-  console.log(counts);
-}`,
+
+  // for (var i = 0; i < counts.length; i++) {
+  //   console.log('The number', i, 'appears', counts[i], 'times');
+  // }
+
+  return counts;
+}
+`,
   },
   45: {
     name: "45.js",
@@ -965,14 +1772,58 @@ function getArrayFromUser() {
         <td>4</td>
     </tr>
 </table>`,
-    solution: `function removeDuplicates(nums) {
-  const seen = new Set();
-  return nums.filter(num => {
-    if (seen.has(num)) return false;
-    seen.add(num);
-    return true;
-  });
-}`,
+    solution: `
+var nums = [5, 1, 5, 1, 0]
+
+console.log('INPUT: [5, 1, 5, 1, 0]')
+console.log('EXPECTED: [5, 1, 0]')
+console.log('ACTUAL:', removeDuplicates(nums))
+
+nums = []
+console.log('INPUT: []')
+console.log('EXPECTED: Array is empty')
+console.log('ACTUAL:', removeDuplicates(nums))
+
+function removeDuplicates(nums) {
+  var numCounters = [0, 0, 0, 0, 0, 0]
+  var res = []
+  for (var i = 0; i < nums.length; i++) {
+    if (numCounters[nums[i]] === 0) {
+      numCounters[nums[i]]++
+      res.push(nums[i])
+    }
+  }
+  return res
+}
+
+//Another Option o(n^2)
+// function removeDuplicates(nums) {
+//     var res = []
+//     for (var i = 0; i < nums.length; i++) {
+//         if (!res.includes(nums[i])) res.push(nums[i])
+//     }
+//     return res
+// }
+
+// Another option - Avior (o^2) - no includes
+// function removeDuplicates(nums) {
+//   var res = []
+
+//   for (var i = 0; i < nums.length; i++) {
+//     var isDuplicate = false
+//     var currNum = nums[i]
+//     for (var j = 0; j < res.length; j++) {
+//       if (currNum === res[j]) {
+//         isDuplicate = true
+//         break
+//       }
+//     }
+
+//     if (!isDuplicate) res.push(currNum)
+//   }
+//   return res
+// }
+`,
   },
   46: {
     name: "46.js",
@@ -986,13 +1837,30 @@ function getArrayFromUser() {
         <p>Add another parameter to this function named <span class="code">isImmutable</span>. When this parameter is true, use <span class="code">array.slice()</span>to perform the function's calculation on a copy of the array, and leave the original array unchanged.</p>
     </li>
 </ol>`,
-    solution: `function multBy(nums, multiplier, isImmutable = false) {
-  const arr = isImmutable ? nums.slice() : nums;
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] *= multiplier;
-  }
-  return arr;
-}`,
+    solution: `
+var nums = [5, -4, 0, 1]
+
+console.log('INPUT:', nums, 'multiplier', 3)
+console.log('EXPECTED: [15, -12, 0, 3]')
+console.log('ACTUAL:', multBy(nums, 3, true))
+
+function multBy(nums, multiplier) {
+    for (var i = 0; i < nums.length; i++) {
+        nums[i] *= multiplier;
+    }
+    return nums
+}
+
+//Part b
+function multBy(nums, multiplier, isImmutable) {
+    var newNums = isImmutable ? nums.slice() : nums
+    for (var i = 0; i < newNums.length; i++) {
+        newNums[i] *= multiplier
+    }
+    return newNums
+}
+
+`,
   },
   47: {
     name: "47.js",
@@ -1004,41 +1872,131 @@ function getArrayFromUser() {
     <li>You can assume that the separator (delimiter) is a single character.</li>
     <li>BONUS: don't assume that, e.g: <span class="console">'A|||B|||C'</span></li>
 </ul>`,
-    solution: `function mySplit(str, sep) {
-  const result = [];
-  let current = '';
-  
-  for (let i = 0; i < str.length; i++) {
-    if (str.slice(i, i + sep.length) === sep) {
-      result.push(current);
-      current = '';
-      i += sep.length - 1;
-    } else {
-      current += str[i];
+    solution: `
+var strings = 'Japan,Russia,Sweden,USA,Israel'
+var seperator = ','
+var splitted = mySplit(strings, seperator)
+console.log(splitted)
+
+strings = 'Japan|||Ru👑ssia|||Swe👑den|||US👑A|||👑Israel'
+seperator = '|||'
+splitted = mySplit(strings, seperator)
+console.log(splitted)
+
+// Option (without bonus):
+function mySplit(str, sep) {
+  var words = []
+  var startIdx = 0
+  str += sep
+  for (var i = 0; i < str.length; i++) {
+    var currChar = str.charAt(i)
+    if (currChar === sep) {
+      var word = str.substring(startIdx, i)
+      words.push(word)
+      startIdx = i + 1
     }
   }
-  
-  if (current) result.push(current);
-  return result;
-}`,
+  return words
+}
+
+// Option (without bonus) using indexOf and substring
+function mySplit(str, sep) {
+  var strs = []
+  str += sep
+  for (var i = 0; i < str.length; i++) {
+    var sepIdx = str.indexOf(sep)
+    var word = str.substring(0, sepIdx)
+    strs.push(word)
+    str = str.substring(sepIdx + sep.length)
+  }
+  return strs
+}
+
+// Option (without bonus) using if else inside for loop:
+// function mySplit(str, sep) {
+//   var strs = []
+
+//   var word = ''
+//   for (var i = 0; i < str.length; i++) {
+//     if (str[i] !== sep && i !== str.length - 1) {
+//       word += str[i]
+//     } else {
+//       strs.push(word)
+//       word = ''
+//       console.log(str.indexOf(sep));
+//     }
+//   }
+//   console.log('strs', strs);
+//   return strs
+// }
+
+// Option (with bonus) using the indexOf with 2 parameters
+// (second is where to start searching):
+function mySplit(str, sep) {
+  var strs = [];
+  var nextIdx;
+  for (var i = 0; i < str.length; i = nextIdx + sep.length) {
+    nextIdx = str.indexOf(sep, i);
+    if (nextIdx === -1) {
+      nextIdx = str.length;
+    }
+    var word = str.substring(i, nextIdx)
+    strs.push(word);
+  }
+  return strs;
+}
+
+// Option (with bonus) using if else inside for loop:
+// function mySplit(str, sep) {
+//     str += sep
+//     var word = ''
+//     var strs = []
+//     for (var i = 0; i < str.length; i++) {
+//         if (str.substr(i, sep.length) === sep) {
+//             i += sep.length - 1
+//             strs.push(word)
+//             word = ''
+//         } else {
+//             word += str.charAt(i)
+//         }
+//     }
+//     return strs
+// }
+`,
   },
   48: {
     name: "48.js",
     title: "sortNums()",
     content: `<p>Implement the function <span class="code">sortNums(nums)</span>. This function returns a sorted version of the original nums array. It works by looping through the array, finding the minimum, splicing it out, and adding it to a new array.</p>`,
-    solution: `function sortNums(nums) {
-  const sorted = [];
-  const arr = nums.slice();
-  
-  while (arr.length > 0) {
-    let minIndex = 0;
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i] < arr[minIndex]) minIndex = i;
+    solution: `
+var nums = [50, 78, 1, 3, 5]
+console.log('INPUT: [50, 78, 1, 3, 5]')
+console.log('EXPECTED: [1, 3, 5, 50, 78]')
+console.log('ACTUAL: ', sortNums(nums))
+
+nums = [560, 88, 3, 90, -1]
+console.log('INPUT: [560, 88, 3, 90, -1]')
+console.log('EXPECTED: [-1, 3, 88, 90, 560]')
+console.log('ACTUAL: ', sortNums(nums))
+
+function sortNums(nums) {
+  var copyNums = nums.slice()
+  var sortedNums = []
+  var currMin = Infinity
+  var currMinIdx = 0
+
+  for (var i = 0; i < nums.length; i++) {
+    currMin = Infinity
+    for (var j = 0; j < copyNums.length; j++) {
+      if (copyNums[j] < currMin) {
+        currMin = copyNums[j]
+        currMinIdx = j
+      }
     }
-    sorted.push(arr.splice(minIndex, 1)[0]);
+    sortedNums.push(currMin)
+    copyNums.splice(currMinIdx, 1)
   }
-  
-  return sorted;
+  return sortedNums
 }`,
   },
   49: {
@@ -1047,10 +2005,43 @@ function getArrayFromUser() {
     content: `<p>Write the function <span class="code">getNthLargest(nums, nthNum)</span> to get the n<sup>th</sup> largest element from an array of unique numbers.</p>
 <p>For example: <span class="code">getNthLargest([ 7, 56, 88, 92, 99, 89, 11], 3)</span></p>
 <p>will return: <span class="console">89</span></p>`,
-    solution: `function getNthLargest(nums, nthNum) {
-  const sorted = nums.slice().sort((a, b) => b - a);
-  return sorted[nthNum - 1];
-}`,
+    solution: `
+console.log('INPUT: [7, 56, 23, 88, 92, 99, 89, 11]');
+console.log('EXPECTED: 89');
+console.log('ACTUAL: ', getNthLargest([7, 56, 23, 88, 92, 99, 89, 11], 3));
+
+console.log('INPUT: [7, 56, 101, 100, 92, 99, 89, 11]');
+console.log('EXPECTED: 100');
+console.log('ACTUAL: ', getNthLargest([7, 56, 101, 100, 92, 99, 89, 11], 2));
+
+console.log('INPUT: [7, 56, 101, 100, 92, 99, 89, 11]');
+console.log('EXPECTED: 100');
+console.log('ACTUAL: ', getNthLargestBonus([7, 56, 101, 100, 92, 99, 89, 11], 2));
+
+
+function getNthLargest(nums, nthNum) {
+    nums.sort(function (num1, num2) {
+        return num1 - num2
+    })
+    return nums[nums.length - nthNum]
+}
+
+// function getNthLargest(nums, nthNum) {
+//     nums.sort(function (num1, num2) {
+//         return num2 - num1
+//     })
+//     return nums[nthNum - 1]
+// }
+
+function getNthLargestBonus(nums, nthNum) {
+    var currLargestNumIdx = 0
+    for (var i = 0; i < nthNum; i++) {
+        var currLargestNum = -Infinity
+        for (var j = 0; j < nums.length; j++) {
+            if (nums[j] > currLargestNum) {
+                currLargestNum = nums[j]
+                currLargestNumIdx = j
+      `,
   },
   50: {
     name: "50.js",
@@ -1070,19 +2061,30 @@ function getArrayFromUser() {
     <li>Stop when you get <span class="console">'HOH'</span> (Water – two Hydrogen atoms and one Oxygen atom).</li>
     <li>Print the number of attempts it took to get <span class="console">'HOH'</span>.</li>
 </ul>`,
-    solution: `function makeWater() {
-  const atoms = ['H', 'B', 'C', 'N', 'O', 'F'];
-  let attempts = 0;
-  
-  while (true) {
-    attempts++;
-    const molecule = Array(3).fill().map(() => atoms[Math.floor(Math.random() * atoms.length)]).join('');
-    if (molecule === 'HOH') {
-      console.log('Found water after', attempts, 'attempts!');
-      break;
+    solution: `
+console.log('It took', makeWater(), 'tries to get HOH')
+
+function makeWater() {
+  var atoms = ['H', 'B', 'C', 'N', 'O', 'F']
+  var count = 0
+  var currMol = ''
+
+  while (currMol !== 'HOH') {
+    currMol = ''
+    for (var i = 0; i < 3; i++) {
+      currMol += atoms[getRandomInt(0, atoms.length)]
     }
+    count++
   }
-}`,
+  return count
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min
+}
+`,
   },
   51: {
     name: "51.js",
@@ -1092,16 +2094,33 @@ function getArrayFromUser() {
     <li>The object keys will be the words in the string.</li>
     <li>The values will be the number of times each of these words appears in the string.</li>
 </ul>`,
-    solution: `function countWordApperances(txt) {
-  const words = txt.split(' ');
-  const count = {};
-  
-  for (let word of words) {
-    count[word] = (count[word] || 0) + 1;
+    solution: `
+var str = 'puki ben david and muki ben david'
+console.log('INPUT: puki ben david and muki ben david')
+console.log('EXPECTED:', { puki: 1, ben: 2, david: 2, and: 1, muki: 1 })
+console.log('ACTUAL: ', countWordApperances(str))
+
+function countWordApperances(txt) {
+  var words = txt.split(' ')
+  var wordCountMap = {}
+
+  for (var i = 0; i < words.length; i++) {
+    var currWord = words[i]
+    if (!wordCountMap[currWord]) {
+      wordCountMap[currWord] = 0
+    }
+    wordCountMap[currWord]++
+
+    // // short-if
+    // wordCountMap[currWord] = (wordCountMap[currWord]) ? wordCountMap[currWord] + 1 : 1
+
+    // // short-circuit
+    // wordCountMap[currWord] = (wordCountMap[currWord] + 1) || 1
   }
-  
-  return count;
-}`,
+  return wordCountMap
+}
+
+`,
   },
   52: {
     name: "52.js",
@@ -1113,49 +2132,101 @@ function getArrayFromUser() {
     <li>Write the function: <span class="code">findMostPowerful(monsters)</span>.</li>
     <li>Write the function: <span class="code">breedMonsters(monsterId1, monsterId2)</span>.</li>
 </ol>`,
-    solution: `function createMonster(name, power) {
-  return {
-    id: Math.floor(Math.random() * 1000),
-    name: name || 'Unknown',
-    power: power || Math.floor(Math.random() * 100) + 1
-  };
-}
+    solution: `
+var gNextId = 100
+var gMonsters = createMonsters()
+
+console.log('gMonsters', gMonsters);
+// console.log('get by id', getMonsterById(101));
+updateMonster(101, 9000);
+console.log('updated monsters', gMonsters);
+console.log('most powerful monster', findMostPowerfulSort(gMonsters));
+console.log('breeded monster', breedMonsters(101, 102));
+removeMonster(103);
+console.log('gMonsters after remove', gMonsters);
 
 function createMonsters() {
-  return Array(4).fill().map((_, i) => createMonster('Monster' + (i + 1)));
+    var monsters = []
+    for (var i = 0; i < 4; i++) {
+        var monster = createMonster(getRandomStr())
+        // var monster = createMonster(prompt('monster name: '))
+
+        monsters.push(monster)
+    }
+    return monsters
+}
+
+function createMonster(name = 'monster', power = 100) {
+    return {
+        id: gNextId++,
+        name: name,
+        power: power
+    }
 }
 
 function getMonsterById(id) {
-  return gMonsters.find(monster => monster.id === id);
+    for (var i = 0; i < gMonsters.length; i++) {
+        if (gMonsters[i].id === id) return gMonsters[i]
+    }
+    return null
 }
 
-function deleteMonster(id) {
-  const index = gMonsters.findIndex(monster => monster.id === id);
-  if (index !== -1) gMonsters.splice(index, 1);
+function removeMonster(id) {
+    for (var i = 0; i < gMonsters.length; i++) {
+        if (gMonsters[i].id === id) {
+            gMonsters.splice(i, 1)
+            break
+        }
+    }
 }
 
 function updateMonster(id, newPower) {
-  const monster = getMonsterById(id);
-  if (monster) monster.power = newPower;
+    var monster = getMonsterById(id)
+    if (monster) monster.power = newPower
+    return monster
 }
 
 function findMostPowerful(monsters) {
-  return monsters.reduce((max, monster) => 
-    monster.power > max.power ? monster : max
-  );
+    if (!monsters.length) return null
+    var mostPowerfulMonster = monsters[0]
+    for (var i = 1; i < monsters.length; i++) {
+        if (monsters[i].power > mostPowerfulMonster.power) {
+            mostPowerfulMonster = monsters[i]
+        }
+    }
+    return mostPowerfulMonster
+}
+
+//Another option O(N*log(N))
+function findMostPowerfulSort(monsters) {
+    if (!monsters.length) return null
+    monsters.sort(function (monster1, monster2) {
+        return monster2.power - monster1.power
+    })
+    return monsters[0]
 }
 
 function breedMonsters(monsterId1, monsterId2) {
-  const m1 = getMonsterById(monsterId1);
-  const m2 = getMonsterById(monsterId2);
-  
-  if (!m1 || !m2) return null;
-  
-  const name = m1.name.slice(0, Math.floor(m1.name.length/2)) + 
-               m2.name.slice(Math.floor(m2.name.length/2));
-  const power = Math.floor((m1.power + m2.power) / 2);
-  
-  return createMonster(name, power);
+    var monster1 = getMonsterById(monsterId1)
+    var monster2 = getMonsterById(monsterId2)
+    var name = monster1.name.substring(0, Math.floor(monster1.name.length / 2)) +
+        monster2.name.substring(Math.floor(monster2.name.length / 2), monster2.name.length)
+    var power = (monster1.power + monster2.power) / 2
+    var breededMonster = createMonster(name, power)
+    return breededMonster
+}
+
+
+function getRandomStr() {
+    const LETTERS = 'abcdefghijklmnopqrstuvwxyz'
+    var str = '';
+    for (var i = 0; i < getRandomInteger(3, 5); i++) {
+        str += LETTERS.charAt(getRandomInteger(0, 23));
+    }
+    return str;
+}
+function getRandomInteger(min, max) {
+    return (Math.floor(Math.random() * (max - min + 1) + min));
 }`,
   },
   53: {
@@ -1170,34 +2241,154 @@ function breedMonsters(monsterId1, monsterId2) {
     <li>Write the function <span class="code">factorGrades(student)</span>.</li>
     <li>Write the function <span class="code">forEach(students, func)</span>.</li>
 </ol>`,
-    solution: `function createStudent(name) {
-  return {
-    name,
-    grades: []
-  };
+    solution: `
+var gNextId = 101
+var gStudents = createStudents()
+console.log('gStudents : ', gStudents)
+
+enterGrades(gStudents)
+// calcAvg(gStudents)
+
+var worstStudent = findWorstStudent(gStudents)
+console.log('worstStudent : ', worstStudent)
+
+worstStudent = findWorstStudent2(gStudents) // Using forEach()...
+console.log('worstStudent : ', worstStudent)
+
+// The sort challenge was removed from this exercise...
+
+// sortStudentsByGrade(gStudents)
+// console.log('After sort gStudents : ', gStudents)
+
+function createStudents() {
+	var students = []
+	// var studentName = prompt('Enter student name. type quit to exit')
+	// while (studentName !== 'quit') {
+	// var student = createStudent(studentName)
+	students.push(createStudent('tal'), createStudent('tal'), createStudent('tal'))
+	// studentName = prompt('Enter student name. type quit to exit')
+	// }
+	return students
 }
 
-function calcAverageGrade(student) {
-  return student.grades.reduce((sum, grade) => sum + grade, 0) / student.grades.length;
+function createStudent(name) {
+	var student = {
+		id: gNextId++,
+		name: name,
+	}
+	return student
 }
+
+function enterGrades(students) {
+	for (var i = 0; i < students.length; i++) {
+		var currStudent = students[i]
+		currStudent.grades = [20, 20, 20] || readGrades(currStudent.name)
+		calcAvg(currStudent)
+	}
+}
+
+function readGrades(studentName) {
+	var grades = []
+	for (var i = 0; i < 3; i++) {
+		var grade = +prompt('Enter a grade for ' + studentName)
+		grades.push(grade)
+	}
+	return grades
+}
+
+function calcAvg(student) {
+	var sum = 0
+	var gradesLength = student.grades.length
+	for (var i = 0; i < gradesLength; i++) {
+		sum += student.grades[i]
+	}
+	student.avg = sum / gradesLength
+}
+
+// function calcAvg(students) {
+// 	for (var i = 0; i < students.length; i++) {
+// 		var currStudent = students[i]
+// 		var sum = 0
+// 		var gradesLength = currStudent.grades.length
+// 		for (var j = 0; j < gradesLength; j++) {
+// 			sum += currStudent.grades[j]
+// 		}
+// 		currStudent.avg = sum / gradesLength
+// 	}
+// }
 
 function findWorstStudent(students) {
-  return students.reduce((worst, student) => {
-    const worstAvg = calcAverageGrade(worst);
-    const studentAvg = calcAverageGrade(student);
-    return studentAvg < worstAvg ? student : worst;
-  });
+	var worstStudent = null
+
+	for (var i = 0; i < students.length; i++) {
+		var currStudent = students[i]
+		if (!worstStudent || currStudent.avg < worstStudent.avg) {
+			worstStudent = currStudent
+		}
+	}
+	return worstStudent
 }
 
+// The sort challenge was removed from this exercise...
+
+// function sortStudentsByGrade(students) {
+//   students.sort((s1, s2) => {
+//     return s2.avg - s1.avg
+//   })
+// }
+
+// function sortStudentsByName(students) {
+//   students.sort(function (s1, s2) {
+//     if (s1.name.toLowerCase() > s2.name.toLowerCase()) return 1
+//     if (s2.name.toLowerCase() > s1.name.toLowerCase()) return -1
+//     return 0
+//   })
+// }
+
+// New version from CaJan23
+
+/*
+// Exercise 53 - Students
+// Create a students array – use the same algorithm as before and name it createStudents().
+// Read a student name from the user until ‘quit’ is entered. Populate the students array with student objects.
+// Read 3 grades for each student (each student should have a grades array).
+// Write the function calcAvergaeGrade(student).
+// Write the function factorGrades(student), which adds 5% to all of the student’s grades.
+// Write the function findWorstStudent(students).
+// Write the function forEach(students, func), which receives an array of student objects and a pointer to a function. It loops through the array and invokes the function, passing it the current element of the array on each iteration.
+// Use forEach() to invoke factorGrades(student) on all students in the array.
+// Find a way to imlement findWorstStudent(students) using forEach().
+*/
+
 function factorGrades(student) {
-  student.grades = student.grades.map(grade => grade * 1.05);
+	for (var i = 0; i < student.grades.length; i++) {
+		student.grades[i] *= 1.05
+	}
+	if (student.avg) calcAvg(student)
 }
 
 function forEach(students, func) {
-  for (let student of students) {
-    func(student);
-  }
-}`,
+	for (var i = 0; i < students.length; i++) {
+		func(students[i])
+	}
+}
+console.table(gStudents)
+forEach(gStudents, factorGrades)
+console.table(gStudents)
+
+function findWorstStudent2(students) {
+	var gMinAvg = Infinity
+	var worstStudent = null
+
+	forEach(students, (student) => {
+		if (student.avg < gMinAvg) {
+			gMinAvg = student.avg
+			worstStudent = student
+		}
+	})
+	return worstStudent
+}
+`,
   },
   54: {
     name: "54.js",
@@ -1209,48 +2400,111 @@ function forEach(students, func) {
     <li>Create an array of 2 flights.</li>
     <li>Write the functions:</li>
 </ol>`,
-    solution: `function createPlane(model, seatCount) {
-  return {
-    model,
-    seatCount
-  };
-}
+    solution: `
+var gPassengers = []
+createPassengers()
 
-function createPassenger(fullName) {
-  return {
-    id: Math.floor(Math.random() * 9000000) + 1000000,
-    fullName,
-    flights: []
-  };
-}
+var gPlanes = [createPlane('707', 5), createPlane('DC10', 3)]
 
-function createFlight(date, departure, destination, plane) {
-  return {
-    date,
-    departure,
-    destination,
-    plane,
-    passengers: []
-  };
-}
+var gFlights = [
+  createFlight('Israel', 'CosteRica', gPlanes[0]),
+  createFlight('Israel', 'SriLanka', gPlanes[1]),
+]
+
+
+console.log('Booking flights...')
+bookFlight(gFlights[1], gPassengers[3])
+bookFlight(gFlights[1], gPassengers[0])
+bookFlight(gFlights[0], gPassengers[3])
+bookFlight(gFlights[1], gPassengers[2])
+bookFlight(gFlights[1], gPassengers[4])
+bookFlight(gFlights[0], gPassengers[2])
+bookFlight(gFlights[0], gPassengers[4])
+bookFlight(gFlights[0], gPassengers[0])
+bookFlight(gFlights[0], gPassengers[1])
+
+var frequentFlyers = getFrequentFlyers()
+
+console.log('Passengers:', gPassengers)
+console.log('Flights:', gFlights)
+console.log('the frequent flyers are:', frequentFlyers)
 
 function bookFlight(flight, passenger) {
-  if (flight.passengers.length < flight.plane.seatCount) {
-    flight.passengers.push(passenger);
-    passenger.flights.push(flight);
-    return true;
+  if (isFullyBooked(flight)) {
+    console.log('Sorry', passenger.fullname, 'this flight is fully booked.')
+    return
   }
-  return false;
+  passenger.flights.push(flight)
+  flight.passengers.push(passenger)
+  console.log('Flight successfully booked!')
 }
 
 function getFrequentFlyers() {
-  const maxFlights = Math.max(...gPassengers.map(p => p.flights.length));
-  return gPassengers.filter(p => p.flights.length === maxFlights);
+  var max = 0
+  var frequentFlyers = [] // Required in case array is zero length
+
+  for (var i = 0; i < gPassengers.length; i++) {
+    var currPassenger = gPassengers[i]
+    var flightCount = currPassenger.flights.length
+
+    if (flightCount > max) {
+      frequentFlyers = [currPassenger]
+      max = flightCount
+    } else if (flightCount === max) {
+      frequentFlyers.push(currPassenger)
+    }
+  }
+  return frequentFlyers
 }
 
+// Helper functions
 function isFullyBooked(flight) {
-  return flight.passengers.length === flight.plane.seatCount;
-}`,
+  return flight.passengers.length >= flight.plane.seatCount
+}
+
+function createPlane(model, seatCount) {
+  return {
+    model: model,
+    seatCount: seatCount,
+  }
+}
+
+function createPassenger(fullname) {
+  return {
+    id: makeId(7),
+    fullname: fullname,
+    flights: [],
+  }
+}
+
+function createFlight(departure, detination, plane) {
+  return {
+    date: 0,
+    departure: departure,
+    detination: detination,
+    plane: plane,
+    passengers: [],
+  }
+}
+
+function createPassengers() {
+  var names = ['Muki', 'Shuki', 'Puki', 'Lala', 'Baba']
+
+  for (var i = 0; i < names.length; i++) {
+    gPassengers.push(createPassenger(names[i]))
+  }
+}
+
+function makeId(length) {
+  var text = ''
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+  for (var i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length))
+  }
+  return text
+}
+`,
   },
   55: {
     name: "55.js",
@@ -1263,33 +2517,8 @@ function isFullyBooked(flight) {
     <li><span class="code">findAvg(mat)</span></li>
     <li><span class="code">sumArea(mat, rowIdxStart, rowIdxEnd, colIdxStart, colIdxEnd)</span></li>
 </ol>`,
-    solution: `function sumCol(mat, colIdx) {
-  return mat.reduce((sum, row) => sum + row[colIdx], 0);
-}
-
-function sumRow(mat, rowIdx) {
-  return mat[rowIdx].reduce((sum, num) => sum + num, 0);
-}
-
-function findMax(mat, colIdx) {
-  return Math.max(...mat.map(row => row[colIdx]));
-}
-
-function findAvg(mat) {
-  const sum = mat.reduce((sum, row) => 
-    sum + row.reduce((rowSum, num) => rowSum + num, 0), 0);
-  return sum / (mat.length * mat[0].length);
-}
-
-function sumArea(mat, rowStart, rowEnd, colStart, colEnd) {
-  let sum = 0;
-  for (let i = rowStart; i <= rowEnd; i++) {
-    for (let j = colStart; j <= colEnd; j++) {
-      sum += mat[i][j];
-    }
-  }
-  return sum;
-}`,
+    solution: `}
+`,
   },
   56: {
     name: "56.js",
@@ -1297,14 +2526,43 @@ function sumArea(mat, rowStart, rowEnd, colStart, colEnd) {
     content: `<p>A symmetric matrix is a matrix that passes this boolean condition: </p>
 <pre class="code">mat[i][j] === mat[j][i]</pre>
 <p>Write the function <span class="code">checkIfSymmetric(mat)</span>.</p>`,
-    solution: `function checkIfSymmetric(mat) {
-  for (let i = 0; i < mat.length; i++) {
-    for (let j = 0; j < mat[i].length; j++) {
-      if (mat[i][j] !== mat[j][i]) return false;
+    solution: `
+var symmetricMat = [
+  [1, 2, 3],
+  [2, 0, 2],
+  [3, 2, 8],
+]
+
+
+
+var asymmetricMat = [
+  [2, 0, 0, 0, 0],
+  [0, 5, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0],
+]
+
+console.log('INPUT:')
+console.table(symmetricMat)
+console.log('EXPECTED: true')
+console.log('ACTUAL:', checkIfSymmetric(symmetricMat))
+console.log('INPUT:')
+console.table(asymmetricMat)
+console.log('EXPECTED: false')
+console.log('ACTUAL:', checkIfSymmetric(asymmetricMat))
+
+function checkIfSymmetric(mat) {
+  for (var i = 0; i < mat.length - 1; i++) {
+    for (var j = i + 1; j < mat[0].length; j++) {
+      if (mat[i][j] !== mat[j][i]) return false
+      console.log(mat[i][j]);
     }
   }
-  return true;
-}`,
+  return true
+}
+
+`,
   },
   57: {
     name: "57.js",
@@ -1314,27 +2572,80 @@ function sumArea(mat, rowStart, rowEnd, colStart, colEnd) {
     <li>Write the function <span class="code">findMode(mat)</span>. The function prints the number which appears most frequently in a matrix.</li>
     <li>BONUS: If there are ties, e.g. both 47 and 53 appeared 17 times, print both of them, or all of them.</li>
 </ol>`,
-    solution: `function findMode(mat) {
-  const count = {};
-  
-  // Count occurrences
-  for (let i = 0; i < mat.length; i++) {
-    for (let j = 0; j < mat[i].length; j++) {
-      count[mat[i][j]] = (count[mat[i][j]] || 0) + 1;
+    solution: `
+var mat = [
+  [4, 5, 2, 0],
+  [5, 1, 2, 4],
+  [3, 0, 9, 4],
+  [5, 6, 8, 1],
+]
+
+//{4:3,5:3} -->key:the num in the matrix, value - times appear
+console.log('INPUT:')
+console.table(mat)
+console.log('EXPECTED: The numbers: 4, 5 appeared 3 times')
+console.log('ACTUAL:')
+findMode(mat)
+
+function findMode(mat) {
+  var itemCountMap = {}
+  //mat.length height - num of arrays inside
+  //mat[0].length width - num of cols in a row , row length
+  for (var i = 0; i < mat.length; i++) {
+    for (var j = 0; j < mat[0].length; j++) {
+      var item = mat[i][j]
+      if (!itemCountMap[item]) itemCountMap[item] = 0
+      itemCountMap[item]++
     }
   }
-  
-  // Find max count
-  const maxCount = Math.max(...Object.values(count));
-  
-  // Find all numbers with max count
-  const modes = Object.entries(count)
-    .filter(([_, count]) => count === maxCount)
-    .map(([num, _]) => Number(num));
-  
-  console.log('Mode(s):', modes);
-  return modes;
-}`,
+  console.log('itemCountMap', itemCountMap)
+  //No Bonus
+  // var mostFrequentItem
+  // var max = 0
+
+  // for (var item in itemCountMap) {
+  //   if (itemCountMap[item] > max) {
+  //     max = itemCountMap[item]
+  //     mostFrequentItem = item
+  //   }
+  // }
+  // console.log('The number: ' + mostFrequentItem + ' appeared ' + max + ' times')
+
+  //   BONUS
+  var mostFrequentItems = []
+  var max = 0
+
+  for (var item in itemCountMap) {
+    if (itemCountMap[item] > max) {
+      max = itemCountMap[item]
+      mostFrequentItems = [item]
+    } else if (itemCountMap[item] === max) {
+      mostFrequentItems.push(item)
+    }
+  }
+
+  console.log('The numbers: ' + mostFrequentItems.join(', ') + ' appeared ' + max + ' times')
+}
+
+//shani solution Bonus
+// function findModes(mat) {
+//   var countMap = {}
+//   var modes = []
+//   var mode = -Infinity
+//   for (var i = 0; i < mat.length; i++) {
+//     for (var j = 0; j < mat[0].length; j++) {
+//       var num = mat[i][j]
+//       countMap[num] = countMap[num] + 1 || 1
+//       if (countMap[num] > mode) {
+//         modes = [num]
+//         mode = countMap[num]
+//       } else if (countMap[num] === mode) modes.push(num)
+//     }
+//   }
+//   console.log('countMap', countMap)
+//   console.log('The modes are', modes)
+// }
+`,
   },
   58: {
     name: "58.js",
@@ -1344,107 +2655,297 @@ function sumArea(mat, rowStart, rowEnd, colStart, colEnd) {
     <li>It must be a square.</li>
     <li>The sums of the rows, columns, and the two diagonals should all be equal.</li>
 </ol>`,
-    solution: `function isMagicSquare(mat) {
-  // Check if square
-  if (mat.length !== mat[0].length) return false;
-  
-  const n = mat.length;
-  const sum = sumRow(mat, 0);
-  
-  // Check rows
-  for (let i = 1; i < n; i++) {
-    if (sumRow(mat, i) !== sum) return false;
-  }
-  
-  // Check columns
-  for (let j = 0; j < n; j++) {
-    if (sumCol(mat, j) !== sum) return false;
-  }
-  
-  // Check main diagonal
-  let diagonalSum = 0;
-  for (let i = 0; i < n; i++) {
-    diagonalSum += mat[i][i];
-  }
-  if (diagonalSum !== sum) return false;
-  
-  // Check secondary diagonal
-  diagonalSum = 0;
-  for (let i = 0; i < n; i++) {
-    diagonalSum += mat[i][n-1-i];
-  }
-  if (diagonalSum !== sum) return false;
-  
-  return true;
-}`,
+    solution: `
+console.log('58 - is magic square? ')
+const mat1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+const mat2 = [
+    [2, 7, 6],
+    [9, 5, 1],
+    [4, 3, 8],
+]
+
+const res1 = isMagicSquare(mat1)
+console.log('INPUT: ', mat1)
+console.log('EXPECTED:', false)
+console.log('ACTUAL:', res1)
+console.table(mat1);
+
+const res2 = isMagicSquare(mat2)
+console.log('INPUT: ', mat2)
+console.log('EXPECTED:', true)
+console.log('ACTUAL:', res2)
+console.table(mat2);
+
+
+function isMagicSquare(mat) {
+    if (!isSquare(mat)) return false
+    var sumMainD = getSumPrDiagonal(mat)
+    var sumSecD = getSumSecDiagonal(mat)
+    if (sumMainD !== sumSecD) return false
+    for (var i = 0; i < mat.length; i++) {
+        if (getSumRow(mat, i) !== sumSecD) return false
+        if (getSumCol(mat, i) !== sumSecD) return false
+    }
+    return true
+}
+
+function isSquare(mat) {
+    for (var i = 0; i < mat.length; i++) {
+        if (mat.length !== mat[i].length) return false
+    }
+    return true
+}
+
+function getSumRow(mat, rowIdx) {
+    var sum = 0
+    for (var i = 0; i < mat.length; i++) {
+        sum += mat[rowIdx][i]
+    }
+    return sum
+}
+
+function getSumCol(mat, colIdx) {
+    var sum = 0
+    for (var i = 0; i < mat.length; i++) {
+        sum += mat[i][colIdx]
+    }
+    return sum
+}
+
+function getSumPrDiagonal(mat) {
+    var sum = 0
+    for (var i = 0; i < mat.length; i++) {
+        sum += mat[i][i]
+    }
+    return sum
+}
+
+function getSumSecDiagonal(mat) {
+    var sum = 0
+    for (var i = 0; i < mat.length; i++) {
+        sum += mat[i][mat[i].length - 1 - i]
+    }
+    return sum
+}
+`,
   },
   59: {
     name: "59.js",
     title: "BINGO",
     content: `<p>Your challenge is to implement the famous game of BINGO. In this version of the game, there are two players. Numbers are drawn at random, and each player marks the number if it appears in his board. The first player to mark all the numbers on his board, wins.</p>`,
-    solution: `function createBingoBoard() {
-  const board = [];
-  for (let i = 0; i < 5; i++) {
-    board[i] = [];
-    for (let j = 0; j < 5; j++) {
-      board[i][j] = {
-        value: i * 5 + j + 1,
-        isHit: false
-      };
+    solution: `
+// initialize nums array to get numbers from:
+const NUMS_LENGTH = 100
+var gNums
+var gPlayers = [
+  {
+    name: 'miki',
+    hitCounts: 0,
+    board: createBingoBoard(),
+    accomplishments: [],
+  },
+  {
+    name: 'shuki',
+    hitCounts: 0,
+    board: createBingoBoard(),
+    accomplishments: [],
+  },
+]
+var gPlayInterval
+
+// playBingo()
+
+// Interval for the game :
+function playBingo() {
+  resetNums()
+  gPlayInterval = setInterval(playTurn, 1000)
+}
+//a. create board function : initialize the board for each user
+
+function createBingoBoard(rowLength = 5) {
+  // nums array for creating the board:
+  resetNums() // put in gNums nums between 1-99
+  //start to build the board:
+  var board = []
+  for (var i = 0; i < rowLength; i++) {
+    board.push([])
+    for (var j = 0; j < rowLength; j++) {
+      //option 1:
+      // adding random index from nums that points to a specific value that didn't got yet
+      //   var randomIdx = getRandomInt(0, gNums.length - 1)
+      //   board[i].push({ value: gNums[randomIdx], isHit: false })
+      //   // removing the number from gNums to assure it won't pick again
+      //   gNums.splice(randomIdx, 1)
+
+      // option 2: After they actualized the drawNum function :
+      board[i].push({ value: drawNum(), isHit: false })
+      // board[i][j] = { value: drawNum(), isHit: false };
     }
   }
-  return board;
+  console.log('board objects', board)
+  printBoard(board)
+  resetNums()
+  return board
 }
 
-function printBingoBoard(board) {
-  return board.map(row => 
-    row.map(cell => cell.isHit ? cell.value + 'v' : cell.value)
-      .join('\t')
-  ).join('\\n');
-}
+// b. print board function: priniting the board values to the console
 
-function markBoard(player, calledNum) {
-  for (let i = 0; i < player.board.length; i++) {
-    for (let j = 0; j < player.board[i].length; j++) {
-      if (player.board[i][j].value === calledNum && !player.board[i][j].isHit) {
-        player.board[i][j].isHit = true;
-        player.hitCount++;
-        return true;
-      }
+function printBoard(board) {
+  var boardNums = []
+  for (var i = 0; i < board.length; i++) {
+    boardNums.push([])
+    for (var j = 0; j < board[i].length; j++) {
+      boardNums[i].push(board[i][j].value)
+      if (board[i][j].isHit) boardNums[i][j] += 'v'
     }
   }
-  return false;
+
+  console.table(boardNums)
 }
 
-function checkBingo(player) {
-  return player.hitCount === 25;
+//c. play bingo function : the main function - works until one of the player wins. using an playInterval or while loop .
+function playTurn() {
+  var isVictory = false
+  var calledNum = drawNum()
+  // while (!isVictory){ // before using interval
+  // console.clear()
+  for (var i = 0; !isVictory && i < gPlayers.length; i++) {
+    var player = gPlayers[i]
+    markBoard(player, calledNum)
+    isVictory = checkBingo(player)
+    if (isVictory) {
+      console.log('Victory!', player)
+      greetPlayer(player, 'all the board!')
+      clearInterval(gPlayInterval)
+      // console.log('player1', gPlayers[0].board);
+      // console.log('player2', gPlayers[1].board);
+      // break
+    }
+    //}
+  }
 }
+
+// b.i.1 draw num function: returns random number from the global array without duplications
 
 function drawNum() {
-  const idx = Math.floor(Math.random() * gNums.length);
-  return gNums.splice(idx, 1)[0];
+  // option 1: numbers can be duplicated:
+  // return getRandomInt(0, NUMS_LENGTH)
+
+  // option 2: numbers cannot be duplicated:
+  var randomIdx = getRandomInt(0, gNums.length - 1)
+  var num = gNums.splice(randomIdx, 1)
+  return num[0]
 }
 
-function playBingo() {
-  resetNums();
-  let gameInterval = setInterval(playTurn, 1000);
-  
-  function playTurn() {
-    const calledNum = drawNum();
-    console.log('Called number:', calledNum);
-    
-    for (let player of gPlayers) {
-      if (markBoard(player, calledNum)) {
-        console.log(printBingoBoard(player.board));
-        if (checkBingo(player)) {
-          clearInterval(gameInterval);
-          console.log(player.name + ' wins!');
-          return;
-        }
+// d. markBoard function : mark a specific cell if the player have the same value on his board
+// and then call to printBoard in order to show the changes
+function markBoard(player, calledNum) {
+  var { board } = player
+  for (var i = 0; i < board.length; i++) {
+    for (var j = 0; j < board[i].length; j++) {
+      // check if there is a match between cell and calledNum :
+      var currCell = board[i][j]
+      //option 1: if numbers can be duplicated:
+      //   if (calledNum === currCell.value && !currCell.isHit) {
+      //     currCell.isHit = true
+      //     hitCounts++
+      //   }
+
+      //option 2: if there is a global array - numbers cannot be duplicated
+      if (calledNum === currCell.value) {
+        console.log(calledNum === currCell.value)
+        currCell.isHit = true
+        player.hitCounts++
+        break
       }
     }
+    //print the board:
+    printBoard(board)
   }
-}`,
+}
+
+//e. checkBingo function : check whether the player finished parts of the board and returns boolan wheather he finished all of it
+
+function checkBingo(player) {
+  // without board checking:
+  // return player.hitCounts === NUMS_LENGTH
+
+  // with board checking :
+  var { board } = player
+  if (!player.accomplishments.includes('mainD') && checkMainDiagonal(board)) {
+    greetPlayer(player, 'Main diagonal copmpleted!')
+    player.accomplishments.push('mainD')
+  }
+  if (!player.accomplishments.includes('secD') && checkSecDiagonal(board)) {
+    greetPlayer(player, 'Secondary diagonal copmpleted!')
+    player.accomplishments.push('secD')
+  }
+  for (var i = 0; i < board.length; i++) {
+    if (!player.accomplishments.includes('row' + i) && checkRow(board, i)) {
+      greetPlayer(player, ' row- ' + i + ' copmpleted!')
+      player.accomplishments.push('row' + i)
+    }
+    if (!player.accomplishments.includes('col' + i) && checkCol(board, i)) {
+      greetPlayer(player, ' col- ' + i + ' copmpleted!')
+      player.accomplishments.push('col' + i)
+    }
+  }
+  return player.hitCounts === 25
+}
+
+// h.3 greet player function : greet the player with the given accomplishment
+function greetPlayer(player, accomplishment) {
+  console.log(player.name + ' has completed the ' + accomplishment)
+}
+
+// e.2: resetNums function : initializing the global array gNums
+function resetNums() {
+  //initialize nums from 1 - 100:
+  gNums = []
+  for (var i = 1; i <= NUMS_LENGTH; i++) {
+    gNums.push(i)
+  }
+}
+
+// helper functions :
+function checkRow(board, rowIdx) {
+  for (let i = 0; i < board.length; i++) {
+    if (!board[rowIdx][i].isHit) return false
+  }
+  return true
+}
+
+function checkCol(board, colIdx) {
+  for (let i = 0; i < board.length; i++) {
+    if (!board[i][colIdx].isHit) return false
+  }
+  return true
+}
+
+function checkMainDiagonal(board) {
+  for (let i = 0; i < board.length; i++) {
+    if (!board[i][i].isHit) return false
+  }
+  return true
+}
+
+function checkSecDiagonal(board) {
+  for (let i = 0; i < board.length; i++) {
+    if (!board[i][board[i].length - 1 - i].isHit) return false
+  }
+  return true
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+`,
   },
   60: {
     name: "60.js",
@@ -1456,45 +2957,98 @@ function playBingo() {
     <li>if a cell has 3 – 5 occupied neighboring cells, it will have a creature in it in the next generation – either a newborn creature or the creature which previously occupied it.</li>
     <li>if a creature has 6 – 8 occupied neighboring creatures, it will suffocate and die, and the cell which it occupies will become vacant in the next generation.</li>
 </ol>`,
-    solution: `function countNeighbors(board, row, col) {
-  let count = 0;
-  for (let i = -1; i <= 1; i++) {
-    for (let j = -1; j <= 1; j++) {
-      if (i === 0 && j === 0) continue;
-      const newRow = row + i;
-      const newCol = col + j;
-      if (newRow >= 0 && newRow < board.length && 
-          newCol >= 0 && newCol < board[0].length && 
-          board[newRow][newCol] === '*') {
-        count++;
-      }
-    }
-  }
-  return count;
+    solution: `
+// const TABLE_LENGTH = 10
+const EMPTY = ''
+const LIFE = '👼🏼'
+const MAXGEN = 10
+
+var gBoard = []
+var gGenCnt = 2
+
+// var gBoard = []
+console.clear()
+// var gGenCnt = 2
+makeFirstBoard()
+var interID = setInterval(play, 1000)
+setTimeout(() => clearInterval(interID), 8000)
+
+function renderBoard(gBoard) {
+    // console.clear()
+    console.table(gBoard)
 }
 
-function runGeneration(board) {
-  const newBoard = board.map(row => [...row]);
-  
-  for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board[i].length; j++) {
-      const neighbors = countNeighbors(board, i, j);
-      const isAlive = board[i][j] === '*';
-      
-      if (isAlive) {
-        if (neighbors <= 2 || neighbors >= 6) newBoard[i][j] = ' ';
-      } else {
-        if (neighbors >= 3 && neighbors <= 5) newBoard[i][j] = '*';
-      }
+function makeFirstBoard() {
+    var rowNum = +prompt('Enter number of rows')
+    var colNum = +prompt('Enter number of columns')
+    for (var i = 0; i < rowNum; i++) {
+        gBoard[i] = []
+        for (var j = 0; j < colNum; j++) {
+            if (Math.random() > 0.7) gBoard[i][j] = LIFE
+            else gBoard[i][j] = EMPTY
+        }
     }
-  }
-  
-  return newBoard;
+    console.log('FIRST GENERATION')
+    renderBoard(gBoard)
 }
 
-function renderBoard(board) {
-  console.clear();
-  console.log(board.map(row => row.join('')).join('\\n'));
-}`,
+function runGeneration() {
+    var nextGen = gBoard.slice()
+    for (var i = 0; i < gBoard.length; i++) {
+        var row = gBoard[i]
+        for (var j = 0; j < row.length; j++) {
+            var cell = row[j]
+            var neighborNum = getNeighbors(i, j)
+            if (cell === LIFE) {
+                if (neighborNum <= 2) nextGen[i][j] = EMPTY
+                else if (neighborNum >= 6) nextGen[i][j] = EMPTY
+            } else {
+                if (neighborNum >= 3 && neighborNum <= 5) nextGen[i][j] = LIFE
+            }
+        }
+    }
+    return nextGen
+}
+
+function getNeighbors(rowId, colId) {
+    var neighborCnt = 0
+    for (var i = rowId - 1; i <= rowId + 1; i++) {
+        // if i is out of bounderies - go to the next i
+        if (i < 0 || i > gBoard.length - 1) continue //continue to the next i
+
+        for (var j = colId - 1; j <= colId + 1; j++) {
+            // if j is out of bounderies - go to the next j:
+            if (j < 0 || j > gBoard[0].length - 1) continue // continue to the next j.
+
+            if (i === rowId && j === colId) continue
+
+            if (gBoard[i][j] === LIFE) neighborCnt++
+        }
+    }
+    return neighborCnt
+}
+
+function isOver() {
+    for (var i = 0; i < gBoard.length; i++) {
+        const row = gBoard[i]
+        for (var j = 0; j < gBoard[0].length; j++) {
+            const col = gBoard[i][j]
+            if (col === LIFE) return false
+        }
+    }
+    return true
+}
+
+function play() {
+    console.log('GENERATION  ', gGenCnt)
+    gBoard = runGeneration()
+    renderBoard(gBoard)
+    if (isOver()) {
+        console.log('LIFE IS GONE ! !')
+        clearInterval(interID)
+    }
+    gGenCnt++
+}
+`,
   },
 };
