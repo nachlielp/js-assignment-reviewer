@@ -142,6 +142,10 @@ const App: React.FC = () => {
                   tasks[filteredAssignments[currentAssignmentIndex].number]
                     .solution
                 }
+                taskName={
+                  tasks[filteredAssignments[currentAssignmentIndex].number].name
+                }
+                studentName={selectedStudent}
               />
               <Comments />
             </div>

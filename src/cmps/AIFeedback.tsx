@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { aiService } from "../services/aiService";
 import "../styles/ai-feedback.css";
+import { FEEDBACK_STORAGE_KEY } from "../services/utils";
+import { Spin } from "antd";
+
 interface AIFeedbackProps {
   code: string;
   taskContent: string;
   taskSolution: string;
   guidelines?: string;
+  studentName: string;
+  taskName: string;
 }
 
 const AIFeedback: React.FC<AIFeedbackProps> = ({
@@ -13,15 +18,49 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
   taskContent,
   taskSolution,
   guidelines,
+  studentName,
+  taskName,
 }) => {
   const [feedback, setFeedback] = useState<{
     works: boolean;
     explanation: string;
   } | null>(null);
   const [isLoadingFeedback, setIsLoadingFeedback] = useState<boolean>(false);
+  const autoGenEnabled = localStorage.getItem("autoGenEnabled") === "true";
+
+  useEffect(() => {
+    setFeedback(null);
+
+    // Check for existing feedback
+    const storedFeedback = localStorage.getItem(FEEDBACK_STORAGE_KEY);
+    if (storedFeedback) {
+      const feedbackMap = JSON.parse(storedFeedback);
+      // Create a unique key for this assignment
+      const feedbackKey = `${taskName}_${studentName}`;
+      if (feedbackMap[feedbackKey]) {
+        setFeedback(feedbackMap[feedbackKey]);
+      } else if (autoGenEnabled) {
+        console.log("autoGenEnabled");
+        setIsLoadingFeedback(true);
+        getFeedback();
+      }
+    }
+  }, [taskName]);
 
   const getFeedback = async () => {
+    console.log("getFeedback");
     setIsLoadingFeedback(true);
+
+    const storedFeedback = localStorage.getItem(FEEDBACK_STORAGE_KEY);
+    const feedbackMap = storedFeedback ? JSON.parse(storedFeedback) : {};
+    const feedbackKey = `${taskName}_${studentName}`;
+
+    if (feedbackMap[feedbackKey]) {
+      setFeedback(feedbackMap[feedbackKey]);
+      setIsLoadingFeedback(false);
+      return;
+    }
+
     try {
       const feedback = await aiService.getAssignmentFeedback(
         code,
@@ -30,6 +69,10 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
         guidelines || ""
       );
       setFeedback(feedback);
+      feedbackMap[feedbackKey] = feedback;
+      localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbackMap));
+
+      // Save feedback to localStorage
     } catch (error) {
       console.error("Error getting feedback:", error);
     } finally {
@@ -39,27 +82,41 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
 
   return (
     <div className="section ai-feedback-section">
-      <button
-        onClick={getFeedback}
-        disabled={isLoadingFeedback}
-        className="js-playground-feedback-btn"
-      >
-        {isLoadingFeedback ? "Getting Feedback..." : "Get AI Feedback"}
-      </button>
+      {!autoGenEnabled && (
+        <button
+          onClick={getFeedback}
+          disabled={isLoadingFeedback}
+          className="js-playground-feedback-btn"
+        >
+          {isLoadingFeedback ? "Getting Feedback..." : "Get AI Feedback"}
+        </button>
+      )}
+
+      {isLoadingFeedback && (
+        <div className={`feedback-loading`}>
+          <Spin size="large" />
+        </div>
+      )}
 
       {feedback && (
         <div className="feedback-content">
-          <h3>AI Feedback</h3>
-          <div>
-            <div
-              className={`feedback-status ${
-                feedback.works ? "success" : "error"
-              }`}
-            >
-              {feedback.works ? "Works" : "Does not work"}
-            </div>
-            <br />
-            {feedback.explanation}
+          <div className="feedback-content-inner">
+            {isLoadingFeedback ? (
+              <></>
+            ) : (
+              <>
+                <h3>AI Feedback</h3>
+                <div
+                  className={`feedback-status ${
+                    feedback.works ? "success" : "error"
+                  }`}
+                >
+                  {feedback.works ? "Works" : "Does not work"}
+                </div>
+                <br />
+                {feedback.explanation}
+              </>
+            )}
           </div>
         </div>
       )}

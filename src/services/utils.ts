@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { Assignment, StudentAssignments } from "../interface";
 
 export const STUDENT_DATA_KEY = "STUDENT_DATA";
+export const FEEDBACK_STORAGE_KEY = "assignment_feedback";
 export const utilService = {
   saveToLocalStorage,
   getFromLocalStorage,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Input, Form } from "antd";
+import { Button, Modal, Input, Form, Switch } from "antd";
 import { SettingOutlined } from "@ant-design/icons";
 
 export function Settings() {
@@ -10,9 +10,11 @@ export function Settings() {
     // Load initial values from localStorage
     const geminiKey = localStorage.getItem("geminiApiKey") || "";
     const hebrewName = localStorage.getItem("hebrewUserName") || "";
+    const autoGen = localStorage.getItem("autoGenEnabled") === "true";
     form.setFieldsValue({
       geminiApiKey: geminiKey,
       hebrewUserName: hebrewName,
+      autoGenEnabled: autoGen,
     });
   }, [form]);
 
@@ -25,6 +27,7 @@ export function Settings() {
       // Save to localStorage
       localStorage.setItem("geminiApiKey", values.geminiApiKey);
       localStorage.setItem("hebrewUserName", values.hebrewUserName);
+      localStorage.setItem("autoGenEnabled", values.autoGenEnabled.toString());
       setIsModalOpen(false);
     });
   };
@@ -44,10 +47,23 @@ export function Settings() {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Form form={form} layout="vertical">
+        <Form form={form} layout="vertical" dir="rtl">
           <Form.Item
             label="Gemini API Key"
             name="geminiApiKey"
+            style={{ textAlign: "right" }}
+            extra={
+              <span>
+                Get your API key from{" "}
+                <a
+                  href="https://aistudio.google.com/app/apikey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Google AI Studio
+                </a>
+              </span>
+            }
             rules={[
               { required: true, message: "Please input your Gemini API key!" },
             ]}
@@ -60,6 +76,13 @@ export function Settings() {
             rules={[{ required: true, message: "נא להזין שם משתמש!" }]}
           >
             <Input />
+          </Form.Item>
+          <Form.Item
+            label="Auto Generate Feedback"
+            name="autoGenEnabled"
+            valuePropName="checked"
+          >
+            <Switch />
           </Form.Item>
         </Form>
       </Modal>

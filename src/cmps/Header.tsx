@@ -1,9 +1,10 @@
-import { STUDENT_DATA_KEY } from "../services/utils";
+import { STUDENT_DATA_KEY, FEEDBACK_STORAGE_KEY } from "../services/utils";
 import { Settings } from "./Settings";
 
 export function Header({ isFilesUploaded }: { isFilesUploaded: boolean }) {
   const handleClearStorage = () => {
     localStorage.removeItem(STUDENT_DATA_KEY);
+    localStorage.removeItem(FEEDBACK_STORAGE_KEY);
     window.location.reload();
   };
 
