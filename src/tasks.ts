@@ -12,83 +12,262 @@ export const tasks: Tasks = {
   1: {
     name: "01.js",
     title: "Welcome",
-    content: `<p>Use <span class="code">prompt()</span> to read a first name and a last name.</p>
-  <p>Declare the variable <span class="code">fullName</span>, and then welcome the user by his full name.</p>`,
-    solution: `function welcome() {
-    const firstName = prompt('Enter first name:');
-    const lastName = prompt('Enter last name:');
-    const fullName = firstName + ' ' + lastName;
-    alert('Welcome ' + fullName);
-  }`,
+    content: `
+    <p>Use <span class="code">prompt()</span> to read a first name and a last name.</p>
+    <p>Declare the variable <span class="code">fullName</span>, and then welcome the user by his full name.</p>
+    `,
+    solution: `
+    var firstName = prompt('Please enter your first name:')
+    var lastName = prompt('Please enter your last name:')
+    var fullName = firstName + ' ' + lastName
+    alert('Welcome ' + fullName)
+    `,
   },
   2: {
     name: "02.js",
     title: "Basic math operations",
     content: `<p>Read two numbers and use <span class="code">console.log()</span> to print the result of the following operations on them: <span class="code">( % , / , *)</span></p>`,
-    solution: `function basicMath() {
-    const num1 = Number(prompt('Enter first number:'));
-    const num2 = Number(prompt('Enter second number:'));
-    console.log('Remainder:', num1 % num2);
-    console.log('Division:', num1 / num2);
-    console.log('Multiplication:', num1 * num2);
-  }`,
+    solution: `
+    var num1 = +prompt('Please enter a number: ')
+    var num2 = +prompt('Please enter another number: ')
+    var moduloRes = num1 % num2
+    console.log(num1 + ' % ' + num2 + ' = ' + moduloRes)
+    var divisionRes = num1 / num2
+    console.log(num1 + ' / ' + num2 + ' = ' + divisionRes)
+    var multRes = num1 * num2
+    console.log(num1 + ' * ' + num2 + ' = ' + multRes)
+    `,
   },
   3: {
     name: "03.js",
     title: "Temperature Converter",
     content: `<p>Create a function that converts Celsius to Fahrenheit</p>`,
-    solution: `function celsiusToFahrenheit(celsius) {
-    return (celsius * 9/5) + 32;
-  }`,
+    solution: `
+    var celsius = +prompt('Please enter degrees in Celsius: ')
+    var fahrenheit = celsius * (9 / 5) + 32
+    console.log('Result: ' + celsius + ' Celsius degrees in Fahrenheit is ' + fahrenheit)
+    `,
   },
   4: {
     name: "04.js",
     title: "String Length",
     content: `<p>Write a function that returns the length of a string</p>`,
-    solution: `function getStringLength(str) {
-    return str.length;
-  }`,
+    solution: `
+    var distance = +prompt('Enter a distance (km):')
+    var speed = +prompt('Enter speed (km/h):')
+    var time = distance / speed
+    console.log('Result:')
+    console.log('For the distance: ' + distance + ' kilometers')
+    console.log('and the speed: ' + speed + ' km/h')
+    console.log('it will take ' + time + ' hours to get to the destination')
+    `,
   },
   5: {
     name: "05.js",
     title: "Array Sum",
     content: `<p>Create a function that sums all numbers in an array</p>`,
-    solution: `function sumArray(arr) {
-    return arr.reduce((sum, num) => sum + num, 0);
-  }`,
+    solution: `
+    var strDigit1 = prompt('Enter first digit')
+var strDigit2 = prompt('Enter second digit')
+var strDigit3 = prompt('Enter third digit')
+
+var strNum = strDigit1 + strDigit2 + strDigit3
+console.log('The full number is: ' + strNum)
+
+//BONUS:
+var digit1 = +prompt('Enter first digit')
+var digit2 = +prompt('Enter second digit')
+var digit3 = +prompt('Enter third digit')
+
+var num = digit1 * 100 + digit2 * 10 + digit3
+console.log('The full number is: ' + num)
+    `,
   },
   6: {
     name: "06.js",
     title: "Array Operations",
     content: `<p>Create a function that finds the maximum number in an array</p>`,
-    solution: `function findMax(arr) {
-  return Math.max(...arr);
-}`,
+    solution: `var a = +prompt('Enter variable a')
+var b = +prompt('Enter variable b')
+var c = +prompt('Enter variable c')
+
+var minusB = -b
+var doubleA = a * 2
+var discriminant = b * b - 4 * a * c
+
+console.log('-b: ' + minusB)
+console.log('2*a: ' + doubleA)
+console.log('The discriminant is: ', discriminant)
+
+//BONUS:
+var equation = ''
+var bOperator = ''
+var cOperator = ''
+
+if (a) {
+    if(a === 1) {
+        equation = 'x\u00B2'
+    } else {
+        equation = a + 'x\u00B2'
+    }
+}
+if (b) {
+  if (b > 0 && a) {
+    bOperator = '+'
+  }
+  equation += bOperator + b + 'x'
+}
+if (c) {
+  if (c > 0 && b) {
+    cOperator = '+'
+  }
+  equation += cOperator + c
+}
+
+console.log('The quadratic equation is: ' + equation)
+
+if(discriminant < 0) {
+    console.log('This quadratic equation has no solution');
+} else {
+    var x1 = (minusB + discriminant ** 0.5) / doubleA
+    console.log('x1: ', x1)
+    if(discriminant === 0) {
+        console.log('This quadratic equation has a single solution');
+    } else {
+        var x2 = (minusB - discriminant ** 0.5) / doubleA
+        console.log('x2: ', x2)
+    }
+}
+
+// Example input for single solution:
+
+// x2 + 2x + 1 = 0 (solution: x = -1)
+// x2 + 4x + 4 = 0 (solution: x = -2)
+// x2 + 6x + 9 = 0 (solution: x = -3)
+// x2 + 8x + 16 = 0 (solution: x = -4)
+// x2 + 10x + 25 = 0 (solution: x = -5)
+
+// Example input for two solutions:
+// 4x2 + 26x + 12 = 0
+// x2 + 5x - 4 = 0 r
+// x2 + 5x + 6 = 0 
+// x2 + 10x + 16 = 0 
+
+// Example input for no solution:
+// x2 + x + 5 = 0
+// x2 + x + 4 = 0
+// x2 + 5x + 12 = 0`,
   },
   7: {
     name: "07.js",
     title: "String Reversal",
     content: `<p>Write a function that reverses a string without using the built-in reverse() method</p>`,
-    solution: `function reverseString(str) {
-  return str.split('').reduce((rev, char) => char + rev, '');
-}`,
+    solution: `var num1 = +prompt('First number?')
+var num2 = +prompt('Second number?')
+var num3 = +prompt('Third number?')
+
+var operator = ' != '
+
+if (num1 + num2 === num3) {
+    operator = ' = '
+}
+
+console.log(num1 + ' + ' + num2 + operator + num3)`,
   },
   8: {
     name: "08.js",
     title: "Palindrome Check",
     content: `<p>Create a function that checks if a string is a palindrome</p>`,
-    solution: `function isPalindrome(str) {
-  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-  return cleanStr === cleanStr.split('').reverse().join('');
-}`,
+    solution: `
+var num1 = +prompt('First number?')
+var num2 = +prompt('Second number?')
+var num3 = +prompt('Third number?')
+
+var smallestNum = num3
+
+if (num2 < smallestNum) {
+  smallestNum = num2
+}
+if (num1 < smallestNum) {
+  smallestNum = num1
+}
+
+console.log('The smallest number is:', smallestNum)
+
+// Another option:
+
+// if (num1 > num2) {
+//     if (num3 > num2) {
+//         smallestNum = num2
+//     }
+// } else {
+//     if (num3 > num1) {
+//         smallestNum = num1
+//     }
+// }
+
+// Another option:
+
+// if (num1 > num2) {
+//     if (num3 > num2) {
+//         smallestNum = num2
+//     } else {
+//         smallestNum = num3
+//     }
+// } else {
+//     if (num3 > num1) {
+//         smallestNum = num1
+//     } else {
+//         smallestNum = num3
+//     }
+// }
+
+// Another option:
+
+if (num1 < num3 && num1 < num2) {
+  console.log('The first number is the smallest: ', num1)
+} else if (num2 < num1 && num2 < num3) {
+  console.log('The second number is the smallest: ', num2)
+} else {
+  console.log('The third number is the smallest: ', num3)
+}
+`,
   },
   9: {
     name: "09.js",
     title: "Array Filter",
     content: `<p>Write a function that filters out even numbers from an array</p>`,
-    solution: `function filterEven(arr) {
-  return arr.filter(num => num % 2 === 0);
-}`,
+    solution: `
+var num1 = +prompt('Please enter a number')
+var num2 = +prompt('Please enter another number')
+var diff
+
+if (isNaN(num1) || isNaN(num2)) {
+    console.log('Invalid input - not numbers')
+} else if (num1 < 0 || num2 < 0) {
+    console.log('Invalid input - negative numbers')
+} else {
+    if (num1 > num2) {
+        diff = num1 - num2
+    } else {
+        diff = num2 - num1
+    }
+
+    // // Another option 
+    // diff = num1 - num2
+    // if (diff < 0) {
+    //     diff *= -1
+    // }
+
+    // Another option
+    // diff = Math.abs(num1 - num2)
+
+    if (diff < num1 && diff < num2) {
+        console.log('Numbers are relatively close')
+    }
+    console.log('The diff between the numbers is: ', diff)
+}
+`,
   },
   10: {
     name: "10.js",
@@ -101,18 +280,24 @@ export const tasks: Tasks = {
     <li>Up to 100 friends  – <strong><em>'Quite picky, aren't you?'</em></strong></li>
     <li>0 – <strong><em>'Let's be friends!'</em></strong></li>
 </ul>`,
-    solution: `function analyzeFriends() {
-  const friendsCount = Number(prompt('How many friends do you have on Facebook?'));
-  let message;
-  
-  if (friendsCount > 500) message = 'OMG, a celebrity!';
-  else if (friendsCount > 300) message = 'You are well connected!';
-  else if (friendsCount > 100) message = 'You know some people...';
-  else if (friendsCount > 0) message = 'Quite picky, aren't you?';
-  else message = 'Let's be friends!';
-  
-  alert(message);
-}`,
+    solution: `
+var friendCount = +prompt('How many friends do you have on FB?')
+var msg
+
+if (friendCount > 500) {
+    msg = 'OMG, a celebrity!'
+} else if (friendCount > 300) {
+    msg = 'You are well connected!'
+} else if (friendCount > 100) {
+    msg = 'You know some people...'
+} else if (friendCount > 0) {
+    msg = 'Quite picky arent you?'
+} else {
+    msg = 'Let’s be friends!'
+}
+
+console.log(msg)
+`,
   },
   11: {
     name: "11.js",
@@ -125,23 +310,24 @@ export const tasks: Tasks = {
     <li>If the pin code was wrong, alert the user with a different message, and don't allow him make a withdrawal. </li>
     <li>Add a feature: don't let the user withdraw more than he has in his account. </li>
 </ul>`,
-    solution: `function bankSystem() {
-  let currBalance = 1000;
-  const PIN = '0796';
-  
-  const enteredPin = prompt('Please enter your PIN:');
-  if (enteredPin === PIN) {
-    const withdrawal = Number(prompt('How much would you like to withdraw?'));
-    if (withdrawal <= currBalance) {
-      currBalance -= withdrawal;
-      alert('Withdrawal successful! New balance: ' + currBalance);
-    } else {
-      alert('Insufficient funds!');
-    }
+    solution: `
+var currBalance = 1000
+var pinCode = '0796'
+var enteredPinCode = prompt('Please enter your pin code')
+
+if (pinCode !== enteredPinCode) {
+  console.error('Wrong pin code')
+} else {
+  var withdraw = +prompt('How much would you like to withdraw')
+
+  if (withdraw > currBalance) {
+    console.error('Maximum amount to withdraw: ', currBalance)
   } else {
-    alert('Wrong PIN! Access denied.');
+    currBalance -= withdraw
+    console.log('Your new balance:', currBalance)
   }
-}`,
+}
+`,
   },
   12: {
     name: "12.js",
@@ -163,18 +349,26 @@ export const tasks: Tasks = {
             <li>If the answer to question 2 is <span class="console">'No'</span> - <span class="console">Natalie Portman!</span></li>
         </ul>
 </ul>`,
-    solution: `function guessActor() {
-  alert('Think about an actor...');
-  const isMan = confirm('Is he a man?');
-  
-  if (isMan) {
-    const isBlonde = confirm('Is he blonde?');
-    alert(isBlonde ? 'Philip Seymour!' : 'Tom Cruise!');
+    solution: `
+alert('Think about an actor/actress........')
+
+var isMan = confirm('Is he a man?')
+if (isMan) {
+  var isBlonde = confirm('Is he blonde?')
+  if (isBlonde) {
+    console.log('Philip Seymour!')
   } else {
-    const isEnglish = confirm('Is she English?');
-    alert(isEnglish ? 'Keira Knightley!' : 'Natalie Portman!');
+    console.log('Tom Cruise!')
   }
-}`,
+} else {
+  var isEnglish = confirm('Is she English?')
+  if (isEnglish) {
+    console.log('Keira Knightley!')
+  } else {
+    console.log('Natalie Portman!')
+  }
+}
+`,
   },
   13: {
     name: "13.js",
@@ -188,20 +382,23 @@ export const tasks: Tasks = {
     <li>If the user goes to floor 0 alert 'Bye Bye'.</li>
     <li>If the user goes to the parking lot (negative floors) alert: 'Drive Safely'. </li>
 </ul>`,
-    solution: `function elevator() {
-  let currentFloor = 0;
-  const targetFloor = Number(prompt('Which floor would you like to go to? (-2 to 4)'));
-  
-  if (targetFloor >= -2 && targetFloor <= 4) {
-    currentFloor = targetFloor;
-    alert('Current floor: ' + currentFloor);
-    
-    if (currentFloor === 0) alert('Bye Bye');
-    if (currentFloor < 0) alert('Drive Safely');
-  } else {
-    alert('Invalid floor!');
+    solution: `
+var currFloor = 0
+var wantedFloor = +prompt('Which floor you would like to go to?')
+
+if (wantedFloor >= -2 && wantedFloor <= 4) {
+  currFloor = wantedFloor
+  console.log('Your current floor is', currFloor)
+
+  if (currFloor === 0) {
+    alert('Bye bye...')
+  } else if (currFloor < 0) {
+    alert('Drive safely!')
   }
-}`,
+} else {
+  console.log('Invalid floor. choose one from -2 to 4.')
+}
+`,
   },
   14: {
     name: "14.js",

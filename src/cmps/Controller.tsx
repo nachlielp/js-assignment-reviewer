@@ -13,6 +13,8 @@ interface ControllerProps {
   onNext: () => void;
   currentAssignmentIndex: number;
   totalAssignments: number;
+  setIsTaskContentOpen: (value: boolean) => void;
+  isTaskContentOpen: boolean;
 }
 
 export function Controller({
@@ -28,6 +30,8 @@ export function Controller({
   onNext,
   currentAssignmentIndex,
   totalAssignments,
+  setIsTaskContentOpen,
+  isTaskContentOpen,
 }: ControllerProps) {
   return (
     <div className="section">
@@ -114,6 +118,17 @@ export function Controller({
               Next
             </button>
           </div>
+        </div>
+        <div>
+          <button
+            className="primary-btn"
+            style={{
+              marginTop: "28px",
+            }}
+            onClick={() => setIsTaskContentOpen(!isTaskContentOpen)}
+          >
+            {isTaskContentOpen ? "Close Task" : "Open Task"}
+          </button>
         </div>
       </div>
     </div>

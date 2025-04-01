@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const [selectedStudent, setSelectedStudent] = useState<string>("");
   const [startAssignment, setStartAssignment] = useState<number>(1);
   const [endAssignment, setEndAssignment] = useState<number>(60);
+  const [isTaskContentOpen, setIsTaskContentOpen] = useState<boolean>(false);
   const [filteredAssignments, setFilteredAssignments] = useState<Assignment[]>(
     []
   );
@@ -91,9 +92,15 @@ const App: React.FC = () => {
             }
             currentAssignmentIndex={currentAssignmentIndex}
             totalAssignments={filteredAssignments.length}
+            setIsTaskContentOpen={setIsTaskContentOpen}
+            isTaskContentOpen={isTaskContentOpen}
           />
         )}
-
+        {filteredAssignments.length > 0 && isTaskContentOpen && (
+          <TaskContent
+            taskId={filteredAssignments[currentAssignmentIndex].number}
+          />
+        )}
         {selectedStudent && (
           <div
             style={{
@@ -107,10 +114,6 @@ const App: React.FC = () => {
                   flexDirection: "row",
                 }}
               >
-                <TaskContent
-                  taskId={filteredAssignments[currentAssignmentIndex].number}
-                />
-
                 <JSPlayground
                   initialCode={
                     filteredAssignments[currentAssignmentIndex].content

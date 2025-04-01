@@ -6,7 +6,7 @@
   margin-right: 0 !important;
 }
 .task-content.closed {
-  max-width: 100px;
+  width: 200px;
   margin-right: 0 !important;
 }
 .task-content-open-btn {
@@ -17,5 +17,4 @@
   width: 100%;
   font-size: 1.2rem;
   font-weight: 600;
-  rotate: 90deg;
 }
