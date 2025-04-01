@@ -9,6 +9,8 @@ import { StudentAssignments } from "./interface";
 import { STUDENT_DATA_KEY, utilService } from "./services/utils";
 import { Controller } from "./cmps/Controller";
 import TaskContent from "./cmps/TaskContent";
+import { tasks } from "./tasks";
+import AIFeedback from "./cmps/AIFeedback";
 const App: React.FC = () => {
   const [studentData, setStudentData] = useState<StudentAssignments>({});
   const [selectedStudent, setSelectedStudent] = useState<string>("");
@@ -121,7 +123,18 @@ const App: React.FC = () => {
                   filename={
                     filteredAssignments[currentAssignmentIndex].filename
                   }
-                  assignmentNumber={currentAssignmentIndex + 1}
+                  assignmentNumber={currentAssignmentIndex + startAssignment}
+                />
+                <AIFeedback
+                  code={filteredAssignments[currentAssignmentIndex].content}
+                  taskContent={
+                    tasks[filteredAssignments[currentAssignmentIndex].number]
+                      .content
+                  }
+                  taskSolution={
+                    tasks[filteredAssignments[currentAssignmentIndex].number]
+                      .solution
+                  }
                 />
               </div>
             ) : (

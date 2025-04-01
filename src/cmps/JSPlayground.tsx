@@ -1,10 +1,14 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import "../styles/js-playground.css";
 import { tasks } from "../tasks";
+import AIFeedback from "./AIFeedback";
+
 interface JSPlaygroundProps {
   initialCode: string;
   filename: string;
   assignmentNumber: number;
+  taskDescription?: string;
+  exampleSolution?: string;
 }
 
 const JSPlayground: React.FC<JSPlaygroundProps> = ({
@@ -216,9 +220,6 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
           Assignment {assignmentNumber}: {tasks[assignmentNumber].title}
         </div>
         <div className="js-playground-controls">
-          <button onClick={handleCopy} className="js-playground-copy-btn">
-            {isCopying ? "Copied!" : "Copy"}
-          </button>
           <button
             onClick={runCode}
             disabled={isRunning}
@@ -226,13 +227,8 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
           >
             {isRunning ? "Running..." : "Run"}
           </button>
-          <button
-            onClick={() => {
-              /* Add expand functionality */
-            }}
-            className="js-playground-expand-btn"
-          >
-            ⤢
+          <button onClick={handleCopy} className="js-playground-copy-btn">
+            {isCopying ? "Code Copied!" : "Copy Code"}
           </button>
         </div>
       </div>

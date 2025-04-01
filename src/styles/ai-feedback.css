@@ -1,0 +1,33 @@
+.js-playground-feedback-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.js-playground-feedback-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.feedback-content {
+  direction: rtl;
+}
+
+.feedback-status {
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.feedback-status.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.feedback-status.error {
+  background-color: #f44336;
+  color: white;
+}

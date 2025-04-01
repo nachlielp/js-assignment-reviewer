@@ -3,7 +3,9 @@ import "../styles/comments.css";
 
 export function Comments() {
   // Initialize state with the default value
-  const [notes, setNotes] = React.useState("נחליאל - ");
+  const [notes, setNotes] = React.useState(
+    `${localStorage.getItem("hebrewUserName")} - `
+  );
   const [isCopying, setIsCopying] = React.useState(false);
   const handleCopy = () => {
     setIsCopying(true);

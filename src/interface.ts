@@ -7,3 +7,8 @@ export interface Assignment {
 export interface StudentAssignments {
   [studentName: string]: Assignment[];
 }
+
+export interface AIResponse {
+  works: boolean;
+  explanation: string;
+}

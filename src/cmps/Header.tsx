@@ -1,4 +1,5 @@
 import { STUDENT_DATA_KEY } from "../services/utils";
+import { Settings } from "./Settings";
 
 export function Header({ isFilesUploaded }: { isFilesUploaded: boolean }) {
   const handleClearStorage = () => {
@@ -31,20 +32,23 @@ export function Header({ isFilesUploaded }: { isFilesUploaded: boolean }) {
       </h1>
 
       {isFilesUploaded && (
-        <button
-          onClick={handleClearStorage}
-          style={{
-            padding: "8px 16px",
-            backgroundColor: "#EF4444",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontWeight: "500",
-          }}
-        >
-          Clear Assignments
-        </button>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <Settings />
+          <button
+            onClick={handleClearStorage}
+            style={{
+              padding: "8px 16px",
+              backgroundColor: "#EF4444",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+              fontWeight: "500",
+            }}
+          >
+            Clear Assignments
+          </button>
+        </div>
       )}
     </section>
   );

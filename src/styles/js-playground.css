@@ -38,7 +38,7 @@
 }
 .js-playground-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
   align-items: start;
   width: 1000px;
@@ -49,7 +49,7 @@
   padding: 10px;
   border: 1px solid #444;
   width: 100%;
-  min-height: 600px;
+  min-height: 500px;
   height: auto;
   font-family: monospace;
   font-size: 14px;
@@ -66,9 +66,22 @@
   border: 1px solid #444;
   white-space: pre-wrap;
   overflow-x: auto;
-  width: 300px;
+  width: 100%;
   min-height: 100px;
   overflow-y: auto;
   margin-top: 0px;
   border-radius: 4px;
+}
+
+.feedback-section {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.feedback-content {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.5;
 }

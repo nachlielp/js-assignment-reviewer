@@ -13,8 +13,10 @@ export const tasks: Tasks = {
     name: "01.js",
     title: "Welcome",
     content: `
-    <p>Use <span class="code">prompt()</span> to read a first name and a last name.</p>
-    <p>Declare the variable <span class="code">fullName</span>, and then welcome the user by his full name.</p>
+    <h2>Exercise 1 - Welcome</h2>
+<p>Use <span class="code">prompt()</span> to read a first name and a last name.</p>
+<p>Declare the variable <span class="code">fullName</span>, and then welcome the user by his full name.</p>
+
     `,
     solution: `
     var firstName = prompt('Please enter your first name:')
@@ -26,7 +28,8 @@ export const tasks: Tasks = {
   2: {
     name: "02.js",
     title: "Basic math operations",
-    content: `<p>Read two numbers and use <span class="code">console.log()</span> to print the result of the following operations on them: <span class="code">( % , / , *)</span></p>`,
+    content: `<h2>Exercise 2 - Basic math operations</h2>
+<p>Read two numbers and use <span class="code">console.log()</span> to print the result of the following operations on them: <span class="code">( % , / , *)</span></p>`,
     solution: `
     var num1 = +prompt('Please enter a number: ')
     var num2 = +prompt('Please enter another number: ')
@@ -51,7 +54,9 @@ export const tasks: Tasks = {
   4: {
     name: "04.js",
     title: "String Length",
-    content: `<p>Write a function that returns the length of a string</p>`,
+    content: `<h2>Exercise 4 - Calculate Time</h2>
+<p>Read a number from the user for distance and a number for speed and print the time.</p>
+<img src="../assets/img/std.png" alt="">`,
     solution: `
     var distance = +prompt('Enter a distance (km):')
     var speed = +prompt('Enter speed (km/h):')
@@ -65,7 +70,12 @@ export const tasks: Tasks = {
   5: {
     name: "05.js",
     title: "Array Sum",
-    content: `<p>Create a function that sums all numbers in an array</p>`,
+    content: `<h2>Exercise 5 - Number from Digits</h2>
+<p>Read 3 digits from the user, join them to one number and print it.</p>
+<p>For example: if the user enters the digits 3, 2 and 6, we should store them in a variable holding the value <span class="code">'326'</span> and then print that variable to the console.</p>
+
+<p>BONUS: In this case, working with strings is easier. try solving the task while using numeric variables.</p>
+`,
     solution: `
     var strDigit1 = prompt('Enter first digit')
 var strDigit2 = prompt('Enter second digit')
@@ -86,7 +96,45 @@ console.log('The full number is: ' + num)
   6: {
     name: "06.js",
     title: "Array Operations",
-    content: `<p>Create a function that finds the maximum number in an array</p>`,
+    content: `<h2>Exercise 6 - Quadratic Equation</h2>
+<p>Read 3 variables from the user: <span class="code">a, b</span>and <span class="code">c</span>.</p>
+<p>These will be the  <span class="math">a, b</span> and <span class="math">c</span> coefficients of a quadratic equation. (מקדמי משוואה ריבועית)</p>
+<ol>
+    <li>Print the values of the following calculations to the console:
+        <ul>
+            <li><span class="math">-b</span></li>
+            <li><span class="math">2a</span></li>
+            <li><span class="math">b&sup2 - 4ac</span></li>
+        </ul>
+    </li>
+    <li>
+        BONUS: a quadratic equation looks like this: <span class="math">ax² + bx + c = 0</span>
+        <p>The two solutions for of this equation are <span class="math">X&#8321</span> and <span class="math">X&#8322;</span>:</p>
+        <img src="../assets/img/quadratic_formula.png" alt="">
+
+        <ul>
+            <li>Print the quadratic equation as a string to the console</li>
+            <li>Print the solutions of <span class="math">X&#8321</span> and <span class="math">X&#8322;</span>  to the console.</li>
+            <li>If the discriminant is 0 – the equation has a single solution</li>
+            <li>If the discriminant is negative – the equation has no solutions</li>
+        </ul>
+        <br>
+        <p>Here’s an example:</p>
+        <section id="quadratic-example">
+            <p class="example-title">For the following equation:</p>	
+            <p class="example-body"><span class="math">2x² – 5x + 2 = 0</span></p>
+            <p class="example-title">Your inputs are:</p>
+            <p class="example-body"><span class="math">a = 2,    b = -5,    c = 2</span></p>
+            <p class="example-title">your output to the console should be:
+            <article class="example-body flex-column">
+                <p><span class="code">2x² – 5x + 2 = 0</span></p>
+                <p><span class="code">x&#8321; = 2 ; x&#8322; = 0.5</span></p>
+            </article>
+        </section>
+        <br>
+        <p>Hint: To print the <span class="code">x²</span> to the console, use this: string: <span class="code">'x\u00B2'</span></p>
+    </li>
+</ol>`,
     solution: `var a = +prompt('Enter variable a')
 var b = +prompt('Enter variable b')
 var c = +prompt('Enter variable c')
@@ -161,7 +209,11 @@ if(discriminant < 0) {
   7: {
     name: "07.js",
     title: "String Reversal",
-    content: `<p>Write a function that reverses a string without using the built-in reverse() method</p>`,
+    content: `<h2>Exercise 7 - Two Numbers Equal the Third</h2>
+<p>Read 3 numbers from the user and check if the 3rd is the sum of the first two.</p> 
+<p>If it is, print all the numbers to the console like this: <span class="console">6 + 4 = 10</span></p>
+<p>If not, print them like this: <span class="console">3 + 5 != 10</span></p>
+`,
     solution: `var num1 = +prompt('First number?')
 var num2 = +prompt('Second number?')
 var num3 = +prompt('Third number?')
@@ -177,7 +229,8 @@ console.log(num1 + ' + ' + num2 + operator + num3)`,
   8: {
     name: "08.js",
     title: "Palindrome Check",
-    content: `<p>Create a function that checks if a string is a palindrome</p>`,
+    content: `<h2>Exercise 8 - The Smallest of Three Numbers</h2>
+<p>Read three numbers from the user and print the smallest one.</p>`,
     solution: `
 var num1 = +prompt('First number?')
 var num2 = +prompt('Second number?')
@@ -236,7 +289,19 @@ if (num1 < num3 && num1 < num2) {
   9: {
     name: "09.js",
     title: "Array Filter",
-    content: `<p>Write a function that filters out even numbers from an array</p>`,
+    content: `<h2>Exercise 9 - Absolute Value</h2>
+<p>Read two positive numbers from the user.</p>
+<p>Calculate the difference between them (the absolute value).</p>
+<ul>
+    <li>First, check that the input values are numbers (try googling something like ‘javascript check if number’)</li>
+    <li>Print the inputs and the absolute difference between them to the console.</li>
+    <li>If the difference is smaller than both input values, print a message to the console saying that those numbers are relatively close.</li>
+</ul>
+<p>It should look something like this – </p>
+
+<p class="console">num1 = 5, num2 = 9, diff = 4 (numbers are relatively close!)</p>
+<p class="console">num1 = 15, num2 = 89, diff = 74 </p>
+`,
     solution: `
 var num1 = +prompt('Please enter a number')
 var num2 = +prompt('Please enter another number')
@@ -272,14 +337,16 @@ if (isNaN(num1) || isNaN(num2)) {
   10: {
     name: "10.js",
     title: "Facebook Friends",
-    content: `<p>Ask the user how many friends he has on FB and print out an analysis:</p>
+    content: `<h2>Exercise 10 - Facebook Friends</h2>
+<p>Ask the user how many friends he has on FB and print out an analysis:</p>
 <ul>
     <li>More than 500 friends – <strong><em>'OMG, a celebrity!'</em></strong></li>
     <li>More than 300 friends (and up to 500) – <strong><em>'You are well connected!'</em></strong></li>
     <li>More than 100 friends – <strong><em>'You know some people...'</em></strong></li>
     <li>Up to 100 friends  – <strong><em>'Quite picky, aren't you?'</em></strong></li>
-    <li>0 – <strong><em>'Let's be friends!'</em></strong></li>
-</ul>`,
+    <li>0 – <strong><em>'Let’s be friends!'</em></strong></li>
+</ul>
+`,
     solution: `
 var friendCount = +prompt('How many friends do you have on FB?')
 var msg
