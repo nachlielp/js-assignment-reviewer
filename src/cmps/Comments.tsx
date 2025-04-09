@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/comments.css";
 
 export function Comments() {
-  // Initialize state with the default value
   const [notes, setNotes] = React.useState(
     `${localStorage.getItem("hebrewUserName")} - `
   );
@@ -23,7 +22,8 @@ export function Comments() {
   };
 
   const handleClear = () => {
-    setNotes("נחליאל - ");
+    const userName = localStorage.getItem("hebrewUserName");
+    setNotes(`${userName} - `);
   };
 
   return (
