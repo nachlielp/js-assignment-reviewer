@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
+import "./App.css";
 import JSPlayground from "./cmps/JSPlayground";
 import { Comments } from "./cmps/Comments";
 import { Header } from "./cmps/Header";
 import { FileUploader } from "./cmps/FileUploader";
-import "./App.css";
 import { AlertProps, Assignment } from "./interface";
 import { StudentAssignments } from "./interface";
 import { STUDENT_DATA_KEY, utilService } from "./services/utils";
@@ -128,24 +128,16 @@ const App: React.FC = () => {
             style={{
               display: "flex",
             }}
+            className="js-playground-container"
           >
             {filteredAssignments.length > 0 ? (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <JSPlayground
-                  initialCode={
-                    filteredAssignments[currentAssignmentIndex].content
-                  }
-                  filename={
-                    filteredAssignments[currentAssignmentIndex].filename
-                  }
-                  assignmentNumber={currentAssignmentIndex + startAssignment}
-                />
-              </div>
+              <JSPlayground
+                initialCode={
+                  filteredAssignments[currentAssignmentIndex].content
+                }
+                filename={filteredAssignments[currentAssignmentIndex].filename}
+                assignmentNumber={currentAssignmentIndex + startAssignment}
+              />
             ) : (
               <p style={{ marginTop: "20px" }}>
                 No assignments found in the specified range.

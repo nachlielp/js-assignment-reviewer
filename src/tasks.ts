@@ -119,7 +119,7 @@ console.log('The full number is: ' + num)
             <li>If the discriminant is negative – the equation has no solutions</li>
         </ul>
         <br>
-        <p>Here’s an example:</p>
+        <p>Here's an example:</p>
         <section id="quadratic-example">
             <p class="example-title">For the following equation:</p>	
             <p class="example-body"><span class="math">2x² – 5x + 2 = 0</span></p>
@@ -293,7 +293,7 @@ if (num1 < num3 && num1 < num2) {
 <p>Read two positive numbers from the user.</p>
 <p>Calculate the difference between them (the absolute value).</p>
 <ul>
-    <li>First, check that the input values are numbers (try googling something like ‘javascript check if number’)</li>
+    <li>First, check that the input values are numbers (try googling something like 'javascript check if number')</li>
     <li>Print the inputs and the absolute difference between them to the console.</li>
     <li>If the difference is smaller than both input values, print a message to the console saying that those numbers are relatively close.</li>
 </ul>
@@ -344,7 +344,7 @@ if (isNaN(num1) || isNaN(num2)) {
     <li>More than 300 friends (and up to 500) – <strong><em>'You are well connected!'</em></strong></li>
     <li>More than 100 friends – <strong><em>'You know some people...'</em></strong></li>
     <li>Up to 100 friends  – <strong><em>'Quite picky, aren't you?'</em></strong></li>
-    <li>0 – <strong><em>'Let’s be friends!'</em></strong></li>
+    <li>0 – <strong><em>'Let's be friends!'</em></strong></li>
 </ul>
 `,
     solution: `
@@ -360,7 +360,7 @@ if (friendCount > 500) {
 } else if (friendCount > 0) {
     msg = 'Quite picky arent you?'
 } else {
-    msg = 'Let’s be friends!'
+    msg = 'Let's be friends!'
 }
 
 console.log(msg)
@@ -1051,7 +1051,7 @@ function findGCD(num1, num2) {
     <li>Print the number reversed.</li>
 </ol>`,
     solution: `
-// 29.Read a number from the user (keep it as string such as “24367”) and then:
+// 29.Read a number from the user (keep it as string such as "24367") and then:
 // var number = prompt('Enter a number')
 var numberStr = '1234'
 

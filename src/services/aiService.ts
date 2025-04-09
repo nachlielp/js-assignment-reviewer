@@ -22,10 +22,8 @@ export const aiService = {
         ${guidelines}
 
         General Guidelines:
-        1. use var
-        2. single quotes
-        3. no semicolons
-        4. name variables in english in a way that is easy to understand
+        1. name variables in english in a way that aAccurately describes the data they hold
+        2. name functions in english in a way that accurately describes what they do
 
         Respond in this exact format:
         {

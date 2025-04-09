@@ -1,8 +1,17 @@
+.js-playground {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  flex: 1;
+  width: 100%;
+}
 .js-playground-header {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .js-playground-controls {
@@ -41,7 +50,8 @@
   flex-direction: column;
   gap: 10px;
   align-items: start;
-  width: 1000px;
+  flex: 1;
+  width: 100%;
 }
 .js-playground-editor {
   background-color: #2d2d2d;
@@ -84,4 +94,9 @@
   white-space: pre-wrap;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.cm-editor,
+.cm-gutters {
+  border-radius: 6px;
 }

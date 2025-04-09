@@ -1,7 +1,9 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/js-playground.css";
 import { tasks } from "../tasks";
-import AIFeedback from "./AIFeedback";
+import CodeMirror from "@uiw/react-codemirror";
+import { javascript } from "@codemirror/lang-javascript";
+import { oneDark } from "@codemirror/theme-one-dark";
 
 interface JSPlaygroundProps {
   initialCode: string;
@@ -20,123 +22,96 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
   const [consoleOutput, setConsoleOutput] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [isCopying, setIsCopying] = useState<boolean>(false);
+  const MAX_ITERATIONS = 1000000; // Prevent excessive iterations
+  const MAX_EXECUTION_TIME = 3000; // 3 seconds timeout
 
   useEffect(() => {
     setCode(initialCode);
   }, [initialCode]);
 
-  const handleCodeChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setCode(e.target.value);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    const textarea = e.currentTarget;
-    const { selectionStart } = textarea;
-    const currentCode = textarea.value;
-
-    // Command/Ctrl + / to comment/uncomment
-    if ((e.metaKey || e.ctrlKey) && e.key === "/") {
-      e.preventDefault();
-
-      // Get the lines and current line number
-      const lines = currentCode.split("\n");
-      const currentLineIndex =
-        currentCode.substring(0, selectionStart).split("\n").length - 1;
-
-      // Toggle comment on the current line
-      if (lines[currentLineIndex].trimStart().startsWith("//")) {
-        // Remove comment
-        lines[currentLineIndex] = lines[currentLineIndex].replace(
-          /^\s*\/\/\s?/,
-          ""
-        );
-      } else {
-        // Add comment
-        lines[currentLineIndex] =
-          lines[currentLineIndex].trimStart().length > 0
-            ? "// " + lines[currentLineIndex]
-            : lines[currentLineIndex];
-      }
-
-      const newCode = lines.join("\n");
-      setCode(newCode);
-
-      // Restore cursor position
-      setTimeout(() => {
-        textarea.focus();
-        const newPosition =
-          newCode.split("\n").slice(0, currentLineIndex).join("\n").length +
-          (currentLineIndex > 0 ? 1 : 0) +
-          lines[currentLineIndex].length;
-        textarea.setSelectionRange(newPosition, newPosition);
-      }, 0);
-    }
-
-    // Alt + Arrow Up/Down to move lines
-    if (e.altKey && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
-      e.preventDefault();
-
-      // Get lines and current line index
-      const lines = currentCode.split("\n");
-      const currentLineIndex =
-        currentCode.substring(0, selectionStart).split("\n").length - 1;
-
-      if (e.key === "ArrowUp" && currentLineIndex > 0) {
-        // Move line up
-        [lines[currentLineIndex - 1], lines[currentLineIndex]] = [
-          lines[currentLineIndex],
-          lines[currentLineIndex - 1],
-        ];
-
-        const newCode = lines.join("\n");
-        setCode(newCode);
-
-        // Adjust cursor position to follow the line
-        setTimeout(() => {
-          textarea.focus();
-          const newPosition =
-            newCode
-              .split("\n")
-              .slice(0, currentLineIndex - 1)
-              .join("\n").length +
-            (currentLineIndex > 1 ? 1 : 0) +
-            lines[currentLineIndex - 1].length;
-          textarea.setSelectionRange(newPosition, newPosition);
-        }, 0);
-      } else if (e.key === "ArrowDown" && currentLineIndex < lines.length - 1) {
-        // Move line down
-        [lines[currentLineIndex], lines[currentLineIndex + 1]] = [
-          lines[currentLineIndex + 1],
-          lines[currentLineIndex],
-        ];
-
-        const newCode = lines.join("\n");
-        setCode(newCode);
-
-        // Adjust cursor position to follow the line
-        setTimeout(() => {
-          textarea.focus();
-          const newPosition =
-            newCode
-              .split("\n")
-              .slice(0, currentLineIndex + 1)
-              .join("\n").length +
-            (currentLineIndex > 0 ? 1 : 0) +
-            lines[currentLineIndex + 1].length;
-          textarea.setSelectionRange(newPosition, newPosition);
-        }, 0);
-      }
-    }
-  };
-
   const runCode = () => {
     setIsRunning(true);
     setConsoleOutput([]);
 
-    // Create a new function to capture console.log outputs
     const logs: string[] = [];
     const originalConsoleLog = console.log;
+
+    // Wrap the code in a controlled environment
+    const wrapCode = (code: string) => {
+      // Check if the code starts with 'use strict'
+      const hasStrictMode =
+        code.trim().startsWith("'use strict'") ||
+        code.trim().startsWith('"use strict"');
+
+      // Extract the strict mode directive if present
+      let strictModeDirective = "";
+      let codeWithoutStrict = code;
+
+      if (hasStrictMode) {
+        const lines = code.split("\n");
+        strictModeDirective = lines[0];
+        codeWithoutStrict = lines.slice(1).join("\n");
+      }
+
+      return `
+        ${strictModeDirective}
+        
+        let __iterationCount = 0;
+        const __checkInfiniteLoop = () => {
+          __iterationCount++;
+          if (__iterationCount > ${MAX_ITERATIONS}) {
+            throw new Error('Excessive iterations detected. Possible infinite loop.');
+          }
+        };
+        
+        // Override setTimeout and setInterval locally
+        const originalSetTimeout = setTimeout;
+        const originalSetInterval = setInterval;
+        
+        setTimeout = (fn, delay, ...args) => {
+          if (delay > ${MAX_EXECUTION_TIME}) {
+            console.log('Warning: setTimeout duration capped at 3 seconds');
+            delay = ${MAX_EXECUTION_TIME};
+          }
+          return originalSetTimeout(fn, delay, ...args);
+        };
+        
+        setInterval = (fn, delay, ...args) => {
+          if (delay > ${MAX_EXECUTION_TIME}) {
+            console.log('Warning: setInterval duration capped at 3 seconds');
+            delay = ${MAX_EXECUTION_TIME};
+          }
+          return originalSetInterval(fn, delay, ...args);
+        };
+        
+        ${codeWithoutStrict
+          .replace(
+            /for\s*\(([^;]*);([^;]*);([^)]*)\)/g,
+            (match, init, condition, increment) => {
+              // If there's a variable declaration in the initialization, we need to handle it differently
+              if (
+                init.trim().startsWith("var ") ||
+                init.trim().startsWith("let ") ||
+                init.trim().startsWith("const ")
+              ) {
+                return `for (${init}; __checkInfiniteLoop(), ${condition}; ${increment})`;
+              } else {
+                return `for (__checkInfiniteLoop(), ${init}; ${condition}; ${increment})`;
+              }
+            }
+          )
+          .replace(/while\s*\(/g, "while (__checkInfiniteLoop(), ")
+          .replace(/do\s*{/g, "do { __checkInfiniteLoop();")}
+      `;
+    };
+
+    // Override console.log
     console.log = (...args) => {
+      if (logs.length >= 100) {
+        throw new Error(
+          "Too many console.log calls (limit: 100). Execution stopped."
+        );
+      }
       logs.push(
         args
           .map((arg) =>
@@ -148,24 +123,21 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
     };
 
     try {
-      // Add a timeout to prevent infinite loops
-      const MAX_EXECUTION_TIME = 3000; // 5 seconds timeout
-
-      // Create a wrapper that will execute with a timeout
       const executeWithTimeout = () => {
         return new Promise((resolve, reject) => {
-          // Set timeout to cancel execution if it takes too long
           const timeoutId = setTimeout(() => {
             reject(
               new Error(
-                "Execution timed out after 5 seconds. Your code might contain an infinite loop."
+                "Execution timed out after 3 seconds. Your code might contain an infinite loop."
               )
             );
           }, MAX_EXECUTION_TIME);
 
           try {
+            // Wrap the code with our infinite loop detection
+            const wrappedCode = wrapCode(code);
             // eslint-disable-next-line no-new-func
-            const executableCode = new Function(code);
+            const executableCode = new Function(wrappedCode);
             const result = executableCode();
             clearTimeout(timeoutId);
             resolve(result);
@@ -176,15 +148,12 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
         });
       };
 
-      // Execute the code with timeout protection
       executeWithTimeout()
         .then(() => {
-          // If execution succeeded, show the logs
           setConsoleOutput(logs);
           setIsRunning(false);
         })
         .catch((error) => {
-          // If there was an error, show it in the console output
           setConsoleOutput([
             ...logs,
             `Error: ${error instanceof Error ? error.message : String(error)}`,
@@ -192,15 +161,14 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
           setIsRunning(false);
         });
     } catch (error) {
-      // Handle any synchronous errors from the setup process
       setConsoleOutput([
         ...logs,
         `Error: ${error instanceof Error ? error.message : String(error)}`,
       ]);
-
-      // Restore the original console.log
-      console.log = originalConsoleLog;
       setIsRunning(false);
+    } finally {
+      // Restore original functions
+      console.log = originalConsoleLog;
     }
   };
 
@@ -213,8 +181,12 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
     });
   };
 
+  const onChange = React.useCallback((value: string) => {
+    setCode(value);
+  }, []);
+
   return (
-    <div className="section">
+    <div className="section js-playground">
       <div className="js-playground-header">
         <div className="filename">
           Assignment {assignmentNumber}: {tasks[assignmentNumber].title}
@@ -234,11 +206,39 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
       </div>
 
       <div className="js-playground-content">
-        <textarea
-          className="js-playground-editor"
+        <CodeMirror
           value={code}
-          onChange={handleCodeChange}
-          onKeyDown={handleKeyDown}
+          theme={oneDark}
+          height="400px"
+          width="100%"
+          style={{ width: "100%", borderRadius: "10px" }}
+          extensions={[javascript({ jsx: true })]}
+          onChange={onChange}
+          basicSetup={{
+            lineNumbers: true,
+            highlightActiveLineGutter: true,
+            highlightSpecialChars: true,
+            foldGutter: true,
+            drawSelection: true,
+            dropCursor: true,
+            allowMultipleSelections: true,
+            indentOnInput: true,
+            syntaxHighlighting: true,
+            bracketMatching: true,
+            closeBrackets: true,
+            autocompletion: true,
+            rectangularSelection: true,
+            crosshairCursor: true,
+            highlightActiveLine: true,
+            highlightSelectionMatches: true,
+            closeBracketsKeymap: true,
+            defaultKeymap: true,
+            searchKeymap: true,
+            historyKeymap: true,
+            foldKeymap: true,
+            completionKeymap: true,
+            lintKeymap: true,
+          }}
         />
 
         <div className="js-playground-console">
