@@ -96,7 +96,12 @@
   line-height: 1.5;
 }
 
+.cm-theme {
+  height: 100%;
+}
 .cm-editor,
 .cm-gutters {
+  height: 100%;
+
   border-radius: 6px;
 }

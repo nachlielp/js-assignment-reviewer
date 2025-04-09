@@ -209,7 +209,6 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
         <CodeMirror
           value={code}
           theme={oneDark}
-          height="400px"
           width="100%"
           style={{ width: "100%", borderRadius: "10px" }}
           extensions={[javascript({ jsx: true })]}

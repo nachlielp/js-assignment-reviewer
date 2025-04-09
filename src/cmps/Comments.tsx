@@ -33,7 +33,7 @@ export function Comments() {
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         className="comments-textarea"
-        rows={10}
+        rows={6}
         dir="rtl"
       />
       <div className="comments-controls">
