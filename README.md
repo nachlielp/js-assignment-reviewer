@@ -34,13 +34,12 @@ npm install
 2. Start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
-The application will be available at `http://localhost:3000`
+The application will be available at `http://localhost:5173`
 
 ### Available Scripts
 
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
+- `npm run dev` - Runs the app in development mode
 - `npm run build` - Builds the app for production
