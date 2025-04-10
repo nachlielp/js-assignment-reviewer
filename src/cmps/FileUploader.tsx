@@ -38,7 +38,9 @@ export function FileUploader({ onFileChange }: FileUploaderProps) {
             Drop folder here or click to upload
           </p>
           <p style={{ color: "#6B7280", fontSize: "0.875rem" }}>
-            Folder must contain student submissions
+            Upload class root submission folder, for example:
+            <br />
+            <code>CaEveFeb25-ExerciseSubmissions</code>
           </p>
         </div>
         <input
