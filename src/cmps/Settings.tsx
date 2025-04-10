@@ -3,7 +3,9 @@ import { Button, Modal, Input, Form, Switch } from "antd";
 import { SettingOutlined } from "@ant-design/icons";
 
 export function Settings() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const isUserNameSet = localStorage.getItem("hebrewUserName");
+  const [isModalOpen, setIsModalOpen] = useState(isUserNameSet ? false : true);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
