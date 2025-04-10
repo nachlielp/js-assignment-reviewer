@@ -1,0 +1,33 @@
+.dashboard {
+  background-color: #f9fafb;
+  height: 100vh;
+}
+
+.dashboard-container {
+  background-color: #f9fafb;
+  height: calc(100vh - 70px);
+}
+
+.dashboard-js-playground-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* align-items: start; */
+  /* flex: 1; */
+  width: 100%;
+  height: calc(100% - 116px);
+}
+
+.no-assignments-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+.no-assignments-found-p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #666;
+}

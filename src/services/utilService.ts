@@ -3,11 +3,17 @@ import { Assignment, StudentAssignments } from "../interface";
 
 export const STUDENT_DATA_KEY = "STUDENT_DATA";
 export const FEEDBACK_STORAGE_KEY = "assignment_feedback";
+const MAX_ITERATIONS = 1000000; // Prevent excessive iterations
+const MAX_EXECUTION_TIME = 3000; // 3 seconds timeout
+
 export const utilService = {
   saveToLocalStorage,
   getFromLocalStorage,
   addQuestionComment,
   uploadFiles,
+  wrapCodeForRunningLocally,
+  MAX_ITERATIONS,
+  MAX_EXECUTION_TIME,
 };
 
 function saveToLocalStorage(key: string, value: any) {
@@ -25,7 +31,7 @@ function addQuestionComment(key: string, number: number, comment: string) {
   }
 }
 
-function uploadFiles(
+async function uploadFiles(
   e: ChangeEvent<HTMLInputElement>
 ): Promise<StudentAssignments> {
   console.log("handleFileChange");
@@ -56,9 +62,6 @@ function uploadFiles(
       studentSet.add(pathParts[1]);
     }
   });
-
-  const students = Array.from(studentSet);
-  console.log("Found students:", students);
 
   // Process JavaScript files for each student
   const readFilesPromises = filesArray.map(
@@ -131,4 +134,72 @@ function uploadFiles(
       console.error("Error reading files", err);
       return {};
     });
+}
+
+function wrapCodeForRunningLocally(code: string) {
+  // Check if the code starts with 'use strict'
+  const hasStrictMode =
+    code.trim().startsWith("'use strict'") ||
+    code.trim().startsWith('"use strict"');
+
+  // Extract the strict mode directive if present
+  let strictModeDirective = "";
+  let codeWithoutStrict = code;
+
+  if (hasStrictMode) {
+    const lines = code.split("\n");
+    strictModeDirective = lines[0];
+    codeWithoutStrict = lines.slice(1).join("\n");
+  }
+
+  return `
+    ${strictModeDirective}
+    
+    let __iterationCount = 0;
+    const __checkInfiniteLoop = () => {
+      __iterationCount++;
+      if (__iterationCount > ${MAX_ITERATIONS}) {
+        throw new Error('Excessive iterations detected. Possible infinite loop.');
+      }
+    };
+    
+    // Override setTimeout and setInterval locally
+    const originalSetTimeout = setTimeout;
+    const originalSetInterval = setInterval;
+    
+    setTimeout = (fn, delay, ...args) => {
+      if (delay > ${MAX_EXECUTION_TIME}) {
+        console.log('Warning: setTimeout duration capped at 3 seconds');
+        delay = ${MAX_EXECUTION_TIME};
+      }
+      return originalSetTimeout(fn, delay, ...args);
+    };
+    
+    setInterval = (fn, delay, ...args) => {
+      if (delay > ${MAX_EXECUTION_TIME}) {
+        console.log('Warning: setInterval duration capped at 3 seconds');
+        delay = ${MAX_EXECUTION_TIME};
+      }
+      return originalSetInterval(fn, delay, ...args);
+    };
+    
+    ${codeWithoutStrict
+      .replace(
+        /for\s*\(([^;]*);([^;]*);([^)]*)\)/g,
+        (match, init, condition, increment) => {
+          // If there's a variable declaration in the initialization, we need to handle it differently
+          if (
+            init.trim().startsWith("var ") ||
+            init.trim().startsWith("let ") ||
+            init.trim().startsWith("const ")
+          ) {
+            return `for (${init}; __checkInfiniteLoop(), ${condition}; ${increment})`;
+          } else {
+            return `for (__checkInfiniteLoop(), ${init}; ${condition}; ${increment})`;
+          }
+        }
+      )
+      .replace(/while\s*\(/g, "while (__checkInfiniteLoop(), ")
+      .replace(/do\s*{/g, "do { __checkInfiniteLoop();")}
+  `;
 }

@@ -4,6 +4,7 @@ import { tasks } from "../tasks";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { oneDark } from "@codemirror/theme-one-dark";
+import { utilService } from "../services/utilService";
 
 interface JSPlaygroundProps {
   initialCode: string;
@@ -13,17 +14,14 @@ interface JSPlaygroundProps {
   exampleSolution?: string;
 }
 
-const JSPlayground: React.FC<JSPlaygroundProps> = ({
+export default function JSPlayground({
   initialCode,
-  filename,
   assignmentNumber,
-}) => {
+}: JSPlaygroundProps) {
   const [code, setCode] = useState<string>(initialCode);
   const [consoleOutput, setConsoleOutput] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [isCopying, setIsCopying] = useState<boolean>(false);
-  const MAX_ITERATIONS = 1000000; // Prevent excessive iterations
-  const MAX_EXECUTION_TIME = 3000; // 3 seconds timeout
 
   useEffect(() => {
     setCode(initialCode);
@@ -36,80 +34,11 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
     const logs: string[] = [];
     const originalConsoleLog = console.log;
 
-    // Wrap the code in a controlled environment
-    const wrapCode = (code: string) => {
-      // Check if the code starts with 'use strict'
-      const hasStrictMode =
-        code.trim().startsWith("'use strict'") ||
-        code.trim().startsWith('"use strict"');
-
-      // Extract the strict mode directive if present
-      let strictModeDirective = "";
-      let codeWithoutStrict = code;
-
-      if (hasStrictMode) {
-        const lines = code.split("\n");
-        strictModeDirective = lines[0];
-        codeWithoutStrict = lines.slice(1).join("\n");
-      }
-
-      return `
-        ${strictModeDirective}
-        
-        let __iterationCount = 0;
-        const __checkInfiniteLoop = () => {
-          __iterationCount++;
-          if (__iterationCount > ${MAX_ITERATIONS}) {
-            throw new Error('Excessive iterations detected. Possible infinite loop.');
-          }
-        };
-        
-        // Override setTimeout and setInterval locally
-        const originalSetTimeout = setTimeout;
-        const originalSetInterval = setInterval;
-        
-        setTimeout = (fn, delay, ...args) => {
-          if (delay > ${MAX_EXECUTION_TIME}) {
-            console.log('Warning: setTimeout duration capped at 3 seconds');
-            delay = ${MAX_EXECUTION_TIME};
-          }
-          return originalSetTimeout(fn, delay, ...args);
-        };
-        
-        setInterval = (fn, delay, ...args) => {
-          if (delay > ${MAX_EXECUTION_TIME}) {
-            console.log('Warning: setInterval duration capped at 3 seconds');
-            delay = ${MAX_EXECUTION_TIME};
-          }
-          return originalSetInterval(fn, delay, ...args);
-        };
-        
-        ${codeWithoutStrict
-          .replace(
-            /for\s*\(([^;]*);([^;]*);([^)]*)\)/g,
-            (match, init, condition, increment) => {
-              // If there's a variable declaration in the initialization, we need to handle it differently
-              if (
-                init.trim().startsWith("var ") ||
-                init.trim().startsWith("let ") ||
-                init.trim().startsWith("const ")
-              ) {
-                return `for (${init}; __checkInfiniteLoop(), ${condition}; ${increment})`;
-              } else {
-                return `for (__checkInfiniteLoop(), ${init}; ${condition}; ${increment})`;
-              }
-            }
-          )
-          .replace(/while\s*\(/g, "while (__checkInfiniteLoop(), ")
-          .replace(/do\s*{/g, "do { __checkInfiniteLoop();")}
-      `;
-    };
-
     // Override console.log
     console.log = (...args) => {
-      if (logs.length >= 100) {
+      if (logs.length >= 1000) {
         throw new Error(
-          "Too many console.log calls (limit: 100). Execution stopped."
+          "Too many console.log calls (limit: 1000). Execution stopped."
         );
       }
       logs.push(
@@ -131,11 +60,11 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
                 "Execution timed out after 3 seconds. Your code might contain an infinite loop."
               )
             );
-          }, MAX_EXECUTION_TIME);
+          }, utilService.MAX_EXECUTION_TIME);
 
           try {
             // Wrap the code with our infinite loop detection
-            const wrappedCode = wrapCode(code);
+            const wrappedCode = utilService.wrapCodeForRunningLocally(code);
             // eslint-disable-next-line no-new-func
             const executableCode = new Function(wrappedCode);
             const result = executableCode();
@@ -255,6 +184,4 @@ const JSPlayground: React.FC<JSPlaygroundProps> = ({
       </div>
     </div>
   );
-};
-
-export default JSPlayground;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { aiService } from "../services/aiService";
 import "../styles/ai-feedback.css";
-import { FEEDBACK_STORAGE_KEY } from "../services/utils";
+import { FEEDBACK_STORAGE_KEY } from "../services/utilService";
 import { Spin } from "antd";
 import { AlertProps } from "../interface";
 
@@ -43,7 +43,6 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
     if (feedbackMap[feedbackKey]) {
       setFeedback(feedbackMap[feedbackKey]);
     } else if (autoGenEnabled) {
-      console.log("autoGenEnabled");
       setIsLoadingFeedback(true);
       getFeedback();
     }

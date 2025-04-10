@@ -8,7 +8,6 @@ interface ControllerProps {
   onStartAssignmentChange: (value: number) => void;
   onEndAssignmentChange: (value: number) => void;
   onStudentChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  onRangeChange: () => void;
   onPrevious: () => void;
   onNext: () => void;
   currentAssignmentIndex: number;
@@ -25,7 +24,6 @@ export function Controller({
   onStartAssignmentChange,
   onEndAssignmentChange,
   onStudentChange,
-  onRangeChange,
   onPrevious,
   onNext,
   currentAssignmentIndex,

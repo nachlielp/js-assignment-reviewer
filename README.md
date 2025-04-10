@@ -5,17 +5,16 @@ A web application built with React that helps review JavaScript assignments. Thi
 ## Features
 
 - Interactive JavaScript exercise viewer
-- Built-in exercise solutions
-- Support for multiple programming exercises
-- Real-time code evaluation
-- User-friendly interface built with Ant Design
+- Built-in JS Playground
+- AI code evaluation
 
 ## Technologies Used
 
 - React 19
 - TypeScript
 - Ant Design
-- Google AI Integration (@google/generative-ai)
+- Google AI Integration
+- Codemirror
 
 ## Getting Started
 

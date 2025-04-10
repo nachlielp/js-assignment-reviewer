@@ -51,7 +51,7 @@ export const aiService = {
       );
 
       const data = await response.json();
-      console.log("data", data);
+
       if (data.error) {
         return {
           works: false,
