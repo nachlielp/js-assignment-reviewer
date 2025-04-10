@@ -22,6 +22,7 @@ export default function Dashboard() {
   );
   const [currentAssignmentIndex, setCurrentAssignmentIndex] =
     useState<number>(0);
+
   const [alert, setAlert] = useState<Omit<AlertProps, "onClose">>({
     message: "Hello",
     type: "error",
@@ -75,7 +76,7 @@ export default function Dashboard() {
   };
   const handleAlertClose = () => {
     setAlert({
-      message: "",
+      message: "Hello",
       type: "info",
       isOpen: false,
     });
