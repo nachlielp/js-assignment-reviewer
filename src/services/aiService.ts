@@ -33,6 +33,14 @@ export const aiService = {
       `;
 
       const geminiApiKey = localStorage.getItem("geminiApiKey");
+
+      if (!geminiApiKey) {
+        return {
+          works: false,
+          explanation: "No Gemini API key found",
+          error: "No Gemini API key found",
+        };
+      }
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`,
         {

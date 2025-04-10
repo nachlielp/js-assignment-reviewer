@@ -186,7 +186,7 @@ function wrapCodeForRunningLocally(code: string) {
     ${codeWithoutStrict
       .replace(
         /for\s*\(([^;]*);([^;]*);([^)]*)\)/g,
-        (match, init, condition, increment) => {
+        (init, condition, increment) => {
           // If there's a variable declaration in the initialization, we need to handle it differently
           if (
             init.trim().startsWith("var ") ||

@@ -1,7 +1,6 @@
 import { tasks } from "../tasks";
 import "../styles/ex-code.css";
 import "../styles/task-content.css";
-import { useState } from "react";
 interface TaskContentProps {
   taskId: number;
 }

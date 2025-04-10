@@ -1,0 +1,25 @@
+{
+	"start_url": "/",
+	"name": "JS Assignment Reviewer",
+	"short_name": "JS Assignment Reviewer",
+	"description": "JS Assignment Reviewer",
+	"icons": [
+		{
+			"src": "/logo192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/logo512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"theme_color": "#171717",
+	"background_color": "#e8ebf2",
+	"display": "standalone",
+	"scope": "/",
+	"orientation": "portrait"
+}

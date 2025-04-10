@@ -77,7 +77,9 @@ const AIFeedback: React.FC<AIFeedbackProps> = ({
       }
       setFeedback(feedback);
       feedbackMap[feedbackKey] = feedback;
-      localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbackMap));
+      if (!feedback.error) {
+        localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbackMap));
+      }
 
       // Save feedback to localStorage
     } catch (error) {
