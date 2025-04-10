@@ -35,6 +35,7 @@ export const aiService = {
       const geminiApiKey = localStorage.getItem("geminiApiKey");
 
       if (!geminiApiKey) {
+        localStorage.setItem("autoGenEnabled", "false");
         return {
           works: false,
           explanation: "No Gemini API key found",
