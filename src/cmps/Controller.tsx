@@ -85,11 +85,13 @@ export function Controller({
               }}
             >
               <option value="">Choose a student</option>
-              {Object.keys(studentData).map((name) => (
-                <option key={name} value={name}>
-                  {name}
-                </option>
-              ))}
+              {Object.keys(studentData)
+                .sort()
+                .map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
             </select>
           </div>
         </div>
