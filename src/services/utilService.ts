@@ -10,7 +10,7 @@ export const utilService = {
   saveToLocalStorage,
   getFromLocalStorage,
   addQuestionComment,
-  uploadFiles,
+  uploadFiles: uploadExRunnerFiles,
   wrapCodeForRunningLocally,
   MAX_ITERATIONS,
   MAX_EXECUTION_TIME,
@@ -31,7 +31,7 @@ function addQuestionComment(key: string, number: number, comment: string) {
   }
 }
 
-async function uploadFiles(
+async function uploadExRunnerFiles(
   e: ChangeEvent<HTMLInputElement>
 ): Promise<StudentAssignments> {
   console.log("handleFileChange");
@@ -55,13 +55,12 @@ async function uploadFiles(
     const pathParts = file.webkitRelativePath.split("/");
     // The student folder should be the second folder in the path
     // '/CaEveFeb25-ExerciseSubmissions/STUDENT_NAME/Lesson1-8-IntroToJS/Exercise-Runner/ex/01.js'
-    if (
-      pathParts.length > 2 &&
-      pathParts[0] === "CaEveFeb25-ExerciseSubmissions"
-    ) {
+    if (pathParts.length > 2 && pathParts[0].includes("ExerciseSubmissions")) {
       studentSet.add(pathParts[1]);
     }
   });
+
+  console.log("Student names:", Array.from(studentSet));
 
   // Process JavaScript files for each student
   const readFilesPromises = filesArray.map(
@@ -81,7 +80,7 @@ async function uploadFiles(
 
         if (
           pathParts.length > 2 &&
-          pathParts[0] === "CaEveFeb25-ExerciseSubmissions"
+          pathParts[0].includes("ExerciseSubmissions")
         ) {
           studentName = pathParts[1];
         }
