@@ -14,6 +14,9 @@ interface ControllerProps {
   totalAssignments: number;
   setIsTaskContentOpen: (value: boolean) => void;
   isTaskContentOpen: boolean;
+  onPreviousStudent: () => void;
+  onNextStudent: () => void;
+  studentsList: string[];
 }
 
 export function Controller({
@@ -30,11 +33,14 @@ export function Controller({
   totalAssignments,
   setIsTaskContentOpen,
   isTaskContentOpen,
+  onPreviousStudent,
+  onNextStudent,
+  studentsList,
 }: ControllerProps) {
   return (
     <div className="section">
       <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-        <div>
+        <article>
           <label style={{ fontWeight: 500 }}>Assignment Range</label>
           <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
             <input
@@ -69,9 +75,40 @@ export function Controller({
               }}
             />
           </div>
-        </div>
+        </article>
 
-        <div>
+        <article>
+          <label style={{ fontWeight: 500 }}>Navigate Assignments</label>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "8px",
+            }}
+          >
+            <button
+              onClick={onPrevious}
+              disabled={
+                currentAssignmentIndex === 0 || startAssignment >= endAssignment
+              }
+              className="secondary-btn"
+            >
+              Previous
+            </button>
+            <button
+              onClick={onNext}
+              disabled={
+                currentAssignmentIndex === totalAssignments - 1 ||
+                startAssignment >= endAssignment
+              }
+              className="primary-btn"
+            >
+              Next
+            </button>
+          </div>
+        </article>
+
+        <article>
           <label style={{ fontWeight: 500 }}>Select Student</label>
           <div style={{ marginTop: "8px" }}>
             <select
@@ -94,32 +131,41 @@ export function Controller({
                 ))}
             </select>
           </div>
-        </div>
-        <div>
-          <label style={{ fontWeight: 500 }}>Navigate Assignments</label>
-          <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
+        </article>
+
+        <article>
+          <label style={{ fontWeight: 500 }}>Navigate Students</label>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "8px",
+            }}
+          >
             <button
-              onClick={onPrevious}
+              onClick={onPreviousStudent}
               disabled={
-                currentAssignmentIndex === 0 || startAssignment >= endAssignment
+                !selectedStudent || studentsList?.indexOf(selectedStudent) === 0
               }
               className="secondary-btn"
             >
               Previous
             </button>
             <button
-              onClick={onNext}
+              onClick={onNextStudent}
               disabled={
-                currentAssignmentIndex === totalAssignments - 1 ||
-                startAssignment >= endAssignment
+                !selectedStudent ||
+                studentsList?.indexOf(selectedStudent) ===
+                  studentsList?.length - 1
               }
               className="primary-btn"
             >
               Next
             </button>
           </div>
-        </div>
-        <div>
+        </article>
+
+        <article>
           <button
             className="primary-btn"
             style={{
@@ -129,7 +175,7 @@ export function Controller({
           >
             {isTaskContentOpen ? "Close Task" : "Open Task"}
           </button>
-        </div>
+        </article>
       </div>
     </div>
   );

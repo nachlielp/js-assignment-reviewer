@@ -74,12 +74,41 @@ export default function Dashboard() {
       value
     );
   };
+
   const handleAlertClose = () => {
     setAlert({
       message: "Hello",
       type: "info",
       isOpen: false,
     });
+  };
+
+  const handlePreviousStudent = () => {
+    const studentsList = Object.keys(studentsData).sort();
+    const currentIndex = studentsList.indexOf(selectedStudent);
+    if (currentIndex > 0) {
+      const prevStudent = studentsList[currentIndex - 1];
+      setSelectedStudent(prevStudent);
+      handleSetStudentAssignmentsByRange(
+        prevStudent,
+        startAssignmentRange,
+        endAssignmentRange
+      );
+    }
+  };
+
+  const handleNextStudent = () => {
+    const studentsList = Object.keys(studentsData).sort();
+    const currentIndex = studentsList.indexOf(selectedStudent);
+    if (currentIndex < studentsList.length - 1) {
+      const nextStudent = studentsList[currentIndex + 1];
+      setSelectedStudent(nextStudent);
+      handleSetStudentAssignmentsByRange(
+        nextStudent,
+        startAssignmentRange,
+        endAssignmentRange
+      );
+    }
   };
 
   return (
@@ -115,6 +144,9 @@ export default function Dashboard() {
             totalAssignments={studentAssignments.length}
             setIsTaskContentOpen={setIsTaskContentOpen}
             isTaskContentOpen={isTaskContentOpen}
+            onPreviousStudent={handlePreviousStudent}
+            onNextStudent={handleNextStudent}
+            studentsList={Object.keys(studentsData).sort()}
           />
         )}
         {studentAssignments.length > 0 && isTaskContentOpen && (
