@@ -6,4 +6,11 @@ declare module "react" {
   }
 }
 
+export type Task = {
+  name: string;
+  title: string;
+  content: string;
+  solution: string;
+};
+
 export {};

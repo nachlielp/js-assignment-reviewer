@@ -1,3121 +1,370 @@
-interface Task {
-  name: string;
-  title: string;
-  content: string;
-  solution: string;
-}
+// This file is auto-generated during build. Do not edit directly.
+    import { Task } from "./types";
 
-interface Tasks {
-  [key: string]: Task;
-}
-export const tasks: Tasks = {
-  1: {
-    name: "01.js",
-    title: "Welcome",
-    content: `
-    <h2>Exercise 1 - Welcome</h2>
-<p>Use <span class="code">prompt()</span> to read a first name and a last name.</p>
-<p>Declare the variable <span class="code">fullName</span>, and then welcome the user by his full name.</p>
+    interface Tasks {
+      [key: string]: Task;
+    }
 
-    `,
-    solution: `
-    var firstName = prompt('Please enter your first name:')
-    var lastName = prompt('Please enter your last name:')
-    var fullName = firstName + ' ' + lastName
-    alert('Welcome ' + fullName)
-    `,
-  },
+    export const tasks: Tasks = {
+      1: {
+        name: "01.js",
+        title: "Exercise 1",
+        content: "<h2>Exercise 1 - Welcome</h2>\n<p>Use <span class=\"code\">prompt()</span> to read a first name and a last name.</p>\n<p>Declare the variable <span class=\"code\">fullName</span>, and then welcome the user by his full name.</p>\n",
+        solution: "console.log('EX 01')\r\nconsole.log('Read first name and last name, and welcome the user by his full name.')\r\n// reviewed ✔️\r\n\r\n// 1. Read (prompt) a first name and a last name. Declare the variable fullName, and then\r\n// welcome the user by his full name.\r\n\r\nvar firstName = prompt('Please enter your first name:')\r\nvar lastName = prompt('Please enter your last name:')\r\nvar fullName = firstName + ' ' + lastName\r\n\r\nalert('Welcome ' + fullName)\r\n"
+      },
   2: {
-    name: "02.js",
-    title: "Basic math operations",
-    content: `<h2>Exercise 2 - Basic math operations</h2>
-<p>Read two numbers and use <span class="code">console.log()</span> to print the result of the following operations on them: <span class="code">( % , / , *)</span></p>`,
-    solution: `
-    var num1 = +prompt('Please enter a number: ')
-    var num2 = +prompt('Please enter another number: ')
-    var moduloRes = num1 % num2
-    console.log(num1 + ' % ' + num2 + ' = ' + moduloRes)
-    var divisionRes = num1 / num2
-    console.log(num1 + ' / ' + num2 + ' = ' + divisionRes)
-    var multRes = num1 * num2
-    console.log(num1 + ' * ' + num2 + ' = ' + multRes)
-    `,
-  },
+        name: "02.js",
+        title: "Exercise 2",
+        content: "<h2>Exercise 2 - Basic math operations</h2>\n<p>Read two numbers and use <span class=\"code\">console.log()</span> to print the result of the following operations on them: <span class=\"code\">( % , / , *)</span></p>",
+        solution: "console.log('EX 02')\r\nconsole.log('Read 2 numbers from the user and print the following operations (%,/,*) on them.')\r\n// reviewed ✔️\r\n\r\n// 2. Read two numbers and print (to the console) the result of the following operations on\r\n// them:\r\n// (% ,/ ,*)\r\n\r\nvar num1 = +prompt('Please enter a number: ')\r\nvar num2 = +prompt('Please enter another number: ')\r\n\r\nvar moduloRes = num1 % num2\r\nconsole.log(num1 + ' % ' + num2 + ' = ' + moduloRes)\r\n\r\nvar divisionRes = num1 / num2\r\nconsole.log(num1 + ' / ' + num2 + ' = ' + divisionRes)\r\n\r\nvar multRes = num1 * num2\r\nconsole.log(num1 + ' * ' + num2 + ' = ' + multRes)\r\n"
+      },
   3: {
-    name: "03.js",
-    title: "Temperature Converter",
-    content: `<p>Create a function that converts Celsius to Fahrenheit</p>`,
-    solution: `
-    var celsius = +prompt('Please enter degrees in Celsius: ')
-    var fahrenheit = celsius * (9 / 5) + 32
-    console.log('Result: ' + celsius + ' Celsius degrees in Fahrenheit is ' + fahrenheit)
-    `,
-  },
+        name: "03.js",
+        title: "Exercise 3",
+        content: "<h2>Exercise 3 - Temprature convertion</h2>\n<p>Read a temperature in Celsius from the user, and print it converted to Fahrenheit.</p>",
+        solution: "console.log('EX 03')\r\nconsole.log('Read a temperature in Celsius from the user, and print it converted to Fahrenheit')\r\n// reviewed ✔️\r\n\r\n// 3. Read a temperature in Celsius from the user, and print it converted to Fahrenheit\r\n\r\nvar celsius = +prompt('Please enter degrees in Celsius: ')\r\nvar fahrenheit = celsius * (9 / 5) + 32\r\n\r\nconsole.log('Result: ' + celsius + ' Celsius degrees in Fahrenheit is ' + fahrenheit)\r\n"
+      },
   4: {
-    name: "04.js",
-    title: "String Length",
-    content: `<h2>Exercise 4 - Calculate Time</h2>
-<p>Read a number from the user for distance and a number for speed and print the time.</p>
-<img src="../assets/img/std.png" alt="">`,
-    solution: `
-    var distance = +prompt('Enter a distance (km):')
-    var speed = +prompt('Enter speed (km/h):')
-    var time = distance / speed
-    console.log('Result:')
-    console.log('For the distance: ' + distance + ' kilometers')
-    console.log('and the speed: ' + speed + ' km/h')
-    console.log('it will take ' + time + ' hours to get to the destination')
-    `,
-  },
+        name: "04.js",
+        title: "Exercise 4",
+        content: "<h2>Exercise 4 - Calculate Time</h2>\n<p>Read a number from the user for distance and a number for speed and print the time.</p>\n<img src=\"../assets/img/std.png\" alt=\"\">",
+        solution: "console.log('EX 04')\r\nconsole.log('Read a number from the user for distance and a number for speed and print the time.')\r\n// reviewed ✔️\r\n\r\n// 4. Read a number from the user for distance and a number for speed and print the time.\r\n\r\nvar distance = +prompt('Enter a distance (km):')\r\nvar speed = +prompt('Enter speed (km/h):')\r\n\r\nvar time = distance / speed\r\n\r\nconsole.log('Result:')\r\nconsole.log('For the distance: ' + distance + ' kilometers')\r\nconsole.log('and the speed: ' + speed + ' km/h')\r\nconsole.log('it will take ' + time + ' hours to get to the destination')\r\n"
+      },
   5: {
-    name: "05.js",
-    title: "Array Sum",
-    content: `<h2>Exercise 5 - Number from Digits</h2>
-<p>Read 3 digits from the user, join them to one number and print it.</p>
-<p>For example: if the user enters the digits 3, 2 and 6, we should store them in a variable holding the value <span class="code">'326'</span> and then print that variable to the console.</p>
-
-<p>BONUS: In this case, working with strings is easier. try solving the task while using numeric variables.</p>
-`,
-    solution: `
-    var strDigit1 = prompt('Enter first digit')
-var strDigit2 = prompt('Enter second digit')
-var strDigit3 = prompt('Enter third digit')
-
-var strNum = strDigit1 + strDigit2 + strDigit3
-console.log('The full number is: ' + strNum)
-
-//BONUS:
-var digit1 = +prompt('Enter first digit')
-var digit2 = +prompt('Enter second digit')
-var digit3 = +prompt('Enter third digit')
-
-var num = digit1 * 100 + digit2 * 10 + digit3
-console.log('The full number is: ' + num)
-    `,
-  },
+        name: "05.js",
+        title: "Exercise 5",
+        content: "<h2>Exercise 5 - Number from Digits</h2>\n<p>Read 3 digits from the user, join them to one number and print it.</p>\n<p>For example: if the user enters the digits 3, 2 and 6, we should store them in a variable holding the value <span class=\"code\">'326'</span> and then print that variable to the console.</p>\n\n<p>BONUS: In this case, working with strings is easier. try solving the task while using numeric variables.</p>\n",
+        solution: "console.log('Ex 05')\r\nconsole.log('Print the number');\r\n// reviewed ✔️\r\n\r\n//5. Read 3 digits from the user and print the number in full: for example: if the user entered the numbers 3,2,6, we should store them in a variable holding the value of 326 and then print that variable to the console.\r\n//● BONUS: In this case, working with strings is easier, try solving the task while using numeric variables.\r\n\r\nvar strDigit1 = prompt('Enter first digit')\r\nvar strDigit2 = prompt('Enter second digit')\r\nvar strDigit3 = prompt('Enter third digit')\r\n\r\nvar strNum = strDigit1 + strDigit2 + strDigit3\r\nconsole.log('The full number is: ' + strNum)\r\n\r\n//BONUS:\r\nvar digit1 = +prompt('Enter first digit')\r\nvar digit2 = +prompt('Enter second digit')\r\nvar digit3 = +prompt('Enter third digit')\r\n\r\nvar num = digit1 * 100 + digit2 * 10 + digit3\r\nconsole.log('The full number is: ' + num)"
+      },
   6: {
-    name: "06.js",
-    title: "Array Operations",
-    content: `<h2>Exercise 6 - Quadratic Equation</h2>
-<p>Read 3 variables from the user: <span class="code">a, b</span>and <span class="code">c</span>.</p>
-<p>These will be the  <span class="math">a, b</span> and <span class="math">c</span> coefficients of a quadratic equation. (מקדמי משוואה ריבועית)</p>
-<ol>
-    <li>Print the values of the following calculations to the console:
-        <ul>
-            <li><span class="math">-b</span></li>
-            <li><span class="math">2a</span></li>
-            <li><span class="math">b&sup2 - 4ac</span></li>
-        </ul>
-    </li>
-    <li>
-        BONUS: a quadratic equation looks like this: <span class="math">ax² + bx + c = 0</span>
-        <p>The two solutions for of this equation are <span class="math">X&#8321</span> and <span class="math">X&#8322;</span>:</p>
-        <img src="../assets/img/quadratic_formula.png" alt="">
-
-        <ul>
-            <li>Print the quadratic equation as a string to the console</li>
-            <li>Print the solutions of <span class="math">X&#8321</span> and <span class="math">X&#8322;</span>  to the console.</li>
-            <li>If the discriminant is 0 – the equation has a single solution</li>
-            <li>If the discriminant is negative – the equation has no solutions</li>
-        </ul>
-        <br>
-        <p>Here's an example:</p>
-        <section id="quadratic-example">
-            <p class="example-title">For the following equation:</p>	
-            <p class="example-body"><span class="math">2x² – 5x + 2 = 0</span></p>
-            <p class="example-title">Your inputs are:</p>
-            <p class="example-body"><span class="math">a = 2,    b = -5,    c = 2</span></p>
-            <p class="example-title">your output to the console should be:
-            <article class="example-body flex-column">
-                <p><span class="code">2x² – 5x + 2 = 0</span></p>
-                <p><span class="code">x&#8321; = 2 ; x&#8322; = 0.5</span></p>
-            </article>
-        </section>
-        <br>
-        <p>Hint: To print the <span class="code">x²</span> to the console, use this: string: <span class="code">'x\u00B2'</span></p>
-    </li>
-</ol>`,
-    solution: `var a = +prompt('Enter variable a')
-var b = +prompt('Enter variable b')
-var c = +prompt('Enter variable c')
-
-var minusB = -b
-var doubleA = a * 2
-var discriminant = b * b - 4 * a * c
-
-console.log('-b: ' + minusB)
-console.log('2*a: ' + doubleA)
-console.log('The discriminant is: ', discriminant)
-
-//BONUS:
-var equation = ''
-var bOperator = ''
-var cOperator = ''
-
-if (a) {
-    if(a === 1) {
-        equation = 'x\u00B2'
-    } else {
-        equation = a + 'x\u00B2'
-    }
-}
-if (b) {
-  if (b > 0 && a) {
-    bOperator = '+'
-  }
-  equation += bOperator + b + 'x'
-}
-if (c) {
-  if (c > 0 && b) {
-    cOperator = '+'
-  }
-  equation += cOperator + c
-}
-
-console.log('The quadratic equation is: ' + equation)
-
-if(discriminant < 0) {
-    console.log('This quadratic equation has no solution');
-} else {
-    var x1 = (minusB + discriminant ** 0.5) / doubleA
-    console.log('x1: ', x1)
-    if(discriminant === 0) {
-        console.log('This quadratic equation has a single solution');
-    } else {
-        var x2 = (minusB - discriminant ** 0.5) / doubleA
-        console.log('x2: ', x2)
-    }
-}
-
-// Example input for single solution:
-
-// x2 + 2x + 1 = 0 (solution: x = -1)
-// x2 + 4x + 4 = 0 (solution: x = -2)
-// x2 + 6x + 9 = 0 (solution: x = -3)
-// x2 + 8x + 16 = 0 (solution: x = -4)
-// x2 + 10x + 25 = 0 (solution: x = -5)
-
-// Example input for two solutions:
-// 4x2 + 26x + 12 = 0
-// x2 + 5x - 4 = 0 r
-// x2 + 5x + 6 = 0 
-// x2 + 10x + 16 = 0 
-
-// Example input for no solution:
-// x2 + x + 5 = 0
-// x2 + x + 4 = 0
-// x2 + 5x + 12 = 0`,
-  },
+        name: "06.js",
+        title: "Exercise 6",
+        content: "<h2>Exercise 6 - Quadratic Equation</h2>\n<p>Read 3 variables from the user: <span class=\"code\">a, b</span>and <span class=\"code\">c</span>.</p>\n<p>These will be the  <span class=\"math\">a, b</span> and <span class=\"math\">c</span> coefficients of a quadratic equation. (מקדמי משוואה ריבועית)</p>\n<ol>\n    <li>Print the values of the following calculations to the console:\n        <ul>\n            <li><span class=\"math\">-b</span></li>\n            <li><span class=\"math\">2a</span></li>\n            <li><span class=\"math\">b&sup2 - 4ac</span></li>\n        </ul>\n    </li>\n    <li>\n        BONUS: a quadratic equation looks like this: <span class=\"math\">ax² + bx + c = 0</span>\n        <p>The two solutions for of this equation are <span class=\"math\">X&#8321</span> and <span class=\"math\">X&#8322;</span>:</p>\n        <img src=\"../assets/img/quadratic_formula.png\" alt=\"\">\n\n        <ul>\n            <li>Print the quadratic equation as a string to the console</li>\n            <li>Print the solutions of <span class=\"math\">X&#8321</span> and <span class=\"math\">X&#8322;</span>  to the console.</li>\n            <li>If the discriminant is 0 – the equation has a single solution</li>\n            <li>If the discriminant is negative – the equation has no solutions</li>\n        </ul>\n        <br>\n        <p>Here’s an example:</p>\n        <section id=\"quadratic-example\">\n            <p class=\"example-title\">For the following equation:</p>\t\n            <p class=\"example-body\"><span class=\"math\">2x² – 5x + 2 = 0</span></p>\n            <p class=\"example-title\">Your inputs are:</p>\n            <p class=\"example-body\"><span class=\"math\">a = 2,    b = -5,    c = 2</span></p>\n            <p class=\"example-title\">your output to the console should be:\n            <article class=\"example-body flex-column\">\n                <p><span class=\"code\">2x² – 5x + 2 = 0</span></p>\n                <p><span class=\"code\">x&#8321; = 2 ; x&#8322; = 0.5</span></p>\n            </article>\n        </section>\n        <br>\n        <p>Hint: To print the <span class=\"code\">x²</span> to the console, use this: string: <span class=\"code\">'x\\u00B2'</span></p>\n    </li>\n</ol>",
+        solution: "console.log('Ex 06')\r\nconsole.log('Quadratic equation')\r\n// reviewed ✔️\r\n\r\n// 6. Read 3 variables from the user: a, b, c. These will be the a, b, c variables of a\r\n// quadratic equation. ( (משוואה ריבועית\r\n// a. Calculations for the solution of the quadratic equation:\r\n// • Print to the console the value of “-b”\r\n// • Print to the console the value of “2*a”\r\n// • Print to the console the value of the discriminant. Discriminant=b*b-4*a*c\r\n// b. BONUS:\r\n// Now, a quadratic equation looks like:\r\n// The two solutions for of this equation are X1 and X2:\r\n// Your tasks:\r\n// • Print the quadratic equation as a string to the console\r\n// • Print the solutions of X1 and X2 to the console.\r\n// Example: for the following equation: 2X² – 5x + 2 = 0\r\n// Your inputs are: a=2, b=-5, c=2\r\n// your output to the console should be:\r\n// 2X² - 5x + 2 = 0\r\n// x1 = 2 ; x2 = 0.5\r\n// Hint: To print the x² to the console, use this: string: 'x\\u00B2'\r\n\r\nvar a = +prompt('Enter variable a')\r\nvar b = +prompt('Enter variable b')\r\nvar c = +prompt('Enter variable c')\r\n\r\nvar minusB = -b\r\nvar doubleA = a * 2\r\nvar discriminant = b * b - 4 * a * c\r\n\r\nconsole.log('-b: ' + minusB)\r\nconsole.log('2*a: ' + doubleA)\r\nconsole.log('The discriminant is: ', discriminant)\r\n\r\n//BONUS:\r\nvar equation = ''\r\nvar bOperator = ''\r\nvar cOperator = ''\r\n\r\nif (a) {\r\n    if(a === 1) {\r\n        equation = 'x\\u00B2'\r\n    } else {\r\n        equation = a + 'x\\u00B2'\r\n    }\r\n}\r\nif (b) {\r\n  if (b > 0 && a) {\r\n    bOperator = '+'\r\n  }\r\n  equation += bOperator + b + 'x'\r\n}\r\nif (c) {\r\n  if (c > 0 && b) {\r\n    cOperator = '+'\r\n  }\r\n  equation += cOperator + c\r\n}\r\n\r\nconsole.log('The quadratic equation is: ' + equation)\r\n\r\nif(discriminant < 0) {\r\n    console.log('This quadratic equation has no solution');\r\n} else {\r\n    var x1 = (minusB + discriminant ** 0.5) / doubleA\r\n    console.log('x1: ', x1)\r\n    if(discriminant === 0) {\r\n        console.log('This quadratic equation has a single solution');\r\n    } else {\r\n        var x2 = (minusB - discriminant ** 0.5) / doubleA\r\n        console.log('x2: ', x2)\r\n    }\r\n}\r\n\r\n// Example input for single solution:\r\n\r\n// x2 + 2x + 1 = 0 (solution: x = -1)\r\n// x2 + 4x + 4 = 0 (solution: x = -2)\r\n// x2 + 6x + 9 = 0 (solution: x = -3)\r\n// x2 + 8x + 16 = 0 (solution: x = -4)\r\n// x2 + 10x + 25 = 0 (solution: x = -5)\r\n\r\n// Example input for two solutions:\r\n// 4x2 + 26x + 12 = 0\r\n// x2 + 5x - 4 = 0 r\r\n// x2 + 5x + 6 = 0 \r\n// x2 + 10x + 16 = 0 \r\n\r\n// Example input for no solution:\r\n// x2 + x + 5 = 0\r\n// x2 + x + 4 = 0\r\n// x2 + 5x + 12 = 0"
+      },
   7: {
-    name: "07.js",
-    title: "String Reversal",
-    content: `<h2>Exercise 7 - Two Numbers Equal the Third</h2>
-<p>Read 3 numbers from the user and check if the 3rd is the sum of the first two.</p> 
-<p>If it is, print all the numbers to the console like this: <span class="console">6 + 4 = 10</span></p>
-<p>If not, print them like this: <span class="console">3 + 5 != 10</span></p>
-`,
-    solution: `var num1 = +prompt('First number?')
-var num2 = +prompt('Second number?')
-var num3 = +prompt('Third number?')
-
-var operator = ' != '
-
-if (num1 + num2 === num3) {
-    operator = ' = '
-}
-
-console.log(num1 + ' + ' + num2 + operator + num3)`,
-  },
+        name: "07.js",
+        title: "Exercise 7",
+        content: "<h2>Exercise 7 - Two Numbers Equal the Third</h2>\n<p>Read 3 numbers from the user and check if the 3rd is the sum of the first two.</p> \n<p>If it is, print all the numbers to the console like this: <span class=\"console\">6 + 4 = 10</span></p>\n<p>If not, print them like this: <span class=\"console\">3 + 5 != 10</span></p>\n",
+        solution: "console.log('Ex 07')\r\nconsole.log('Is the 3rd number is the sum of the first two?');\r\n// reviewed ✔️\r\n\r\n// 7. Read 3 numbers from the user and check if the 3rd is the\r\n//  sum of the first two, if so, \r\n// print all the numbers to the console in this way: 6 + 4 = 10\r\n\r\nvar num1 = +prompt('First number?')\r\nvar num2 = +prompt('Second number?')\r\nvar num3 = +prompt('Third number?')\r\n\r\nvar operator = ' != '\r\n\r\nif (num1 + num2 === num3) {\r\n    operator = ' = '\r\n}\r\n\r\nconsole.log(num1 + ' + ' + num2 + operator + num3)"
+      },
   8: {
-    name: "08.js",
-    title: "Palindrome Check",
-    content: `<h2>Exercise 8 - The Smallest of Three Numbers</h2>
-<p>Read three numbers from the user and print the smallest one.</p>`,
-    solution: `
-var num1 = +prompt('First number?')
-var num2 = +prompt('Second number?')
-var num3 = +prompt('Third number?')
-
-var smallestNum = num3
-
-if (num2 < smallestNum) {
-  smallestNum = num2
-}
-if (num1 < smallestNum) {
-  smallestNum = num1
-}
-
-console.log('The smallest number is:', smallestNum)
-
-// Another option:
-
-// if (num1 > num2) {
-//     if (num3 > num2) {
-//         smallestNum = num2
-//     }
-// } else {
-//     if (num3 > num1) {
-//         smallestNum = num1
-//     }
-// }
-
-// Another option:
-
-// if (num1 > num2) {
-//     if (num3 > num2) {
-//         smallestNum = num2
-//     } else {
-//         smallestNum = num3
-//     }
-// } else {
-//     if (num3 > num1) {
-//         smallestNum = num1
-//     } else {
-//         smallestNum = num3
-//     }
-// }
-
-// Another option:
-
-if (num1 < num3 && num1 < num2) {
-  console.log('The first number is the smallest: ', num1)
-} else if (num2 < num1 && num2 < num3) {
-  console.log('The second number is the smallest: ', num2)
-} else {
-  console.log('The third number is the smallest: ', num3)
-}
-`,
-  },
+        name: "08.js",
+        title: "Exercise 8",
+        content: "<h2>Exercise 8 - The Smallest of Three Numbers</h2>\n<p>Read three numbers from the user and print the smallest one.</p>",
+        solution: "console.log('Ex 08')\r\nconsole.log('The smallest number')\r\n// reviewed ✔️\r\n\r\n// 8. Read 3 numbers from the user and print the smallest one.\r\n\r\nvar num1 = +prompt('First number?')\r\nvar num2 = +prompt('Second number?')\r\nvar num3 = +prompt('Third number?')\r\n\r\nvar smallestNum = num3\r\n\r\nif (num2 < smallestNum) {\r\n  smallestNum = num2\r\n}\r\nif (num1 < smallestNum) {\r\n  smallestNum = num1\r\n}\r\n\r\nconsole.log('The smallest number is:', smallestNum)\r\n\r\n// Another option:\r\n\r\n// if (num1 > num2) {\r\n//     if (num3 > num2) {\r\n//         smallestNum = num2\r\n//     }\r\n// } else {\r\n//     if (num3 > num1) {\r\n//         smallestNum = num1\r\n//     }\r\n// }\r\n\r\n// Another option:\r\n\r\n// if (num1 > num2) {\r\n//     if (num3 > num2) {\r\n//         smallestNum = num2\r\n//     } else {\r\n//         smallestNum = num3\r\n//     }\r\n// } else {\r\n//     if (num3 > num1) {\r\n//         smallestNum = num1\r\n//     } else {\r\n//         smallestNum = num3\r\n//     }\r\n// }\r\n\r\n// Another option:\r\n\r\nif (num1 < num3 && num1 < num2) {\r\n  console.log('The first number is the smallest: ', num1)\r\n} else if (num2 < num1 && num2 < num3) {\r\n  console.log('The second number is the smallest: ', num2)\r\n} else {\r\n  console.log('The third number is the smallest: ', num3)\r\n}\r\n"
+      },
   9: {
-    name: "09.js",
-    title: "Array Filter",
-    content: `<h2>Exercise 9 - Absolute Value</h2>
-<p>Read two positive numbers from the user.</p>
-<p>Calculate the difference between them (the absolute value).</p>
-<ul>
-    <li>First, check that the input values are numbers (try googling something like 'javascript check if number')</li>
-    <li>Print the inputs and the absolute difference between them to the console.</li>
-    <li>If the difference is smaller than both input values, print a message to the console saying that those numbers are relatively close.</li>
-</ul>
-<p>It should look something like this – </p>
-
-<p class="console">num1 = 5, num2 = 9, diff = 4 (numbers are relatively close!)</p>
-<p class="console">num1 = 15, num2 = 89, diff = 74 </p>
-`,
-    solution: `
-var num1 = +prompt('Please enter a number')
-var num2 = +prompt('Please enter another number')
-var diff
-
-if (isNaN(num1) || isNaN(num2)) {
-    console.log('Invalid input - not numbers')
-} else if (num1 < 0 || num2 < 0) {
-    console.log('Invalid input - negative numbers')
-} else {
-    if (num1 > num2) {
-        diff = num1 - num2
-    } else {
-        diff = num2 - num1
-    }
-
-    // // Another option 
-    // diff = num1 - num2
-    // if (diff < 0) {
-    //     diff *= -1
-    // }
-
-    // Another option
-    // diff = Math.abs(num1 - num2)
-
-    if (diff < num1 && diff < num2) {
-        console.log('Numbers are relatively close')
-    }
-    console.log('The diff between the numbers is: ', diff)
-}
-`,
-  },
+        name: "09.js",
+        title: "Exercise 9",
+        content: "<h2>Exercise 9 - Absolute Value</h2>\n<p>Read two positive numbers from the user.</p>\n<p>Calculate the difference between them (the absolute value).</p>\n<ul>\n    <li>First, check that the input values are numbers (try googling something like ‘javascript check if number’)</li>\n    <li>Print the inputs and the absolute difference between them to the console.</li>\n    <li>If the difference is smaller than both input values, print a message to the console saying that those numbers are relatively close.</li>\n</ul>\n<p>It should look something like this – </p>\n\n<p class=\"console\">num1 = 5, num2 = 9, diff = 4 (numbers are relatively close!)</p>\n<p class=\"console\">num1 = 15, num2 = 89, diff = 74 </p>\n",
+        solution: "console.log('Ex 09')\r\nconsole.log('Difference between two positive numbers');\r\n// reviewed ✔️\r\n\r\n// EX09: Read 2 positive numbers from the user. Calculate the difference between the two of \r\n// them (the absolute value).\r\n// If the diff variable is smaller than both values, print that those numbers are \r\n// relatively-close (i.e. – num1=5, num2=9 then diff=4 => relatively-close!)\r\n// • Validate that your values are numbers (hint: google something like: ‘javascript \r\n// check if number’)\r\n\r\nvar num1 = +prompt('Please enter a number')\r\nvar num2 = +prompt('Please enter another number')\r\nvar diff\r\n\r\nif (isNaN(num1) || isNaN(num2)) {\r\n    console.log('Invalid input - not numbers')\r\n} else if (num1 < 0 || num2 < 0) {\r\n    console.log('Invalid input - negative numbers')\r\n} else {\r\n    if (num1 > num2) {\r\n        diff = num1 - num2\r\n    } else {\r\n        diff = num2 - num1\r\n    }\r\n\r\n    // // Another option \r\n    // diff = num1 - num2\r\n    // if (diff < 0) {\r\n    //     diff *= -1\r\n    // }\r\n\r\n    // Another option\r\n    // diff = Math.abs(num1 - num2)\r\n\r\n    if (diff < num1 && diff < num2) {\r\n        console.log('Numbers are relatively close')\r\n    }\r\n    console.log('The diff between the numbers is: ', diff)\r\n}\r\n"
+      },
   10: {
-    name: "10.js",
-    title: "Facebook Friends",
-    content: `<h2>Exercise 10 - Facebook Friends</h2>
-<p>Ask the user how many friends he has on FB and print out an analysis:</p>
-<ul>
-    <li>More than 500 friends – <strong><em>'OMG, a celebrity!'</em></strong></li>
-    <li>More than 300 friends (and up to 500) – <strong><em>'You are well connected!'</em></strong></li>
-    <li>More than 100 friends – <strong><em>'You know some people...'</em></strong></li>
-    <li>Up to 100 friends  – <strong><em>'Quite picky, aren't you?'</em></strong></li>
-    <li>0 – <strong><em>'Let's be friends!'</em></strong></li>
-</ul>
-`,
-    solution: `
-var friendCount = +prompt('How many friends do you have on FB?')
-var msg
-
-if (friendCount > 500) {
-    msg = 'OMG, a celebrity!'
-} else if (friendCount > 300) {
-    msg = 'You are well connected!'
-} else if (friendCount > 100) {
-    msg = 'You know some people...'
-} else if (friendCount > 0) {
-    msg = 'Quite picky arent you?'
-} else {
-    msg = 'Let's be friends!'
-}
-
-console.log(msg)
-`,
-  },
+        name: "10.js",
+        title: "Exercise 10",
+        content: "<h2>Exercise 10 - Facebook Friends</h2>\n<p>Ask the user how many friends he has on FB and print out an analysis:</p>\n<ul>\n    <li>More than 500 friends – <strong><em>'OMG, a celebrity!'</em></strong></li>\n    <li>More than 300 friends (and up to 500) – <strong><em>'You are well connected!'</em></strong></li>\n    <li>More than 100 friends – <strong><em>'You know some people...'</em></strong></li>\n    <li>Up to 100 friends  – <strong><em>'Quite picky, aren't you?'</em></strong></li>\n    <li>0 – <strong><em>'Let’s be friends!'</em></strong></li>\n</ul>\n\n\n\n\n\n",
+        solution: "console.log('Ex 10')\r\nconsole.log('Friends on FB')\r\n// reviewed ✔️\r\n\r\n// EX10: Ask the user how many friends he has on FB and print out an analysis: \r\n// • More than 500 – ‘OMG, a celebrity!’\r\n// • More than 300 (and up to 500) – ‘You are well connected!’\r\n// • More than 100– ‘You know some people...’\r\n// • Up to 100 – ‘Quite picky aren't you?’\r\n// • 0 – ‘Let’s be friends!’\r\n\r\nvar friendCount = +prompt('How many friends do you have on FB?')\r\nvar msg\r\n\r\nif (friendCount > 500) {\r\n    msg = 'OMG, a celebrity!'\r\n} else if (friendCount > 300) {\r\n    msg = 'You are well connected!'\r\n} else if (friendCount > 100) {\r\n    msg = 'You know some people...'\r\n} else if (friendCount > 0) {\r\n    msg = 'Quite picky arent you?'\r\n} else {\r\n    msg = 'Let’s be friends!'\r\n}\r\n\r\nconsole.log(msg)\r\n"
+      },
   11: {
-    name: "11.js",
-    title: "Bank System",
-    content: `<ul>
-    <li>Initialize a variable named currBalance with the value: <span class="code">1000</span></li>
-    <li>Initialize a constant named  PIN  with the value: <span class="code">'0796'</span></li>
-    <li>Prompt the user to enter a secret pin code.</li>
-    <li>If the user entered the correct pin code, ask him how much he would like to withdraw. Print a nice message with the new balance.</li>
-    <li>If the pin code was wrong, alert the user with a different message, and don't allow him make a withdrawal. </li>
-    <li>Add a feature: don't let the user withdraw more than he has in his account. </li>
-</ul>`,
-    solution: `
-var currBalance = 1000
-var pinCode = '0796'
-var enteredPinCode = prompt('Please enter your pin code')
-
-if (pinCode !== enteredPinCode) {
-  console.error('Wrong pin code')
-} else {
-  var withdraw = +prompt('How much would you like to withdraw')
-
-  if (withdraw > currBalance) {
-    console.error('Maximum amount to withdraw: ', currBalance)
-  } else {
-    currBalance -= withdraw
-    console.log('Your new balance:', currBalance)
-  }
-}
-`,
-  },
+        name: "11.js",
+        title: "Exercise 11",
+        content: "<h2>Exercise 11 - Bank System</h2>\n<ul>\n    <li>Initialize a variable named currBalance with the value: <span class=\"code\">1000</span></li>\n    <li>Initialize a constant named  PIN  with the value: <span class=\"code\">'0796'</span></li>\n    <li>Prompt the user to enter a secret pin code.</li>\n    <li>If the user entered the correct pin code, ask him how much he would like to withdraw. Print a nice message with the new balance.</li>\n    <li>If the pin code was wrong, alert the user with a different message, and don’t allow him make a withdrawal. </li>\n    <li>Add a feature: don’t let the user withdraw more than he has in his account. </li>\n</ul>\n\n",
+        solution: "console.log('Ex 11')\r\nconsole.log('Banking system')\r\n// reviewed ✔️\r\n\r\n// EX11: Rolling Project: BankSystem\r\n// • Initialize a variable: currBalance with the value: 1000\r\n// • Prompt the user to get a secret pin code, ‘0796’.\r\n// • After it was validated to be true, ask the user how much would he like to withdraw.\r\n// Print a nice message with the new balance.\r\n// • If the code was wrong, alert with a different message, and don’t let him to withdraw\r\n// the sum.\r\n// • Add a feature: don’t let the user withdraw more than he has in his account.\r\n\r\nvar currBalance = 1000\r\nvar pinCode = '0796'\r\nvar enteredPinCode = prompt('Please enter your pin code')\r\n\r\nif (pinCode !== enteredPinCode) {\r\n  console.error('Wrong pin code')\r\n} else {\r\n  var withdraw = +prompt('How much would you like to withdraw')\r\n\r\n  if (withdraw > currBalance) {\r\n    console.error('Maximum amount to withdraw: ', currBalance)\r\n  } else {\r\n    currBalance -= withdraw\r\n    console.log('Your new balance:', currBalance)\r\n  }\r\n}\r\n"
+      },
   12: {
-    name: "12.js",
-    title: "Guess Who",
-    content: `<p>Use the alert function, and ask the user to think about an actor.</p>
-<p>Use the confirm function and ask the user two yes/no questions:</p>
-<p>Question 1: <span class="console">'Is he a man?'</span></p>
-<br>
-<ul>
-    <li>If the answer to question 1 is <span class="console">'Yes'</span>, then Question 2 becomes: <span class="console">'Is he blonde?'</span></li>
-        <ul>
-            <li>If the answer to question 2 is <span class="console">'Yes'</span> - <span class="console">Philip Seymour!</span></li>
-            <li>If the answer to question 2 is <span class="console">'No'</span> - <span class="console">Tom Cruise!</span></li>
-        </ul>
-    <br>
-    <li>If the answer to question 1 is <span class="console">'No'</span>, then Question 2 becomes: <span class="console">'Is she English?'</span></p>
-        <ul>
-            <li>If the answer to question 2 is <span class="console">'Yes'</span> - <span class="console">Keira Knightley!</span></li>
-            <li>If the answer to question 2 is <span class="console">'No'</span> - <span class="console">Natalie Portman!</span></li>
-        </ul>
-</ul>`,
-    solution: `
-alert('Think about an actor/actress........')
-
-var isMan = confirm('Is he a man?')
-if (isMan) {
-  var isBlonde = confirm('Is he blonde?')
-  if (isBlonde) {
-    console.log('Philip Seymour!')
-  } else {
-    console.log('Tom Cruise!')
-  }
-} else {
-  var isEnglish = confirm('Is she English?')
-  if (isEnglish) {
-    console.log('Keira Knightley!')
-  } else {
-    console.log('Natalie Portman!')
-  }
-}
-`,
-  },
+        name: "12.js",
+        title: "Exercise 12",
+        content: "<h2>Exercise 12 - Guess Who</h2>\n<p>Use the alert function, and ask the user to think about an actor.</p>\n<p>Use the confirm function and ask the user two yes/no questions:</p>\n\n<p>Question 1: <span class=\"console\">'Is he a man?'</span></p>\n<br>\n<ul>\n    <li>If the answer to question 1 is <span class=\"console\">'Yes'</span>, then Question 2 becomes: <span class=\"console\">'Is he blonde?'</span></li>\n        <ul>\n            <li>If the answer to question 2 is <span class=\"console\">'Yes'</span> - <span class=\"console\">Philip Seymour!</span></li>\n            <li>If the answer to question 2 is <span class=\"console\">'No'</span> - <span class=\"console\">Tom Cruise!</span></li>\n        </ul>\n    <br>\n    <li>If the answer to question 1 is <span class=\"console\">'No'</span>, then Question 2 becomes: <span class=\"console\">'Is she English?'</span></p>\n        <ul>\n            <li>If the answer to question 2 is <span class=\"console\">'Yes'</span> - <span class=\"console\">Keira Knightley!</span></li>\n            <li>If the answer to question 2 is <span class=\"console\">'No'</span> - <span class=\"console\">Natalie Portman!</span></li>\n        </ul>\n</ul>\n",
+        solution: "console.log('Ex 12')\r\nconsole.log('Guess Who')\r\n// reviewed ✔️\r\n\r\n/*\r\n• Use the alert function, and ask the user to think about an actor\r\n• Use the confirm function and ask the user 2 yes/no questions:\r\nQuestion 1: Is he a man?\r\n Yes:\r\n● Question 2: Is he Blonde?\r\n○ Yes: Philip Seymour!\r\n○ No: Tom Cruise!\r\n No:\r\n● Question 2: Is she English?\r\n○ Yes: Keira Knightley!\r\n○ No: Natalie Portman!\r\n*/\r\n\r\nalert('Think about an actor/actress........')\r\n\r\nvar isMan = confirm('Is he a man?')\r\nif (isMan) {\r\n  var isBlonde = confirm('Is he blonde?')\r\n  if (isBlonde) {\r\n    console.log('Philip Seymour!')\r\n  } else {\r\n    console.log('Tom Cruise!')\r\n  }\r\n} else {\r\n  var isEnglish = confirm('Is she English?')\r\n  if (isEnglish) {\r\n    console.log('Keira Knightley!')\r\n  } else {\r\n    console.log('Natalie Portman!')\r\n  }\r\n}\r\n"
+      },
   13: {
-    name: "13.js",
-    title: "The Elevator",
-    content: `<ul>
-    <li>Keep a <span class="code">currentFloor</span> variable, initialize it to 0</li>
-    <li>Ask the user which floor would he like to go to. </li>
-    <li>Validate the floor is between -2 and 4.</li>
-    <li>Update the <span class="code">currentFloor</span> variable accordingly.</li>
-    <li>Let the user know his current floor.</li>
-    <li>If the user goes to floor 0 alert 'Bye Bye'.</li>
-    <li>If the user goes to the parking lot (negative floors) alert: 'Drive Safely'. </li>
-</ul>`,
-    solution: `
-var currFloor = 0
-var wantedFloor = +prompt('Which floor you would like to go to?')
-
-if (wantedFloor >= -2 && wantedFloor <= 4) {
-  currFloor = wantedFloor
-  console.log('Your current floor is', currFloor)
-
-  if (currFloor === 0) {
-    alert('Bye bye...')
-  } else if (currFloor < 0) {
-    alert('Drive safely!')
-  }
-} else {
-  console.log('Invalid floor. choose one from -2 to 4.')
-}
-`,
-  },
+        name: "13.js",
+        title: "Exercise 13",
+        content: "<h2>Exercise 13 - The Elevator</h2>\n<ul>\n    <li>Keep a <span class=\"code\">currentFloor</span> variable, initialize it to 0</li>\n    <li>Ask the user which floor would he like to go to. </li>\n    <li>Validate the floor is between -2 and 4.</li>\n    <li>Update the <span class=\"code\">currentFloor</span> variable accordingly.</li>\n    <li>Let the user know his current floor.</li>\n    <li>If the user goes to floor 0 alert 'Bye Bye'.</li>\n    <li>If the user goes to the parking lot (negative floors) alert: 'Drive Safely'. </li>\n</ul>\n",
+        solution: "console.log('Ex 13')\r\nconsole.log('The Elevator')\r\n// reviewed ✔️\r\n\r\n// • Keep a currentFloor variable, initialize it to 0\r\n// • Ask the user which floor would he like to go to.\r\n// • Validate the floor is between -2 and 4.\r\n// • Update the currentFloor variable accordingly.\r\n// • Let the user know his current floor.\r\n// • If the user goes to floor 0 alert 'Bye Bye'.\r\n// • If the user goes to the parking lot (negative floors) alert: 'Drive Safely'.\r\n\r\nvar currFloor = 0\r\nvar wantedFloor = +prompt('Which floor you would like to go to?')\r\n\r\nif (wantedFloor >= -2 && wantedFloor <= 4) {\r\n  currFloor = wantedFloor\r\n  console.log('Your current floor is', currFloor)\r\n\r\n  if (currFloor === 0) {\r\n    alert('Bye bye...')\r\n  } else if (currFloor < 0) {\r\n    alert('Drive safely!')\r\n  }\r\n} else {\r\n  console.log('Invalid floor. choose one from -2 to 4.')\r\n}\r\n"
+      },
   14: {
-    name: "14.js",
-    title: "Greet Function",
-    content: `<p>Write a function which receives a user name as a parameter and greets the user.</p>`,
-    solution: `console.log('INPUT: Puki Ben David');
-console.log('EXPECTED: Hello and welcome Puki Ben David');
-console.log('ACTUAL: ');
-greetUser('Puki Ben David');
-
-function greetUser(username) {
-  console.log('Hello and welcome', username);
-}`,
-  },
+        name: "14.js",
+        title: "Exercise 14",
+        content: "<h2>Exercise 14 - Greet Function</h2>\n<p>Write a function which receives a user name as a parameter and greets the user.</p>",
+        solution: "console.log('Ex 14');\r\nconsole.log('Write a function that gets a user name as a parameter and greets the user.');\r\n// reviewed ✔️\r\n\r\n// Write a function that gets a user name as a parameter and greets the user.\r\n\r\n\r\nconsole.log('INPUT: Puki Ben David');\r\nconsole.log('EXPECTED: Hello and welcome Puki Ben David');\r\nconsole.log('ACTUAL: ');\r\ngreetUser('Puki Ben David');\r\n\r\nfunction greetUser(username) {\r\n  console.log('Hello and welcome', username);\r\n}\r\n"
+      },
   15: {
-    name: "15.js",
-    title: "Sum of two Numbers",
-    content: `<p>Write a function which receives two numbers and returns their sum</p>`,
-    solution: `
-console.log('INPUT: num1: 1, num2: 2');
-console.log('EXPECTED: 3');
-console.log('ACTUAL: ');
-var sum = sumTheNums(1, 2);
-console.log('sum :>> ', sum);
-
-console.log('INPUT: num1: 0, num2: 0');
-console.log('EXPECTED: 0');
-console.log('ACTUAL: ');
-sum = sumTheNums(0, 0);
-console.log('sum :>> ', sum);
-
-console.log('INPUT: num1: -5, num2: 80');
-console.log('EXPECTED: 75');
-console.log('ACTUAL: ');
-sum = sumTheNums(-5, 80);
-console.log('sum :>> ', sum);
-
-function sumTheNums(num1, num2) {
-  return num1 + num2;
-}
-`,
-  },
+        name: "15.js",
+        title: "Exercise 15",
+        content: "<h2>Exercise 15 - Sum of two Numbers</h2>\n<p>Write a function which receives two numbers and returns their sum</p>",
+        solution: "console.log('Ex 15');\r\nconsole.log('Write a function that gets 2 numbers and returns their sum.');\r\n// reviewed ✔️\r\n\r\n// Write a function that gets 2 numbers and returns their sum.\r\n\r\nconsole.log('INPUT: num1: 1, num2: 2');\r\nconsole.log('EXPECTED: 3');\r\nconsole.log('ACTUAL: ');\r\nvar sum = sumTheNums(1, 2);\r\nconsole.log('sum :>> ', sum);\r\n\r\nconsole.log('INPUT: num1: 0, num2: 0');\r\nconsole.log('EXPECTED: 0');\r\nconsole.log('ACTUAL: ');\r\nsum = sumTheNums(0, 0);\r\nconsole.log('sum :>> ', sum);\r\n\r\nconsole.log('INPUT: num1: -5, num2: 80');\r\nconsole.log('EXPECTED: 75');\r\nconsole.log('ACTUAL: ');\r\nsum = sumTheNums(-5, 80);\r\nconsole.log('sum :>> ', sum);\r\n\r\nfunction sumTheNums(num1, num2) {\r\n  return num1 + num2;\r\n}\r\n"
+      },
   16: {
-    name: "16.js",
-    title: "Even and Odd",
-    content: `<p>Write a function named <span class="code">isEven(num)</span> which receives a number, and returns <span class="code">true</span>if the number is even, and <span class="code">false</span>if it is odd.</p>`,
-    solution: `
-console.log('INPUT: 2');
-console.log('EXPECTED: true');
-console.log('ACTUAL: ', isEven(2));
-
-console.log('INPUT: 3');
-console.log('EXPECTED: false');
-console.log('ACTUAL: ', isEven(3));
-
-console.log('INPUT: -2');
-console.log('EXPECTED: true');
-console.log('ACTUAL: ', isEven(-2));
-
-function isEven(num) {
-  return num % 2 === 0;
-}
-`,
-  },
+        name: "16.js",
+        title: "Exercise 16",
+        content: "<h2>Exercise 16 - Even and Odd</h2>\n<p>Write a function named <span class=\"code\">isEven(num)</span> which receives a number, and returns <span class=\"code\">true</span>if the number is even, and <span class=\"code\">false</span>if it is odd.</p>",
+        solution: "console.log('Ex 16');\r\nconsole.log(\r\n  'Write a function named isEven that gets a number, and returns true if the number is even. Otherwise the function will return false.'\r\n);\r\n// reviewed ✔️\r\n\r\n// Write a function named isEven that gets a number, and returns true if the number is even. Otherwise the function will return false.\r\n\r\nconsole.log('INPUT: 2');\r\nconsole.log('EXPECTED: true');\r\nconsole.log('ACTUAL: ', isEven(2));\r\n\r\nconsole.log('INPUT: 3');\r\nconsole.log('EXPECTED: false');\r\nconsole.log('ACTUAL: ', isEven(3));\r\n\r\nconsole.log('INPUT: -2');\r\nconsole.log('EXPECTED: true');\r\nconsole.log('ACTUAL: ', isEven(-2));\r\n\r\nfunction isEven(num) {\r\n  return num % 2 === 0;\r\n}\r\n"
+      },
   17: {
-    name: "17.js",
-    title: "Get the Bigger Num",
-    content: `<p>Write a function named <span class="code">getBigger</span>  which receives two numbers and returns the bigger one.</p>`,
-    solution: `console.log('INPUT: num1: 3, num2: 1');
-console.log('EXPECTED: 3');
-console.log('ACTUAL: ', getBigger(3, 1));
-
-console.log('INPUT: num1: -5, num2: 7');
-console.log('EXPECTED: 7');
-console.log('ACTUAL: ', getBigger(-5, 7));
-
-// For very smart people
-// console.log('ACTUAL: ', getBiggerHack(3, 1));
-
-function getBigger(num1, num2) {
-  if (num1 > num2) {
-    return num1;
-  }
-  return num2;
-}
-
-function getBiggerHack(num1, num2) {
-  return Math.max(num1, num2);
-}
-`,
-  },
+        name: "17.js",
+        title: "Exercise 17",
+        content: "<h2>Exercise 17 - Get the Bigger Num</h2>\n<p>Write a function named <span class=\"code\">getBigger</span>  which receives two numbers and returns the bigger one.</p>",
+        solution: "console.log('Ex 17');\r\nconsole.log('Write a function named getBigger that gets 2 numbers and returns the bigger one');\r\n// reviewed ✔️\r\n\r\n// Write a function named getBigger that gets 2 numbers and returns the bigger one\r\n\r\nconsole.log('INPUT: num1: 3, num2: 1');\r\nconsole.log('EXPECTED: 3');\r\nconsole.log('ACTUAL: ', getBigger(3, 1));\r\n\r\nconsole.log('INPUT: num1: -5, num2: 7');\r\nconsole.log('EXPECTED: 7');\r\nconsole.log('ACTUAL: ', getBigger(-5, 7));\r\n\r\n// For very smart people\r\n// console.log('ACTUAL: ', getBiggerHack(3, 1));\r\n\r\nfunction getBigger(num1, num2) {\r\n  if (num1 > num2) {\r\n    return num1;\r\n  }\r\n  return num2;\r\n}\r\n\r\nfunction getBiggerHack(num1, num2) {\r\n  return Math.max(num1, num2);\r\n}\r\n"
+      },
   18: {
-    name: "18.js",
-    title: "Age Check",
-    content: `<p>Write a function named <span class="code">isAbove18</span> which receives a name and an age.</p>
-<p>The function should check if the age is above eighteen and use alert to show a message :</p>
-<p>If the user is younger than eighteen, the message will be &nbsp &nbsp -  &nbsp<span class="console">'You are too young.'</span></p>
-<p>otherwise, the message will be  &nbsp &nbsp -  &nbsp<span class="console">'You are over 18!'</span> </p>
-<ul>
-    <li>Use the user's name within the alerts.</li>
-    <li>The function should also return a boolean value - print it to the console. </li>
-</ul>`,
-    solution: `
-console.log('INPUT: username: puki, age: 12');
-console.log('EXPECTED: false');
-console.log('ACTUAL: ', isAbove18('Puki Ben David', 12));
-
-console.log('INPUT: username: puki, age: 18');
-console.log('EXPECTED: true');
-console.log('ACTUAL: ', isAbove18('Puki Ben David', 18));
-
-console.log('INPUT: username: puki, age: 54');
-console.log('EXPECTED: true');
-console.log('ACTUAL: ', isAbove18('Puki Ben David', 54));
-
-function isAbove18(username, age) {
-  if (age < 18) {
-    alert('Sorry ' + username + ' You are a minor...');
-    return false;
-  }
-  alert(username + " You're allowed to buy a beer");
-  return true;
-}
-`,
-  },
+        name: "18.js",
+        title: "Exercise 18",
+        content: "<h2>Exercise 18 - Age Check</h2>\n<p>Write a function named <span class=\"code\">isAbove18</span> which receives a name and an age.</p>\n<p>The function should check if the age is above eighteen and use alert to show a message :</p>\n\n<p>If the user is younger than eighteen, the message will be &nbsp &nbsp -  &nbsp<span class=\"console\">'You are too young.'</span></p> \n<p>otherwise, the message will be  &nbsp &nbsp -  &nbsp<span class=\"console\">'You are over 18!'</span> </p>\n<ul>\n    <li>Use the user's name within the alerts.</li>\n    <li>The function should also return a boolean value - print it to the console. </li>\n</ul>\n",
+        solution: "console.log('Ex 18');\r\nconsole.log('This function checks if the age is above 18');\r\n// reviewed ✔️\r\n\r\n// Write a function named isAbove18 that gets a name and an age. This function checks if the age is above eighteen. In case the user is younger than eighteen, alert 'You are too young', otherwise alert 'You're allowed to buy a beer' (Use the user's name within the alerts). Also, the function should return a boolean value. * For now, we will make no use of the returned value.\r\n\r\nconsole.log('INPUT: username: puki, age: 12');\r\nconsole.log('EXPECTED: false');\r\nconsole.log('ACTUAL: ', isAbove18('Puki Ben David', 12));\r\n\r\nconsole.log('INPUT: username: puki, age: 18');\r\nconsole.log('EXPECTED: true');\r\nconsole.log('ACTUAL: ', isAbove18('Puki Ben David', 18));\r\n\r\nconsole.log('INPUT: username: puki, age: 54');\r\nconsole.log('EXPECTED: true');\r\nconsole.log('ACTUAL: ', isAbove18('Puki Ben David', 54));\r\n\r\nfunction isAbove18(username, age) {\r\n  if (age < 18) {\r\n    alert('Sorry ' + username + ' You are a minor...');\r\n    return false;\r\n  }\r\n  alert(username + \" You're allowed to buy a beer\");\r\n  return true;\r\n}\r\n"
+      },
   19: {
-    name: "19.js",
-    title: "Even and Odd Numbers",
-    content: `<p>Read 10 numbers from the user. Check each number and print it along with a short message indicating whether it is even or odd.</p>
-<p>For example:</p>
-<ul>
-    <li class="console">21 is Odd</li>
-    <li class="console">48 is Even</li>
-</ul>`,
-    solution: `
-var count = 0;
-
-while (count < 10) {
-  var num = +prompt('Enter a number');
-  if (num % 2 === 0) {
-    console.log('The number ' + num + ' is Even');
-  } else {
-    console.log('The number ' + num + ' is Odd');
-  }
-  count++;
-}
-
-// for (var i = 0; i < 10; i++) {
-//   num = +prompt('Enter a number');
-//   if (num % 2 === 0) {
-//     console.log('The number ' + num + ' is Even');
-//   } else {
-//     console.log('The number ' + num + ' is Odd');
-//   }
-// }
-`,
-  },
+        name: "19.js",
+        title: "Exercise 19",
+        content: "<h2>Exercise 19 - Even and Odd Numbers</h2>\n<p>Read 10 numbers from the user. Check each number and print it along with a short message indicating whether it is even or odd.</p>\n<p>For example:</p>\n<ul>\n    <li class=\"console\">21 is Odd</li>\n    <li class=\"console\">48 is Even</li>\n</ul>",
+        solution: "'use strict';\r\n\r\nconsole.log('Ex 19');\r\nconsole.log(\r\n  'Read 10 numbers from the user, if the number is even, print it, otherwise print that the number is odd.'\r\n);\r\n// reviewed ✔️\r\n\r\n// Read 10 numbers from the user, if the number is even, print it, otherwise print that the number is odd.\r\n\r\nvar count = 0;\r\n\r\nwhile (count < 10) {\r\n  var num = +prompt('Enter a number');\r\n  if (num % 2 === 0) {\r\n    console.log('The number ' + num + ' is Even');\r\n  } else {\r\n    console.log('The number ' + num + ' is Odd');\r\n  }\r\n  count++;\r\n}\r\n\r\n// for (var i = 0; i < 10; i++) {\r\n//   num = +prompt('Enter a number');\r\n//   if (num % 2 === 0) {\r\n//     console.log('The number ' + num + ' is Even');\r\n//   } else {\r\n//     console.log('The number ' + num + ' is Odd');\r\n//   }\r\n// }\r\n"
+      },
   20: {
-    name: "20.js",
-    title: "Min, Max and Avg.",
-    content: `<p>Read 10 numbers from the user and print:</p>
-<ul>
-    <li>The maximum number.</li>
-    <li>The minimum number.</li>
-    <li>The average.</li>
-</ul>`,
-    solution: `
-var maxNum = -Infinity
-var minNum = Infinity
-
-var sum = 0
-var count = 0
-while (count < 10) {
-  var num = +prompt('Enter a number')
-  if (num > maxNum) {
-    maxNum = num
-  }
-
-  if (num < minNum) {
-    minNum = num
-  }
-
-  sum += num
-  count++
-}
-
-console.log('maxNum: ', maxNum)
-console.log('minNum: ', minNum)
-console.log('avg: ', sum / count)
-`,
-  },
+        name: "20.js",
+        title: "Exercise 20",
+        content: "<h2>Exercise 20 - Min, Max and Avg.</h2>\n<p>Read 10 numbers from the user and print:</p>\n<ul>\n    <li>The maximum number.</li>\n    <li>The minimum number.</li>\n    <li>The average.</li>\n</ul>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 20')\r\nconsole.log('Read 10 numbers from the user and print: max, min, avg')\r\n// reviewed ✔️\r\n\r\n// Read 10 numbers from the user and print:\r\n// a. The maximum number.\r\n// b. The minimum number.\r\n// c. The average.\r\n\r\nvar maxNum = -Infinity\r\nvar minNum = Infinity\r\n\r\nvar sum = 0\r\nvar count = 0\r\nwhile (count < 10) {\r\n  var num = +prompt('Enter a number')\r\n  if (num > maxNum) {\r\n    maxNum = num\r\n  }\r\n\r\n  if (num < minNum) {\r\n    minNum = num\r\n  }\r\n\r\n  sum += num\r\n  count++\r\n}\r\n\r\nconsole.log('maxNum: ', maxNum)\r\nconsole.log('minNum: ', minNum)\r\nconsole.log('avg: ', sum / count)\r\n"
+      },
   21: {
-    name: "21.js",
-    title: "Divisible by 3",
-    content: `<p>Read numbers from the user, until the number 999 is entered. For each number:</p>
-<ul>
-    <li>Print if it is divisible by 3.</li>
-    <li>If it is bigger by more than 10 from the previous number, print a suitable message.</li>
-</ul>`,
-    solution: `
-var currNum = +prompt('Please enter a number (enter 999 to exit)')
-var prevNum = currNum
-
-while (currNum !== 999) {
-  if (currNum % 3 === 0) {
-    console.log(currNum, 'is divided by 3')
-  } else {
-    console.log(currNum, 'is not divided by 3')
-  }
-
-  if (currNum > prevNum + 10) {
-    console.log(currNum, 'is much bigger than', prevNum)
-  }
-  prevNum = currNum
-  currNum = +prompt('Please enter a number (enter 999 to exit)')
-}
-`,
-  },
+        name: "21.js",
+        title: "Exercise 21",
+        content: "<h2>Exercise 21 - Divisible by 3</h2>\n<p>\n    Read numbers from the user, until the number 999 is entered. For each number:\n</p>\n<ul>\n    <li>Print if it is divisible by 3.</li>\n    <li>If it is bigger by more than 10 from the previous number, print a suitable message.</li>\n</ul>",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 21')\r\nconsole.log('Read numbers from the user until 999 is entered')\r\n// reviewed ✔️\r\n\r\n// Read numbers from the user, until the number 999 is entered. For each number:\r\n// a. Print if it’s divided by 3.\r\n// b. Print whether this number is much bigger (more than 10) than the previous number.\r\n\r\nvar currNum = +prompt('Please enter a number (enter 999 to exit)')\r\nvar prevNum = currNum\r\n\r\nwhile (currNum !== 999) {\r\n  if (currNum % 3 === 0) {\r\n    console.log(currNum, 'is divided by 3')\r\n  } else {\r\n    console.log(currNum, 'is not divided by 3')\r\n  }\r\n\r\n  if (currNum > prevNum + 10) {\r\n    console.log(currNum, 'is much bigger than', prevNum)\r\n  }\r\n  prevNum = currNum\r\n  currNum = +prompt('Please enter a number (enter 999 to exit)')\r\n}\r\n"
+      },
   22: {
-    name: "22.js",
-    title: "myPow()",
-    content: `<p>Write a function named <span class="code">myPow()</span> which receives 2 parameters: a base (<span class="code">n</span>), and an exponent (<span class="code">exp</span>) and returns <span class="code">n<sup>exp</sup></span></p>
-<p>Sample unit testing:</p>
-<p><span class="console">INPUT: 2, 3</span></p>
-<p><span class="console">EXPECTED: 8</span></p>
-<p><span class="console">ACTUAL: 8</span></p>`,
-    solution: `
-console.log('INPUT:', 2, 3)
-console.log('EXPECTED:', 8)
-console.log('ACTUAL: ', myPow(2, 3))
-
-console.log('INPUT: 3,2')
-console.log('EXPECTED: 9')
-console.log('ACTUAL: ', myPow(3, 2))
-
-console.log('INPUT: 10,3')
-console.log('EXPECTED: 1000')
-console.log('ACTUAL: ', myPow(10, 3))
-
-function myPow(base, exponent) {
-    var power = 1
-    while (exponent > 0) {
-        power *= base
-        exponent--
-    }
-    return power
-}
-
-// function myPow(base, exponent) {
-//     var number = base;
-//     for (var i = 1; i < exponent; i++) {
-//         number *= base;
-//     }
-
-//     return (number);
-// }
-
-
-// supports negative exponent
-
-// function myPow(base, exponent) {
-//    if (exponent === 0) return 1;
-//     var counter = 1;
-//     var pow = base;
-
-//     while (counter < Math.abs(exponent)) {
-//         pow *= base;
-//         counter++;
-//     }
-//     if (exponent < 0) return (1 / pow);
-//     return pow;
-// }`,
-  },
+        name: "22.js",
+        title: "Exercise 22",
+        content: "<h2>Exercise 22 - <span class=\"code\">myPow()</span></h2>\n<p>Write a function named <span class=\"code\">myPow()</span> which receives 2 parameters: a base (<span class=\"code\">n</span>), and an exponent (<span class=\"code\">exp</span>) and returns <span class=\"code\">n<sup>exp</sup></span></p>\n<p>Sample unit testing:</p>\n<p><span class=\"console\">INPUT: 2, 3</span></p>\n<p><span class=\"console\">EXPECTED: 8</span></p>\n<p><span class=\"console\">ACTUAL: 8</span></p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log(\"Ex 22\")\r\nconsole.log('Write pow func')\r\n// reviewed ✔️\r\n\r\n// +UnitTesting Write a function named myPow that gets 2 parameters: base, exponent and returns the power. (use a loop…)\r\n\r\nconsole.log('INPUT:', 2, 3)\r\nconsole.log('EXPECTED:', 8)\r\nconsole.log('ACTUAL: ', myPow(2, 3))\r\n\r\nconsole.log('INPUT: 3,2')\r\nconsole.log('EXPECTED: 9')\r\nconsole.log('ACTUAL: ', myPow(3, 2))\r\n\r\nconsole.log('INPUT: 10,3')\r\nconsole.log('EXPECTED: 1000')\r\nconsole.log('ACTUAL: ', myPow(10, 3))\r\n\r\nfunction myPow(base, exponent) {\r\n    var power = 1\r\n    while (exponent > 0) {\r\n        power *= base\r\n        exponent--\r\n    }\r\n    return power\r\n}\r\n\r\n// function myPow(base, exponent) {\r\n//     var number = base;\r\n//     for (var i = 1; i < exponent; i++) {\r\n//         number *= base;\r\n//     }\r\n\r\n//     return (number);\r\n// }\r\n\r\n\r\n// supports negative exponent\r\n\r\n// function myPow(base, exponent) {\r\n//    if (exponent === 0) return 1;\r\n//     var counter = 1;\r\n//     var pow = base;\r\n\r\n//     while (counter < Math.abs(exponent)) {\r\n//         pow *= base;\r\n//         counter++;\r\n//     }\r\n//     if (exponent < 0) return (1 / pow);\r\n//     return pow;\r\n// }"
+      },
   23: {
-    name: "23.js",
-    title: "Factorial!",
-    content: `<p>Write the function <span class="code">getFactorial</span> which receives a number and returns <span class="math">n!</span> (Google 'factorial' if you are not sure what the mathematical definition of it is).</p>`,
-    solution: `
-console.log('INPUT: 3')
-console.log('EXPECTED: 6')
-console.log('ACTUAL: ', getFactorial(3))
-
-console.log('INPUT: 4')
-console.log('EXPECTED: 24')
-console.log('ACTUAL: ', getFactorial(4))
-
-console.log('INPUT: 4')
-console.log('EXPECTED: 24')
-console.log('ACTUAL: ', getFactorialFor(4))
-
-function getFactorial(num) {
-  var factorial = 1
-  while (num > 1) {
-    factorial *= num
-    num--
-  }
-  return factorial
-}
-
-// function getFactorialFor(num) {
-//   var factorial = 1
-//   for (var i = num; i > 1; i--) {
-//     factorial *= i
-//   }
-//   return factorial
-// }
-`,
-  },
+        name: "23.js",
+        title: "Exercise 23",
+        content: "<h2>Exercise 23 - Factorial!</h2>\n<p>Write the function <span class=\"code\">getFactorial</span> which receives a number and returns <span class=\"math\">n!</span> (Google ‘factorial’ if you are not sure what the mathematical definition of it is).</p>",
+        solution: "'use strict'\n\nconsole.log('Ex 23')\nconsole.log('get factorial')\n// reviewed ✔️\n\n// Write the function getFactorial that gets a number and returns n! (Google factorial if\n// you are not sure what is the mathematical definition of it).\n\nconsole.log('INPUT: 3')\nconsole.log('EXPECTED: 6')\nconsole.log('ACTUAL: ', getFactorial(3))\n\nconsole.log('INPUT: 4')\nconsole.log('EXPECTED: 24')\nconsole.log('ACTUAL: ', getFactorial(4))\n\nconsole.log('INPUT: 4')\nconsole.log('EXPECTED: 24')\nconsole.log('ACTUAL: ', getFactorialFor(4))\n\nfunction getFactorial(num) {\n  var factorial = 1\n  while (num > 1) {\n    factorial *= num\n    num--\n  }\n  return factorial\n}\n\n// function getFactorialFor(num) {\n//   var factorial = 1\n//   for (var i = num; i > 1; i--) {\n//     factorial *= i\n//   }\n//   return factorial\n// }\n"
+      },
   24: {
-    name: "24.js",
-    title: "myAbs()",
-    content: `<p>Try playing around with the function <span class="code">Math.abs()</span> and read its documentation on <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs">MDN</a>. Implement a function called <span class="code">myAbs()</span>, which mimics the behavior of <span class="code">Math.abs()</span>.</p>`,
-    solution: `
-console.log('INPUT: 4')
-console.log('EXPECTED: 4')
-console.log('ACTUAL: ', myAbs(4))
-
-console.log('INPUT: -2')
-console.log('EXPECTED: 2')
-console.log('ACTUAL: ', myAbs(2))
-
-console.log('INPUT: 0')
-console.log('EXPECTED: 0')
-console.log('ACTUAL: ', myAbs(0))
-
-
-
-function myAbs(num) {
-    if (num >= 0) return num
-    return -num
-    // return num * -1
-
-    // return (num < 0) ? -num : num
-}`,
-  },
+        name: "24.js",
+        title: "Exercise 24",
+        content: "<h2>Exercise 24 - <span class=\"code\">myAbs()</span></h2>\n<p>Try playing around with the function <span class=\"code\">Math.abs()</span> and read its documentation on <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs\">MDN</a>. Implement a function called <span class=\"code\">myAbs()</span>, which mimics the behavior of <span class=\"code\">Math.abs()</span>.</p>",
+        solution: "'use strict'\n\nconsole.log(\"Ex 24\")\nconsole.log('my abs')\n// reviewed ✔️\n\n// +UnitTesting Play with the function Math.abs(), read the documentation in MDN.\n// Implement myAbs(), write the function yourself.\n\n\nconsole.log('INPUT: 4')\nconsole.log('EXPECTED: 4')\nconsole.log('ACTUAL: ', myAbs(4))\n\nconsole.log('INPUT: -2')\nconsole.log('EXPECTED: 2')\nconsole.log('ACTUAL: ', myAbs(2))\n\nconsole.log('INPUT: 0')\nconsole.log('EXPECTED: 0')\nconsole.log('ACTUAL: ', myAbs(0))\n\n\n\nfunction myAbs(num) {\n    if (num >= 0) return num\n    return -num\n    // return num * -1\n\n    // return (num < 0) ? -num : num\n}"
+      },
   25: {
-    name: "25.js",
-    title: "getRandomInt()",
-    content: `<p>Write A function named <span class="code">getRandomInt(min, max)</span>. The function should generate a random integer between <span class="code">min</span> and up to, but not including, <span class="code">max</span>.</p>
-<p>Tip: use <span class="code">Math.Random()</span> and <span class="code">Math.Floor()</span>.</p>`,
-    solution: `console.log('INPUT: 5, 7')
-console.log('EXPECTED: random int btween 5 - 7')
-console.log('ACTUAL: ', getRandomInteger(5, 7))
-
-function getRandomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min) + min) // 0 - 0.9999999
-}
-`,
-  },
+        name: "25.js",
+        title: "Exercise 25",
+        content: "<h2>Exercise 25 - <span class=\"code\">getRandomInt()</span></h2>\n<p>Write A function named <span class=\"code\">getRandomInt(min, max)</span>. The function should generate a random integer between <span class=\"code\">min</span> and up to, but not including, <span class=\"code\">max</span>.</p>\n<p>Tip: use <span class=\"code\">Math.Random()</span> and <span class=\"code\">Math.Floor()</span>.</p>\n<p>After you've worked it out, read <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random\">this page</a> and look at the implementation of the <span class=\"code\">getRandomInt()</span> function.</p>",
+        solution: "'use strict'\n\nconsole.log('Ex 25')\nconsole.log('my random integer')\n// reviewed ✔️\n\n// Write A function named getRandomInteger(min, max). The function should generate\n// a random integer between the min and max parameters.\n// Hint: Use Math.Random & Math.Floor.\n// a. After you've played with it enough, read this page. Look at the getRandomInt\n// function.\n// b. Yes, it's better, now remember you can always use it later on in the course.\n// (how amazing is that?)\n\nconsole.log('INPUT: 5, 7')\nconsole.log('EXPECTED: random int btween 5 - 7')\nconsole.log('ACTUAL: ', getRandomInteger(5, 7))\n\nfunction getRandomInteger(min, max) {\n  return Math.floor(Math.random() * (max - min) + min) // 0 - 0.9999999\n}\n"
+      },
   26: {
-    name: "26.js",
-    title: "Ascending Random Numbers",
-    content: `<p>Write a program which generates 10 ascending random numbers (each number is greater than the previously generated number).</p>
-<p class="tight-paragraph">The first number n , should be in the range      <span class="math">0 &ndash; 1000</span>,</p>
-<p class="tight-paragraph">and each subsequent number, should be  in the range      <span class="math">(n+1) &ndash; (n+1000)</span></p>`,
-    solution: ` (count < 10) {
-    var randomInt = getRandomInteger(min, min + 1000)
-    console.log(randomInt)
-    min = randomInt + 1
-    count++
-  }
-
-  // for (var i = 0; i < 10; i++) {
-  //     var randomInt = getRandomInteger(minVal, minVal + 1000)
-  //     console.log(randomInt);
-  //     minVal = randomInt + 1
-  // }
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min) + min)
-}
-`,
-  },
+        name: "26.js",
+        title: "Exercise 26",
+        content: "<h2>Exercise 26 - Ascending Random Numbers</h2>\n<p>\n    Write a program which generates 10 ascending random numbers (each number is greater than the previously generated number).\n    <p class=\"tight-paragraph\">The first number n , should be in the range\t<span class=\"math\">0 &ndash; 1000</span>,</p> \n    <p class=\"tight-paragraph\">and each subsequent number, should be  in the range\t<span class=\"math\">(n+1) &ndash; (n+1000)</span></p> \n    \n</p>\n<section id=\"ex26-example\" class=\"two-column-table\">\n    <p>For example:</p>                 <p></p>\n    <p>First random number:</p> \t\t<p><span class=\"math\">0 &ndash; 1000  \t=> \t100</span></p>\n    <p>Second random number:</p> \t\t<p><span class=\"math\">101 &ndash; 1101 \t=> \t748</span></p>\n    <p>Third random number:</p> \t\t<p><span class=\"math\">749 &ndash; 1749 \t=> \t1650…</span></p>\n</section>",
+        solution: "'use strict'\n\nconsole.log('Ex 26')\nconsole.log('get 10 random numbers')\n// reviewed ✔️\n\n// Write a program that generates 10 random numbers. The numbers should be\n// generated so each number is greater than the previously generated number.\n// To simplify, generate the first number n so it is between (0→1000), and each\n// subsequent number will be in the range of ( n+1 → n+1001).\n// example:\n// First random number: (0→1000) 100\n// Second random number: (101→1101) 748\n// Third random number: (749→1749) 1650…\n\nconsole.log('ACTUAL:')\ngetRandomNumbers()\n\nfunction getRandomNumbers() {\n  var min = 0\n  var count = 0\n  while (count < 10) {\n    var randomInt = getRandomInteger(min, min + 1000)\n    console.log(randomInt)\n    min = randomInt + 1\n    count++\n  }\n\n  // for (var i = 0; i < 10; i++) {\n  //     var randomInt = getRandomInteger(minVal, minVal + 1000)\n  //     console.log(randomInt);\n  //     minVal = randomInt + 1\n  // }\n}\n\nfunction getRandomInt(min, max) {\n  return Math.floor(Math.random() * (max - min) + min)\n}\n"
+      },
   27: {
-    name: "27.js",
-    title: "Asterisks!",
-    content: `<ol>
-    <li>Implement the function  <span class="code">getAsterisks(length)</span> which returns a string of asterisks. The number of asterisks in the string is determined by <span class="code">length</span>.</li>
-    <li>Implement the function <span class="code">getTriangle(height)</span>  which returns a triangle.</li>
-    <li>Implement the function  <span class="code">getMusicEqualizer(rowCount)</span> which generates random numbers between 1 and 10 and returns rows of random lengths.</li>
-    <li>Implement the function <span class="code">getBlock(rows, cols)</span>  which returns a block of asterisks.</li>
-    <li>Implement  <span class="code">getBlockOutline(rows, cols)</span>,  which only returns the block outline.</li>
-</ol>`,
-    solution: `var res = getCharacter(4, '%')
-console.log(res)
-
-function getCharacter(length, char) {
-  //שאלה מספר 6
-  var characters = ''
-  var count = 0
-
-  while (count < length) {
-    characters += char
-    count++
-  }
-  console.log('this:', characters)
-  return characters
-}
-// reviewed ✔️
-
-// a. Write the function getAsterisks(length) that returns a string containing asterisks according to the number supplied. For example: when the requested length is 4, it returns '****'
-// b. Write a function named: getTriangle(height) that returns a triangle:
-// c. Write a function named: getMusicEqualizer(rowsCount) that generates random numbers between 1 and 10 and return columns in random lengths:
-// d. Write a function that returns a block of asterisks (*) by the following parameters: rowsCount and colsCount. I.e: for 4, 5
-// e. Surprise, there is a new requirement to support any character (not necessarily asterisk), how easy would it be to refactor your code? The character should be decided by the user
-
-// Printing patterns of Asterisks.
-// const CHAR = prompt('What char you want?')
-const CHAR = '*'
-/*
- *****
- *   *
- *   *
- *   *
- *****
- */
-// a.
-console.log('print string that contains the given char:')
-console.log(getSymbol(4, CHAR))
-console.log('====================')
-
-// b.
-console.log('print triangle:')
-console.log(getTriangle(5, CHAR))
-console.log('====================')
-
-// c.
-console.log('print equalizer:')
-console.log(getMusicEqualizer(4, CHAR))
-console.log('====================')
-
-// d.
-console.log('print block:')
-console.log(patternBlock(4, 5, CHAR))
-console.log('====================')
-
-// e.
-console.log('print block outlined:')
-console.log(getPatternOutline(5, 4, CHAR))
-
-function getSymbol(length, char) {
-  var count = 0
-  var str = ''
-  while (count < length) {
-    str += char // '*'
-    count++
-  }
-  return str
-
-  // Another option:
-  // return char.repeat(length)
-}
-
-function getTriangle(height, char) {
-  if (height === 1) return char
-  var count = 1
-  var triangle = ''
-  while (count < height) {
-    triangle += getSymbol(count, char) + '\n'
-    count++
-  }
-  while (count > 0) {
-    triangle += getSymbol(count, char) + '\n'
-    count--
-  }
-  return triangle
-}
-
-/*
- ***
- *
- *****
- *
- */
-function getMusicEqualizer(rowsCount, char) {
-  var count = 0
-  var equalizer = ''
-  while (count < rowsCount) {
-    var randomNum = getRandomInteger(1, 10)
-    equalizer += getSymbol(randomNum, char) + '\n'
-    count++
-  }
-  return equalizer
-}
-
-function patternBlock(rows, cols, char) {
-  var count = 0
-  var str = ''
-  while (count < rows) {
-    str += getSymbol(cols, char) + '\n'
-    count++
-  }
-  return str
-}
-
-function getPatternOutline(rows, cols, char) {
-  var count = 0
-  var str = ''
-  while (count < rows) {
-    if (count === 0 || count === rows - 1) {
-      str += getSymbol(cols, char) + '\r'
-    } else {
-      str += _getEmptyLine(cols, char) + '\r'
-    }
-    count++
-  }
-  return str
-}
-
-function _getEmptyLine(length, char) {
-  var str = char
-  var count = length - 2
-  while (count > 0) {
-    str += ' '
-    count--
-  }
-  str += char
-  return str
-}
-
-function getRandomInteger(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
-}
-`,
-  },
+        name: "27.js",
+        title: "Exercise 27",
+        content: "<h2>Exercise 27 - Asterisks!</h2>\n<ol>\n    <li>\n        Implement the function  <span class=\"code\">getAsterisks(length)</span> which returns a string of asterisks. The number of asterisks in the string is determined by <span class=\"code\">length</span>. \n        <p>For example: when the requested length is 4,  it returns <span class=\"console\">'****'</span></p>\n    </li>\n    <li>\n        Implement the function <span class=\"code\">getTriangle(height)</span>  which returns a triangle.\n        For example,  <span class=\"code\">getTriangle(4)</span> , will return a string which will look like this when printed to the console:\n        <pre class=\"console\">\n\n    *\n    **\n    ***\n    ****\n    ***\n    **\n    *\n        </pre> \n        <p>Hint: use the function <span class=\"code\">getAsterisks()</span> in a loop. Also, use <span class=\"console\">'\\n'</span>  to create new lines.</p>\n    </li>\n    <li>\n        Implement the function  <span class=\"code\">getMusicEqualizer(rowCount)</span> which generates random numbers between 1 and 10 and returns rows of random lengths.\n        <p>For example,  <span class=\"code\">getMusicEqualizer(5)</span> , will return a string which will look something like this when printed to the console:</p>\n        <pre class=\"console\">\n\n    **\n    ******\n    *****\n    ***\n    *****\n        </pre>\n    </li>\n    <li>\n        Implement the function <span class=\"code\">getBlock(rows, cols)</span>  which returns a block of asterisks in the dimensions given by its parameters. \n        For example,  <span class=\"code\">getBlock(4, 5)</span> , will return a string which will look like this when printed to the console:\n        <pre class=\"console\">\n\n    *****\n    *****\n    *****\n    *****\n        </pre>\n    </li>\n    <li>\n        Now Implement  <span class=\"code\">getBlockOutline(rows, cols)</span>,  which only returns the block outline:\n        <pre class=\"console\">\n\n    *****\n    *   *\n    *   *\n    *****    \n        </pre>\n    </li>\n    <li>\n        Surprise! There is a new requirement to support any character (not necessarily asterisks). The character should be decided by the user. \n        Refactor your code to support this requirement\n        How would you rename the function to better describe its new functionality?</li>\n    </li>\n</ol>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 27')\r\nconsole.log('print Asterisks')\r\n// reviewed ✔️\r\n\r\n// a. Write the function getAsterisks(length) that returns a string containing asterisks according to the number supplied. For example: when the requested length is 4, it returns '****'\r\n// b. Write a function named: getTriangle(height) that returns a triangle:\r\n// c. Write a function named: getMusicEqualizer(rowsCount) that generates random numbers between 1 and 10 and return columns in random lengths:\r\n// d. Write a function that returns a block of asterisks (*) by the following parameters: rowsCount and colsCount. I.e: for 4, 5\r\n// e. Surprise, there is a new requirement to support any character (not necessarily asterisk), how easy would it be to refactor your code? The character should be decided by the user\r\n\r\n// Printing patterns of Asterisks.\r\n// const CHAR = prompt('What char you want?')\r\nconst CHAR = '*'\r\n/*\r\n*****\r\n*   *\r\n*   *\r\n*   *\r\n*****\r\n*/\r\n// a.\r\nconsole.log('print string that contains the given char:')\r\nconsole.log(getSymbol(4, CHAR))\r\nconsole.log('====================')\r\n\r\n// b.\r\nconsole.log('print triangle:')\r\nconsole.log(getTriangle(5, CHAR))\r\nconsole.log('====================')\r\n\r\n// c.\r\nconsole.log('print equalizer:')\r\nconsole.log(getMusicEqualizer(4, CHAR))\r\nconsole.log('====================')\r\n\r\n// d.\r\nconsole.log('print block:')\r\nconsole.log(patternBlock(4, 5, CHAR))\r\nconsole.log('====================')\r\n\r\n// e.\r\nconsole.log('print block outlined:')\r\nconsole.log(getPatternOutline(5, 4, CHAR))\r\n\r\nfunction getSymbol(length, char) {\r\n  var count = 0\r\n  var str = ''\r\n  while (count < length) {\r\n    str += char // '*'\r\n    count++\r\n  }\r\n  return str\r\n\r\n  // Another option:\r\n  // return char.repeat(length)\r\n}\r\n\r\nfunction getTriangle(height, char) {\r\n  if (height === 1) return char\r\n  var count = 1\r\n  var triangle = ''\r\n  while (count < height) {\r\n    triangle += getSymbol(count, char) + '\\n'\r\n    count++\r\n  }\r\n  while (count > 0) {\r\n    triangle += getSymbol(count, char) + '\\n'\r\n    count--\r\n  }\r\n  return triangle\r\n}\r\n\r\n/*\r\n***\r\n*\r\n*****\r\n*\r\n*/\r\nfunction getMusicEqualizer(rowsCount, char) {\r\n  var count = 0\r\n  var equalizer = ''\r\n  while (count < rowsCount) {\r\n    var randomNum = getRandomInteger(1, 10)\r\n    equalizer += getSymbol(randomNum, char) + '\\n'\r\n    count++\r\n  }\r\n  return equalizer\r\n}\r\n\r\nfunction patternBlock(rows, cols, char) {\r\n  var count = 0\r\n  var str = ''\r\n  while (count < rows) {\r\n    str += getSymbol(cols, char) + '\\n'\r\n    count++\r\n  }\r\n  return str\r\n}\r\n\r\nfunction getPatternOutline(rows, cols, char) {\r\n  var count = 0\r\n  var str = ''\r\n  while (count < rows) {\r\n    if (count === 0 || count === rows - 1) {\r\n      str += getSymbol(cols, char) + '\\r'\r\n    } else {\r\n      str += _getEmptyLine(cols, char) + '\\r'\r\n    }\r\n    count++\r\n  }\r\n  return str\r\n}\r\n\r\nfunction _getEmptyLine(length, char) {\r\n  var str = char\r\n  var count = length - 2\r\n  while (count > 0) {\r\n    str += ' '\r\n    count--\r\n  }\r\n  str += char\r\n  return str\r\n}\r\n\r\nfunction getRandomInteger(min, max) {\r\n  min = Math.ceil(min)\r\n  max = Math.floor(max)\r\n  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive\r\n}\r\n"
+      },
   28: {
-    name: "28.js",
-    title: "Greatest Common Devisor",
-    content: `<p class="mb-m">Write a program which calculates the greatest common divisor (GCD) of two positive integers.</p>
-<p class="mb-l">For example: if the input are  6 and 15,  the calculation's result should be 3.</p>`,
-    solution: `
-console.log('INPUT: num1: 6, num2: 24')
-console.log('EXPECTED: 6')
-console.log('ACTUAL: ', findGCD(6, 8))
-
-console.log('\n')
-
-console.log('INPUT: num1: 9, num2: 36')
-console.log('EXPECTED: 9')
-console.log('ACTUAL: ', findGCD(9, 36))
-
-console.log('\n')
-
-console.log('INPUT: num1: 60, num2: 72')
-console.log('EXPECTED: 12')
-console.log('ACTUAL: ', findGCD(60, 72))
-
-function findGCD(num1, num2) {
-  var divider
-  if (num1 < num2) {
-    divider = num1
-  } else {
-    divider = num2
-  }
-
-  // short-if
-  var divider = num1 < num2 ? num1 : num2
-
-  while (divider) {
-    if (num1 % divider === 0 && num2 % divider === 0) return divider
-    divider--
-  }
-}
-
-// var dividerSqrt = Math.sqrt(startingDivider)
-// var startingDivider = divider
-`,
-  },
+        name: "28.js",
+        title: "Exercise 28",
+        content: "<h2>Exercise 28 - Greatest Common Devisor</h2>\n<p class=\"mb-m\">Write a program which calculates the greatest common divisor (GCD) of two positive integers.</p>\n<p class=\"mb-l\">For example: if the input are  6 and 15,  the calculation’s result should be 3.</p>\n<p class=\"tip\">Tip: we need a loop that runs from 6 to 2 and checks the modulus… </p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 28')\r\nconsole.log('Find GCD')\r\n// reviewed ✔️\r\n\r\n// Write a program that computes the greatest common divisor (GCD) of two positive integers.\r\n// Example: 6, 15 => gcd: 3 Hint: we need something like a loop: i 6 -> 2 and check modulus.\r\n\r\nconsole.log('INPUT: num1: 6, num2: 24')\r\nconsole.log('EXPECTED: 6')\r\nconsole.log('ACTUAL: ', findGCD(6, 8))\r\n\r\nconsole.log('\\n')\r\n\r\nconsole.log('INPUT: num1: 9, num2: 36')\r\nconsole.log('EXPECTED: 9')\r\nconsole.log('ACTUAL: ', findGCD(9, 36))\r\n\r\nconsole.log('\\n')\r\n\r\nconsole.log('INPUT: num1: 60, num2: 72')\r\nconsole.log('EXPECTED: 12')\r\nconsole.log('ACTUAL: ', findGCD(60, 72))\r\n\r\nfunction findGCD(num1, num2) {\r\n  var divider\r\n  if (num1 < num2) {\r\n    divider = num1\r\n  } else {\r\n    divider = num2\r\n  }\r\n\r\n  // short-if\r\n  var divider = num1 < num2 ? num1 : num2\r\n\r\n  while (divider) {\r\n    if (num1 % divider === 0 && num2 % divider === 0) return divider\r\n    divider--\r\n  }\r\n}\r\n\r\n// var dividerSqrt = Math.sqrt(startingDivider)\r\n// var startingDivider = divider\r\n"
+      },
   29: {
-    name: "29.js",
-    title: "Digit Manipulation",
-    content: `<p>Read a number from the user (&nbsp;keep it as a string i.e. <span class="console">"24367"</span>) and then:</p>
-<ol type="a">
-    <li>Print each of its digits in a separate line.</li>
-    <li>Calculate the sum of its digits.</li>
-    <li>Calculate the multiplication of its digits.</li>
-    <li>Sum its first and last digits.</li>
-    <li>Print it with its first and last digits swapped.</li>
-    <li>Check whether it is symmetric.</li>
-    <li>Print the number reversed.</li>
-</ol>`,
-    solution: `
-// 29.Read a number from the user (keep it as string such as "24367") and then:
-// var number = prompt('Enter a number')
-var numberStr = '1234'
-
-// a. Basic operations:
-// i. Print each of its digits in a separate line.
-printDigits()
-
-function printDigits() {
-  var idx = 0
-  while (idx < numberStr.length) {
-    console.log(numberStr.charAt(idx))
-    idx++
-  }
-}
-
-// ii. Calculate the sum of its digits.
-console.log('INPUT:', numberStr)
-console.log('EXPECTED: 10')
-console.log('ACTUAL: ', getDigitsSum(numberStr))
-console.log('~~~~~~~~~~~~~')
-
-function getDigitsSum(numberStr) {
-  var idx = 0
-  var sum = 0
-  while (idx < numberStr.length) {
-    sum += be + numrStr.charAt(idx)
-    idx++
-  }
-  return sum
-}
-
-// iii. Calculate the multiplication (מכפלה (of its digits
-console.log('INPUT:', numberStr)
-console.log('EXPECTED: 24')
-console.log('ACTUAL: ', getDigitsMult(numberStr))
-console.log('~~~~~~~~~~~~~')
-
-function getDigitsMult(numberStr) {
-  var idx = 0
-  var mult = 1
-  while (idx < numberStr.length) {
-    mult *= +numberStr.charAt(idx)
-    idx++
-  }
-  return mult
-}
-
-// iv. Sum it’s first and last digits.
-console.log('INPUT:', numberStr)
-console.log('EXPECTED: 5')
-console.log('ACTUAL: ', getFirstLastSum(numberStr))
-console.log('~~~~~~~~~~~~~')
-
-function getFirstLastSum(numberStr) {
-  var lastDigit = +numberStr.charAt(numberStr.length - 1)
-  var firstDigit = +numberStr.charAt(0)
-  return lastDigit + firstDigit
-}
-
-// v. Print it with it’s first and last digits swapped (2731=>1732)
-console.log('INPUT:', numberStr)
-console.log('EXPECTED: 4231')
-console.log('ACTUAL: ')
-getFirstLastSwap(numberStr)
-console.log('~~~~~~~~~~~~~')
-
-function getFirstLastSwap(numberStr) {
-  var str = numberStr.charAt(numberStr.length - 1) + numberStr.substring(1, numberStr.length - 1) + numberStr.charAt(0)
-  console.log('Swapped str is', str)
-}
-
-// vi. Check whether it’s symmetric (like this number: 95459)
-var symmetricNum = '95459'
-var unSymmetricNum = '1234'
-
-console.log('INPUT: ', symmetricNum)
-console.log('EXPECTED: true')
-console.log('ACTUAL: ', isSymmetric(symmetricNum))
-console.log('INPUT: ', unSymmetricNum)
-console.log('EXPECTED: false')
-console.log('ACTUAL: ', isSymmetric(unSymmetricNum))
-console.log('~~~~~~~~~~~~~')
-
-function isSymmetric(num) {
-  var idx = 0
-  while (idx < Math.floor(num.length / 2)) {
-    if (num.charAt(idx) !== num.charAt(num.length - idx - 1)) return false
-    idx++
-  }
-  return true
-}
-
-// vii. Print the number reversed (BONUS: as a number and not as string).
-console.log('INPUT:', numberStr)
-console.log('EXPECTED: 4321')
-console.log('ACTUAL: ')
-printReversedStr(numberStr)
-console.log('~~~~~~~~~~~~~')
-
-function printReversedStr(numStr) {
-  var idx = numStr.length - 1
-  var reveresedStr = ''
-  while (idx >= 0) {
-    reveresedStr += numStr.charAt(idx--)
-  }
-  console.log('Reveresed string', reveresedStr)
-}
-
-// BONUS:
-console.log('INPUT:', numberStr)
-console.log('EXPECTED:', 8764321)
-console.log('ACTUAL: ')
-printReversedNum(numberStr)
-console.log('~~~~~~~~~~~~~')
-
-function printReversedNum() {
-  var num = 1234678
-  var reversedNum = 0
-  while (num) {
-    reversedNum *= 10
-    reversedNum += num % 10
-    num = Math.floor(num / 10)
-  }
-  console.log('Reveresed number', reversedNum)
-}
-
-// b. BONUS: Special Numbers
-// i. Check if the number is an Armstrong number. I.e 371 is an Armstrong number: 3**3+7**3+1**3 =371. If the number passed the test, print it to the
-// console.
-
-console.log('INPUT: ', 153)
-console.log('EXPECTED: 153 is an Armstrong number')
-console.log('ACTUAL: ')
-printArmstrong(153)
-console.log('INPUT: ', 154)
-console.log('EXPECTED: 154 is NOT an Armstrong number')
-console.log('ACTUAL: ')
-printArmstrong(154)
-console.log('~~~~~~~~~~~~~')
-
-function printArmstrong(num) {
-  var numCopy = num
-  var sum = 0
-  var length = ('' + num).length
-
-  while (numCopy > 0) {
-    var digit = numCopy % 10
-    sum += digit ** length
-    numCopy = parseInt(numCopy / 10)
-  }
-
-  if (sum === num) console.log(num + ' is an Armstrong number')
-  else console.log(num + ' is NOT an Armstrong number')
-}
-
-// ii. Check if the number is a Perfect number. Perfect number is a number that the sum of all its dividers is the number itself. I.e 6 is a perfect number (1+2+3).
-
-console.log('INPUT: ', 6)
-console.log('EXPECTED: true')
-console.log('ACTUAL: ', isPerfect(6))
-console.log('INPUT: ', 7)
-console.log('EXPECTED: false')
-console.log('ACTUAL: ', isPerfect(7))
-console.log('~~~~~~~~~~~~~')
-
-function isPerfect(num) {
-  var divider = 1
-  var dividersSum = 0
-
-  while (divider <= Math.ceil(num / 2)) {
-    if (num % divider === 0) dividersSum += divider
-    divider++
-  }
-
-  return dividersSum === num
-}
-// iii. Read a number from the user. Store it in a variable called max. The function should print all the perfect numbers and all the Armstrong numbers that are smaller than max.
-
-// printSpecialNumbers()
-
-function printSpecialNumbers() {
-  var max = +prompt('Enter a number')
-  for (var i = 0; i < max; i++) {
-    if (isArmstrong(i)) console.log('the number ' + i + ' is an Armstrong number')
-    if (isPerfect(i)) console.log('the number ' + i + ' is an Perfect number')
-  }
-}
-`,
-  },
+        name: "29.js",
+        title: "Exercise 29",
+        content: "<h2>Exercise 29 - Digit Manipulation</h2>\n<p>Read a number from the user (&nbsp;keep it as a string i.e. <span class=\"console\">\"24367\"</span>) and then:</p>\t\t\n<ol type=\"a\">\n    <li>\n        <p class=\"mb-xl\">Basic operations:</p>\n        <ol>\n            <li class=\"mb-s\">Print each of its digits in a separate line.</li>\n            <li class=\"mb-s\">Calculate the sum of its digits.</li>\n            <li class=\"mb-s\">Calculate the multiplication (מכפלה) of its digits.</li>\n            <li class=\"mb-s\">Sum its first and last digits.</li>\n            <li class=\"mb-s\">Print it with its first and last digits swapped.\t (<span class=\"console\">2731</span> => <span class=\"console\">1732</span>)</li>\n            <li class=\"mb-s\">Check whether it is symmetric.\t (&nbsp;like this number: <span class=\"console\">95459</span>)</li>\n            <li class=\"mb-s\">Print the number reversed.</li>\n            <li>BONUS: Print the number reversed as a number and not as string.</li>\n        </ol>\n    </li>\n    <li class=\"mt-xl\">\n        <p class=\"mb-xl\">BONUS: Special Numbers</p>\n        <ol>\n            <li class=\"mb-l\">\n                <p class=\"mb-l\">Check if the number is an Armstrong number. An Armstrong number is an integer, such that the sum of each of its digits, raised to a power equal to the number of its digits, is equal to the number itself.</p> \n                <p>For example: <span class=\"math\">371</span>  is an Armstrong number, because  <span class=\"math\">3&nbsp;&sup3;+7&nbsp;&sup3;+1&nbsp;&sup3; = 371</span>.</p>\n                <p>Another example: <span class=\"math\">548,834</span> is an Armstrong number, because  <span class=\"math\">5&#8310;+4&#8310;+8&#8310;+8&#8310;+3&#8310;+3&#8310; = 548,834</span></p>\n                <p class=\"mb-l mt-l\">If the number passed the test, print it to the console.</p>\n            </li>\n            <li class=\"mb-xl\">Check if the number is a Perfect number. A Perfect number is a positive integer that is equal to the sum of its divisors.\n                For example:  <span class=\"math\">6</span>  is a Perfect number <span class=\"math\">(1+2+3)</span>.</li>\n            <li>Read a number from the user and store it in a variable named  max. \n                Implement a function which will print all the Perfect numbers and all the Armstrong numbers that are smaller than  max. </li>\n        </ol>\n    </li>\n\n</ol>\n    \n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 29')\r\nconsole.log('Operations on number')\r\n// CR needed ✏️\r\n\r\n// 29.Read a number from the user (keep it as string such as “24367”) and then:\r\n// var number = prompt('Enter a number')\r\nvar numberStr = '1234'\r\n\r\n// a. Basic operations:\r\n// i. Print each of its digits in a separate line.\r\nprintDigits()\r\n\r\nfunction printDigits() {\r\n  var idx = 0\r\n  while (idx < numberStr.length) {\r\n    console.log(numberStr.charAt(idx))\r\n    idx++\r\n  }\r\n}\r\n\r\n// ii. Calculate the sum of its digits.\r\nconsole.log('INPUT:', numberStr)\r\nconsole.log('EXPECTED: 10')\r\nconsole.log('ACTUAL: ', getDigitsSum(numberStr))\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction getDigitsSum(numberStr) {\r\n  var idx = 0\r\n  var sum = 0\r\n  while (idx < numberStr.length) {\r\n    sum += be + numrStr.charAt(idx)\r\n    idx++\r\n  }\r\n  return sum\r\n}\r\n\r\n// iii. Calculate the multiplication (מכפלה (of its digits\r\nconsole.log('INPUT:', numberStr)\r\nconsole.log('EXPECTED: 24')\r\nconsole.log('ACTUAL: ', getDigitsMult(numberStr))\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction getDigitsMult(numberStr) {\r\n  var idx = 0\r\n  var mult = 1\r\n  while (idx < numberStr.length) {\r\n    mult *= +numberStr.charAt(idx)\r\n    idx++\r\n  }\r\n  return mult\r\n}\r\n\r\n// iv. Sum it’s first and last digits.\r\nconsole.log('INPUT:', numberStr)\r\nconsole.log('EXPECTED: 5')\r\nconsole.log('ACTUAL: ', getFirstLastSum(numberStr))\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction getFirstLastSum(numberStr) {\r\n  var lastDigit = +numberStr.charAt(numberStr.length - 1)\r\n  var firstDigit = +numberStr.charAt(0)\r\n  return lastDigit + firstDigit\r\n}\r\n\r\n// v. Print it with it’s first and last digits swapped (2731=>1732)\r\nconsole.log('INPUT:', numberStr)\r\nconsole.log('EXPECTED: 4231')\r\nconsole.log('ACTUAL: ')\r\ngetFirstLastSwap(numberStr)\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction getFirstLastSwap(numberStr) {\r\n  var str = numberStr.charAt(numberStr.length - 1) + numberStr.substring(1, numberStr.length - 1) + numberStr.charAt(0)\r\n  console.log('Swapped str is', str)\r\n}\r\n\r\n// vi. Check whether it’s symmetric (like this number: 95459)\r\nvar symmetricNum = '95459'\r\nvar unSymmetricNum = '1234'\r\n\r\nconsole.log('INPUT: ', symmetricNum)\r\nconsole.log('EXPECTED: true')\r\nconsole.log('ACTUAL: ', isSymmetric(symmetricNum))\r\nconsole.log('INPUT: ', unSymmetricNum)\r\nconsole.log('EXPECTED: false')\r\nconsole.log('ACTUAL: ', isSymmetric(unSymmetricNum))\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction isSymmetric(num) {\r\n  var idx = 0\r\n  while (idx < Math.floor(num.length / 2)) {\r\n    if (num.charAt(idx) !== num.charAt(num.length - idx - 1)) return false\r\n    idx++\r\n  }\r\n  return true\r\n}\r\n\r\n// vii. Print the number reversed (BONUS: as a number and not as string).\r\nconsole.log('INPUT:', numberStr)\r\nconsole.log('EXPECTED: 4321')\r\nconsole.log('ACTUAL: ')\r\nprintReversedStr(numberStr)\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction printReversedStr(numStr) {\r\n  var idx = numStr.length - 1\r\n  var reveresedStr = ''\r\n  while (idx >= 0) {\r\n    reveresedStr += numStr.charAt(idx--)\r\n  }\r\n  console.log('Reveresed string', reveresedStr)\r\n}\r\n\r\n// BONUS:\r\nconsole.log('INPUT:', numberStr)\r\nconsole.log('EXPECTED:', 8764321)\r\nconsole.log('ACTUAL: ')\r\nprintReversedNum(numberStr)\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction printReversedNum() {\r\n  var num = 1234678\r\n  var reversedNum = 0\r\n  while (num) {\r\n    reversedNum *= 10\r\n    reversedNum += num % 10\r\n    num = Math.floor(num / 10)\r\n  }\r\n  console.log('Reveresed number', reversedNum)\r\n}\r\n\r\n// b. BONUS: Special Numbers\r\n// i. Check if the number is an Armstrong number. I.e 371 is an Armstrong number: 3**3+7**3+1**3 =371. If the number passed the test, print it to the\r\n// console.\r\n\r\nconsole.log('INPUT: ', 153)\r\nconsole.log('EXPECTED: 153 is an Armstrong number')\r\nconsole.log('ACTUAL: ')\r\nprintArmstrong(153)\r\nconsole.log('INPUT: ', 154)\r\nconsole.log('EXPECTED: 154 is NOT an Armstrong number')\r\nconsole.log('ACTUAL: ')\r\nprintArmstrong(154)\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction printArmstrong(num) {\r\n  var numCopy = num\r\n  var sum = 0\r\n  var length = ('' + num).length\r\n\r\n  while (numCopy > 0) {\r\n    var digit = numCopy % 10\r\n    sum += digit ** length\r\n    numCopy = parseInt(numCopy / 10)\r\n  }\r\n\r\n  if (sum === num) console.log(num + ' is an Armstrong number')\r\n  else console.log(num + ' is NOT an Armstrong number')\r\n}\r\n\r\n// ii. Check if the number is a Perfect number. Perfect number is a number that the sum of all its dividers is the number itself. I.e 6 is a perfect number (1+2+3).\r\n\r\nconsole.log('INPUT: ', 6)\r\nconsole.log('EXPECTED: true')\r\nconsole.log('ACTUAL: ', isPerfect(6))\r\nconsole.log('INPUT: ', 7)\r\nconsole.log('EXPECTED: false')\r\nconsole.log('ACTUAL: ', isPerfect(7))\r\nconsole.log('~~~~~~~~~~~~~')\r\n\r\nfunction isPerfect(num) {\r\n  var divider = 1\r\n  var dividersSum = 0\r\n\r\n  while (divider <= Math.ceil(num / 2)) {\r\n    if (num % divider === 0) dividersSum += divider\r\n    divider++\r\n  }\r\n\r\n  return dividersSum === num\r\n}\r\n// iii. Read a number from the user. Store it in a variable called max. The function should print all the perfect numbers and all the Armstrong numbers that are smaller than max.\r\n\r\n// printSpecialNumbers()\r\n\r\nfunction printSpecialNumbers() {\r\n  var max = +prompt('Enter a number')\r\n  for (var i = 0; i < max; i++) {\r\n    if (isArmstrong(i)) console.log('the number ' + i + ' is an Armstrong number')\r\n    if (isPerfect(i)) console.log('the number ' + i + ' is an Perfect number')\r\n  }\r\n}\r\n"
+      },
   30: {
-    name: "30.js",
-    title: "Print the Longer String",
-    content: `<p>Read two names from the user and print the longer one.</p>`,
-    solution: `printLongestName()
-function printLongestName() {
-    var name1 = prompt('Enter first name')
-    var name2 = prompt('Enter second name')
-    var longestName = name1
-    if (name2.length > name1.length) {
-        longestName = name2
-    }
-    console.log('The longest name is:', longestName);
-}
-`,
-  },
+        name: "30.js",
+        title: "Exercise 30",
+        content: "<h2>Exercise 30 - Print the Longer String</h2>\n<p>Read two names from the user and print the longer one.</p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 30');\r\nconsole.log('Read 2 names from the user and print the longest');\r\n// CR needed ✏️\r\n\r\n// 30. Read 2 names from the user and print the longest.\r\n\r\n\r\nprintLongestName()\r\n\r\nfunction printLongestName() {\r\n    var name1 = prompt('Enter first name')\r\n    var name2 = prompt('Enter second name')\r\n\r\n    var longestName = name1\r\n\r\n    if (name2.length > name1.length) {\r\n        longestName = name2\r\n    }\r\n    console.log('The longest name is:', longestName);\r\n}\r\n"
+      },
   31: {
-    name: "31.js",
-    title: "Basic String Manipulation",
-    content: `<p>Read a string from the user and print:</p>
-<ol type="a">
-    <li>Its length.</li>
-    <li>Its first and last characters.</li>
-    <li>The string in all uppercase and then, in all lowercase letters.</li>
-</ol>`,
-    solution: `var str = prompt('Enter a string')
-console.log('Length:', str.length);
-console.log('First Character:', str.charAt(0) + 'Last Character:', str.charAt(str.length - 1));
-console.log('UpperCase:', str.toUpperCase());
-console.log('LowerCase:', str.toLowerCase());`,
-  },
+        name: "31.js",
+        title: "Exercise 31",
+        content: "<h2>Exercise 31 - Basic String Manipulation</h2>\n<p>Read a string from the user and print:</p>\n<ol type=\"a\">\n    <li>Its length.</li>\n    <li>Its first and last characters.</li>\n    <li>The string in all uppercase and then, in all lowercase letters.</li>\n</ol>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 31');\r\nconsole.log('string manipulations');\r\n// CR needed ✏️\r\n\r\n// 31. Read a string from the user and print:\r\n// c. Its length.\r\n// d. Its first and last characters.\r\n// e. The string in uppercase and lowercase letters.\r\n\r\nvar str = prompt('Enter a string')\r\nconsole.log('Length:', str.length);\r\nconsole.log('First Character:', str.charAt(0) + 'Last Character:', str.charAt(str.length - 1));\r\nconsole.log('UpperCase:', str.toUpperCase());\r\nconsole.log('LowerCase:', str.toLowerCase());"
+      },
   32: {
-    name: "32.js",
-    title: "Reverse a String",
-    content: `<p>Read a string from the user and print it backwards using a loop.</p>`,
-    solution: `
-var str = prompt('Enter a string')
-var reversedStr = ''
-
-for (var i = str.length - 1; i >= 0; i--) {
-    reversedStr += str.charAt(i)
-}
-console.log('The backward str is:', reversedStr);
-`,
-  },
+        name: "32.js",
+        title: "Exercise 32",
+        content: "<h2>Exercise 32 - Reverse a String</h2>\n<p>Read a string from the user and print it backwards using a loop.</p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 32');\r\nconsole.log('reversing a string');\r\n// CR needed ✏️\r\n\r\n// 32. Read a string from the user and print it backwards using a loop.\r\n\r\nvar str = prompt('Enter a string')\r\nvar reversedStr = ''\r\n\r\nfor (var i = str.length - 1; i >= 0; i--) {\r\n    reversedStr += str.charAt(i)\r\n}\r\nconsole.log('The backward str is:', reversedStr);\r\n"
+      },
   33: {
-    name: "33.js",
-    title: "Vowels (a, e, i, o, u)",
-    content: `<p>Write the following functions:</p>
-<ol>
-    <li><span class="code">printVowelsCount(str)</span>- which receives a string and prints how many times each vowel appears.</li>
-    <li><span class="code">flipCase</span>- which gets a string and changes the vowels to lowercase letters, and the rest to uppercase letters.</li>
-    <li><span class="code">doubleVowels</span>- which gets a string and doubles all the vowels in it.</li>
-</ol>`,
-    solution: `
-const VOWELS = 'aeiouAEIOU';
-
-console.log('INPUT: TelAvivBeach');
-console.log(
-  'EXPECTED:\n Char a appears 1 times\n Char e appears 2 times\n Char i appears 1 times\n Char o appears 0 times\n Char u appears 0 times\n Char A appears 1 times\n Char E appears 0 times\n Char I appears 0 times\n Char O appears 0 times\n Char U appears 0 times'
-);
-console.log('ACTUAL:');
-printVowelsCount('TelAvivBeach');
-
-function printVowelsCount(str) {
-  for (var i = 0; i < VOWELS.length; i++) {
-    var currVowel = VOWELS.charAt(i);
-    var vowelCount = 0;
-    for (var j = 0; j < str.length; j++) {
-      var char = str.charAt(j);
-      if (currVowel === char) {
-        vowelCount++;
-      }
-    }
-    console.log('Char', currVowel, 'appears', vowelCount, 'times');
-  }
-}
-
-console.log('\n====================\n');
-
-// b. Write a function that gets a string and changes the vowels to lowercase letters,
-// and the rest to uppercase letters (GiZiM GiDoo).
-
-// console.log('INPUT: gizim gidoo');
-// console.log('EXPECTED: GiZiM GiDoo');
-console.log('ACTUAL:', flipCase('gizim gidoo'));
-
-function flipCase(str) {
-  var res = '';
-  for (var i = 0; i < str.length; i++) {
-    var char = str.charAt(i);
-    char = (VOWELS.includes(char)) ? char.toLowerCase() : char.toUpperCase();
-    res += char;
-  }
-  return 'The selective case string is: ' + res;
-}
-
-console.log('\n====================\n');
-
-// c. Write a function that gets a string and doubles all the vowels in it.
-// Test the functions using the inputs: “aeiouAEIOU” “TelAvivBeach"
-
-console.log('INPUT - aeiouAEIOU');
-console.log('EXPECTED - aaeeiioouuAAEEIIOOUU');
-console.log('ACTUAL - ', changeToDoubleVowels('aeiouAEIOU'));
-
-console.log('INPUT - TelAvivBeach');
-console.log('EXPECTED - TeelAAviivBeeaach');
-console.log('ACTUAL - ', changeToDoubleVowels('TelAvivBeach'));
-
-function changeToDoubleVowels(str) {
-  var doubleVowelStr = '';
-  var char = '';
-  for (var i = 0; i < str.length; i++) {
-    char = str.charAt(i);
-    if (VOWELS.includes(char)) {
-      doubleVowelStr += char;
-    }
-    doubleVowelStr += char;
-  }
-  return 'The double vowels string is: ' + doubleVowelStr;
-}
-`,
-  },
+        name: "33.js",
+        title: "Exercise 33",
+        content: "<h2>Exercise 33 - Vowels (a, e, i, o, u)</h2>\n<p>Write the following functions:</p>\n<ol>\n    <li><span class=\"code\"> printVowelsCount(str)</span>- which receives a string and prints how many times each vowel appears.</li>\n    <li><span class=\"code\">flipCase</span>- which gets a string and changes the vowels to lowercase letters, and the rest to uppercase letters (i.e. <span class=\"console\">Upset uPSeT</span>).</li>\n    <li><span class=\"code\">doubleVowels</span>- which gets a string and doubles all the vowels in it.</li>\n</ol>\n<p>Test the functions using these inputs: <span class=\"console\">'aeiouAEIOU'</span> & <span class=\"console\">'TelAvivBeach'</span></p>\n",
+        solution: "'use strict';\r\n\r\nconsole.log('EX 33');\r\nconsole.log('fun with vowels - string manipulations');\r\n// reviewed ✔️\r\n\r\n/*\r\n33.+UnitTesting VOWELS (aeiou)\r\ncode the following functions:\r\na. Write a function named printVowelsCount(str) that gets a string and print how\r\nmany times each vowel appears.\r\n*/\r\n\r\nconst VOWELS = 'aeiouAEIOU';\r\n\r\nconsole.log('INPUT: TelAvivBeach');\r\nconsole.log(\r\n  'EXPECTED:\\n Char a appears 1 times\\n Char e appears 2 times\\n Char i appears 1 times\\n Char o appears 0 times\\n Char u appears 0 times\\n Char A appears 1 times\\n Char E appears 0 times\\n Char I appears 0 times\\n Char O appears 0 times\\n Char U appears 0 times'\r\n);\r\nconsole.log('ACTUAL:');\r\nprintVowelsCount('TelAvivBeach');\r\n\r\nfunction printVowelsCount(str) {\r\n  for (var i = 0; i < VOWELS.length; i++) {\r\n    var currVowel = VOWELS.charAt(i);\r\n    var vowelCount = 0;\r\n    for (var j = 0; j < str.length; j++) {\r\n      var char = str.charAt(j);\r\n      if (currVowel === char) {\r\n        vowelCount++;\r\n      }\r\n    }\r\n    console.log('Char', currVowel, 'appears', vowelCount, 'times');\r\n  }\r\n}\r\n\r\nconsole.log('\\n====================\\n');\r\n\r\n// b. Write a function that gets a string and changes the vowels to lowercase letters,\r\n// and the rest to uppercase letters (GiZiM GiDoo).\r\n\r\n// console.log('INPUT: gizim gidoo');\r\n// console.log('EXPECTED: GiZiM GiDoo');\r\nconsole.log('ACTUAL:', flipCase('gizim gidoo'));\r\n\r\nfunction flipCase(str) {\r\n  var res = '';\r\n  for (var i = 0; i < str.length; i++) {\r\n    var char = str.charAt(i);\r\n    char = (VOWELS.includes(char)) ? char.toLowerCase() : char.toUpperCase();\r\n    res += char;\r\n  }\r\n  return 'The selective case string is: ' + res;\r\n}\r\n\r\nconsole.log('\\n====================\\n');\r\n\r\n// c. Write a function that gets a string and doubles all the vowels in it.\r\n// Test the functions using the inputs: “aeiouAEIOU” “TelAvivBeach\"\r\n\r\nconsole.log('INPUT - aeiouAEIOU');\r\nconsole.log('EXPECTED - aaeeiioouuAAEEIIOOUU');\r\nconsole.log('ACTUAL - ', changeToDoubleVowels('aeiouAEIOU'));\r\n\r\nconsole.log('INPUT - TelAvivBeach');\r\nconsole.log('EXPECTED - TeelAAviivBeeaach');\r\nconsole.log('ACTUAL - ', changeToDoubleVowels('TelAvivBeach'));\r\n\r\nfunction changeToDoubleVowels(str) {\r\n  var doubleVowelStr = '';\r\n  var char = '';\r\n  for (var i = 0; i < str.length; i++) {\r\n    char = str.charAt(i);\r\n    if (VOWELS.includes(char)) {\r\n      doubleVowelStr += char;\r\n    }\r\n    doubleVowelStr += char;\r\n  }\r\n  return 'The double vowels string is: ' + doubleVowelStr;\r\n}\r\n"
+      },
   34: {
-    name: "34.js",
-    title: "myIndexOf()",
-    content: `<p>Implement a function named <span class="code">myIndexOf(str, searchStr)</span> which receives two strings.</p>
-<p>The function returns the index of the second string within the first, or -1  if it wasn't found (do not use the built-in <span class="code">indexOf()</span>function… ). </p>`,
-    solution: `
-console.log('INPUT: abbcd,bc')
-console.log('EXPECTED: 2')
-console.log('ACTUAL: ', myIndexOf1('abbcd', 'bc'))
-
-console.log('INPUT: hello index, idx')
-console.log('EXPECTED: -1')
-console.log('ACTUAL: ', myIndexOf('hello index', 'idx'))
-
-function myIndexOf(str, searchStr) {
-  for (var i = 0; i <= str.length - searchStr.length; i++) {
-    if (str.substring(i, i + searchStr.length) === searchStr) {
-      return i
-    }
-  }
-  return -1
-}
-
-
-
-// without substring:
-function myIndexOf1(str, searchStr) {
-  var currLength = 0
-  var index = 0
-  for (var i = 0; i < str.length; i++) {
-    while (str.charAt(i + index) === searchStr.charAt(index)) {
-      currLength++
-      if (currLength === searchStr.length) return i
-      index++
-    }
-    currLength = 0
-    index = 0
-  }
-  return -1
-}
-`,
-  },
+        name: "34.js",
+        title: "Exercise 34",
+        content: "<h2>Exercise 34 - myIndexOf()</h2>\n<p>Implement a function named <span class=\"code\">myIndexOf(str, searchStr)</span> which receives two strings.</p>\n<p>The function returns the index of the second string within the first, or -1  if it wasn’t found (do not use the built-in <span class=\"code\">indexOf()</span>function… ). </p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 34')\r\nconsole.log('My Index Of')\r\n// reviewed ✔️\r\n\r\n// 34.+UnitTesting write a function named myIndexOf(str, searchStr) that accepts 2 strings.\r\n// The function returns the index of the second string in the first, if it wasn’t found, return\r\n// -1 (don’t use the built-in indexOf...).\r\n\r\nconsole.log('INPUT: abbcd,bc')\r\nconsole.log('EXPECTED: 2')\r\nconsole.log('ACTUAL: ', myIndexOf1('abbcd', 'bc'))\r\n\r\nconsole.log('INPUT: hello index, idx')\r\nconsole.log('EXPECTED: -1')\r\nconsole.log('ACTUAL: ', myIndexOf('hello index', 'idx'))\r\n\r\nfunction myIndexOf(str, searchStr) {\r\n  for (var i = 0; i <= str.length - searchStr.length; i++) {\r\n    if (str.substring(i, i + searchStr.length) === searchStr) {\r\n      return i\r\n    }\r\n  }\r\n  return -1\r\n}\r\n\r\n\r\n\r\n// without substring:\r\nfunction myIndexOf1(str, searchStr) {\r\n  var currLength = 0\r\n  var index = 0\r\n  for (var i = 0; i < str.length; i++) {\r\n    while (str.charAt(i + index) === searchStr.charAt(index)) {\r\n      currLength++\r\n      if (currLength === searchStr.length) return i\r\n      index++\r\n    }\r\n    currLength = 0\r\n    index = 0\r\n  }\r\n  return -1\r\n}\r\n"
+      },
   35: {
-    name: "35.js",
-    title: "Encrypt",
-    content: `<p>Write the function <span class="code">encrypt</span> which gets a string and encrypts it.</p>
-<ol>
-    <li>Implement the function by replacing each character <span class="code">code</span> with <span class="code">code + 5</span>.</li>
-    <li>Write the function <span class="code">decrypt</span> which decrypts a message.</li>
-</ol>`,
-    solution: `
-console.log('INPUT - rrr')
-console.log('EXPECTED - www',)
-console.log('ACTUAL - ', encrypt('Zrr'))
-
-console.log('INPUT - www')
-console.log('EXPECTED - rrr',)
-console.log('ACTUAL - ', decrypt('Zww'))
-
-
-function encrypt(str) {
-    var encryptedStr = ''
-    for (var i = 0; i < str.length; i++) {
-        var currCharCode = str.charCodeAt(i)
-        var encryptedChar = String.fromCharCode(currCharCode + 5)
-        encryptedStr += encryptedChar
-    }
-    return encryptedStr
-}
-
-function decrypt(str) {
-    var encryptedStr = ''
-    for (var i = 0; i < str.length; i++) {
-        var currCharCode = str.charCodeAt(i)
-        var encryptedChar = String.fromCharCode(currCharCode - 5)
-        encryptedStr += encryptedChar
-    }
-    return encryptedStr
-}
-
-// BONUS:
-console.log('INPUT - abc,true',)
-console.log('EXPECTED - fgh ',)
-console.log('ACTUAL - ', encode('abc', true))
-
-console.log('INPUT - fgh,false',)
-console.log('EXPECTED - abc ',)
-console.log('ACTUAL - ', encode('fgh', false))
-
-function encode(str, isEncrypt) {
-    var encryptedStr = ''
-    var diff = isEncrypt ? 5 : -5
-    for (var i = 0; i < str.length; i++) {
-        var currCharCode = str.charCodeAt(i)
-        var encryptedChar = String.fromCharCode(currCharCode + diff)
-        encryptedStr += encryptedChar
-    }
-    return encryptedStr
-}`,
-  },
+        name: "35.js",
+        title: "Exercise 35",
+        content: "<h2>Exercise 35 - Encrypt</h2>\n<p>Write the function <span class=\"code\">encrypt</span> which gets a string and encrypts it.</p>\n<ol>\n    <li>\n        Implement the function by replacing each character <span class=\"code\">code</span> with <span class=\"code\">code + 5</span> (i.e. <span class=\"console\">'r'</span> will be replaced by: <span class=\"console\">'w'</span>).\n    </li>\n    <li>Write the function <span class=\"code\">decrypt</span> which decrypts a message.</li>\n</ol>\n<p class=\"tip\">Tip: try writing this in the console: <span class=\"console\">'ABC'.charCodeAt(0)</span><br>\nTip: search for the opposite function to <span class=\"code\">charCodeAt</span></p>\n<p>Bonus: extract the common logic to an <span class=\"code\">encode</span> function which both encrypts and decrypts.</p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 35')\r\nconsole.log('encrypt - decrypt');\r\n// reviewed ✔️\r\n\r\n// 35.+UnitTesting Write the function encrypt that gets a string and encrypts it. It replaces each character code with the code+5 (I.e. 'r' will be replaced by: 'w'). NOTE: The function should encrypt the entire string by shifting each letter as described above. Now write the function decrypt that decrypts a message. Tip: try to write in the console: 'ABC'.charCodeAt(0)\r\n// Tip - search for the opposite function to charCodeAt\r\n// Bonus: extract the common logic to an encode function that both encrypts and decrypts.\r\n\r\nconsole.log('INPUT - rrr')\r\nconsole.log('EXPECTED - www',)\r\nconsole.log('ACTUAL - ', encrypt('Zrr'))\r\n\r\nconsole.log('INPUT - www')\r\nconsole.log('EXPECTED - rrr',)\r\nconsole.log('ACTUAL - ', decrypt('Zww'))\r\n\r\n\r\nfunction encrypt(str) {\r\n    var encryptedStr = ''\r\n    for (var i = 0; i < str.length; i++) {\r\n        var currCharCode = str.charCodeAt(i)\r\n        var encryptedChar = String.fromCharCode(currCharCode + 5)\r\n        encryptedStr += encryptedChar\r\n    }\r\n    return encryptedStr\r\n}\r\n\r\nfunction decrypt(str) {\r\n    var encryptedStr = ''\r\n    for (var i = 0; i < str.length; i++) {\r\n        var currCharCode = str.charCodeAt(i)\r\n        var encryptedChar = String.fromCharCode(currCharCode - 5)\r\n        encryptedStr += encryptedChar\r\n    }\r\n    return encryptedStr\r\n}\r\n\r\n// BONUS:\r\nconsole.log('INPUT - abc,true',)\r\nconsole.log('EXPECTED - fgh ',)\r\nconsole.log('ACTUAL - ', encode('abc', true))\r\n\r\nconsole.log('INPUT - fgh,false',)\r\nconsole.log('EXPECTED - abc ',)\r\nconsole.log('ACTUAL - ', encode('fgh', false))\r\n\r\nfunction encode(str, isEncrypt) {\r\n    var encryptedStr = ''\r\n    var diff = isEncrypt ? 5 : -5\r\n    for (var i = 0; i < str.length; i++) {\r\n        var currCharCode = str.charCodeAt(i)\r\n        var encryptedChar = String.fromCharCode(currCharCode + diff)\r\n        encryptedStr += encryptedChar\r\n    }\r\n    return encryptedStr\r\n} 3"
+      },
   36: {
-    name: "36.js",
-    title: "Longest and Shortest Names",
-    content: `<p>Implement a function which receives a string of comma separated names, for example: <span class="console">'Igal,Moshe,Haim'</span>, and prints the longest and shortest names.</p>`,
-    solution: `
-console.log('INPUT - d,igaladbdmgmne,haim')
-console.log('EXPECTED - The longest name is: igaladbdmgmne and the shortest name is: da')
-console.log('ACTUAL - ', printNames('igaladbdmgmne,haim,da'))
-
-function printNames(namesStr) {
-  var longestName = ''
-  var shortestName = namesStr
-  var commaIdx = 0
-  namesStr += ','
-
-  for (var i = 0; i < namesStr.length; i = commaIdx + 1) { // Omri - corrected to 'commaIdx+1'
-    commaIdx = namesStr.indexOf(',', i)
-    var name = namesStr.substring(i, commaIdx) // Omri - corrected to 'substring(i, commaIdx)'
-
-    if (name.length > longestName.length) longestName = name
-    if (name.length < shortestName.length) shortestName = name
-  }
-  return 'The longest name is: ' + longestName + ' and the shortest name is: ' + shortestName
-}
-`,
-  },
+        name: "36.js",
+        title: "Exercise 36",
+        content: "<h2>Exercise 36 - Longest and Shortest Names</h2>\n<p>Implement a function which receives a string of comma separated names, for example: <span class=\"console\">'Igal,Moshe,Haim',</span>and prints the longest and shortest names.</p>\n<p class=\"tip\">Tip: use the function indexOf. note that the function accepts two parameters.</p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 36')\r\nconsole.log('A function that gets a string of names delimited by a comma and prints the longest name and the shortest name.')\r\n// CR needed ✏️\r\n\r\n// +UnitTesting Write a function that gets a string of names delimited by a comma. I.e: 'igal,moshe,haim' and prints the longest name, and the shortest name. Tip: use the function indexOf, note that the function accepts 2 parameters\r\n\r\nconsole.log('INPUT - d,igaladbdmgmne,haim')\r\nconsole.log('EXPECTED - The longest name is: igaladbdmgmne and the shortest name is: da')\r\nconsole.log('ACTUAL - ', printNames('igaladbdmgmne,haim,da'))\r\n\r\nfunction printNames(namesStr) {\r\n  var longestName = ''\r\n  var shortestName = namesStr\r\n  var commaIdx = 0\r\n  namesStr += ','\r\n\r\n  for (var i = 0; i < namesStr.length; i = commaIdx + 1) { // Omri - corrected to 'commaIdx+1'\r\n    commaIdx = namesStr.indexOf(',', i)\r\n    var name = namesStr.substring(i, commaIdx) // Omri - corrected to 'substring(i, commaIdx)'\r\n\r\n    if (name.length > longestName.length) longestName = name\r\n    if (name.length < shortestName.length) shortestName = name\r\n  }\r\n  return 'The longest name is: ' + longestName + ' and the shortest name is: ' + shortestName\r\n}\r\n"
+      },
   37: {
-    name: "37.js",
-    title: "Generate Password",
-    content: `<p>Implement a function named <span class="code">generatePass(passLength)</span> which generates a password of the specified length. The password is made out of random digits and letters.</p>`,
-    solution: `
-console.log(generatePass(5))
-
-function generatePass(passLength) {
-  var charStr = 'absdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-  var password = ''
-  for (var i = 0; i < passLength; i++) {
-    var randomIdx = getRandomInteger(0, charStr.length)
-    password += charStr.charAt(randomIdx)
-  }
-  return password
-}
-
-// Another option:
-// var str = '';
-// for (var i = 0; i < passLength; i++) {
-//     str += String.fromCharCode(97 + Math.floor(Math.random() * 26)); //just lowercase
-// }
-// return str
-
-
-function getRandomInteger(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
-}`,
-  },
+        name: "37.js",
+        title: "Exercise 37",
+        content: "<h2>Exercise 37 - Generate Password</h2>\n<p>Implement a function named <span class=\"code\">generatePass(passLength)</span> which generates a password of the specified length. The password is made out of random digits and letters.</p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 37')\r\nconsole.log('that generates a password of a specified length. The password is made out of random digits and letters');\r\n// CR needed ✏️\r\n\r\n// Write a function named generatePass(passLength) that generates a password of a specified length. The password is made out of random digits and letters.\r\n\r\nconsole.log(generatePass(5))\r\n\r\nfunction generatePass(passLength) {\r\n  var charStr = 'absdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'\r\n  var password = ''\r\n  for (var i = 0; i < passLength; i++) {\r\n    var randomIdx = getRandomInteger(0, charStr.length)\r\n    password += charStr.charAt(randomIdx)\r\n  }\r\n  return password\r\n}\r\n\r\n// Another option:\r\n// var str = '';\r\n// for (var i = 0; i < passLength; i++) {\r\n//     str += String.fromCharCode(97 + Math.floor(Math.random() * 26)); //just lowercase\r\n// }\r\n// return str\r\n\r\n\r\nfunction getRandomInteger(min, max) {\r\n  min = Math.ceil(min)\r\n  max = Math.floor(max)\r\n  return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive\r\n}"
+      },
   38: {
-    name: "38.js",
-    title: "Bigger than 100",
-    content: `<p>Implement a function named <span class="code">biggerThan100</span>. It receives an array of numbers and returns a new array containing only the numbers which are greater than 100.</p>`,
-    solution: `
-console.log('INPUT: [1, 3, 400, 60, 300, 500]')
-console.log('EXPECTED: [400, 300, 500]')
-console.log('ACTUAL:', biggerThan100([1, 3, 400, 60, 300, 500]))
-/**
- * 
- * @param {*} nums 
- * @returns 
- */
-function biggerThan100(nums) {
-    var biggerNums = []
-    for (var i = 0; i < nums.length; i++) {
-        if (nums[i] > 100) biggerNums.push(nums[i])
-    }
-    return biggerNums
-}`,
-  },
+        name: "38.js",
+        title: "Exercise 38",
+        content: "<h2>Exercise 38 - Bigger than 100</h2>\n<p>Implement a function named <span class=\"code\">biggerThan100</span>. It receives an array of numbers and returns a new array containing only the numbers which are greater than 100.</p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 38')\r\nconsole.log('biggerThan100');\r\n// CR needed ✏️\r\n\r\n// 38. Write a function named biggerThan100. It gets an array of numbers and returns an array of only the numbers that are bigger than 100.\r\n\r\nconsole.log('INPUT: [1, 3, 400, 60, 300, 500]')\r\nconsole.log('EXPECTED: [400, 300, 500]')\r\nconsole.log('ACTUAL:', biggerThan100([1, 3, 400, 60, 300, 500]))\r\n/**\r\n * \r\n * @param {*} nums \r\n * @returns \r\n */\r\nfunction biggerThan100(nums) {\r\n    var biggerNums = []\r\n    for (var i = 0; i < nums.length; i++) {\r\n        if (nums[i] > 100) biggerNums.push(nums[i])\r\n    }\r\n    return biggerNums\r\n}"
+      },
   39: {
-    name: "39.js",
-    title: "Count Votes",
-    content: `<p>Implement a function named <span class="code">countVotes(votes, candidateName)</span> which counts how many votes a candidate received.</p>
-<p>For example: if the votes array looks like this: <span class="console">['Nuli', 'Pingi', 'Uza', 'Shabi', 'Uza']</span>, and the candidate name is <span class="console">'Uza'</span>, the function returns <span class="console">2</span>.</p>`,
-    solution: `var votes = ['Nuli', 'Pingi', 'Uza', 'Shabi', 'Uza']
-var candidateName = 'Uza'
-console.log('INPUT: ', votes, candidateName)
-console.log('EXPECTED: ', 2)
-console.log('ACTUAL:', countVotes(votes, candidateName))
-
-function countVotes(votes, candidateName) {
-    var count = 0
-    for (var i = 0; i < votes.length; i++) {
-        if (votes[i] === candidateName) count++
-    }
-    return count
-}`,
-  },
+        name: "39.js",
+        title: "Exercise 39",
+        content: "<h2>Exercise 39 - Count Votes</h2>\n<p>Implement a function named <span class=\"code\">countVotes(votes, candidateName)</span> which counts how many votes a candidate received.</p>\n<p>For example: if the votes  array looks like this: <span class=\"console\">['Nuli', 'Pingi', 'Uza', 'Shabi', ‘Uza’],</span>and the candidate name is <span class=\"console\">'Uza',</span>the function returns <span class=\"console\">2</span>.</p>  \n\n\n",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 39')\r\nconsole.log('Count votes');\r\n// CR needed ✏️\r\n\r\n// Write a function named countVotes(votes, candidateName) that counts how many votes this candidate got. i.e.: if the votes array looks like this: ['Nuli', 'Pingi', 'Uza', 'Shabi', 'Uza'] And the candidateName is : 'Uza', the function returns 2.\r\n\r\nvar votes = ['Nuli', 'Pingi', 'Uza', 'Shabi', 'Uza']\r\nvar candidateName = 'Uza'\r\nconsole.log('INPUT: ', votes, candidateName)\r\nconsole.log('EXPECTED: ', 2)\r\nconsole.log('ACTUAL:', countVotes(votes, candidateName))\r\n\r\nfunction countVotes(votes, candidateName) {\r\n    var count = 0\r\n    for (var i = 0; i < votes.length; i++) {\r\n        if (votes[i] === candidateName) count++\r\n    }\r\n    return count\r\n}"
+      },
   40: {
-    name: "40.js",
-    title: "Lorem Ipsum",
-    content: `<p>Implement a function named <span class="code">getLoremIpsum(wordsCount)</span> which return a sentence with random dummy text (google: lorem ipsum...) </p>
-<p>Here are the steps you may use to solve this: </p>
-<ol type="a">
-    <li class="mb-m">Create a string or an array of all the characters in the English alphabet.</li>
-    <li class="mb-m">Write a function named <span class="code">getWord()</span> which returns a single word made of 3 - 5 random letters. The length of the word will be generated randomly. </li>
-    <li class="mb-m">Call this function in a loop to create a sentence.</li>
-</ol>`,
-    solution: `
-var res = getLoremIpsum(4)
-console.log('res:', res)
-
-
-function getLoremIpsum(wordsCount) {
-    var sentence = ''
-
-    for (var i = 0; i < wordsCount; i++) {
-        sentence += getWord()
-
-        // if (i === wordsCount - 1) sentence += '.'
-        // else sentence += ' '
-        sentence += (i === wordsCount - 1) ? '.' : ' '
-    }
-    return sentence
-}
-
-function getWord() {
-    const letters = 'abcdefghiklmnopqrstvxwyz'
-    var randomLength = getRandomInteger(3, 5)
-    var word = ''
-    for (var i = 0; i < randomLength; i++) {
-        var randIdx = getRandomInteger(0, letters.length - 1);
-        word += letters.charAt(randIdx)
-    }
-    return word
-}
-
-function getRandomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-
-// function getRandomInt(min, max){
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-// }`,
-  },
+        name: "40.js",
+        title: "Exercise 40",
+        content: "<h2>Exercise 40 - Lorem Ipsum</h2>\n<p>Implement a function named <span class=\"code\">getLoremIpsum(wordsCount)</span> which return a sentence with random dummy text (google: lorem ipsum...) </p>\n<p>Here are the steps you may use to solve this: </p>\n<ol type=\"a\">\n    <li class=\"mb-m\">Create a string or an array of all the characters in the English alphabet.</li>\n    <li class=\"mb-m\">Write a function named <span class=\"code\">getWord()</span> which returns a single word made of 3 - 5 random letters. The length of the word will be generated randomly. </li>\n    <li class=\"mb-m\">Call this function in a loop to create a sentence.</li>\n</ol>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 40')\r\nconsole.log('My Lorem Ipsum');\r\n// CR needed ✏️\r\n\r\n/*\r\nWrite a function named getLoremIpsum(wordsCount) that return a sentence with random dummy text (google: lorem ipsum...) TIP, here are the steps you may use to solve this:\r\na. First, write a function named getWord(). The function returns a single word made out of 3-5 random letters the length of the word will be generated randomly. Tip: you can create a string or an array of all the characters in the English alphabet.\r\nb. Lastly, call this function in a loop to create a sentence. \r\n*/\r\n\r\nvar res = getLoremIpsum(4)\r\nconsole.log('res:', res)\r\n\r\n\r\nfunction getLoremIpsum(wordsCount) {\r\n    var sentence = ''\r\n\r\n    for (var i = 0; i < wordsCount; i++) {\r\n        sentence += getWord()\r\n\r\n        // if (i === wordsCount - 1) sentence += '.'\r\n        // else sentence += ' '\r\n        sentence += (i === wordsCount - 1) ? '.' : ' '\r\n    }\r\n    return sentence\r\n}\r\n\r\nfunction getWord() {\r\n    const letters = 'abcdefghiklmnopqrstvxwyz'\r\n    var randomLength = getRandomInteger(3, 5)\r\n    var word = ''\r\n    for (var i = 0; i < randomLength; i++) {\r\n        var randIdx = getRandomInteger(0, letters.length - 1);\r\n        word += letters.charAt(randIdx)\r\n    }\r\n    return word\r\n}\r\n\r\nfunction getRandomInteger(min, max) {\r\n    return Math.floor(Math.random() * (max - min + 1) + min)\r\n}\r\n\r\n\r\n// function getRandomInt(min, max){\r\n//     min = Math.ceil(min);\r\n//     max = Math.floor(max);\r\n//     return Math.floor(Math.random() * (max - min + 1) + min);\r\n// }"
+      },
   41: {
-    name: "41.js",
-    title: "Digits to Words",
-    content: `<p>Write a function named sayNum(num) which prints each digit in words</p> 
-<p>For example: </p>
-<p><span class="console">123 => One Two Three.</span></p>
-<p><span class="console">7294 => Seven Two Nine Four.</span></p>`,
-    solution: `
-const digitNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-
-console.log('INPUT:', 325)
-console.log('EXPECTED:', 'three two five')
-console.log('ACTUAL:', sayNum(325))
-
-console.log('INPUT:', 0)
-console.log('EXPECTED:', 'zero')
-console.log('ACTUAL:', sayNum(0))
-
-function sayNum(num) {
-    var numsStr = '' + num //'325'
-    var digitStr = ''
-    for (var i = 0; i < numsStr.length; i++) {
-        var currNum = +numsStr.charAt(i) // 3
-        digitStr += digitNames[currNum] + ' '
-    }
-    return digitStr.trim()
-}
-
-// WITH SWITCH
-function sayNum2(num) {
-    var str = '';
-    num += '';
-    for (var i = 0; i < num.length; i++) {
-        var currNum = num[i];
-        switch (currNum) {
-            case '1':
-                str += 'One ';
-                break;
-            case '2':
-                str += 'Two ';
-                break;
-            case '3':
-                str += 'Three ';
-                break;
-            case '4':
-                str += 'Four ';
-                break;
-            case '5':
-                str += 'Five ';
-                break;
-            case '6':
-                str += 'Six ';
-                break;
-            case '7':
-                str += 'Seven ';
-                break;
-            case '8':
-                str += 'Eight ';
-                break;
-            case '9':
-                str += 'Nine ';
-                break;
-            case '0':
-                str += 'Zero ';
-                break;
-        }
-    }
-    return str.trim();
-}
-`,
-  },
+        name: "41.js",
+        title: "Exercise 41",
+        content: "<h2>Exercise 41 - Digits to Words</h2>\n<p>Write a function named sayNum(num) which prints each digit in words</p> \n<p> For example: </p>\n\n<p><span class=\"console\">123&nbsp; => One Two Three.</span></p>\n<p><span class=\"console\">7294 => Seven Two Nine Four.</span></p>\n\n<p class=\"tip\">Tip: You may use  switch  inside a loop or an array named digitNames. \n(Or maybe… just try them both!)</p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 41')\r\nconsole.log('prints each digit in words')\r\n// CR needed ✏️\r\n\r\n//  EX41 +UnitTesting Write a function named sayNum(num) that prints each digit in words. \r\n// I.e: 123 => One Two Three. 7294 => Seven Two Nine Four. TIP: You may use \r\n// Switch inside a loop OR an array named digitNames. (Or what the heck, try them \r\n// both.)\r\n\r\nconst digitNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']\r\n\r\nconsole.log('INPUT:', 325)\r\nconsole.log('EXPECTED:', 'three two five')\r\nconsole.log('ACTUAL:', sayNum(325))\r\n\r\nconsole.log('INPUT:', 0)\r\nconsole.log('EXPECTED:', 'zero')\r\nconsole.log('ACTUAL:', sayNum(0))\r\n\r\nfunction sayNum(num) {\r\n    var numsStr = '' + num //'325'\r\n    var digitStr = ''\r\n    for (var i = 0; i < numsStr.length; i++) {\r\n        var currNum = +numsStr.charAt(i) // 3\r\n        digitStr += digitNames[currNum] + ' '\r\n    }\r\n    return digitStr.trim()\r\n}\r\n\r\n// WITH SWITCH\r\nfunction sayNum2(num) {\r\n    var str = '';\r\n    num += '';\r\n    for (var i = 0; i < num.length; i++) {\r\n        var currNum = num[i];\r\n        switch (currNum) {\r\n            case '1':\r\n                str += 'One ';\r\n                break;\r\n            case '2':\r\n                str += 'Two ';\r\n                break;\r\n            case '3':\r\n                str += 'Three ';\r\n                break;\r\n            case '4':\r\n                str += 'Four ';\r\n                break;\r\n            case '5':\r\n                str += 'Five ';\r\n                break;\r\n            case '6':\r\n                str += 'Six ';\r\n                break;\r\n            case '7':\r\n                str += 'Seven ';\r\n                break;\r\n            case '8':\r\n                str += 'Eight ';\r\n                break;\r\n            case '9':\r\n                str += 'Nine ';\r\n                break;\r\n            case '0':\r\n                str += 'Zero ';\r\n                break;\r\n        }\r\n    }\r\n    return str.trim();\r\n}\r\n"
+      },
   42: {
-    name: "42.js",
-    title: "Starts with...",
-    content: `<p>Write a function named startsWithS, which receives an array of names and returns a new array, containing only those names which begin with S.</p>
-<p>Now, refactor your function to work on any letter by adding a letter parameter. Rename the function to reflect its new functionality.</p>`,
-    solution: `
-var names = ['Matan', 'David', 'Susu', 'Sasa', 'Sansa']
-
-console.log('INPUT: [Matan, David, Susu, Sasa, Sansa]')
-console.log('EXPECTED:', '[Susu, Sasa, Sansa]')
-console.log('ACTUAL:', startsWithS(names))
-
-function startsWithS(names) {
-    var namesWithS = []
-    for (var i = 0; i < names.length; i++) {
-        var name = names[i]
-        var firstChar = name.charAt(0)
-        if (firstChar.toLowerCase() === 's') {
-            namesWithS.push(names[i]);
-        }
-    }
-    return namesWithS
-}
-
-//Step 2
-names = ['Matan', 'David', 'Dusu', 'Dasa', 'Dansa']
-
-console.log('INPUT: [Matan, David, Dusu, Dasa, Dansa]')
-console.log('EXPECTED:', '[ David, Dusu, Dasa, Dansa]')
-console.log('ACTUAL:', startsWithLetter(names, 'D'))
-
-// Any letter
-function startsWithLetter(names, letter) {
-    var namesWithLetter = []
-    for (var i = 0; i < names.length; i++) {
-        if (names[i].charAt(0).toLowerCase() === letter.toLowerCase()) {
-            namesWithLetter.push(names[i])
-        }
-    }
-    return namesWithLetter
-}`,
-  },
+        name: "42.js",
+        title: "Exercise 42",
+        content: "<h2>Exercise 42 - Starts with...</h2>\n<p>Write a function named startsWithS , which receives an array of names and returns a new array, containing only those names which begin with S.</p>\n<p>Now, refactor your function to work on any letter by adding a letter parameter. Rename the function to reflect its new functionality. </p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 42')\r\nconsole.log('Start with S')\r\n// CR needed ✏️\r\n\r\n// EX42 Write a function named startsWithS that gets an array of names and returns an array of the names that start with S.\r\n// a. Refactor your function to work on any letter by adding a letter parameter, you might need to rename the function so it will suit it’s new capacity.\r\n\r\nvar names = ['Matan', 'David', 'Susu', 'Sasa', 'Sansa']\r\n\r\nconsole.log('INPUT: [Matan, David, Susu, Sasa, Sansa]')\r\nconsole.log('EXPECTED:', '[Susu, Sasa, Sansa]')\r\nconsole.log('ACTUAL:', startsWithS(names))\r\n\r\nfunction startsWithS(names) {\r\n    var namesWithS = []\r\n    for (var i = 0; i < names.length; i++) {\r\n        var name = names[i]\r\n        var firstChar = name.charAt(0)\r\n        if (firstChar.toLowerCase() === 's') {\r\n            namesWithS.push(names[i]);\r\n        }\r\n    }\r\n    return namesWithS\r\n}\r\n\r\n//Step 2\r\nnames = ['Matan', 'David', 'Dusu', 'Dasa', 'Dansa']\r\n\r\nconsole.log('INPUT: [Matan, David, Dusu, Dasa, Dansa]')\r\nconsole.log('EXPECTED:', '[ David, Dusu, Dasa, Dansa]')\r\nconsole.log('ACTUAL:', startsWithLetter(names, 'D'))\r\n\r\n// Any letter\r\nfunction startsWithLetter(names, letter) {\r\n    var namesWithLetter = []\r\n    for (var i = 0; i < names.length; i++) {\r\n        if (names[i].charAt(0).toLowerCase() === letter.toLowerCase()) {\r\n            namesWithLetter.push(names[i])\r\n        }\r\n    }\r\n    return namesWithLetter\r\n}"
+      },
   43: {
-    name: "43.js",
-    title: "Sum Arrays",
-    content: `<ol>
-    <li>
-        <p>Write the function  sumArrays  which receives two arrays and returns their sum.</p>
-        <p>For example: <span class="console">[1, 4, 3] & [2, 5, 1, 9] => [3, 9, 4, 9]</span></p>
-    </li>
-    <li>
-        <p>Now, read these arrays from the user (until the number 999 is entered)</p>
-    </li>
-</ol>`,
-    solution: `
-// var nums1 = getArrayFromUser()
-// var nums2 = getArrayFromUser()
-var nums1 = [1, 4, 3]
-var nums2 = [2, 5, 1, 9]
-
-console.log('INPUT: ', nums1, nums2)
-console.log('ACTUAL: ', sumArrays(nums1, nums2))
-
-function sumArrays(nums1, nums2) {
-  var shorterNums = nums1.length > nums2.length ? nums2.slice() : nums1.slice()
-  var longerNums = nums1.length > nums2.length ? nums1.slice() : nums2.slice()
-
-  for (var i = 0; i < shorterNums.length; i++) {
-    if (isNaN(longerNums[i]) || isNaN(shorterNums[i]))
-      return console.error('One of the inputs in the array is not a number')
-    longerNums[i] += shorterNums[i]
-  }
-  return longerNums
-}
-
-function getArrayFromUser() {
-  const MSG = 'Please enter a number, (enter 999 to QUIT)'
-  var num = +prompt(MSG)
-  var nums = []
-  while (num !== 999) {
-    nums.push(num)
-    num = +prompt(MSG)
-  }
-  return nums
-}
-
-//Todo expected result
-// function getArrayFromUser(){
-//     return [2, 5, 1, 9]
-// }
-`,
-  },
+        name: "43.js",
+        title: "Exercise 43",
+        content: "<h2>Exercise 43 - Sum Arrays</h2>\n<ol>\n    <li>\n        <p>Write the function  sumArrays  which receives two arrays and returns their sum.</p>\n        <p>For example: <span class=\"console\">[1, 4, 3] & [2, 5, 1, 9] => [3, 9, 4, 9]</span></p>\n        <p class=\"tip\">Tip: this can be done in a single loop by first identifying the shorter or longer array of the two.</p>\n    </li>\n    <div class=\"spacer\"></div>\n    <li>\n        <p>Now, read these arrays from the user (until the number 999 is entered)</p>\n        <p class=\"tip\">Tip: write the function: getArrayFromUser and call it twice</p>\n    </li>\n</ol>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 43')\r\nconsole.log('Sum arrays')\r\n// reviewed ✔️\r\n\r\n// EX43 Write the function sumArrays that gets 2 arrays and returns the sum of the two\r\n// arrays. I.e: [1, 4, 3] [2, 5, 1, 9] => [3, 9, 4, 9]\r\n// TIP: this can be done in a single loop by first identifying the shorter or longer array from the two.\r\n// Step2: Read these arrays from the user (until the number 999 is entered) TIP: write the function: getArrayFromUser and call it twice\r\n\r\n// var nums1 = getArrayFromUser()\r\n// var nums2 = getArrayFromUser()\r\nvar nums1 = [1, 4, 3]\r\nvar nums2 = [2, 5, 1, 9]\r\n\r\nconsole.log('INPUT: ', nums1, nums2)\r\nconsole.log('ACTUAL: ', sumArrays(nums1, nums2))\r\n\r\nfunction sumArrays(nums1, nums2) {\r\n  var shorterNums = nums1.length > nums2.length ? nums2.slice() : nums1.slice()\r\n  var longerNums = nums1.length > nums2.length ? nums1.slice() : nums2.slice()\r\n\r\n  for (var i = 0; i < shorterNums.length; i++) {\r\n    if (isNaN(longerNums[i]) || isNaN(shorterNums[i]))\r\n      return console.error('One of the inputs in the array is not a number')\r\n    longerNums[i] += shorterNums[i]\r\n  }\r\n  return longerNums\r\n}\r\n\r\nfunction getArrayFromUser() {\r\n  const MSG = 'Please enter a number, (enter 999 to QUIT)'\r\n  var num = +prompt(MSG)\r\n  var nums = []\r\n  while (num !== 999) {\r\n    nums.push(num)\r\n    num = +prompt(MSG)\r\n  }\r\n  return nums\r\n}\r\n\r\n//Todo expected result\r\n// function getArrayFromUser(){\r\n//     return [2, 5, 1, 9]\r\n// }\r\n"
+      },
   44: {
-    name: "44.js",
-    title: "printNumsCount()",
-    content: `<p>Write the function <span class="code">printNumsCount(nums)</span>. The parameter <span class="code">nums</span>, is an array of integers in the range 0 - 3 like this one:</p>
-<table class="array">
-    <tr>
-        <td>3</td>
-        <td>2</td>
-        <td>0</td>
-        <td>2</td>
-        <td>2</td>
-        <td>0</td>
-        <td>3</td>
-    </tr>
-</table>
-<p>The function prints how many times each of these numbers appears in the array.</p>`,
-    solution: `
-var nums = [3, 2, 0, 2, 3];
-
-console.log("INPUT: ", nums);
-console.log("EXPECTED: [1, 0, 2, 2]");
-console.log("ACTUAL:", printNumsCount(nums));
-
-nums = [3, 2, 0, 2, 8];
-console.log("INPUT: ", nums);
-console.log("EXPECTED: Not valid number");
-console.log("ACTUAL:", printNumsCount(nums));
-
-nums = [3, 2, 0, 2, -3];
-console.log("INPUT: ", nums);
-console.log("EXPECTED: Not valid number");
-console.log("ACTUAL:", printNumsCount(nums));
-
-function printNumsCount(nums) {
-  var counts = [0, 0, 0, 0];
-  for (var i = 0; i < nums.length; i++) {
-    var num = nums[i];
-    if (isNaN(num) || num < 0 || num > 3) return "Not valid number";
-    counts[num]++;
-  }
-
-  // for (var i = 0; i < counts.length; i++) {
-  //   console.log('The number', i, 'appears', counts[i], 'times');
-  // }
-
-  return counts;
-}
-`,
-  },
+        name: "44.js",
+        title: "Exercise 44",
+        content: "<h2>Exercise 44 - printNumsCount()</h2>\n<p>\n    Write the function <span class=\"code\">printNumsCount(nums)</span>. \n    The parameter <span class=\"code\">nums</span>, is an array of integers in the range 0 - 3 like this one:\n</p>\n<table class=\"array\">\n    <tr>\n        <td>3</td>\n        <td>2</td>\n        <td>0</td>\n        <td>2</td>\n        <td>2</td>\n        <td>0</td>\n        <td>3</td>\n    </tr>\n</table>\n\n<p>The function prints how many times each of these numbers appears in the array.</p>\n<p>For example: for this input array <span class=\"console\">[3,2,0,2,2,0,3]</span> </p>\n<p>the output will look like this:<span class=\"console\">[2,0,3,2]</span> </p>\n<p class=\"tip\">Tip: the fact that the values are in a specific range allows us to use a second array, in which the index, is actually the number itself.\nThe values of this second array, will store the occurrences of the numbers in  nums.</p>\n",
+        solution: "\"use strict\";\r\n\r\nconsole.log(\"Ex 44\");\r\nconsole.log(\"counts the appearances of the numbers\");\r\n// reviewed ✔️\r\n\r\n// EX44 Write the function printNumsCount(nums). The array nums will contain integers in the\r\n// range of 0-3 such as:\r\n// [3,2,0,2,2,0,3]\r\n// GUIDANCE: the fact that the values are in a specific range allows us to use an array\r\n// where the index is actually the number itself. The value in the array counts the\r\n// appearances of the numbers.\r\n\r\nvar nums = [3, 2, 0, 2, 3];\r\n\r\nconsole.log(\"INPUT: \", nums);\r\nconsole.log(\"EXPECTED: [1, 0, 2, 2]\");\r\nconsole.log(\"ACTUAL:\", printNumsCount(nums));\r\n\r\nnums = [3, 2, 0, 2, 8];\r\nconsole.log(\"INPUT: \", nums);\r\nconsole.log(\"EXPECTED: Not valid number\");\r\nconsole.log(\"ACTUAL:\", printNumsCount(nums));\r\n\r\nnums = [3, 2, 0, 2, -3];\r\nconsole.log(\"INPUT: \", nums);\r\nconsole.log(\"EXPECTED: Not valid number\");\r\nconsole.log(\"ACTUAL:\", printNumsCount(nums));\r\n\r\nfunction printNumsCount(nums) {\r\n  var counts = [0, 0, 0, 0];\r\n  for (var i = 0; i < nums.length; i++) {\r\n    var num = nums[i];\r\n    if (isNaN(num) || num < 0 || num > 3) return \"Not valid number\";\r\n    counts[num]++;\r\n  }\r\n\r\n  // for (var i = 0; i < counts.length; i++) {\r\n  //   console.log('The number', i, 'appears', counts[i], 'times');\r\n  // }\r\n\r\n  return counts;\r\n}\r\n"
+      },
   45: {
-    name: "45.js",
-    title: "Remove Duplicates",
-    content: `<p>Write the function <span class="code">removeDuplicates(nums)</span>. The parameter <span class="code">nums</span>, is an array of integers in the range 0 - 5 like this one:</p>
-<table class="array">
-    <tr class="array">
-        <td>5</td>
-        <td>4</td>
-        <td>5</td>
-        <td>2</td>
-        <td>1</td>
-        <td>2</td>
-        <td>4</td>
-    </tr>
-</table>`,
-    solution: `
-var nums = [5, 1, 5, 1, 0]
-
-console.log('INPUT: [5, 1, 5, 1, 0]')
-console.log('EXPECTED: [5, 1, 0]')
-console.log('ACTUAL:', removeDuplicates(nums))
-
-nums = []
-console.log('INPUT: []')
-console.log('EXPECTED: Array is empty')
-console.log('ACTUAL:', removeDuplicates(nums))
-
-function removeDuplicates(nums) {
-  var numCounters = [0, 0, 0, 0, 0, 0]
-  var res = []
-  for (var i = 0; i < nums.length; i++) {
-    if (numCounters[nums[i]] === 0) {
-      numCounters[nums[i]]++
-      res.push(nums[i])
-    }
-  }
-  return res
-}
-
-//Another Option o(n^2)
-// function removeDuplicates(nums) {
-//     var res = []
-//     for (var i = 0; i < nums.length; i++) {
-//         if (!res.includes(nums[i])) res.push(nums[i])
-//     }
-//     return res
-// }
-
-// Another option - Avior (o^2) - no includes
-// function removeDuplicates(nums) {
-//   var res = []
-
-//   for (var i = 0; i < nums.length; i++) {
-//     var isDuplicate = false
-//     var currNum = nums[i]
-//     for (var j = 0; j < res.length; j++) {
-//       if (currNum === res[j]) {
-//         isDuplicate = true
-//         break
-//       }
-//     }
-
-//     if (!isDuplicate) res.push(currNum)
-//   }
-//   return res
-// }
-`,
-  },
+        name: "45.js",
+        title: "Exercise 45",
+        content: "<h2>Exercise 45 - Remove Duplicates</h2>\n<p>\n    Write the function <span class=\"code\">removeDuplicates(nums)</span>. \n    The parameter<span class=\"code\">nums</span>, is an array of integers in the range 0 - 5 like this one: \n</p>\n<table class=\"array\">\n    <tr class=\"array\">\n        <td>5</td>\n        <td>4</td>\n        <td>5</td>\n        <td>2</td>\n        <td>1</td>\n        <td>2</td>\n        <td>4</td>\n    </tr>\n</table>\n<p>For example: for this input array <span class=\"console\">[5,4,5,2,1,2,4]</span></p>\n<p>the output will look like this:<span class=\"console\">[5,4,2,1]</span></p>\n<p class=\"tip\">Tip: Notice that the values are in a specific range</p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 45')\r\nconsole.log('Remove duplicates')\r\n// reviewed ✔️\r\n\r\n// Write the function removeDuplicates(nums). The array nums should contain numbers in the range of 0-5 such as: 5 4 5 1  4\r\n// the function returns a new array in which each value appears only once (e.g. in this case: 5, 4, 1)\r\n// TIP: Notice that the values are in a specific range.\r\n\r\nvar nums = [5, 1, 5, 1, 0]\r\n\r\nconsole.log('INPUT: [5, 1, 5, 1, 0]')\r\nconsole.log('EXPECTED: [5, 1, 0]')\r\nconsole.log('ACTUAL:', removeDuplicates(nums))\r\n\r\nnums = []\r\nconsole.log('INPUT: []')\r\nconsole.log('EXPECTED: Array is empty')\r\nconsole.log('ACTUAL:', removeDuplicates(nums))\r\n\r\nfunction removeDuplicates(nums) {\r\n  var numCounters = [0, 0, 0, 0, 0, 0]\r\n  var res = []\r\n  for (var i = 0; i < nums.length; i++) {\r\n    if (numCounters[nums[i]] === 0) {\r\n      numCounters[nums[i]]++\r\n      res.push(nums[i])\r\n    }\r\n  }\r\n  return res\r\n}\r\n\r\n//Another Option o(n^2)\r\n// function removeDuplicates(nums) {\r\n//     var res = []\r\n//     for (var i = 0; i < nums.length; i++) {\r\n//         if (!res.includes(nums[i])) res.push(nums[i])\r\n//     }\r\n//     return res\r\n// }\r\n\r\n// Another option - Avior (o^2) - no includes\r\n// function removeDuplicates(nums) {\r\n//   var res = []\r\n\r\n//   for (var i = 0; i < nums.length; i++) {\r\n//     var isDuplicate = false\r\n//     var currNum = nums[i]\r\n//     for (var j = 0; j < res.length; j++) {\r\n//       if (currNum === res[j]) {\r\n//         isDuplicate = true\r\n//         break\r\n//       }\r\n//     }\r\n\r\n//     if (!isDuplicate) res.push(currNum)\r\n//   }\r\n//   return res\r\n// }\r\n"
+      },
   46: {
-    name: "46.js",
-    title: "Multiply Nums",
-    content: `<ol>
-    <li>
-        <p>Write the function: <span class="code">multBy(nums, multiplier)</span> which modifies the <span class="code">nums</span> array so that each of its items, is multiplied by <span class="code">multiplier</span>.</p>
-        <p>The function returns the modified array.</p>
-    </li>
-    <li>
-        <p>Add another parameter to this function named <span class="code">isImmutable</span>. When this parameter is true, use <span class="code">array.slice()</span>to perform the function's calculation on a copy of the array, and leave the original array unchanged.</p>
-    </li>
-</ol>`,
-    solution: `
-var nums = [5, -4, 0, 1]
-
-console.log('INPUT:', nums, 'multiplier', 3)
-console.log('EXPECTED: [15, -12, 0, 3]')
-console.log('ACTUAL:', multBy(nums, 3, true))
-
-function multBy(nums, multiplier) {
-    for (var i = 0; i < nums.length; i++) {
-        nums[i] *= multiplier;
-    }
-    return nums
-}
-
-//Part b
-function multBy(nums, multiplier, isImmutable) {
-    var newNums = isImmutable ? nums.slice() : nums
-    for (var i = 0; i < newNums.length; i++) {
-        newNums[i] *= multiplier
-    }
-    return newNums
-}
-
-`,
-  },
+        name: "46.js",
+        title: "Exercise 46",
+        content: "<h2>Exercise 46 - Multiply Nums</h2>\n<ol>\n    <li>\n        <p>Write the function: <span class=\"code\">multBy(nums, multiplier)</span> which modifies the <span class=\"code\">nums</span> array so that each of its items, is multiplied by <span class=\"code\">multiplier</span>.</p>\n        <p>The function returns the modified array.</p>\n    </li>\n    <li>\n        <p>Add another parameter to this function named <span class=\"code\">isImmutable</span>. </p>\n        <p>When this parameter is true, use <span class=\"code\">array.slice()</span>to perform the function’s calculation on a copy of the array, and leave the original array unchanged.</p>\n        <p>The function should return the modified array.</p>\n    </li>\n</ol>",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 46')\r\nconsole.log('multBy nums array')\r\n// CR needed ✏️\r\n\r\n// EX46: +UnitTesting Write the function: multBy(nums, multiplier) that returns a modified array in which each item in the array is multiplied by a multiplier.\r\n// Step2: Add another param: isImmutable. It will be a variable that when it’s value is set to true, use array.slice() to work on a new array. Leave the original array as it was. \r\n\r\nvar nums = [5, -4, 0, 1]\r\n\r\nconsole.log('INPUT:', nums, 'multiplier', 3)\r\nconsole.log('EXPECTED: [15, -12, 0, 3]')\r\nconsole.log('ACTUAL:', multBy(nums, 3, true))\r\n\r\nfunction multBy(nums, multiplier) {\r\n    for (var i = 0; i < nums.length; i++) {\r\n        nums[i] *= multiplier;\r\n    }\r\n    return nums\r\n}\r\n\r\n//Part b\r\nfunction multBy(nums, multiplier, isImmutable) {\r\n    var newNums = isImmutable ? nums.slice() : nums\r\n    for (var i = 0; i < newNums.length; i++) {\r\n        newNums[i] *= multiplier\r\n    }\r\n    return newNums\r\n}\r\n\r\n"
+      },
   47: {
-    name: "47.js",
-    title: "mySplit()",
-    content: `<p>Implement your own version of the built-in javaScript <span class="code">split</span> function - <span class="code">mySplit(str, sep)</span>.</p>
-<p>Test it with different types of strings and separators:</p>
-<ul>
-    <li>You can try – <span class="console">'Japan,Russia,Sweden'</span> or <span class="console">'1-800-652-0198'</span></li>
-    <li>You can assume that the separator (delimiter) is a single character.</li>
-    <li>BONUS: don't assume that, e.g: <span class="console">'A|||B|||C'</span></li>
-</ul>`,
-    solution: `
-var strings = 'Japan,Russia,Sweden,USA,Israel'
-var seperator = ','
-var splitted = mySplit(strings, seperator)
-console.log(splitted)
-
-strings = 'Japan|||Ru👑ssia|||Swe👑den|||US👑A|||👑Israel'
-seperator = '|||'
-splitted = mySplit(strings, seperator)
-console.log(splitted)
-
-// Option (without bonus):
-function mySplit(str, sep) {
-  var words = []
-  var startIdx = 0
-  str += sep
-  for (var i = 0; i < str.length; i++) {
-    var currChar = str.charAt(i)
-    if (currChar === sep) {
-      var word = str.substring(startIdx, i)
-      words.push(word)
-      startIdx = i + 1
-    }
-  }
-  return words
-}
-
-// Option (without bonus) using indexOf and substring
-function mySplit(str, sep) {
-  var strs = []
-  str += sep
-  for (var i = 0; i < str.length; i++) {
-    var sepIdx = str.indexOf(sep)
-    var word = str.substring(0, sepIdx)
-    strs.push(word)
-    str = str.substring(sepIdx + sep.length)
-  }
-  return strs
-}
-
-// Option (without bonus) using if else inside for loop:
-// function mySplit(str, sep) {
-//   var strs = []
-
-//   var word = ''
-//   for (var i = 0; i < str.length; i++) {
-//     if (str[i] !== sep && i !== str.length - 1) {
-//       word += str[i]
-//     } else {
-//       strs.push(word)
-//       word = ''
-//       console.log(str.indexOf(sep));
-//     }
-//   }
-//   console.log('strs', strs);
-//   return strs
-// }
-
-// Option (with bonus) using the indexOf with 2 parameters
-// (second is where to start searching):
-function mySplit(str, sep) {
-  var strs = [];
-  var nextIdx;
-  for (var i = 0; i < str.length; i = nextIdx + sep.length) {
-    nextIdx = str.indexOf(sep, i);
-    if (nextIdx === -1) {
-      nextIdx = str.length;
-    }
-    var word = str.substring(i, nextIdx)
-    strs.push(word);
-  }
-  return strs;
-}
-
-// Option (with bonus) using if else inside for loop:
-// function mySplit(str, sep) {
-//     str += sep
-//     var word = ''
-//     var strs = []
-//     for (var i = 0; i < str.length; i++) {
-//         if (str.substr(i, sep.length) === sep) {
-//             i += sep.length - 1
-//             strs.push(word)
-//             word = ''
-//         } else {
-//             word += str.charAt(i)
-//         }
-//     }
-//     return strs
-// }
-`,
-  },
+        name: "47.js",
+        title: "Exercise 47",
+        content: "<h2>exercise 47 - <span class=\"code\">mySplit()</span></h2>\n<p>Implement your own version of the built-in javaScript <span class=\"code\">split</span> function - <span class=\"code\">mySplit(str, sep)</span>.</p>\n<p>Test it with different types of strings and separators:</p>\n<ul>\n    <li>\n        <p>You can try – <span class=\"console\">'Japan,Russia,Sweden'</span> or <span class=\"console\">'1-800-652-0198'</span></p>\n    </li>\n    <li>\n        <p>You can assume that the separator (delimiter) is a single character. </p>\n    </li>\n    <li>\n        <p>BONUS: don’t assume that, e.g: <span class=\"console\">'A|||B|||C'</span></p>\n    </li>\n</ul>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 47')\r\nconsole.log('My Split')\r\n// reviewed ✔️\r\n\r\n// 47.Implement your own version of the split function: mySplit(str, sep) Test it with different\r\n// types of strings and separators. I.e ‘Japan,Russia,Sweden'\r\n// You can assume that the separator (delimiter) is a single character. (BONUS: don’t assume that)\r\n\r\nvar strings = 'Japan,Russia,Sweden,USA,Israel'\r\nvar seperator = ','\r\nvar splitted = mySplit(strings, seperator)\r\nconsole.log(splitted)\r\n\r\nstrings = 'Japan|||Ru👑ssia|||Swe👑den|||US👑A|||👑Israel'\r\nseperator = '|||'\r\nsplitted = mySplit(strings, seperator)\r\nconsole.log(splitted)\r\n\r\n// Option (without bonus):\r\nfunction mySplit(str, sep) {\r\n  var words = []\r\n  var startIdx = 0\r\n  str += sep\r\n  for (var i = 0; i < str.length; i++) {\r\n    var currChar = str.charAt(i)\r\n    if (currChar === sep) {\r\n      var word = str.substring(startIdx, i)\r\n      words.push(word)\r\n      startIdx = i + 1\r\n    }\r\n  }\r\n  return words\r\n}\r\n\r\n// Option (without bonus) using indexOf and substring\r\nfunction mySplit(str, sep) {\r\n  var strs = []\r\n  str += sep\r\n  for (var i = 0; i < str.length; i++) {\r\n    var sepIdx = str.indexOf(sep)\r\n    var word = str.substring(0, sepIdx)\r\n    strs.push(word)\r\n    str = str.substring(sepIdx + sep.length)\r\n  }\r\n  return strs\r\n}\r\n\r\n// Option (without bonus) using if else inside for loop:\r\n// function mySplit(str, sep) {\r\n//   var strs = []\r\n\r\n//   var word = ''\r\n//   for (var i = 0; i < str.length; i++) {\r\n//     if (str[i] !== sep && i !== str.length - 1) {\r\n//       word += str[i]\r\n//     } else {\r\n//       strs.push(word)\r\n//       word = ''\r\n//       console.log(str.indexOf(sep));\r\n//     }\r\n//   }\r\n//   console.log('strs', strs);\r\n//   return strs\r\n// }\r\n\r\n// Option (with bonus) using the indexOf with 2 parameters\r\n// (second is where to start searching):\r\nfunction mySplit(str, sep) {\r\n  var strs = [];\r\n  var nextIdx;\r\n  for (var i = 0; i < str.length; i = nextIdx + sep.length) {\r\n    nextIdx = str.indexOf(sep, i);\r\n    if (nextIdx === -1) {\r\n      nextIdx = str.length;\r\n    }\r\n    var word = str.substring(i, nextIdx)\r\n    strs.push(word);\r\n  }\r\n  return strs;\r\n}\r\n\r\n// Option (with bonus) using if else inside for loop:\r\n// function mySplit(str, sep) {\r\n//     str += sep\r\n//     var word = ''\r\n//     var strs = []\r\n//     for (var i = 0; i < str.length; i++) {\r\n//         if (str.substr(i, sep.length) === sep) {\r\n//             i += sep.length - 1\r\n//             strs.push(word)\r\n//             word = ''\r\n//         } else {\r\n//             word += str.charAt(i)\r\n//         }\r\n//     }\r\n//     return strs\r\n// }\r\n"
+      },
   48: {
-    name: "48.js",
-    title: "sortNums()",
-    content: `<p>Implement the function <span class="code">sortNums(nums)</span>. This function returns a sorted version of the original nums array. It works by looping through the array, finding the minimum, splicing it out, and adding it to a new array.</p>`,
-    solution: `
-var nums = [50, 78, 1, 3, 5]
-console.log('INPUT: [50, 78, 1, 3, 5]')
-console.log('EXPECTED: [1, 3, 5, 50, 78]')
-console.log('ACTUAL: ', sortNums(nums))
-
-nums = [560, 88, 3, 90, -1]
-console.log('INPUT: [560, 88, 3, 90, -1]')
-console.log('EXPECTED: [-1, 3, 88, 90, 560]')
-console.log('ACTUAL: ', sortNums(nums))
-
-function sortNums(nums) {
-  var copyNums = nums.slice()
-  var sortedNums = []
-  var currMin = Infinity
-  var currMinIdx = 0
-
-  for (var i = 0; i < nums.length; i++) {
-    currMin = Infinity
-    for (var j = 0; j < copyNums.length; j++) {
-      if (copyNums[j] < currMin) {
-        currMin = copyNums[j]
-        currMinIdx = j
-      }
-    }
-    sortedNums.push(currMin)
-    copyNums.splice(currMinIdx, 1)
-  }
-  return sortedNums
-}`,
-  },
+        name: "48.js",
+        title: "Exercise 48",
+        content: "<h2>Exercise 48 - <span class=\"code\">sortNums()</span></h2>\n<p>\n    Implement the function <span class=\"code\">sortNums(nums)</span>. \n    This function returns a sorted version of the original nums array. \n    It works by looping through the array, finding the minimum, splicing it out, and adding it to a new array. \n</p>\n<p>Read about how to sort an array yourself, by using the bubble sort algorithm. Google it, copy it, adjust it to match our coding conventions and use it.</p>\n",
+        solution: "'use strict'\n\nconsole.log('Ex 48')\nconsole.log('Sort array of nums')\n// CR needed ✏️\n\n/*\nImplement the function sortNums(nums) this function returns a sorted array (without changing the given array).\nIt works by looping through the array, finding the minimum, splicing it out, and adding it to the new array.\nRead about how to sort an array yourself, by using the bubble sort algorithm, google it, copy it and use it.\n*/\n\nvar nums = [50, 78, 1, 3, 5]\nconsole.log('INPUT: [50, 78, 1, 3, 5]')\nconsole.log('EXPECTED: [1, 3, 5, 50, 78]')\nconsole.log('ACTUAL: ', sortNums(nums))\n\nnums = [560, 88, 3, 90, -1]\nconsole.log('INPUT: [560, 88, 3, 90, -1]')\nconsole.log('EXPECTED: [-1, 3, 88, 90, 560]')\nconsole.log('ACTUAL: ', sortNums(nums))\n\nfunction sortNums(nums) {\n  var copyNums = nums.slice()\n  var sortedNums = []\n  var currMin = Infinity\n  var currMinIdx = 0\n\n  for (var i = 0; i < nums.length; i++) {\n    currMin = Infinity\n    for (var j = 0; j < copyNums.length; j++) {\n      if (copyNums[j] < currMin) {\n        currMin = copyNums[j]\n        currMinIdx = j\n      }\n    }\n    sortedNums.push(currMin)\n    copyNums.splice(currMinIdx, 1)\n  }\n  return sortedNums\n}"
+      },
   49: {
-    name: "49.js",
-    title: "getNthLargest()",
-    content: `<p>Write the function <span class="code">getNthLargest(nums, nthNum)</span> to get the n<sup>th</sup> largest element from an array of unique numbers.</p>
-<p>For example: <span class="code">getNthLargest([ 7, 56, 88, 92, 99, 89, 11], 3)</span></p>
-<p>will return: <span class="console">89</span></p>`,
-    solution: `
-console.log('INPUT: [7, 56, 23, 88, 92, 99, 89, 11]');
-console.log('EXPECTED: 89');
-console.log('ACTUAL: ', getNthLargest([7, 56, 23, 88, 92, 99, 89, 11], 3));
-
-console.log('INPUT: [7, 56, 101, 100, 92, 99, 89, 11]');
-console.log('EXPECTED: 100');
-console.log('ACTUAL: ', getNthLargest([7, 56, 101, 100, 92, 99, 89, 11], 2));
-
-console.log('INPUT: [7, 56, 101, 100, 92, 99, 89, 11]');
-console.log('EXPECTED: 100');
-console.log('ACTUAL: ', getNthLargestBonus([7, 56, 101, 100, 92, 99, 89, 11], 2));
-
-
-function getNthLargest(nums, nthNum) {
-    nums.sort(function (num1, num2) {
-        return num1 - num2
-    })
-    return nums[nums.length - nthNum]
-}
-
-// function getNthLargest(nums, nthNum) {
-//     nums.sort(function (num1, num2) {
-//         return num2 - num1
-//     })
-//     return nums[nthNum - 1]
-// }
-
-function getNthLargestBonus(nums, nthNum) {
-    var currLargestNumIdx = 0
-    for (var i = 0; i < nthNum; i++) {
-        var currLargestNum = -Infinity
-        for (var j = 0; j < nums.length; j++) {
-            if (nums[j] > currLargestNum) {
-                currLargestNum = nums[j]
-                currLargestNumIdx = j
-      `,
-  },
+        name: "49.js",
+        title: "Exercise 49",
+        content: "<h2>Exercise 49 - <span class=\"code\">getNthLargest()</span></h2>\n<p>Write the function <span class=\"code\">getNthLargest(nums, nthNum)</span> to get the n<sup>th</sup> largest element from an array of unique numbers.</p>\n<p>For example: <span class=\"code\">getNthLargest([ 7, 56, 88, 92, 99, 89, 11], 3)</span></p>\n<p>will return: <span class=\"console\">89</span></p>\n\n<p class=\"tip\">Tip: This can be done more easily by first sorting the array.</p>\n<p>BONUS: Try writing the algorithm without sorting the array.</p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 49');\r\nconsole.log('get nth lagest num');\r\n// CR needed ✏️\r\n\r\n// 48.+UnitTesting Write the function getNthLargest(nums, nthNum) to get the nth largest element from an array of unique numbers. I.e: getNthLargest ([ 7, 56, 23, 8928, , 99, 89, 11], 3) Result: 89 \r\n\r\n\r\n\r\nconsole.log('INPUT: [7, 56, 23, 88, 92, 99, 89, 11]');\r\nconsole.log('EXPECTED: 89');\r\nconsole.log('ACTUAL: ', getNthLargest([7, 56, 23, 88, 92, 99, 89, 11], 3));\r\n\r\nconsole.log('INPUT: [7, 56, 101, 100, 92, 99, 89, 11]');\r\nconsole.log('EXPECTED: 100');\r\nconsole.log('ACTUAL: ', getNthLargest([7, 56, 101, 100, 92, 99, 89, 11], 2));\r\n\r\nconsole.log('INPUT: [7, 56, 101, 100, 92, 99, 89, 11]');\r\nconsole.log('EXPECTED: 100');\r\nconsole.log('ACTUAL: ', getNthLargestBonus([7, 56, 101, 100, 92, 99, 89, 11], 2));\r\n\r\n\r\nfunction getNthLargest(nums, nthNum) {\r\n    nums.sort(function (num1, num2) {\r\n        return num1 - num2\r\n    })\r\n    return nums[nums.length - nthNum]\r\n}\r\n\r\n// function getNthLargest(nums, nthNum) {\r\n//     nums.sort(function (num1, num2) {\r\n//         return num2 - num1\r\n//     })\r\n//     return nums[nthNum - 1]\r\n// }\r\n\r\nfunction getNthLargestBonus(nums, nthNum) {\r\n    var currLargestNumIdx = 0\r\n    for (var i = 0; i < nthNum; i++) {\r\n        var currLargestNum = -Infinity\r\n        for (var j = 0; j < nums.length; j++) {\r\n            if (nums[j] > currLargestNum) {\r\n                currLargestNum = nums[j]\r\n                currLargestNumIdx = j\r\n            }\r\n        }\r\n        nums.splice(currLargestNumIdx, 1)\r\n    }\r\n    return currLargestNum\r\n}"
+      },
   50: {
-    name: "50.js",
-    title: "Making Water",
-    content: `<p>Making Water! Let's imagine that we have the following atoms:</p>
-<section class="two-column-table">
-    <p>Hydrogen</p>     <p>H</p>
-    <p>Boron</p>        <p>B</p>
-    <p>Carbon</p>       <p>C</p>
-    <p>Nitrogen</p>     <p>N</p>
-    <p>Oxygen</p>       <p>O</p>
-    <p>Fluorine</p>     <p>F</p>
-</section>
-<ul>
-    <li>Create an array of letters, each one representing one type of atom from the above list.</li>
-    <li>Pick random atoms from the array to create molecules of 3 atoms.</li>
-    <li>Stop when you get <span class="console">'HOH'</span> (Water – two Hydrogen atoms and one Oxygen atom).</li>
-    <li>Print the number of attempts it took to get <span class="console">'HOH'</span>.</li>
-</ul>`,
-    solution: `
-console.log('It took', makeWater(), 'tries to get HOH')
-
-function makeWater() {
-  var atoms = ['H', 'B', 'C', 'N', 'O', 'F']
-  var count = 0
-  var currMol = ''
-
-  while (currMol !== 'HOH') {
-    currMol = ''
-    for (var i = 0; i < 3; i++) {
-      currMol += atoms[getRandomInt(0, atoms.length)]
-    }
-    count++
-  }
-  return count
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min)) + min
-}
-`,
-  },
+        name: "50.js",
+        title: "Exercise 50",
+        content: "<h2>Exercise 50 - Making Water</h2>\n<p>Making Water! Let's imagine that we have the following atoms:</p>\n<section class=\"two-column-table\">\n    <p>Hydrogen</p>\t<p>H</p>\n    <p>Boron</p>\t<p>B</p>\n    <p>Carbon</p>\t<p>C</p>\n    <p>Nitrogen</p>\t<p>N</p>\n    <p>Oxygen</p>\t<p>O</p>\n    <p>Fluorine</p>\t<p>F</p>\n</section>\n<ul>\n    <li>Create an array of letters, each one representing one type of atom from the above list.</li>\n    <li>Pick random atoms from the array to create molecules of 3 atoms.</li>\n    <li>Stop when you get <span class=\"console\">'HOH'</span> (Water – two Hydrogen atoms and one Oxygen atom).</li>\n    <li>Print the number of attempts it took to get <span class=\"console\">'HOH'</span>. </li>\n</ul>",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 50')\r\nconsole.log('Build a function makeWater() that makes water')\r\n// CR needed ✏️\r\n\r\n// 50.Making Water! Let's imagine that we have the following atoms:\r\n// 'H', 'B', 'C', 'N', 'O', 'F'\r\n// a. Use an array with letters that stands for each atom.\r\n// b. Pick random atoms from the array to create molecules of 3 atoms.\r\n// c. Stop when you got ‘HOH’ for water. (Two Hydrogens and one Oxygen)\r\n// d. Print how many tries you had before ‘HOH’ was drawn.\r\n\r\nconsole.log('It took', makeWater(), 'tries to get HOH')\r\n\r\nfunction makeWater() {\r\n  var atoms = ['H', 'B', 'C', 'N', 'O', 'F']\r\n  var count = 0\r\n  var currMol = ''\r\n\r\n  while (currMol !== 'HOH') {\r\n    currMol = ''\r\n    for (var i = 0; i < 3; i++) {\r\n      currMol += atoms[getRandomInt(0, atoms.length)]\r\n    }\r\n    count++\r\n  }\r\n  return count\r\n}\r\n\r\nfunction getRandomInt(min, max) {\r\n  min = Math.ceil(min)\r\n  max = Math.floor(max)\r\n  return Math.floor(Math.random() * (max - min)) + min\r\n}\r\n"
+      },
   51: {
-    name: "51.js",
-    title: "Object Map",
-    content: `<p>Implement the function <span class="code">countWordApperances(txt)</span> which returns an object map.</p>
-<ul>
-    <li>The object keys will be the words in the string.</li>
-    <li>The values will be the number of times each of these words appears in the string.</li>
-</ul>`,
-    solution: `
-var str = 'puki ben david and muki ben david'
-console.log('INPUT: puki ben david and muki ben david')
-console.log('EXPECTED:', { puki: 1, ben: 2, david: 2, and: 1, muki: 1 })
-console.log('ACTUAL: ', countWordApperances(str))
-
-function countWordApperances(txt) {
-  var words = txt.split(' ')
-  var wordCountMap = {}
-
-  for (var i = 0; i < words.length; i++) {
-    var currWord = words[i]
-    if (!wordCountMap[currWord]) {
-      wordCountMap[currWord] = 0
-    }
-    wordCountMap[currWord]++
-
-    // // short-if
-    // wordCountMap[currWord] = (wordCountMap[currWord]) ? wordCountMap[currWord] + 1 : 1
-
-    // // short-circuit
-    // wordCountMap[currWord] = (wordCountMap[currWord] + 1) || 1
-  }
-  return wordCountMap
-}
-
-`,
-  },
+        name: "51.js",
+        title: "Exercise 51",
+        content: "<h2>Exercise 51 - Object Map</h2>\n<p>Implement the function <span class=\"code\">countWordApperances(txt)</span> which returns an object map.</p>\n<ul>\n    <li>The object keys will be the words in the string.</li>\n    <li>The values will be the number of times each of these words appears in the string.</li>\n</ul>\n<section class=\"two-column-table\">\n    <p>For example:</p> <p class=\"code\">countWordApperances ('puki ben david and muki ben david')</p>\n    <p>will return:</p> <p class=\"console\">{ puki: 1, ben: 2, david: 2, and: 1, muki: 1 }</p>\n</section>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 51')\r\nconsole.log('Find apperances in text')\r\n// CR needed ✏️\r\n\r\n// +UnitTesting Object as a Map: Write the function countWordApperances(txt) that returns an object map. This object will have a key that will be the word. The value will be the count (how many times this word appeared in the string).\r\n// example: countWordApperances('puki ben david and muki ben david') will return: { puki: 1, ben: 2, david: 2, and: 1, muki: 1 }\r\n\r\nvar str = 'puki ben david and muki ben david'\r\nconsole.log('INPUT: puki ben david and muki ben david')\r\nconsole.log('EXPECTED:', { puki: 1, ben: 2, david: 2, and: 1, muki: 1 })\r\nconsole.log('ACTUAL: ', countWordApperances(str))\r\n\r\nfunction countWordApperances(txt) {\r\n  var words = txt.split(' ')\r\n  var wordCountMap = {}\r\n\r\n  for (var i = 0; i < words.length; i++) {\r\n    var currWord = words[i]\r\n    if (!wordCountMap[currWord]) {\r\n      wordCountMap[currWord] = 0\r\n    }\r\n    wordCountMap[currWord]++\r\n\r\n    // // short-if\r\n    // wordCountMap[currWord] = (wordCountMap[currWord]) ? wordCountMap[currWord] + 1 : 1\r\n\r\n    // // short-circuit\r\n    // wordCountMap[currWord] = (wordCountMap[currWord] + 1) || 1\r\n  }\r\n  return wordCountMap\r\n}\r\n\r\n"
+      },
   52: {
-    name: "52.js",
-    title: "Monsters",
-    content: `<p>Create an array of monsters with 4 monsters (use a <span class="code">createMonsters()</span> function).</p>
-<ol>
-    <li>Each monster object should have the following keys –</li>
-    <li>Implement the following functions:</li>
-    <li>Write the function: <span class="code">findMostPowerful(monsters)</span>.</li>
-    <li>Write the function: <span class="code">breedMonsters(monsterId1, monsterId2)</span>.</li>
-</ol>`,
-    solution: `
-var gNextId = 100
-var gMonsters = createMonsters()
-
-console.log('gMonsters', gMonsters);
-// console.log('get by id', getMonsterById(101));
-updateMonster(101, 9000);
-console.log('updated monsters', gMonsters);
-console.log('most powerful monster', findMostPowerfulSort(gMonsters));
-console.log('breeded monster', breedMonsters(101, 102));
-removeMonster(103);
-console.log('gMonsters after remove', gMonsters);
-
-function createMonsters() {
-    var monsters = []
-    for (var i = 0; i < 4; i++) {
-        var monster = createMonster(getRandomStr())
-        // var monster = createMonster(prompt('monster name: '))
-
-        monsters.push(monster)
-    }
-    return monsters
-}
-
-function createMonster(name = 'monster', power = 100) {
-    return {
-        id: gNextId++,
-        name: name,
-        power: power
-    }
-}
-
-function getMonsterById(id) {
-    for (var i = 0; i < gMonsters.length; i++) {
-        if (gMonsters[i].id === id) return gMonsters[i]
-    }
-    return null
-}
-
-function removeMonster(id) {
-    for (var i = 0; i < gMonsters.length; i++) {
-        if (gMonsters[i].id === id) {
-            gMonsters.splice(i, 1)
-            break
-        }
-    }
-}
-
-function updateMonster(id, newPower) {
-    var monster = getMonsterById(id)
-    if (monster) monster.power = newPower
-    return monster
-}
-
-function findMostPowerful(monsters) {
-    if (!monsters.length) return null
-    var mostPowerfulMonster = monsters[0]
-    for (var i = 1; i < monsters.length; i++) {
-        if (monsters[i].power > mostPowerfulMonster.power) {
-            mostPowerfulMonster = monsters[i]
-        }
-    }
-    return mostPowerfulMonster
-}
-
-//Another option O(N*log(N))
-function findMostPowerfulSort(monsters) {
-    if (!monsters.length) return null
-    monsters.sort(function (monster1, monster2) {
-        return monster2.power - monster1.power
-    })
-    return monsters[0]
-}
-
-function breedMonsters(monsterId1, monsterId2) {
-    var monster1 = getMonsterById(monsterId1)
-    var monster2 = getMonsterById(monsterId2)
-    var name = monster1.name.substring(0, Math.floor(monster1.name.length / 2)) +
-        monster2.name.substring(Math.floor(monster2.name.length / 2), monster2.name.length)
-    var power = (monster1.power + monster2.power) / 2
-    var breededMonster = createMonster(name, power)
-    return breededMonster
-}
-
-
-function getRandomStr() {
-    const LETTERS = 'abcdefghijklmnopqrstuvwxyz'
-    var str = '';
-    for (var i = 0; i < getRandomInteger(3, 5); i++) {
-        str += LETTERS.charAt(getRandomInteger(0, 23));
-    }
-    return str;
-}
-function getRandomInteger(min, max) {
-    return (Math.floor(Math.random() * (max - min + 1) + min));
-}`,
-  },
+        name: "52.js",
+        title: "Exercise 52",
+        content: "<h2>Exercise 52 - Monsters</h2>\n<p>Create an array of monsters with 4 monsters (use a <span class=\"code\">createMonsters()</span> function).</p>\n<ol>\n    <li>\n        <p>Each monster object should have the following keys –</p>\n        <ul>\n            <li><span class=\"code\">id</span> – a unique sequential number</li>\n            <li><span class=\"code\">name</span> – a name that will be read from the user</li>\n            <li><span class=\"code\">power</span> a random number (1 - 100)</li>\n        </ul>\n    </li>\n    <li>\n        <p>Implement the following functions:</p>\n        <ul>\n            <li><span class=\"code\">createMonsters()</span></li>\n            <li><span class=\"code\">createMonster(name, power)</span> – returns a new monster object. The name and power parameters are optional – set them to default values if they aren’t passed to the function.</li>\n            <li><span class=\"code\">getMonsterById(id)</span> – scans the array for a monster  with the provided id and returns it.</li>\n            <li><span class=\"code\">deleteMonster(id)</span> – the function removes the specified monster from the array.</li>\n            <li><span class=\"code\">updateMonster(id, newPower)</span> – the function updates the specified monster, setting a new power.</li>\n        </ul>\n    </li>\n    <li>\n        <p>Write the function: <span class=\"code\">findMostPowerful(monsters)</span>.</p>\n    </li>\n    <li>\n        <p>\n           Write the function: <span class=\"code\">breedMonsters(monsterId1, monsterId2)</span>.\n           This function returns a new monster. The breeded monster's power is an average of its parents power. \n           Its name is the beginning half of the first parent name, and the second half is the end of the second parent name.\n        </p>\n    </li>\n</ol>",
+        solution: "'use strict'\n\nconsole.log('Ex 52 Solution');\nconsole.log('monsters');\n// reviewed ✔️\n\nvar gNextId = 100\nvar gMonsters = createMonsters()\n\nconsole.log('gMonsters', gMonsters);\n// console.log('get by id', getMonsterById(101));\nupdateMonster(101, 9000);\nconsole.log('updated monsters', gMonsters);\nconsole.log('most powerful monster', findMostPowerfulSort(gMonsters));\nconsole.log('breeded monster', breedMonsters(101, 102));\nremoveMonster(103);\nconsole.log('gMonsters after remove', gMonsters);\n\nfunction createMonsters() {\n    var monsters = []\n    for (var i = 0; i < 4; i++) {\n        var monster = createMonster(getRandomStr())\n        // var monster = createMonster(prompt('monster name: '))\n\n        monsters.push(monster)\n    }\n    return monsters\n}\n\nfunction createMonster(name = 'monster', power = 100) {\n    return {\n        id: gNextId++,\n        name: name,\n        power: power\n    }\n}\n\nfunction getMonsterById(id) {\n    for (var i = 0; i < gMonsters.length; i++) {\n        if (gMonsters[i].id === id) return gMonsters[i]\n    }\n    return null\n}\n\nfunction removeMonster(id) {\n    for (var i = 0; i < gMonsters.length; i++) {\n        if (gMonsters[i].id === id) {\n            gMonsters.splice(i, 1)\n            break\n        }\n    }\n}\n\nfunction updateMonster(id, newPower) {\n    var monster = getMonsterById(id)\n    if (monster) monster.power = newPower\n    return monster\n}\n\nfunction findMostPowerful(monsters) {\n    if (!monsters.length) return null\n    var mostPowerfulMonster = monsters[0]\n    for (var i = 1; i < monsters.length; i++) {\n        if (monsters[i].power > mostPowerfulMonster.power) {\n            mostPowerfulMonster = monsters[i]\n        }\n    }\n    return mostPowerfulMonster\n}\n\n//Another option O(N*log(N))\nfunction findMostPowerfulSort(monsters) {\n    if (!monsters.length) return null\n    monsters.sort(function (monster1, monster2) {\n        return monster2.power - monster1.power\n    })\n    return monsters[0]\n}\n\nfunction breedMonsters(monsterId1, monsterId2) {\n    var monster1 = getMonsterById(monsterId1)\n    var monster2 = getMonsterById(monsterId2)\n    var name = monster1.name.substring(0, Math.floor(monster1.name.length / 2)) +\n        monster2.name.substring(Math.floor(monster2.name.length / 2), monster2.name.length)\n    var power = (monster1.power + monster2.power) / 2\n    var breededMonster = createMonster(name, power)\n    return breededMonster\n}\n\n\nfunction getRandomStr() {\n    const LETTERS = 'abcdefghijklmnopqrstuvwxyz'\n    var str = '';\n    for (var i = 0; i < getRandomInteger(3, 5); i++) {\n        str += LETTERS.charAt(getRandomInteger(0, 23));\n    }\n    return str;\n}\nfunction getRandomInteger(min, max) {\n    return (Math.floor(Math.random() * (max - min + 1) + min));\n}"
+      },
   53: {
-    name: "53.js",
-    title: "Students",
-    content: `<ol>
-    <li>Create a students array – use the same algorithm as before and name it <span class="code">createStudents()</span>.</li>
-    <li>Read a student name from the user until 'quit' is entered. Populate the students array with student objects.</li>
-    <li>Read 3 grades for each student (each student should have a grades array).</li>
-    <li>Write the function <span class="code">calcAverageGrade(student)</span>.</li>
-    <li>Write the function <span class="code">findWorstStudent(students)</span>.</li>
-    <li>Write the function <span class="code">factorGrades(student)</span>.</li>
-    <li>Write the function <span class="code">forEach(students, func)</span>.</li>
-</ol>`,
-    solution: `
-var gNextId = 101
-var gStudents = createStudents()
-console.log('gStudents : ', gStudents)
-
-enterGrades(gStudents)
-// calcAvg(gStudents)
-
-var worstStudent = findWorstStudent(gStudents)
-console.log('worstStudent : ', worstStudent)
-
-worstStudent = findWorstStudent2(gStudents) // Using forEach()...
-console.log('worstStudent : ', worstStudent)
-
-// The sort challenge was removed from this exercise...
-
-// sortStudentsByGrade(gStudents)
-// console.log('After sort gStudents : ', gStudents)
-
-function createStudents() {
-	var students = []
-	// var studentName = prompt('Enter student name. type quit to exit')
-	// while (studentName !== 'quit') {
-	// var student = createStudent(studentName)
-	students.push(createStudent('tal'), createStudent('tal'), createStudent('tal'))
-	// studentName = prompt('Enter student name. type quit to exit')
-	// }
-	return students
-}
-
-function createStudent(name) {
-	var student = {
-		id: gNextId++,
-		name: name,
-	}
-	return student
-}
-
-function enterGrades(students) {
-	for (var i = 0; i < students.length; i++) {
-		var currStudent = students[i]
-		currStudent.grades = [20, 20, 20] || readGrades(currStudent.name)
-		calcAvg(currStudent)
-	}
-}
-
-function readGrades(studentName) {
-	var grades = []
-	for (var i = 0; i < 3; i++) {
-		var grade = +prompt('Enter a grade for ' + studentName)
-		grades.push(grade)
-	}
-	return grades
-}
-
-function calcAvg(student) {
-	var sum = 0
-	var gradesLength = student.grades.length
-	for (var i = 0; i < gradesLength; i++) {
-		sum += student.grades[i]
-	}
-	student.avg = sum / gradesLength
-}
-
-// function calcAvg(students) {
-// 	for (var i = 0; i < students.length; i++) {
-// 		var currStudent = students[i]
-// 		var sum = 0
-// 		var gradesLength = currStudent.grades.length
-// 		for (var j = 0; j < gradesLength; j++) {
-// 			sum += currStudent.grades[j]
-// 		}
-// 		currStudent.avg = sum / gradesLength
-// 	}
-// }
-
-function findWorstStudent(students) {
-	var worstStudent = null
-
-	for (var i = 0; i < students.length; i++) {
-		var currStudent = students[i]
-		if (!worstStudent || currStudent.avg < worstStudent.avg) {
-			worstStudent = currStudent
-		}
-	}
-	return worstStudent
-}
-
-// The sort challenge was removed from this exercise...
-
-// function sortStudentsByGrade(students) {
-//   students.sort((s1, s2) => {
-//     return s2.avg - s1.avg
-//   })
-// }
-
-// function sortStudentsByName(students) {
-//   students.sort(function (s1, s2) {
-//     if (s1.name.toLowerCase() > s2.name.toLowerCase()) return 1
-//     if (s2.name.toLowerCase() > s1.name.toLowerCase()) return -1
-//     return 0
-//   })
-// }
-
-// New version from CaJan23
-
-/*
-// Exercise 53 - Students
-// Create a students array – use the same algorithm as before and name it createStudents().
-// Read a student name from the user until ‘quit’ is entered. Populate the students array with student objects.
-// Read 3 grades for each student (each student should have a grades array).
-// Write the function calcAvergaeGrade(student).
-// Write the function factorGrades(student), which adds 5% to all of the student’s grades.
-// Write the function findWorstStudent(students).
-// Write the function forEach(students, func), which receives an array of student objects and a pointer to a function. It loops through the array and invokes the function, passing it the current element of the array on each iteration.
-// Use forEach() to invoke factorGrades(student) on all students in the array.
-// Find a way to imlement findWorstStudent(students) using forEach().
-*/
-
-function factorGrades(student) {
-	for (var i = 0; i < student.grades.length; i++) {
-		student.grades[i] *= 1.05
-	}
-	if (student.avg) calcAvg(student)
-}
-
-function forEach(students, func) {
-	for (var i = 0; i < students.length; i++) {
-		func(students[i])
-	}
-}
-console.table(gStudents)
-forEach(gStudents, factorGrades)
-console.table(gStudents)
-
-function findWorstStudent2(students) {
-	var gMinAvg = Infinity
-	var worstStudent = null
-
-	forEach(students, (student) => {
-		if (student.avg < gMinAvg) {
-			gMinAvg = student.avg
-			worstStudent = student
-		}
-	})
-	return worstStudent
-}
-`,
-  },
+        name: "53.js",
+        title: "Exercise 53",
+        content: "<h2>Exercise 53 - Students</h2>\n<ol>\n    <li>Create a students array – use the same algorithm as before and name it <span class=\"code\">createStudents()</span>.</li>\n    <li>Read a student name from the user until ‘quit’ is entered. Populate the students array with student objects.</li>\n    <li>Read 3 grades for each student (each student should have a grades array). <p></p></li>\n    <li>Write the function <span class=\"code\">calcAverageGrade(student)</span>.</li>\n    <li>Write the function <span class=\"code\">findWorstStudent(students)</span>.</li>\n    <li>Write the function <span class=\"code\">factorGrades(student)</span>,&nbsp;which adds 5% to all of the student’s grades. <p></p></li>\n    <li>Write the function <span class=\"code\">forEach(students, func)</span>,&nbsp;which receives an array of student objects and a pointer to a function. It loops through the array and invokes the function, passing it the current element of the array on each iteration.</li>\n    <li>Use <span class=\"code\">forEach()</span> to invoke <span class=\"code\">factorGrades(student)</span> on all students in the array.</li>\n    <li>Find a way to imlement  <span class=\"code\">findWorstStudent(students)</span> using <span class=\"code\">forEach()</span>.</li>\n</ol>",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 53')\r\nconsole.log('Students')\r\n// reviewed ✔️\r\n\r\n/*\r\n53. Students:\r\na. Create a students array (use the same algorithm as before and name it createStudents())\r\nb. Read the student name from the user until “quit” is entered. Populate the students array with student objects.\r\nc. Read 3 grades for each student (each student should have a grades array).\r\nd. Calculate the average of each student.\r\ne. Write the function findWorstStudent(students).\r\nf. Write the function sortStudentsByGrade(students).\r\ng. Write the function sortStudentsByName(students) \r\n*/\r\n\r\nvar gNextId = 101\r\nvar gStudents = createStudents()\r\nconsole.log('gStudents : ', gStudents)\r\n\r\nenterGrades(gStudents)\r\n// calcAvg(gStudents)\r\n\r\nvar worstStudent = findWorstStudent(gStudents)\r\nconsole.log('worstStudent : ', worstStudent)\r\n\r\nworstStudent = findWorstStudent2(gStudents) // Using forEach()...\r\nconsole.log('worstStudent : ', worstStudent)\r\n\r\n// The sort challenge was removed from this exercise...\r\n\r\n// sortStudentsByGrade(gStudents)\r\n// console.log('After sort gStudents : ', gStudents)\r\n\r\nfunction createStudents() {\r\n\tvar students = []\r\n\t// var studentName = prompt('Enter student name. type quit to exit')\r\n\t// while (studentName !== 'quit') {\r\n\t// var student = createStudent(studentName)\r\n\tstudents.push(createStudent('tal'), createStudent('tal'), createStudent('tal'))\r\n\t// studentName = prompt('Enter student name. type quit to exit')\r\n\t// }\r\n\treturn students\r\n}\r\n\r\nfunction createStudent(name) {\r\n\tvar student = {\r\n\t\tid: gNextId++,\r\n\t\tname: name,\r\n\t}\r\n\treturn student\r\n}\r\n\r\nfunction enterGrades(students) {\r\n\tfor (var i = 0; i < students.length; i++) {\r\n\t\tvar currStudent = students[i]\r\n\t\tcurrStudent.grades = [20, 20, 20] || readGrades(currStudent.name)\r\n\t\tcalcAvg(currStudent)\r\n\t}\r\n}\r\n\r\nfunction readGrades(studentName) {\r\n\tvar grades = []\r\n\tfor (var i = 0; i < 3; i++) {\r\n\t\tvar grade = +prompt('Enter a grade for ' + studentName)\r\n\t\tgrades.push(grade)\r\n\t}\r\n\treturn grades\r\n}\r\n\r\nfunction calcAvg(student) {\r\n\tvar sum = 0\r\n\tvar gradesLength = student.grades.length\r\n\tfor (var i = 0; i < gradesLength; i++) {\r\n\t\tsum += student.grades[i]\r\n\t}\r\n\tstudent.avg = sum / gradesLength\r\n}\r\n\r\n// function calcAvg(students) {\r\n// \tfor (var i = 0; i < students.length; i++) {\r\n// \t\tvar currStudent = students[i]\r\n// \t\tvar sum = 0\r\n// \t\tvar gradesLength = currStudent.grades.length\r\n// \t\tfor (var j = 0; j < gradesLength; j++) {\r\n// \t\t\tsum += currStudent.grades[j]\r\n// \t\t}\r\n// \t\tcurrStudent.avg = sum / gradesLength\r\n// \t}\r\n// }\r\n\r\nfunction findWorstStudent(students) {\r\n\tvar worstStudent = null\r\n\r\n\tfor (var i = 0; i < students.length; i++) {\r\n\t\tvar currStudent = students[i]\r\n\t\tif (!worstStudent || currStudent.avg < worstStudent.avg) {\r\n\t\t\tworstStudent = currStudent\r\n\t\t}\r\n\t}\r\n\treturn worstStudent\r\n}\r\n\r\n// The sort challenge was removed from this exercise...\r\n\r\n// function sortStudentsByGrade(students) {\r\n//   students.sort((s1, s2) => {\r\n//     return s2.avg - s1.avg\r\n//   })\r\n// }\r\n\r\n// function sortStudentsByName(students) {\r\n//   students.sort(function (s1, s2) {\r\n//     if (s1.name.toLowerCase() > s2.name.toLowerCase()) return 1\r\n//     if (s2.name.toLowerCase() > s1.name.toLowerCase()) return -1\r\n//     return 0\r\n//   })\r\n// }\r\n\r\n// New version from CaJan23\r\n\r\n/*\r\n// Exercise 53 - Students\r\n// Create a students array – use the same algorithm as before and name it createStudents().\r\n// Read a student name from the user until ‘quit’ is entered. Populate the students array with student objects.\r\n// Read 3 grades for each student (each student should have a grades array).\r\n// Write the function calcAvergaeGrade(student).\r\n// Write the function factorGrades(student), which adds 5% to all of the student’s grades.\r\n// Write the function findWorstStudent(students).\r\n// Write the function forEach(students, func), which receives an array of student objects and a pointer to a function. It loops through the array and invokes the function, passing it the current element of the array on each iteration.\r\n// Use forEach() to invoke factorGrades(student) on all students in the array.\r\n// Find a way to imlement findWorstStudent(students) using forEach().\r\n*/\r\n\r\nfunction factorGrades(student) {\r\n\tfor (var i = 0; i < student.grades.length; i++) {\r\n\t\tstudent.grades[i] *= 1.05\r\n\t}\r\n\tif (student.avg) calcAvg(student)\r\n}\r\n\r\nfunction forEach(students, func) {\r\n\tfor (var i = 0; i < students.length; i++) {\r\n\t\tfunc(students[i])\r\n\t}\r\n}\r\nconsole.table(gStudents)\r\nforEach(gStudents, factorGrades)\r\nconsole.table(gStudents)\r\n\r\nfunction findWorstStudent2(students) {\r\n\tvar gMinAvg = Infinity\r\n\tvar worstStudent = null\r\n\r\n\tforEach(students, (student) => {\r\n\t\tif (student.avg < gMinAvg) {\r\n\t\t\tgMinAvg = student.avg\r\n\t\t\tworstStudent = student\r\n\t\t}\r\n\t})\r\n\treturn worstStudent\r\n}\r\n"
+      },
   54: {
-    name: "54.js",
-    title: "Airline",
-    content: `<ol>
-    <li>Build a data structure for an airline company with the entities listed below.</li>
-    <li>Create an array of 5 passengers.</li>
-    <li>Create an array of 2 planes.</li>
-    <li>Create an array of 2 flights.</li>
-    <li>Write the functions:</li>
-</ol>`,
-    solution: `
-var gPassengers = []
-createPassengers()
-
-var gPlanes = [createPlane('707', 5), createPlane('DC10', 3)]
-
-var gFlights = [
-  createFlight('Israel', 'CosteRica', gPlanes[0]),
-  createFlight('Israel', 'SriLanka', gPlanes[1]),
-]
-
-
-console.log('Booking flights...')
-bookFlight(gFlights[1], gPassengers[3])
-bookFlight(gFlights[1], gPassengers[0])
-bookFlight(gFlights[0], gPassengers[3])
-bookFlight(gFlights[1], gPassengers[2])
-bookFlight(gFlights[1], gPassengers[4])
-bookFlight(gFlights[0], gPassengers[2])
-bookFlight(gFlights[0], gPassengers[4])
-bookFlight(gFlights[0], gPassengers[0])
-bookFlight(gFlights[0], gPassengers[1])
-
-var frequentFlyers = getFrequentFlyers()
-
-console.log('Passengers:', gPassengers)
-console.log('Flights:', gFlights)
-console.log('the frequent flyers are:', frequentFlyers)
-
-function bookFlight(flight, passenger) {
-  if (isFullyBooked(flight)) {
-    console.log('Sorry', passenger.fullname, 'this flight is fully booked.')
-    return
-  }
-  passenger.flights.push(flight)
-  flight.passengers.push(passenger)
-  console.log('Flight successfully booked!')
-}
-
-function getFrequentFlyers() {
-  var max = 0
-  var frequentFlyers = [] // Required in case array is zero length
-
-  for (var i = 0; i < gPassengers.length; i++) {
-    var currPassenger = gPassengers[i]
-    var flightCount = currPassenger.flights.length
-
-    if (flightCount > max) {
-      frequentFlyers = [currPassenger]
-      max = flightCount
-    } else if (flightCount === max) {
-      frequentFlyers.push(currPassenger)
-    }
-  }
-  return frequentFlyers
-}
-
-// Helper functions
-function isFullyBooked(flight) {
-  return flight.passengers.length >= flight.plane.seatCount
-}
-
-function createPlane(model, seatCount) {
-  return {
-    model: model,
-    seatCount: seatCount,
-  }
-}
-
-function createPassenger(fullname) {
-  return {
-    id: makeId(7),
-    fullname: fullname,
-    flights: [],
-  }
-}
-
-function createFlight(departure, detination, plane) {
-  return {
-    date: 0,
-    departure: departure,
-    detination: detination,
-    plane: plane,
-    passengers: [],
-  }
-}
-
-function createPassengers() {
-  var names = ['Muki', 'Shuki', 'Puki', 'Lala', 'Baba']
-
-  for (var i = 0; i < names.length; i++) {
-    gPassengers.push(createPassenger(names[i]))
-  }
-}
-
-function makeId(length) {
-  var text = ''
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-
-  for (var i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length))
-  }
-  return text
-}
-`,
-  },
+        name: "54.js",
+        title: "Exercise 54",
+        content: "<h2>Exercise 54 - Airline</h2>\n<ol>\n    <p>\n        Build a data structure for an airline company with the enteties listed below. \n        For each type of entity, define an object and implement a <span class=\"code\">create</span> function. \n    </p>\n    <li>\n        <p>\n            A <span class=\"code\">Plane</span> object with the following keys: \n        </p>\n        <ol type=\"i\">\n            <li><span class=\"code\">model</span></li>\n            <li><span class=\"code\">seatCount</span></li>\n        </ol>\n        <p class=\"tip\">\n            Tip: implement <span class=\"code\">createPlane(model, seatCount)</span>\n        </p>\n    </li>\n    <li>\n        <p>A <span class=\"code\">passenger</span> object –</p>\n        <ol type=\"i\">\n            <li><span class=\"code\">id</span>  –  composed of 7 random digits</li>\n            <li><span class=\"code\">fullName</span></li>\n            <li><span class=\"code\">flights</span>  –  an array of pointers to the relevant flight objects</li>\n        </ol>\n    </li>\n    <li>\n        <p>A <span class=\"code\">flight</span> object –</p>\n        <ol type=\"i\">\n            <li><span class=\"code\">date</span></li>\n            <li><span class=\"code\">departure</span>  – where the flights takes off from…</li>\n            <li><span class=\"code\">destination</span>  – …and where it lands.</li>\n            <li><span class=\"code\">plane</span>  –  a pointer to a plane object</li>\n            <li><span class=\"code\">passengers</span>  – an array of pointers to the relevant passenger objects</li>\n        </ol>\n    </li>\n    <li>\n        <p>Initialize all variables with consistent data – <span class=\"code\">date</span> should be 0, <span class=\"code\">passengers</span> should be an empty array, etc…</p>\n        <ol type=\"i\">\n            <li>Create an array of 5 passengers (<span class=\"code\">gPassengers</span> is a good name) </li>\n            <li>Create an array of 2 planes.</li>\n            <li>Create an array of 2 flights. Each flight should have a plane property that points to a plane object, and a passengers property that points to a passengers array. </li>\n        </ol>\n        <p class=\"tip\">TIP: first create a passenger with an empty flights array, and the flight with an empty passengers array, and then connect them. </p>\n    </li>\n    <li>\n        <p>Write the functions:</p>\n        <ol type=\"i\">\n            <li><span class=\"code\">bookFlight(flight, passenger)</span> – this function connects between the pointers of the passengers and their flights. </li>\n            <li><span class=\"code\">getFrequentFlyers()</span> – returns the passengers with the maximal flights count. </li>\n            <li><span class=\"code\">isFullyBooked(flight)</span> – checks if all seats are booked, and returns true if they are. Where would it make sense to invoke this function?</li>\n        </ol>\n    </li>\n</ol>\n<p>The following illustration may help understand the data structure:</p>\n<div class=\"airline-img\"><img src=\"https://i.ibb.co/6sKx934/airline.png\" alt=\"\"></div>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 54')\r\nconsole.log('Airline company')\r\n// reviewed ✔️\r\n\r\n/*\r\nBuild a data structure for an airline company.(use the create function for each object).\r\nCreate to following entities:\r\n​\r\ni. A Plane. The plane will contain:\r\n1. model.\r\n2. seatCount.\r\n​\r\nii. A passenger - tip: use createPassenger(fullName, flights)\r\n1. id (7 random digits)\r\n2. fullName\r\n3. flights (array of pointers to the relevant flights)\r\n​\r\niii. A flight\r\n1. date\r\n2. departure\r\n3. destination\r\n4. plane (pointer to a plane)\r\n5. passengers (array of pointers to the relevant passengers)\r\n​\r\nInitialize all variables with consistent data. i.e (date should be 0\r\nand passengers should be an empty array).\r\n​\r\ni. Create an array of 5 passengers (gPassengers is a good name)\r\nii. Create an array of 2 planes.\r\niii. Create an array of 2 flights, each flight has a plane property that points\r\nto a plane object, and a passengers property that points to the passengers array.\r\nTIP: first create a passenger with an empty flights array,\r\nand the flight with an empty passengers array, then you can push the objects.\r\n​\r\nWrite the functions:\r\n​\r\ni. bookFlight(flight, passenger) - this function connects between the pointers \r\nof the passengers and their flights.\r\n​\r\nii. getFrequentFlyers() - returns the passengers with the maximal \r\nflights count.\r\n​\r\niii. checkIfFlightFullyBooked(flight) - checks if there are available \r\nseats on the flights, and returns true if there are. \r\nThink where would it make sense to invoke it.\r\n*/\r\n\r\nvar gPassengers = []\r\ncreatePassengers()\r\n\r\nvar gPlanes = [createPlane('707', 5), createPlane('DC10', 3)]\r\n\r\nvar gFlights = [\r\n  createFlight('Israel', 'CosteRica', gPlanes[0]),\r\n  createFlight('Israel', 'SriLanka', gPlanes[1]),\r\n]\r\n\r\n\r\nconsole.log('Booking flights...')\r\nbookFlight(gFlights[1], gPassengers[3])\r\nbookFlight(gFlights[1], gPassengers[0])\r\nbookFlight(gFlights[0], gPassengers[3])\r\nbookFlight(gFlights[1], gPassengers[2])\r\nbookFlight(gFlights[1], gPassengers[4])\r\nbookFlight(gFlights[0], gPassengers[2])\r\nbookFlight(gFlights[0], gPassengers[4])\r\nbookFlight(gFlights[0], gPassengers[0])\r\nbookFlight(gFlights[0], gPassengers[1])\r\n\r\nvar frequentFlyers = getFrequentFlyers()\r\n\r\nconsole.log('Passengers:', gPassengers)\r\nconsole.log('Flights:', gFlights)\r\nconsole.log('the frequent flyers are:', frequentFlyers)\r\n\r\nfunction bookFlight(flight, passenger) {\r\n  if (isFullyBooked(flight)) {\r\n    console.log('Sorry', passenger.fullname, 'this flight is fully booked.')\r\n    return\r\n  }\r\n  passenger.flights.push(flight)\r\n  flight.passengers.push(passenger)\r\n  console.log('Flight successfully booked!')\r\n}\r\n\r\nfunction getFrequentFlyers() {\r\n  var max = 0\r\n  var frequentFlyers = [] // Required in case array is zero length\r\n\r\n  for (var i = 0; i < gPassengers.length; i++) {\r\n    var currPassenger = gPassengers[i]\r\n    var flightCount = currPassenger.flights.length\r\n\r\n    if (flightCount > max) {\r\n      frequentFlyers = [currPassenger]\r\n      max = flightCount\r\n    } else if (flightCount === max) {\r\n      frequentFlyers.push(currPassenger)\r\n    }\r\n  }\r\n  return frequentFlyers\r\n}\r\n\r\n// Helper functions\r\nfunction isFullyBooked(flight) {\r\n  return flight.passengers.length >= flight.plane.seatCount\r\n}\r\n\r\nfunction createPlane(model, seatCount) {\r\n  return {\r\n    model: model,\r\n    seatCount: seatCount,\r\n  }\r\n}\r\n\r\nfunction createPassenger(fullname) {\r\n  return {\r\n    id: makeId(7),\r\n    fullname: fullname,\r\n    flights: [],\r\n  }\r\n}\r\n\r\nfunction createFlight(departure, detination, plane) {\r\n  return {\r\n    date: 0,\r\n    departure: departure,\r\n    detination: detination,\r\n    plane: plane,\r\n    passengers: [],\r\n  }\r\n}\r\n\r\nfunction createPassengers() {\r\n  var names = ['Muki', 'Shuki', 'Puki', 'Lala', 'Baba']\r\n\r\n  for (var i = 0; i < names.length; i++) {\r\n    gPassengers.push(createPassenger(names[i]))\r\n  }\r\n}\r\n\r\nfunction makeId(length) {\r\n  var text = ''\r\n  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'\r\n\r\n  for (var i = 0; i < length; i++) {\r\n    text += possible.charAt(Math.floor(Math.random() * possible.length))\r\n  }\r\n  return text\r\n}\r\n"
+      },
   55: {
-    name: "55.js",
-    title: "Matrix Operations",
-    content: `<p>Fill up a matrix with numbers, and then, write the following functions: </p>
-<ol type="1">
-    <li><span class="code">sumCol(mat, colIdx)</span></li>
-    <li><span class="code">sumRow(mat, rowIdx)</span></li>
-    <li><span class="code">findMax(mat, colIdx)</span></li>
-    <li><span class="code">findAvg(mat)</span></li>
-    <li><span class="code">sumArea(mat, rowIdxStart, rowIdxEnd, colIdxStart, colIdxEnd)</span></li>
-</ol>`,
-    solution: `}
-`,
-  },
+        name: "55.js",
+        title: "Exercise 55",
+        content: "<h2>Exercise 55 - Matrix Operations</h2>\n<p>Fill up a matrix with numbers, and then, write the following functions: </p>\n<ol type=\"1\">\n    <li><span class=\"code\">sumCol(mat, colIdx)</span></li>\n    <li><span class=\"code\">sumRow(mat, rowIdx)</span></li>\n    <li><span class=\"code\">findMax(mat, colIdx)</span></li>\n    <li><span class=\"code\">findAvg(mat)</span></li>\n    <li><span class=\"code\">sumArea(mat, rowIdxStart, rowIdxEnd, colIdxStart, colIdxEnd)</span></li>\n</ol>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 55');\r\nconsole.log('Fill up a multi-dimensional array with numbers, and then, Sharon.');\r\n// reviewed ✔️\r\n\r\n// 55.Fill up a multi-dimensional array with numbers, and then, Write the following\r\n// functions:\r\n// a. sumCol(mat, colIdx)\r\n// b. sumRow(mat, rowIdx)\r\n// c. findMax(mat, colIdx)\r\n// d. findAvg(mat)\r\n// e. sumArea(mat, rowIdxStart, rowIdxEnd, colIdxStart, colIdxEnd)\r\n//*************************** ?????????????IS MATRIX OR MULTI-DIMENSIONAL ARRAY?????? ***************************\r\nvar mat = [\r\n    [8, 6, 7, 4, 2],\r\n    [3, 6, 9, 1, 6],\r\n    [5, 8, 7, 3, 2],\r\n    [3, 1, 7, 4, 0],\r\n]\r\nconsole.table(mat)\r\nconsole.log('INPUT: sumCol(mat, 1)');\r\nconsole.log('EXPECTED: 21');\r\nconsole.log('ACTUAL:', sumCol(mat, 1));\r\nconsole.log('~~~~~~~~~~~~~~');\r\nconsole.log('INPUT: sumRow(mat, 1)');\r\nconsole.log('EXPECTED: 25');\r\nconsole.log('ACTUAL:', sumRow(mat, 1));\r\nconsole.log('~~~~~~~~~~~~~~');\r\nconsole.log('INPUT: findMax(mat, 1)');\r\nconsole.log('EXPECTED: 8');\r\nconsole.log('ACTUAL:', findMax(mat, 1));\r\nconsole.log('~~~~~~~~~~~~~~');\r\nconsole.log('INPUT: findAvg(mat)');\r\nconsole.log('EXPECTED: 4.6');\r\nconsole.log('ACTUAL:', findAvg(mat));\r\nconsole.log('~~~~~~~~~~~~~~');\r\nconsole.log('INPUT: sumArea(mat, 1, 3, 1, 3)');\r\nconsole.log('EXPECTED: 46');\r\nconsole.log('ACTUAL:', sumArea(mat, 1, 3, 1, 3));\r\n\r\n\r\nfunction sumCol(mat, colIdx) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat.length; i++) {\r\n        sum += mat[i][colIdx];\r\n    }\r\n    return sum\r\n}\r\n\r\nfunction sumRow(mat, rowIdx) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat[rowIdx].length; i++) {\r\n        sum += mat[rowIdx][i]\r\n    }\r\n    return sum\r\n}\r\n\r\n//in a matrix rows are simple arrays\r\nfunction sumRow2(row) {\r\n    var sum = 0\r\n    for (var i = 0; i < row.length; i++) {\r\n        sum += row[i]\r\n    }\r\n    return sum\r\n}\r\n\r\nfunction findMax(mat, colIdx) {\r\n    var max = -Infinity\r\n    for (var i = 0; i < mat.length; i++) {\r\n        var currCell = mat[i][colIdx]\r\n        if (currCell > max) max = currCell\r\n    }\r\n    return max\r\n}\r\n\r\nfunction findAvg(mat) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat.length; i++) {\r\n        sum += sumRow(mat, i)\r\n    }\r\n    var cellCount = mat.length * mat[0].length\r\n    return sum / cellCount\r\n}\r\n\r\nfunction sumArea(mat, rowIdxStart, rowIdxEnd, colIdxStart, colIdxEnd) {\r\n\r\n    var sum = 0\r\n    for (var i = rowIdxStart; i <= rowIdxEnd; i++) {\r\n        for (var j = colIdxStart; j <= colIdxEnd; j++) {\r\n            sum += mat[i][j]\r\n        }\r\n    }\r\n    return sum\r\n}"
+      },
   56: {
-    name: "56.js",
-    title: "Symmetric Matrices",
-    content: `<p>A symmetric matrix is a matrix that passes this boolean condition: </p>
-<pre class="code">mat[i][j] === mat[j][i]</pre>
-<p>Write the function <span class="code">checkIfSymmetric(mat)</span>.</p>`,
-    solution: `
-var symmetricMat = [
-  [1, 2, 3],
-  [2, 0, 2],
-  [3, 2, 8],
-]
-
-
-
-var asymmetricMat = [
-  [2, 0, 0, 0, 0],
-  [0, 5, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 1, 0],
-]
-
-console.log('INPUT:')
-console.table(symmetricMat)
-console.log('EXPECTED: true')
-console.log('ACTUAL:', checkIfSymmetric(symmetricMat))
-console.log('INPUT:')
-console.table(asymmetricMat)
-console.log('EXPECTED: false')
-console.log('ACTUAL:', checkIfSymmetric(asymmetricMat))
-
-function checkIfSymmetric(mat) {
-  for (var i = 0; i < mat.length - 1; i++) {
-    for (var j = i + 1; j < mat[0].length; j++) {
-      if (mat[i][j] !== mat[j][i]) return false
-      console.log(mat[i][j]);
-    }
-  }
-  return true
-}
-
-`,
-  },
+        name: "56.js",
+        title: "Exercise 56",
+        content: "<h2>Exercise 56 - Symmetric Matrices</h2>\n<p>A symmetric matrix is a matrix that passes this boolean condition: </p>\n<pre class=\"code\">      mat[i][j] === mat[j][i]</pre>\n<p>Write the function <span class=\"code\">checkIfSymmetric(mat)</span>.</p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 56')\r\nconsole.log('Symmetric Matrix')\r\n// reviewed ✔️\r\n\r\n// Symmetric Matrix:\r\n// A symmetric matrix is a matrix that passes this boolean condition:\r\n// mat[i][j] === mat[j][i]\r\n// Write the function checkIfSymmetric(mat).\r\n\r\nvar symmetricMat = [\r\n  [1, 2, 3],\r\n  [2, 0, 2],\r\n  [3, 2, 8],\r\n]\r\n\r\n\r\n\r\nvar asymmetricMat = [\r\n  [2, 0, 0, 0, 0],\r\n  [0, 5, 0, 0, 0],\r\n  [0, 0, 0, 0, 0],\r\n  [0, 0, 0, 0, 0],\r\n  [0, 0, 0, 1, 0],\r\n]\r\n\r\nconsole.log('INPUT:')\r\nconsole.table(symmetricMat)\r\nconsole.log('EXPECTED: true')\r\nconsole.log('ACTUAL:', checkIfSymmetric(symmetricMat))\r\nconsole.log('INPUT:')\r\nconsole.table(asymmetricMat)\r\nconsole.log('EXPECTED: false')\r\nconsole.log('ACTUAL:', checkIfSymmetric(asymmetricMat))\r\n\r\nfunction checkIfSymmetric(mat) {\r\n  for (var i = 0; i < mat.length - 1; i++) {\r\n    for (var j = i + 1; j < mat[0].length; j++) {\r\n      if (mat[i][j] !== mat[j][i]) return false\r\n      console.log(mat[i][j]);\r\n    }\r\n  }\r\n  return true\r\n}\r\n\r\n"
+      },
   57: {
-    name: "57.js",
-    title: "find the matrix mode",
-    content: `<p>In statistics, the most common value in a set of data, is called the mode (שכיח).</p>
-<ol>
-    <li>Write the function <span class="code">findMode(mat)</span>. The function prints the number which appears most frequently in a matrix.</li>
-    <li>BONUS: If there are ties, e.g. both 47 and 53 appeared 17 times, print both of them, or all of them.</li>
-</ol>`,
-    solution: `
-var mat = [
-  [4, 5, 2, 0],
-  [5, 1, 2, 4],
-  [3, 0, 9, 4],
-  [5, 6, 8, 1],
-]
-
-//{4:3,5:3} -->key:the num in the matrix, value - times appear
-console.log('INPUT:')
-console.table(mat)
-console.log('EXPECTED: The numbers: 4, 5 appeared 3 times')
-console.log('ACTUAL:')
-findMode(mat)
-
-function findMode(mat) {
-  var itemCountMap = {}
-  //mat.length height - num of arrays inside
-  //mat[0].length width - num of cols in a row , row length
-  for (var i = 0; i < mat.length; i++) {
-    for (var j = 0; j < mat[0].length; j++) {
-      var item = mat[i][j]
-      if (!itemCountMap[item]) itemCountMap[item] = 0
-      itemCountMap[item]++
-    }
-  }
-  console.log('itemCountMap', itemCountMap)
-  //No Bonus
-  // var mostFrequentItem
-  // var max = 0
-
-  // for (var item in itemCountMap) {
-  //   if (itemCountMap[item] > max) {
-  //     max = itemCountMap[item]
-  //     mostFrequentItem = item
-  //   }
-  // }
-  // console.log('The number: ' + mostFrequentItem + ' appeared ' + max + ' times')
-
-  //   BONUS
-  var mostFrequentItems = []
-  var max = 0
-
-  for (var item in itemCountMap) {
-    if (itemCountMap[item] > max) {
-      max = itemCountMap[item]
-      mostFrequentItems = [item]
-    } else if (itemCountMap[item] === max) {
-      mostFrequentItems.push(item)
-    }
-  }
-
-  console.log('The numbers: ' + mostFrequentItems.join(', ') + ' appeared ' + max + ' times')
-}
-
-//shani solution Bonus
-// function findModes(mat) {
-//   var countMap = {}
-//   var modes = []
-//   var mode = -Infinity
-//   for (var i = 0; i < mat.length; i++) {
-//     for (var j = 0; j < mat[0].length; j++) {
-//       var num = mat[i][j]
-//       countMap[num] = countMap[num] + 1 || 1
-//       if (countMap[num] > mode) {
-//         modes = [num]
-//         mode = countMap[num]
-//       } else if (countMap[num] === mode) modes.push(num)
-//     }
-//   }
-//   console.log('countMap', countMap)
-//   console.log('The modes are', modes)
-// }
-`,
-  },
+        name: "57.js",
+        title: "Exercise 57",
+        content: "<h2>Exercise 57 - find the matrix mode</h2>\n<p>In statistics, the most common value in a set of data, is called the mode &nbsp;(שכיח).</p>\n<ol>\n    <li>Write the function <span class=\"code\">findMode(mat)</span> . The function prints the number which appears most frequently in a matrix.</li>\n    <li>BONUS: If there are ties, e.g. both 47 and 53 appeared 17 times, print both of them, or all of them.</li>\n</ol>\n<p class=\"tip\">Tip: use an object map to count the numbers.</p>",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 57')\r\nconsole.log(\r\n  'Print out the number that appears most frequently in the multi-dimensional array'\r\n)\r\n// reviewed ✔️\r\n\r\n// 57. Write the function findMode(mat) that will print out the number that appears most frequently in the multi-dimensional array.\r\n// BONUS: If there are ties (e.g.: both 47 and 53 appeared 17 times), print both of them, or all of them. (TIP: use an object map to count the numbers)\r\n\r\nvar mat = [\r\n  [4, 5, 2, 0],\r\n  [5, 1, 2, 4],\r\n  [3, 0, 9, 4],\r\n  [5, 6, 8, 1],\r\n]\r\n\r\n//{4:3,5:3} -->key:the num in the matrix, value - times appear\r\nconsole.log('INPUT:')\r\nconsole.table(mat)\r\nconsole.log('EXPECTED: The numbers: 4, 5 appeared 3 times')\r\nconsole.log('ACTUAL:')\r\nfindMode(mat)\r\n\r\nfunction findMode(mat) {\r\n  var itemCountMap = {}\r\n  //mat.length height - num of arrays inside\r\n  //mat[0].length width - num of cols in a row , row length\r\n  for (var i = 0; i < mat.length; i++) {\r\n    for (var j = 0; j < mat[0].length; j++) {\r\n      var item = mat[i][j]\r\n      if (!itemCountMap[item]) itemCountMap[item] = 0\r\n      itemCountMap[item]++\r\n    }\r\n  }\r\n  console.log('itemCountMap', itemCountMap)\r\n  //No Bonus\r\n  // var mostFrequentItem\r\n  // var max = 0\r\n\r\n  // for (var item in itemCountMap) {\r\n  //   if (itemCountMap[item] > max) {\r\n  //     max = itemCountMap[item]\r\n  //     mostFrequentItem = item\r\n  //   }\r\n  // }\r\n  // console.log('The number: ' + mostFrequentItem + ' appeared ' + max + ' times')\r\n\r\n  //   BONUS\r\n  var mostFrequentItems = []\r\n  var max = 0\r\n\r\n  for (var item in itemCountMap) {\r\n    if (itemCountMap[item] > max) {\r\n      max = itemCountMap[item]\r\n      mostFrequentItems = [item]\r\n    } else if (itemCountMap[item] === max) {\r\n      mostFrequentItems.push(item)\r\n    }\r\n  }\r\n\r\n  console.log('The numbers: ' + mostFrequentItems.join(', ') + ' appeared ' + max + ' times')\r\n}\r\n\r\n//shani solution Bonus\r\n// function findModes(mat) {\r\n//   var countMap = {}\r\n//   var modes = []\r\n//   var mode = -Infinity\r\n//   for (var i = 0; i < mat.length; i++) {\r\n//     for (var j = 0; j < mat[0].length; j++) {\r\n//       var num = mat[i][j]\r\n//       countMap[num] = countMap[num] + 1 || 1\r\n//       if (countMap[num] > mode) {\r\n//         modes = [num]\r\n//         mode = countMap[num]\r\n//       } else if (countMap[num] === mode) modes.push(num)\r\n//     }\r\n//   }\r\n//   console.log('countMap', countMap)\r\n//   console.log('The modes are', modes)\r\n// }\r\n"
+      },
   58: {
-    name: "58.js",
-    title: "Magic Square",
-    content: `<p>For a matrix to be a Magic Square, it must meet the following conditions:</p>
-<ol>
-    <li>It must be a square.</li>
-    <li>The sums of the rows, columns, and the two diagonals should all be equal.</li>
-</ol>`,
-    solution: `
-console.log('58 - is magic square? ')
-const mat1 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-]
-const mat2 = [
-    [2, 7, 6],
-    [9, 5, 1],
-    [4, 3, 8],
-]
-
-const res1 = isMagicSquare(mat1)
-console.log('INPUT: ', mat1)
-console.log('EXPECTED:', false)
-console.log('ACTUAL:', res1)
-console.table(mat1);
-
-const res2 = isMagicSquare(mat2)
-console.log('INPUT: ', mat2)
-console.log('EXPECTED:', true)
-console.log('ACTUAL:', res2)
-console.table(mat2);
-
-
-function isMagicSquare(mat) {
-    if (!isSquare(mat)) return false
-    var sumMainD = getSumPrDiagonal(mat)
-    var sumSecD = getSumSecDiagonal(mat)
-    if (sumMainD !== sumSecD) return false
-    for (var i = 0; i < mat.length; i++) {
-        if (getSumRow(mat, i) !== sumSecD) return false
-        if (getSumCol(mat, i) !== sumSecD) return false
-    }
-    return true
-}
-
-function isSquare(mat) {
-    for (var i = 0; i < mat.length; i++) {
-        if (mat.length !== mat[i].length) return false
-    }
-    return true
-}
-
-function getSumRow(mat, rowIdx) {
-    var sum = 0
-    for (var i = 0; i < mat.length; i++) {
-        sum += mat[rowIdx][i]
-    }
-    return sum
-}
-
-function getSumCol(mat, colIdx) {
-    var sum = 0
-    for (var i = 0; i < mat.length; i++) {
-        sum += mat[i][colIdx]
-    }
-    return sum
-}
-
-function getSumPrDiagonal(mat) {
-    var sum = 0
-    for (var i = 0; i < mat.length; i++) {
-        sum += mat[i][i]
-    }
-    return sum
-}
-
-function getSumSecDiagonal(mat) {
-    var sum = 0
-    for (var i = 0; i < mat.length; i++) {
-        sum += mat[i][mat[i].length - 1 - i]
-    }
-    return sum
-}
-`,
-  },
+        name: "58.js",
+        title: "Exercise 58",
+        content: "<h2>Exercise 58 - Magic Square</h2>\nFor a matrix to be a Magic Square, it must meet the following conditions:\n<ol>\n    <li>It must be a square.</li>\n    <li>The sums of the rows, columns, and the two diagonals should all be equal.</li>\n</ol>\n\n\n<p>For example:</p>\n<div class=\"magic-square-img\"><img src=\"../assets/img/magic_square.png\" alt=\"\"></div>\n<p>Write a function which receives a 2D array, and tests whether it is a magic square:</p>\n",
+        solution: "// console.log('ex 58');\r\n/*\r\nWrite a function which receives a 2D array, and tests whether it is a magic square:\r\na. It must be a square\r\nb. The sums of the rows, columns, and the two diagonals should all be equal. For example:\r\n' */\r\n\r\nconsole.log('58 - is magic square? ')\r\nconst mat1 = [\r\n    [1, 2, 3],\r\n    [4, 5, 6],\r\n    [7, 8, 9],\r\n]\r\nconst mat2 = [\r\n    [2, 7, 6],\r\n    [9, 5, 1],\r\n    [4, 3, 8],\r\n]\r\n\r\nconst res1 = isMagicSquare(mat1)\r\nconsole.log('INPUT: ', mat1)\r\nconsole.log('EXPECTED:', false)\r\nconsole.log('ACTUAL:', res1)\r\nconsole.table(mat1);\r\n\r\nconst res2 = isMagicSquare(mat2)\r\nconsole.log('INPUT: ', mat2)\r\nconsole.log('EXPECTED:', true)\r\nconsole.log('ACTUAL:', res2)\r\nconsole.table(mat2);\r\n\r\n\r\nfunction isMagicSquare(mat) {\r\n    if (!isSquare(mat)) return false\r\n    var sumMainD = getSumPrDiagonal(mat)\r\n    var sumSecD = getSumSecDiagonal(mat)\r\n    if (sumMainD !== sumSecD) return false\r\n    for (var i = 0; i < mat.length; i++) {\r\n        if (getSumRow(mat, i) !== sumSecD) return false\r\n        if (getSumCol(mat, i) !== sumSecD) return false\r\n    }\r\n    return true\r\n}\r\n\r\nfunction isSquare(mat) {\r\n    for (var i = 0; i < mat.length; i++) {\r\n        if (mat.length !== mat[i].length) return false\r\n    }\r\n    return true\r\n}\r\n\r\nfunction getSumRow(mat, rowIdx) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat.length; i++) {\r\n        sum += mat[rowIdx][i]\r\n    }\r\n    return sum\r\n}\r\n\r\nfunction getSumCol(mat, colIdx) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat.length; i++) {\r\n        sum += mat[i][colIdx]\r\n    }\r\n    return sum\r\n}\r\n\r\nfunction getSumPrDiagonal(mat) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat.length; i++) {\r\n        sum += mat[i][i]\r\n    }\r\n    return sum\r\n}\r\n\r\nfunction getSumSecDiagonal(mat) {\r\n    var sum = 0\r\n    for (var i = 0; i < mat.length; i++) {\r\n        sum += mat[i][mat[i].length - 1 - i]\r\n    }\r\n    return sum\r\n}\r\n"
+      },
   59: {
-    name: "59.js",
-    title: "BINGO",
-    content: `<p>Your challenge is to implement the famous game of BINGO. In this version of the game, there are two players. Numbers are drawn at random, and each player marks the number if it appears in his board. The first player to mark all the numbers on his board, wins.</p>`,
-    solution: `
-// initialize nums array to get numbers from:
-const NUMS_LENGTH = 100
-var gNums
-var gPlayers = [
-  {
-    name: 'miki',
-    hitCounts: 0,
-    board: createBingoBoard(),
-    accomplishments: [],
-  },
-  {
-    name: 'shuki',
-    hitCounts: 0,
-    board: createBingoBoard(),
-    accomplishments: [],
-  },
-]
-var gPlayInterval
-
-// playBingo()
-
-// Interval for the game :
-function playBingo() {
-  resetNums()
-  gPlayInterval = setInterval(playTurn, 1000)
-}
-//a. create board function : initialize the board for each user
-
-function createBingoBoard(rowLength = 5) {
-  // nums array for creating the board:
-  resetNums() // put in gNums nums between 1-99
-  //start to build the board:
-  var board = []
-  for (var i = 0; i < rowLength; i++) {
-    board.push([])
-    for (var j = 0; j < rowLength; j++) {
-      //option 1:
-      // adding random index from nums that points to a specific value that didn't got yet
-      //   var randomIdx = getRandomInt(0, gNums.length - 1)
-      //   board[i].push({ value: gNums[randomIdx], isHit: false })
-      //   // removing the number from gNums to assure it won't pick again
-      //   gNums.splice(randomIdx, 1)
-
-      // option 2: After they actualized the drawNum function :
-      board[i].push({ value: drawNum(), isHit: false })
-      // board[i][j] = { value: drawNum(), isHit: false };
-    }
-  }
-  console.log('board objects', board)
-  printBoard(board)
-  resetNums()
-  return board
-}
-
-// b. print board function: priniting the board values to the console
-
-function printBoard(board) {
-  var boardNums = []
-  for (var i = 0; i < board.length; i++) {
-    boardNums.push([])
-    for (var j = 0; j < board[i].length; j++) {
-      boardNums[i].push(board[i][j].value)
-      if (board[i][j].isHit) boardNums[i][j] += 'v'
-    }
-  }
-
-  console.table(boardNums)
-}
-
-//c. play bingo function : the main function - works until one of the player wins. using an playInterval or while loop .
-function playTurn() {
-  var isVictory = false
-  var calledNum = drawNum()
-  // while (!isVictory){ // before using interval
-  // console.clear()
-  for (var i = 0; !isVictory && i < gPlayers.length; i++) {
-    var player = gPlayers[i]
-    markBoard(player, calledNum)
-    isVictory = checkBingo(player)
-    if (isVictory) {
-      console.log('Victory!', player)
-      greetPlayer(player, 'all the board!')
-      clearInterval(gPlayInterval)
-      // console.log('player1', gPlayers[0].board);
-      // console.log('player2', gPlayers[1].board);
-      // break
-    }
-    //}
-  }
-}
-
-// b.i.1 draw num function: returns random number from the global array without duplications
-
-function drawNum() {
-  // option 1: numbers can be duplicated:
-  // return getRandomInt(0, NUMS_LENGTH)
-
-  // option 2: numbers cannot be duplicated:
-  var randomIdx = getRandomInt(0, gNums.length - 1)
-  var num = gNums.splice(randomIdx, 1)
-  return num[0]
-}
-
-// d. markBoard function : mark a specific cell if the player have the same value on his board
-// and then call to printBoard in order to show the changes
-function markBoard(player, calledNum) {
-  var { board } = player
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[i].length; j++) {
-      // check if there is a match between cell and calledNum :
-      var currCell = board[i][j]
-      //option 1: if numbers can be duplicated:
-      //   if (calledNum === currCell.value && !currCell.isHit) {
-      //     currCell.isHit = true
-      //     hitCounts++
-      //   }
-
-      //option 2: if there is a global array - numbers cannot be duplicated
-      if (calledNum === currCell.value) {
-        console.log(calledNum === currCell.value)
-        currCell.isHit = true
-        player.hitCounts++
-        break
-      }
-    }
-    //print the board:
-    printBoard(board)
-  }
-}
-
-//e. checkBingo function : check whether the player finished parts of the board and returns boolan wheather he finished all of it
-
-function checkBingo(player) {
-  // without board checking:
-  // return player.hitCounts === NUMS_LENGTH
-
-  // with board checking :
-  var { board } = player
-  if (!player.accomplishments.includes('mainD') && checkMainDiagonal(board)) {
-    greetPlayer(player, 'Main diagonal copmpleted!')
-    player.accomplishments.push('mainD')
-  }
-  if (!player.accomplishments.includes('secD') && checkSecDiagonal(board)) {
-    greetPlayer(player, 'Secondary diagonal copmpleted!')
-    player.accomplishments.push('secD')
-  }
-  for (var i = 0; i < board.length; i++) {
-    if (!player.accomplishments.includes('row' + i) && checkRow(board, i)) {
-      greetPlayer(player, ' row- ' + i + ' copmpleted!')
-      player.accomplishments.push('row' + i)
-    }
-    if (!player.accomplishments.includes('col' + i) && checkCol(board, i)) {
-      greetPlayer(player, ' col- ' + i + ' copmpleted!')
-      player.accomplishments.push('col' + i)
-    }
-  }
-  return player.hitCounts === 25
-}
-
-// h.3 greet player function : greet the player with the given accomplishment
-function greetPlayer(player, accomplishment) {
-  console.log(player.name + ' has completed the ' + accomplishment)
-}
-
-// e.2: resetNums function : initializing the global array gNums
-function resetNums() {
-  //initialize nums from 1 - 100:
-  gNums = []
-  for (var i = 1; i <= NUMS_LENGTH; i++) {
-    gNums.push(i)
-  }
-}
-
-// helper functions :
-function checkRow(board, rowIdx) {
-  for (let i = 0; i < board.length; i++) {
-    if (!board[rowIdx][i].isHit) return false
-  }
-  return true
-}
-
-function checkCol(board, colIdx) {
-  for (let i = 0; i < board.length; i++) {
-    if (!board[i][colIdx].isHit) return false
-  }
-  return true
-}
-
-function checkMainDiagonal(board) {
-  for (let i = 0; i < board.length; i++) {
-    if (!board[i][i].isHit) return false
-  }
-  return true
-}
-
-function checkSecDiagonal(board) {
-  for (let i = 0; i < board.length; i++) {
-    if (!board[i][board[i].length - 1 - i].isHit) return false
-  }
-  return true
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-`,
-  },
+        name: "59.js",
+        title: "Exercise 59",
+        content: "<h2>Exercise 59 - BINGO</h2>\n<p>\n    Your challenge is to implement the famous game of BINGO. \n    In this version of the game, there are two players. \n    Numbers are drawn at random, and each player marks the number if it appears in his board. \n    The first player to mark all the numbers on his board, wins.\n</p>\n\n<p>Here is the suggested data structure: </p>\n    <pre class=\"code\">\n        var gPlayers = [\n            {name: ‘Muki’, hitCount: 0, board: createBingoBoard()},\n            {name: ‘Puki, hitCount: 0, board: createBingoBoard()}\n        ]\n    </pre>\n\n<p>Every cell in board  will hold an object like <this:span class=\"code\">{value: 17, isHit: false}</this:span></p>\n<p>\n    It is common practice to implement our code in several stages, \n    starting with simplified version for some of the functions, \n    which allow us to test other parts of our code first. \n    Let’s try this approach:\n</p>\n<ol>\n    <li>\n        <p>\n            Implement the <span class=\"code\">createBingoBoard()</span> function:\n            It returns a 5 by 5 matrix containing cell object as described above, \n            with the numbers <span class=\"console\">1 – 25</span> (Later on we will change it to <span class=\"console\">1 – 99</span>).\n        </p>\n    </li>\n    <li>\n        <p>Implement the function <span class=\"code\">printBingoBoard(board)</span> which prints the board by showing the number (value) in each cell.</p>\n        <p>If  isHit is true, add 'v' to the printed number.</p>\n        <p>\n            Check your function by manually setting a cell's isHit to true like this: \n            <span class=\"code\">gPlayers[0].board[0][0].isHit = true</span> and printing the board (remember you can run code from the console).\n        </p>\n        <p>Implement some empty (placeholder) functions:</p>\n        <ol>\n            <li><span class=\"code\">drawNum()</span> code a simple function returning a fixed number (e.g. 17)</li>\n            <li><span class=\"code\">markBoard()</span> an empty function for now.</li>\n            <li><span class=\"code\">checkBingo()</span> a simple function returning true (note, that if it returns false  it will cause an infinite loop).</li>\n        </ol>\n    </li>\n    <li>\n        <p>\n            Implement the <span class=\"code\">playBingo</span> function:\n        </p>\n        <div class=\"code-block\">\n            <button class=\"copy-play-bingo-func\">Copy</button>\n            <div class=\"play-bingo-msg\"></div>\n            <pre class=\"code play-bingo-func\">\n function playBingo(){\n    var isVictory = false\n\n    while(!isVictory){\n      var calledNum = drawNum()\n      \n      for(var i = 0; i &lt; gPlayers.length && !isVictory; i++){\n        var player = gPlayers[i]\n        markBoard(player, calledNum)\n        isVictory = checkBingo(player)\n      }\n    }\n  }        </pre>\n        </div>\n        <!-- <div class=\"play-bingo-img\"><img src=\"../assets/img/play_bingo_function.png\" alt=\"\"></div> -->\n    </li>\n    <li>\n        <p>\n            Implement the <span class=\"code\">markBoard</span> function:\n        </p>\n        <ol>\n            <li>If the board contains a cell with <span class=\"code\">calledNum</span>  in its value, update that cell's <span class=\"code\">isHit</span> value accordingly and increase the player’s <span class=\"code\">hitCount</span> .</li>\n            <li>Use the <span class=\"code\">printBingoBoard</span> function to debug your function and make sure it works correctly.</li>\n        </ol>\n    </li>\n    <li>\n        <p>\n            Implement the <span class=\"code\">checkBingo</span> function – Just check if the player’s <span class=\"code\">hitCount</span>  has reached 25.            \n        </p>\n    </li>\n    <li>\n        <p>\n            Implement the <span class=\"code\">drawNum</span> function:                \n        </p>\n        <ol>\n            <li>We will later need this function to return a unique random number, so we will use an array - <span class=\"code\">gNums</span>.</li>\n            <li>Add the function <span class=\"code\">resetNums</span> which updates the global variable <span class=\"code\">gNums</span> to be an array with the numbers 1 – 25. This function should be called at the beginning of <span class=\"code\">createBoard</span> and also at the beginning of the <span class=\"code\">playBingo</span> function.</li>\n            <li>The function <span class=\"code\">drawNum</span> can just pop from that array for now (predictable order helps while developing)</li>\n        </ol>\n    </li>\n    <li>\n        <p>\n            Make sure you have a basic working game that ends after 25 iterations before moving on\n        </p>\n    </li>\n    <li>\n        <p>\n            Implement the following additions and modification:\n        </p>\n        <ol>\n            <li>\n                <p>\n                    The <span class=\"code\">gNums</span> array should hold the numbers from 1 to 99.\n                </p>\n            </li>\n            <li>\n                <p>\n                    <span class=\"code\">drawNum</span> should return a random number from the array. Use splice for that, to make sure the drawn numbers do not repeat.\n                </p>\n            <li>\n                <p>\n                    Print a happy greeting when a player –\n                </p>\n            </li>\n            <ol>\n                <li>completes a row – ‘Muki has completed a row!’.</li>\n                <li>completes the main diagonal – ‘Muki has completed the main diagonal!’</li>\n                <li>completes the secondary diagonal – ‘Muki has completed the secondary diagonal!’.</li>\n            </ol>\n            <li>\n                <p>\n                    Slow down the game so it feels more realistic and easy to follow:\n                </p>\n                <ol>\n                    <li>Use <span class=\"code\">setInterval</span> instead of the while loop: <span class=\"code\">var gameInterval = setInterval(playTurn, 1000)</span></li>\n                    <li>Use <span class=\"code\">clearInterval(gameInterval)</span> when the game is over.</li>\n                </ol>\n            </li>\n        </ol>\n    </li>\n    <li>\n        <p>\n            Finalizing\n        </p>\n        <ol>\n            <li>\n                <p>How easy would it be to make your game to work with a 6 by 6 Bingo board?</p>\n            </li>\n            <li>\n                <p>How easy would it be, to add more players?</p>\n            </li>\n        </ol>\n    </li>\n</ol>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('EX 59')\r\nconsole.log('Bingo')\r\n// CR needed ✏️ sended to yaron waiting for approval\r\n\r\n// initialize nums array to get numbers from:\r\nconst NUMS_LENGTH = 100\r\nvar gNums\r\nvar gPlayers = [\r\n  {\r\n    name: 'miki',\r\n    hitCounts: 0,\r\n    board: createBingoBoard(),\r\n    accomplishments: [],\r\n  },\r\n  {\r\n    name: 'shuki',\r\n    hitCounts: 0,\r\n    board: createBingoBoard(),\r\n    accomplishments: [],\r\n  },\r\n]\r\nvar gPlayInterval\r\n\r\n// playBingo()\r\n\r\n// Interval for the game :\r\nfunction playBingo() {\r\n  resetNums()\r\n  gPlayInterval = setInterval(playTurn, 1000)\r\n}\r\n//a. create board function : initialize the board for each user\r\n\r\nfunction createBingoBoard(rowLength = 5) {\r\n  // nums array for creating the board:\r\n  resetNums() // put in gNums nums between 1-99\r\n  //start to build the board:\r\n  var board = []\r\n  for (var i = 0; i < rowLength; i++) {\r\n    board.push([])\r\n    for (var j = 0; j < rowLength; j++) {\r\n      //option 1:\r\n      // adding random index from nums that points to a specific value that didn't got yet\r\n      //   var randomIdx = getRandomInt(0, gNums.length - 1)\r\n      //   board[i].push({ value: gNums[randomIdx], isHit: false })\r\n      //   // removing the number from gNums to assure it won't pick again\r\n      //   gNums.splice(randomIdx, 1)\r\n\r\n      // option 2: After they actualized the drawNum function :\r\n      board[i].push({ value: drawNum(), isHit: false })\r\n      // board[i][j] = { value: drawNum(), isHit: false };\r\n    }\r\n  }\r\n  console.log('board objects', board)\r\n  printBoard(board)\r\n  resetNums()\r\n  return board\r\n}\r\n\r\n// b. print board function: priniting the board values to the console\r\n\r\nfunction printBoard(board) {\r\n  var boardNums = []\r\n  for (var i = 0; i < board.length; i++) {\r\n    boardNums.push([])\r\n    for (var j = 0; j < board[i].length; j++) {\r\n      boardNums[i].push(board[i][j].value)\r\n      if (board[i][j].isHit) boardNums[i][j] += 'v'\r\n    }\r\n  }\r\n\r\n  console.table(boardNums)\r\n}\r\n\r\n//c. play bingo function : the main function - works until one of the player wins. using an playInterval or while loop .\r\nfunction playTurn() {\r\n  var isVictory = false\r\n  var calledNum = drawNum()\r\n  // while (!isVictory){ // before using interval\r\n  // console.clear()\r\n  for (var i = 0; !isVictory && i < gPlayers.length; i++) {\r\n    var player = gPlayers[i]\r\n    markBoard(player, calledNum)\r\n    isVictory = checkBingo(player)\r\n    if (isVictory) {\r\n      console.log('Victory!', player)\r\n      greetPlayer(player, 'all the board!')\r\n      clearInterval(gPlayInterval)\r\n      // console.log('player1', gPlayers[0].board);\r\n      // console.log('player2', gPlayers[1].board);\r\n      // break\r\n    }\r\n    //}\r\n  }\r\n}\r\n\r\n// b.i.1 draw num function: returns random number from the global array without duplications\r\n\r\nfunction drawNum() {\r\n  // option 1: numbers can be duplicated:\r\n  // return getRandomInt(0, NUMS_LENGTH)\r\n\r\n  // option 2: numbers cannot be duplicated:\r\n  var randomIdx = getRandomInt(0, gNums.length - 1)\r\n  var num = gNums.splice(randomIdx, 1)\r\n  return num[0]\r\n}\r\n\r\n// d. markBoard function : mark a specific cell if the player have the same value on his board\r\n// and then call to printBoard in order to show the changes\r\nfunction markBoard(player, calledNum) {\r\n  var { board } = player\r\n  for (var i = 0; i < board.length; i++) {\r\n    for (var j = 0; j < board[i].length; j++) {\r\n      // check if there is a match between cell and calledNum :\r\n      var currCell = board[i][j]\r\n      //option 1: if numbers can be duplicated:\r\n      //   if (calledNum === currCell.value && !currCell.isHit) {\r\n      //     currCell.isHit = true\r\n      //     hitCounts++\r\n      //   }\r\n\r\n      //option 2: if there is a global array - numbers cannot be duplicated\r\n      if (calledNum === currCell.value) {\r\n        console.log(calledNum === currCell.value)\r\n        currCell.isHit = true\r\n        player.hitCounts++\r\n        break\r\n      }\r\n    }\r\n    //print the board:\r\n    printBoard(board)\r\n  }\r\n}\r\n\r\n//e. checkBingo function : check whether the player finished parts of the board and returns boolan wheather he finished all of it\r\n\r\nfunction checkBingo(player) {\r\n  // without board checking:\r\n  // return player.hitCounts === NUMS_LENGTH\r\n\r\n  // with board checking :\r\n  var { board } = player\r\n  if (!player.accomplishments.includes('mainD') && checkMainDiagonal(board)) {\r\n    greetPlayer(player, 'Main diagonal copmpleted!')\r\n    player.accomplishments.push('mainD')\r\n  }\r\n  if (!player.accomplishments.includes('secD') && checkSecDiagonal(board)) {\r\n    greetPlayer(player, 'Secondary diagonal copmpleted!')\r\n    player.accomplishments.push('secD')\r\n  }\r\n  for (var i = 0; i < board.length; i++) {\r\n    if (!player.accomplishments.includes('row' + i) && checkRow(board, i)) {\r\n      greetPlayer(player, ' row- ' + i + ' copmpleted!')\r\n      player.accomplishments.push('row' + i)\r\n    }\r\n    if (!player.accomplishments.includes('col' + i) && checkCol(board, i)) {\r\n      greetPlayer(player, ' col- ' + i + ' copmpleted!')\r\n      player.accomplishments.push('col' + i)\r\n    }\r\n  }\r\n  return player.hitCounts === 25\r\n}\r\n\r\n// h.3 greet player function : greet the player with the given accomplishment\r\nfunction greetPlayer(player, accomplishment) {\r\n  console.log(player.name + ' has completed the ' + accomplishment)\r\n}\r\n\r\n// e.2: resetNums function : initializing the global array gNums\r\nfunction resetNums() {\r\n  //initialize nums from 1 - 100:\r\n  gNums = []\r\n  for (var i = 1; i <= NUMS_LENGTH; i++) {\r\n    gNums.push(i)\r\n  }\r\n}\r\n\r\n// helper functions :\r\nfunction checkRow(board, rowIdx) {\r\n  for (let i = 0; i < board.length; i++) {\r\n    if (!board[rowIdx][i].isHit) return false\r\n  }\r\n  return true\r\n}\r\n\r\nfunction checkCol(board, colIdx) {\r\n  for (let i = 0; i < board.length; i++) {\r\n    if (!board[i][colIdx].isHit) return false\r\n  }\r\n  return true\r\n}\r\n\r\nfunction checkMainDiagonal(board) {\r\n  for (let i = 0; i < board.length; i++) {\r\n    if (!board[i][i].isHit) return false\r\n  }\r\n  return true\r\n}\r\n\r\nfunction checkSecDiagonal(board) {\r\n  for (let i = 0; i < board.length; i++) {\r\n    if (!board[i][board[i].length - 1 - i].isHit) return false\r\n  }\r\n  return true\r\n}\r\n\r\nfunction getRandomInt(min, max) {\r\n  min = Math.ceil(min)\r\n  max = Math.floor(max)\r\n  return Math.floor(Math.random() * (max - min + 1) + min)\r\n}\r\n"
+      },
   60: {
-    name: "60.js",
-    title: "Game of Life",
-    content: `<p>The Game of Life is a simulation of how a population of creatures evolves from one generation to the next, based on a set of simple rules.</p>
-<p>Here are the rules which govern the evolution of the colony:</p>
-<ol>
-    <li>if a creature has 0 – 2 neighboring creatures, it will die of loneliness and the cell which it occupies will become vacant in the next generation.</li>
-    <li>if a cell has 3 – 5 occupied neighboring cells, it will have a creature in it in the next generation – either a newborn creature or the creature which previously occupied it.</li>
-    <li>if a creature has 6 – 8 occupied neighboring creatures, it will suffocate and die, and the cell which it occupies will become vacant in the next generation.</li>
-</ol>`,
-    solution: `
-// const TABLE_LENGTH = 10
-const EMPTY = ''
-const LIFE = '👼🏼'
-const MAXGEN = 10
-
-var gBoard = []
-var gGenCnt = 2
-
-// var gBoard = []
-console.clear()
-// var gGenCnt = 2
-makeFirstBoard()
-var interID = setInterval(play, 1000)
-setTimeout(() => clearInterval(interID), 8000)
-
-function renderBoard(gBoard) {
-    // console.clear()
-    console.table(gBoard)
-}
-
-function makeFirstBoard() {
-    var rowNum = +prompt('Enter number of rows')
-    var colNum = +prompt('Enter number of columns')
-    for (var i = 0; i < rowNum; i++) {
-        gBoard[i] = []
-        for (var j = 0; j < colNum; j++) {
-            if (Math.random() > 0.7) gBoard[i][j] = LIFE
-            else gBoard[i][j] = EMPTY
-        }
-    }
-    console.log('FIRST GENERATION')
-    renderBoard(gBoard)
-}
-
-function runGeneration() {
-    var nextGen = gBoard.slice()
-    for (var i = 0; i < gBoard.length; i++) {
-        var row = gBoard[i]
-        for (var j = 0; j < row.length; j++) {
-            var cell = row[j]
-            var neighborNum = getNeighbors(i, j)
-            if (cell === LIFE) {
-                if (neighborNum <= 2) nextGen[i][j] = EMPTY
-                else if (neighborNum >= 6) nextGen[i][j] = EMPTY
-            } else {
-                if (neighborNum >= 3 && neighborNum <= 5) nextGen[i][j] = LIFE
-            }
-        }
-    }
-    return nextGen
-}
-
-function getNeighbors(rowId, colId) {
-    var neighborCnt = 0
-    for (var i = rowId - 1; i <= rowId + 1; i++) {
-        // if i is out of bounderies - go to the next i
-        if (i < 0 || i > gBoard.length - 1) continue //continue to the next i
-
-        for (var j = colId - 1; j <= colId + 1; j++) {
-            // if j is out of bounderies - go to the next j:
-            if (j < 0 || j > gBoard[0].length - 1) continue // continue to the next j.
-
-            if (i === rowId && j === colId) continue
-
-            if (gBoard[i][j] === LIFE) neighborCnt++
-        }
-    }
-    return neighborCnt
-}
-
-function isOver() {
-    for (var i = 0; i < gBoard.length; i++) {
-        const row = gBoard[i]
-        for (var j = 0; j < gBoard[0].length; j++) {
-            const col = gBoard[i][j]
-            if (col === LIFE) return false
-        }
-    }
-    return true
-}
-
-function play() {
-    console.log('GENERATION  ', gGenCnt)
-    gBoard = runGeneration()
-    renderBoard(gBoard)
-    if (isOver()) {
-        console.log('LIFE IS GONE ! !')
-        clearInterval(interID)
-    }
-    gGenCnt++
-}
-`,
-  },
-};
+        name: "60.js",
+        title: "Exercise 60",
+        content: "<h2>Exercise 60 - Game of Life</h2>\n<p>\n    The Game of Life is a simulation of how a population of creatures evolves from \n    one generation to the next, based on a set of simple rules.\n    This colony is described by a matrix of a user determined size, where each cell \n    is either populated by a creature (marked by an asterisk <span class=\"console\">'*'</span>), or vacant. \n    As with any matrix, each cell can have 8 neighboring cells at the most.\n</p>\n<p>Start with a population of your choice, for example:</p>\n<div class=\"game-of-life\"><img src=\"../assets/img/game_of_life.png\" alt=\"\"></div>\n<p>Here are the rules which govern the evolution of the colony:</p>\n<ol>\n    <li>if a creature has 0 – 2 neighboring creatures, it will die of loneliness and the cell which it occupies will become vacant in the next generation.</li>\n    <li>if a cell has 3 – 5 occupied neighboring cells, it will have a creature in it in the next generation – either a newborn creature or the creature which previously occupied it.</li>\n    <li>if a creature has 6 – 8 occupied neighboring creatures, it will suffocate and die, and the cell which it occupies will become vacant in the next generation.</li>\n</ol>\n<p class=\"tip\">Tip: use  setInterval  to run a function which looks something like this:\n    <pre class=\"tip\">\n        function play()\n            gBoard = runGeneration(gBoard)\t\n            renderBoard(gBoard) \n        }\n    </pre>\n</p>\t\t\t\t\t\n<p class=\"tip\">Tip: use a second matrix to generate the new generations of the colony so that you do not modify the current state of the colony while still calculating the next generation.</p>\n",
+        solution: "'use strict'\r\n\r\nconsole.log('Ex 60 Solution - NEVO SOLUTION')\r\n\r\n// const TABLE_LENGTH = 10\r\nconst EMPTY = ''\r\nconst LIFE = '👼🏼'\r\nconst MAXGEN = 10\r\n\r\nvar gBoard = []\r\nvar gGenCnt = 2\r\n\r\n// var gBoard = []\r\nconsole.clear()\r\n// var gGenCnt = 2\r\nmakeFirstBoard()\r\nvar interID = setInterval(play, 1000)\r\nsetTimeout(() => clearInterval(interID), 8000)\r\n\r\nfunction renderBoard(gBoard) {\r\n    // console.clear()\r\n    console.table(gBoard)\r\n}\r\n\r\nfunction makeFirstBoard() {\r\n    var rowNum = +prompt('Enter number of rows')\r\n    var colNum = +prompt('Enter number of columns')\r\n    for (var i = 0; i < rowNum; i++) {\r\n        gBoard[i] = []\r\n        for (var j = 0; j < colNum; j++) {\r\n            if (Math.random() > 0.7) gBoard[i][j] = LIFE\r\n            else gBoard[i][j] = EMPTY\r\n        }\r\n    }\r\n    console.log('FIRST GENERATION')\r\n    renderBoard(gBoard)\r\n}\r\n\r\nfunction runGeneration() {\r\n    var nextGen = gBoard.slice()\r\n    for (var i = 0; i < gBoard.length; i++) {\r\n        var row = gBoard[i]\r\n        for (var j = 0; j < row.length; j++) {\r\n            var cell = row[j]\r\n            var neighborNum = getNeighbors(i, j)\r\n            if (cell === LIFE) {\r\n                if (neighborNum <= 2) nextGen[i][j] = EMPTY\r\n                else if (neighborNum >= 6) nextGen[i][j] = EMPTY\r\n            } else {\r\n                if (neighborNum >= 3 && neighborNum <= 5) nextGen[i][j] = LIFE\r\n            }\r\n        }\r\n    }\r\n    return nextGen\r\n}\r\n\r\nfunction getNeighbors(rowId, colId) {\r\n    var neighborCnt = 0\r\n    for (var i = rowId - 1; i <= rowId + 1; i++) {\r\n        // if i is out of bounderies - go to the next i\r\n        if (i < 0 || i > gBoard.length - 1) continue //continue to the next i\r\n\r\n        for (var j = colId - 1; j <= colId + 1; j++) {\r\n            // if j is out of bounderies - go to the next j:\r\n            if (j < 0 || j > gBoard[0].length - 1) continue // continue to the next j.\r\n\r\n            if (i === rowId && j === colId) continue\r\n\r\n            if (gBoard[i][j] === LIFE) neighborCnt++\r\n        }\r\n    }\r\n    return neighborCnt\r\n}\r\n\r\nfunction isOver() {\r\n    for (var i = 0; i < gBoard.length; i++) {\r\n        const row = gBoard[i]\r\n        for (var j = 0; j < gBoard[0].length; j++) {\r\n            const col = gBoard[i][j]\r\n            if (col === LIFE) return false\r\n        }\r\n    }\r\n    return true\r\n}\r\n\r\nfunction play() {\r\n    console.log('GENERATION  ', gGenCnt)\r\n    gBoard = runGeneration()\r\n    renderBoard(gBoard)\r\n    if (isOver()) {\r\n        console.log('LIFE IS GONE ! !')\r\n        clearInterval(interID)\r\n    }\r\n    gGenCnt++\r\n}\r\n"
+      }
+    };
+    
